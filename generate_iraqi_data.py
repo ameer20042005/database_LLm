@@ -608,7 +608,7 @@ def gen_cars(i):
             {"role":"assistant","content":f"{car['n']} بـ{vp(car['p'])} دينار، {car['f']}. {car2['n']} بـ{vp(car2['p'])} دينار، {car2['f']}"},
             {"role":"user","content":"يا واحد أوفر؟"},
             {"role":"assistant","content":f"لو تسألني، {car['n']} أوفر لأن {car['f']}"},
-            {"role":"user","content":"زين، أاخذ تجربة على الـ{car['n']}"},
+            {"role":"user","content":f"زين، أاخذ تجربة على الـ{car['n']}"},
             {"role":"assistant","content":"ماشي، تعال أي وقت وتجرب"},
         ]
     elif tpl == 3:
@@ -1108,8 +1108,8 @@ def gen_daily(i):
             {"role":"user","content":"أريد أسافر لبيروت، شتشوف؟"},
             {"role":"assistant","content":"بيروت حلوة بس الأوضاع هناك صعبة هالأيام"},
             {"role":"user","content":"يعني ما تنصحني؟"},
-            {"role":"assistant","content":"لو سفر سياحي ارو على عمان أو إسطنبول أحسن"},
-            {"role":"user","content":"إسطنبول فكرة مو مو زينة"},
+            {"role":"assistant","content":"لو سفر سياحي روح على عمان أو إسطنبول أحسن"},
+            {"role":"user","content":"إسطنبول فكرة زينة"},
             {"role":"assistant","content":"إسطنبول ممتازة، طعام حلو وأسعار معقولة"},
         ]
     elif tpl == 8:
@@ -1135,7 +1135,7 @@ def gen_daily(i):
             {"role":"user","content":"الراتب ما يكفي هالأيام"},
             {"role":"assistant","content":"صدگ، كل شي غالي وصار"},
             {"role":"user","content":"أفكر أشتغل شغلة ثانية"},
-            {"role":"assistant","content":"فكرة مو مو زينة. شنو اختصاصك؟"},
+            {"role":"assistant","content":"فكرة زينة. شنو اختصاصك؟"},
             {"role":"user","content":"حاسوب ومعلوماتية"},
             {"role":"assistant","content":"تدريس خصوصي أو برمجة فري لانس، يجلب فلوس زين"},
         ]
@@ -1296,7 +1296,7 @@ def gen_social(i):
     elif tpl == 7:
         msgs = [
             {"role":"user","content":"أريد أصالح أخوي بعد خلاف"},
-            {"role":"assistant","content":"شنو صار بينشكد؟"},
+            {"role":"assistant","content":"شنو صار بينكم؟"},
             {"role":"user","content":"خلاف على إرث"},
             {"role":"assistant","content":"مشاكل الإرث صعبة، احسن تجيب وسيط من الأهل يحل"},
             {"role":"user","content":"وإذا ما يقبل الوساطة؟"},
