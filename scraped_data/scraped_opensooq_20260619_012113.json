@@ -1,0 +1,1002 @@
+﻿[
+  {
+    "id": "scraped_1781821228_4934",
+    "category": "sales_cars",
+    "dialect": "iraqi_arabic",
+    "source": "https://iq.opensooq.com/cars?page=1",
+    "messages": [
+      {
+        "role": "user",
+        "content": "صباح الخير"
+      },
+      {
+        "role": "assistant",
+        "content": "صباح النور! هلا وغلا تفضل"
+      },
+      {
+        "role": "user",
+        "content": "شنو تفاصيل الـ2018 سايبا 131؟"
+      },
+      {
+        "role": "assistant",
+        "content": "الزعفرانية, بغداد,مستعمل,  207,000 كم , بنزين, مواصفات أخرى. السعر السعر بالتواصل"
+      },
+      {
+        "role": "user",
+        "content": "عنده ضمان؟"
+      },
+      {
+        "role": "assistant",
+        "content": "إي عنده ضمان. تعال أشوفه وتقتنع"
+      },
+      {
+        "role": "user",
+        "content": "ماشي، أجيك"
+      },
+      {
+        "role": "assistant",
+        "content": "شكراً على تعاملك"
+      }
+    ]
+  },
+  {
+    "id": "scraped_1781821228_5284",
+    "category": "sales_cars",
+    "dialect": "iraqi_arabic",
+    "source": "https://iq.opensooq.com/cars?page=1",
+    "messages": [
+      {
+        "role": "user",
+        "content": "هلو، بيش؟ الـ2022 لكزس LS LS 500؟"
+      },
+      {
+        "role": "assistant",
+        "content": "2022 لكزس LS LS 500 بـالسعر بالتواصل. الخليج, البصرة,مستعمل,  58,000 كم , بنزين, مواصفات أمريكية"
+      },
+      {
+        "role": "user",
+        "content": "مو معقول هالسعر"
+      },
+      {
+        "role": "assistant",
+        "content": "صدك ما أكدر، رأس مالي موجود"
+      },
+      {
+        "role": "user",
+        "content": "بفكر وأرجعلك"
+      },
+      {
+        "role": "assistant",
+        "content": "حياك الله، البضاعة موجودة"
+      }
+    ]
+  },
+  {
+    "id": "scraped_1781821228_5457",
+    "category": "sales_cars",
+    "dialect": "iraqi_arabic",
+    "source": "https://iq.opensooq.com/cars?page=1",
+    "messages": [
+      {
+        "role": "user",
+        "content": "هلو، شكد يكلف؟ الـ2011 جيب جراند شيروكى Limited؟"
+      },
+      {
+        "role": "assistant",
+        "content": "2011 جيب جراند شيروكى Limited بـالسعر بالتواصل. البياع, بغداد,مستعمل,  300,000 كم , بنزين, مواصفات أمريكية"
+      },
+      {
+        "role": "user",
+        "content": "كلش غالي"
+      },
+      {
+        "role": "assistant",
+        "content": "صدك ما أكدر، رأس مالي موجود"
+      },
+      {
+        "role": "user",
+        "content": "بفكر وأرجعلك"
+      },
+      {
+        "role": "assistant",
+        "content": "حياك الله، البضاعة موجودة"
+      }
+    ]
+  },
+  {
+    "id": "scraped_1781821228_4055",
+    "category": "sales_cars",
+    "dialect": "iraqi_arabic",
+    "source": "https://iq.opensooq.com/cars?page=1",
+    "messages": [
+      {
+        "role": "user",
+        "content": "مرحبا، الـ2020 نيسان مكسيما SV لا يزال متوفر؟"
+      },
+      {
+        "role": "assistant",
+        "content": "إي موجود. السعر بالتواصل"
+      },
+      {
+        "role": "user",
+        "content": "بيش سعره؟ آخر؟"
+      },
+      {
+        "role": "assistant",
+        "content": "هذا سعر نار ما أكدر"
+      },
+      {
+        "role": "user",
+        "content": "زين، متفقين"
+      },
+      {
+        "role": "assistant",
+        "content": "مبارك عليك"
+      }
+    ]
+  },
+  {
+    "id": "scraped_1781821228_8465",
+    "category": "sales_cars",
+    "dialect": "iraqi_arabic",
+    "source": "https://iq.opensooq.com/cars?page=1",
+    "messages": [
+      {
+        "role": "user",
+        "content": "صباح الخير"
+      },
+      {
+        "role": "assistant",
+        "content": "صباح النور! هلا وغلا تفضل"
+      },
+      {
+        "role": "user",
+        "content": "أريد 2025 هيونداي النترا SEL، عندكم؟"
+      },
+      {
+        "role": "assistant",
+        "content": "إي عندنا. حي الأمين, بغداد,مستعمل,  16,000 كم , بنزين, مواصفات أمريكية. السعر السعر بالتواصل"
+      },
+      {
+        "role": "user",
+        "content": "ما أكو خصم؟"
+      },
+      {
+        "role": "assistant",
+        "content": "حاضر، على خاطرك"
+      },
+      {
+        "role": "user",
+        "content": "ماشي، هاي الفلوس"
+      },
+      {
+        "role": "assistant",
+        "content": "الله يبارك فيك، مشكور"
+      }
+    ]
+  },
+  {
+    "id": "scraped_1781821228_7636",
+    "category": "sales_cars",
+    "dialect": "iraqi_arabic",
+    "source": "https://iq.opensooq.com/cars?page=1",
+    "messages": [
+      {
+        "role": "user",
+        "content": "مرحبا، الـ2018 بي ام دبليو الفئة X5 X5 sDrive40i لا يزال متوفر؟"
+      },
+      {
+        "role": "assistant",
+        "content": "إي موجود. السعر بالتواصل"
+      },
+      {
+        "role": "user",
+        "content": "شكد السعر؟ آخر؟"
+      },
+      {
+        "role": "assistant",
+        "content": "هذا سعر نار ما أكدر"
+      },
+      {
+        "role": "user",
+        "content": "زين، متفقين"
+      },
+      {
+        "role": "assistant",
+        "content": "الله يبارك فيك، مشكور"
+      }
+    ]
+  },
+  {
+    "id": "scraped_1781821228_1659",
+    "category": "sales_cars",
+    "dialect": "iraqi_arabic",
+    "source": "https://iq.opensooq.com/cars?page=1",
+    "messages": [
+      {
+        "role": "user",
+        "content": "مرحبا، الـ2023 كيا سورينتو SX لا يزال متوفر؟"
+      },
+      {
+        "role": "assistant",
+        "content": "إي موجود. السعر بالتواصل"
+      },
+      {
+        "role": "user",
+        "content": "بيش سعره؟ آخر؟"
+      },
+      {
+        "role": "assistant",
+        "content": "هذا سعر نار ما أكدر"
+      },
+      {
+        "role": "user",
+        "content": "زين، متفقين"
+      },
+      {
+        "role": "assistant",
+        "content": "مبارك عليك"
+      }
+    ]
+  },
+  {
+    "id": "scraped_1781821228_1611",
+    "category": "sales_cars",
+    "dialect": "iraqi_arabic",
+    "source": "https://iq.opensooq.com/cars?page=1",
+    "messages": [
+      {
+        "role": "user",
+        "content": "صباح الخير، أريد أسأل عن 2018 جيب رينيجادى Trailhawk"
+      },
+      {
+        "role": "assistant",
+        "content": "صباح النور! تفضل. بسماية, بغداد,مستعمل,  79,000 كم , بنزين, مواصفات أمريكية"
+      },
+      {
+        "role": "user",
+        "content": "بيش سعره؟"
+      },
+      {
+        "role": "assistant",
+        "content": "السعر بالتواصل"
+      },
+      {
+        "role": "user",
+        "content": "تحسن السعر؟"
+      },
+      {
+        "role": "assistant",
+        "content": "زين، على خاطرك نزلت شوي"
+      },
+      {
+        "role": "user",
+        "content": "اتفقنا"
+      },
+      {
+        "role": "assistant",
+        "content": "تسلم وتغنم"
+      }
+    ]
+  },
+  {
+    "id": "scraped_1781821228_1237",
+    "category": "sales_cars",
+    "dialect": "iraqi_arabic",
+    "source": "https://iq.opensooq.com/cars?page=1",
+    "messages": [
+      {
+        "role": "user",
+        "content": "مرحبا، الـ2023 جي إم سي تيرين AT4 لا يزال متوفر؟"
+      },
+      {
+        "role": "assistant",
+        "content": "إي موجود. السعر بالتواصل"
+      },
+      {
+        "role": "user",
+        "content": "شكد السعر؟ آخر؟"
+      },
+      {
+        "role": "assistant",
+        "content": "صدك ما أكدر، رأس مالي موجود"
+      },
+      {
+        "role": "user",
+        "content": "زين، متفقين"
+      },
+      {
+        "role": "assistant",
+        "content": "تسلم وتغنم"
+      }
+    ]
+  },
+  {
+    "id": "scraped_1781821228_3767",
+    "category": "sales_cars",
+    "dialect": "iraqi_arabic",
+    "source": "https://iq.opensooq.com/cars?page=1",
+    "messages": [
+      {
+        "role": "user",
+        "content": "مرحبا، الـ2023 كيا سبورتاج Sportage X-Pro Prestige لا يزال متوفر؟"
+      },
+      {
+        "role": "assistant",
+        "content": "إي موجود. السعر بالتواصل"
+      },
+      {
+        "role": "user",
+        "content": "شكد؟ آخر؟"
+      },
+      {
+        "role": "assistant",
+        "content": "هذا سعر نار ما أكدر"
+      },
+      {
+        "role": "user",
+        "content": "زين، متفقين"
+      },
+      {
+        "role": "assistant",
+        "content": "مبارك عليك"
+      }
+    ]
+  },
+  {
+    "id": "scraped_1781821228_5118",
+    "category": "sales_cars",
+    "dialect": "iraqi_arabic",
+    "source": "https://iq.opensooq.com/cars?page=1",
+    "messages": [
+      {
+        "role": "user",
+        "content": "مرحبا، الـ2017 جيب جراند شيروكى L Laredo 4X2 لا يزال متوفر؟"
+      },
+      {
+        "role": "assistant",
+        "content": "إي موجود. السعر بالتواصل"
+      },
+      {
+        "role": "user",
+        "content": "بيش؟ آخر؟"
+      },
+      {
+        "role": "assistant",
+        "content": "صدك ما أكدر، رأس مالي موجود"
+      },
+      {
+        "role": "user",
+        "content": "زين، متفقين"
+      },
+      {
+        "role": "assistant",
+        "content": "تسلم وتغنم"
+      }
+    ]
+  },
+  {
+    "id": "scraped_1781821228_6640",
+    "category": "sales_cars",
+    "dialect": "iraqi_arabic",
+    "source": "https://iq.opensooq.com/cars?page=1",
+    "messages": [
+      {
+        "role": "user",
+        "content": "مرحبا، الـ2019 جيب جراند شيروكى Limited لا يزال متوفر؟"
+      },
+      {
+        "role": "assistant",
+        "content": "إي موجود. السعر بالتواصل"
+      },
+      {
+        "role": "user",
+        "content": "شكد يكلف؟ آخر؟"
+      },
+      {
+        "role": "assistant",
+        "content": "هذا سعر نار ما أكدر"
+      },
+      {
+        "role": "user",
+        "content": "زين، متفقين"
+      },
+      {
+        "role": "assistant",
+        "content": "تسلم وتغنم"
+      }
+    ]
+  },
+  {
+    "id": "scraped_1781821228_8717",
+    "category": "sales_cars",
+    "dialect": "iraqi_arabic",
+    "source": "https://iq.opensooq.com/cars?page=1",
+    "messages": [
+      {
+        "role": "user",
+        "content": "صباح الخير"
+      },
+      {
+        "role": "assistant",
+        "content": "صباح النور! هلا وغلا تفضل"
+      },
+      {
+        "role": "user",
+        "content": "أريد شرکه orgin part بیع قطعات سیاره  سایبا  او ایساکو اقل اسعار، عندكم؟"
+      },
+      {
+        "role": "assistant",
+        "content": "إي عندنا. مدينة الصدر, بغداد. السعر السعر بالتواصل"
+      },
+      {
+        "role": "user",
+        "content": "سعر ثاني ما أكو؟"
+      },
+      {
+        "role": "assistant",
+        "content": "حاضر، على خاطرك"
+      },
+      {
+        "role": "user",
+        "content": "ماشي، هاي الفلوس"
+      },
+      {
+        "role": "assistant",
+        "content": "تسلم وتغنم"
+      }
+    ]
+  },
+  {
+    "id": "scraped_1781821228_7186",
+    "category": "sales_cars",
+    "dialect": "iraqi_arabic",
+    "source": "https://iq.opensooq.com/cars?page=1",
+    "messages": [
+      {
+        "role": "user",
+        "content": "هلو، بيش؟ الـ2012 تويوتا لاند كروزر VXR؟"
+      },
+      {
+        "role": "assistant",
+        "content": "2012 تويوتا لاند كروزر VXR بـالسعر بالتواصل. الكرخ, بغداد,مستعمل,  128,000 كم , بنزين, مواصفات خليجية"
+      },
+      {
+        "role": "user",
+        "content": "هاي زيادة"
+      },
+      {
+        "role": "assistant",
+        "content": "والله هذا آخر سعر، ما أكدر أنزل"
+      },
+      {
+        "role": "user",
+        "content": "بفكر وأرجعلك"
+      },
+      {
+        "role": "assistant",
+        "content": "حياك الله، البضاعة موجودة"
+      }
+    ]
+  },
+  {
+    "id": "scraped_1781821238_9950",
+    "category": "sales_electronics",
+    "dialect": "iraqi_arabic",
+    "source": "https://iq.opensooq.com/electronics?page=1",
+    "messages": [
+      {
+        "role": "user",
+        "content": "هلو، شكد يكلف؟ الـجهاز بث شاشة الموبايل على التلفزيون اللاسلكي الأصلي Yumai Rockchip (جديد بالكرتون)؟"
+      },
+      {
+        "role": "assistant",
+        "content": "جهاز بث شاشة الموبايل على التلفزيون اللاسلكي الأصلي Yumai Rockchip (جديد بالكرتون) بـالسعر بالتواصل. الزبير, البصرة,أخرى, جديد"
+      },
+      {
+        "role": "user",
+        "content": "كلش غالي"
+      },
+      {
+        "role": "assistant",
+        "content": "صدك ما أكدر، رأس مالي موجود"
+      },
+      {
+        "role": "user",
+        "content": "بفكر وأرجعلك"
+      },
+      {
+        "role": "assistant",
+        "content": "حياك الله، البضاعة موجودة"
+      }
+    ]
+  },
+  {
+    "id": "scraped_1781821238_2042",
+    "category": "sales_electronics",
+    "dialect": "iraqi_arabic",
+    "source": "https://iq.opensooq.com/electronics?page=1",
+    "messages": [
+      {
+        "role": "user",
+        "content": "هلو، شكد السعر؟ الـتلفاز  ماركة شارك حجمه 50؟"
+      },
+      {
+        "role": "assistant",
+        "content": "تلفاز  ماركة شارك حجمه 50 بـالسعر بالتواصل. الجهاد, بغداد,اخرى, سمارت, 50 انش, مستعمل"
+      },
+      {
+        "role": "user",
+        "content": "كلش غالي"
+      },
+      {
+        "role": "assistant",
+        "content": "هذا سعر نار ما أكدر"
+      },
+      {
+        "role": "user",
+        "content": "بفكر وأرجعلك"
+      },
+      {
+        "role": "assistant",
+        "content": "حياك الله، البضاعة موجودة"
+      }
+    ]
+  },
+  {
+    "id": "scraped_1781821238_3030",
+    "category": "sales_electronics",
+    "dialect": "iraqi_arabic",
+    "source": "https://iq.opensooq.com/electronics?page=1",
+    "messages": [
+      {
+        "role": "user",
+        "content": "صباح الخير، أريد أسأل عن شاشه LG كوريه اصليه حجم 27"
+      },
+      {
+        "role": "assistant",
+        "content": "صباح النور! تفضل. المشتل, بغداد,ال جي, LCD, 30 انش, مستعمل"
+      },
+      {
+        "role": "user",
+        "content": "شكد؟"
+      },
+      {
+        "role": "assistant",
+        "content": "السعر بالتواصل"
+      },
+      {
+        "role": "user",
+        "content": "ما تعطيني خصم؟"
+      },
+      {
+        "role": "assistant",
+        "content": "زين، على خاطرك نزلت شوي"
+      },
+      {
+        "role": "user",
+        "content": "اتفقنا"
+      },
+      {
+        "role": "assistant",
+        "content": "تسلم وتغنم"
+      }
+    ]
+  },
+  {
+    "id": "scraped_1781821238_1412",
+    "category": "sales_electronics",
+    "dialect": "iraqi_arabic",
+    "source": "https://iq.opensooq.com/electronics?page=1",
+    "messages": [
+      {
+        "role": "user",
+        "content": "مرحبا، الـجك سيارة عربانة لا يزال متوفر؟"
+      },
+      {
+        "role": "assistant",
+        "content": "إي موجود. السعر بالتواصل"
+      },
+      {
+        "role": "user",
+        "content": "شكد يكلف؟ آخر؟"
+      },
+      {
+        "role": "assistant",
+        "content": "هذا سعر نار ما أكدر"
+      },
+      {
+        "role": "user",
+        "content": "زين، متفقين"
+      },
+      {
+        "role": "assistant",
+        "content": "تسلم وتغنم"
+      }
+    ]
+  },
+  {
+    "id": "scraped_1781821238_5545",
+    "category": "sales_electronics",
+    "dialect": "iraqi_arabic",
+    "source": "https://iq.opensooq.com/electronics?page=1",
+    "messages": [
+      {
+        "role": "user",
+        "content": "صباح الخير، أريد أسأل عن كامرة سينمائيه بلاك ماجك 4K للبيع نظيفه كلش"
+      },
+      {
+        "role": "assistant",
+        "content": "صباح النور! تفضل. مدينة الصدر, بغداد,اخرى, مستعمل"
+      },
+      {
+        "role": "user",
+        "content": "شكد؟"
+      },
+      {
+        "role": "assistant",
+        "content": "السعر بالتواصل"
+      },
+      {
+        "role": "user",
+        "content": "ما تنزل شوية؟"
+      },
+      {
+        "role": "assistant",
+        "content": "زين، على خاطرك نزلت شوي"
+      },
+      {
+        "role": "user",
+        "content": "اتفقنا"
+      },
+      {
+        "role": "assistant",
+        "content": "الله يبارك فيك، مشكور"
+      }
+    ]
+  },
+  {
+    "id": "scraped_1781821238_4561",
+    "category": "sales_electronics",
+    "dialect": "iraqi_arabic",
+    "source": "https://iq.opensooq.com/electronics?page=1",
+    "messages": [
+      {
+        "role": "user",
+        "content": "صباح الخير"
+      },
+      {
+        "role": "assistant",
+        "content": "صباح النور! هلا وغلا تفضل"
+      },
+      {
+        "role": "user",
+        "content": "أريد علي ستور البضائع، عندكم؟"
+      },
+      {
+        "role": "assistant",
+        "content": "إي عندنا. الإسكندرية, بابل,جديد. السعر السعر بالتواصل"
+      },
+      {
+        "role": "user",
+        "content": "ما أكو خصم؟"
+      },
+      {
+        "role": "assistant",
+        "content": "حاضر، على خاطرك"
+      },
+      {
+        "role": "user",
+        "content": "ماشي، هاي الفلوس"
+      },
+      {
+        "role": "assistant",
+        "content": "شكراً على تعاملك"
+      }
+    ]
+  },
+  {
+    "id": "scraped_1781821238_9123",
+    "category": "sales_electronics",
+    "dialect": "iraqi_arabic",
+    "source": "https://iq.opensooq.com/electronics?page=1",
+    "messages": [
+      {
+        "role": "user",
+        "content": "صباح الخير، أريد أسأل عن كانون فديوية"
+      },
+      {
+        "role": "assistant",
+        "content": "صباح النور! تفضل. الجادرية, بغداد,كانون, مستعمل"
+      },
+      {
+        "role": "user",
+        "content": "شكد السعر؟"
+      },
+      {
+        "role": "assistant",
+        "content": "السعر بالتواصل"
+      },
+      {
+        "role": "user",
+        "content": "ما تنزل شوية؟"
+      },
+      {
+        "role": "assistant",
+        "content": "حاضر، على خاطرك"
+      },
+      {
+        "role": "user",
+        "content": "اتفقنا"
+      },
+      {
+        "role": "assistant",
+        "content": "شكراً على تعاملك"
+      }
+    ]
+  },
+  {
+    "id": "scraped_1781821238_9651",
+    "category": "sales_electronics",
+    "dialect": "iraqi_arabic",
+    "source": "https://iq.opensooq.com/electronics?page=1",
+    "messages": [
+      {
+        "role": "user",
+        "content": "هلو"
+      },
+      {
+        "role": "assistant",
+        "content": "هلا، أهلاً وسهلاً! تفضل شنو تريد؟"
+      },
+      {
+        "role": "user",
+        "content": "أريد عدسة سوني Sony 50mm f/2.8 Macro الاحترافية!، عندكم؟"
+      },
+      {
+        "role": "assistant",
+        "content": "إي عندنا. القادسية الثانية, الموصل,مستعمل. السعر السعر بالتواصل"
+      },
+      {
+        "role": "user",
+        "content": "ما تعطيني خصم؟"
+      },
+      {
+        "role": "assistant",
+        "content": "زين، على خاطرك نزلت شوي"
+      },
+      {
+        "role": "user",
+        "content": "ماشي، هاي الفلوس"
+      },
+      {
+        "role": "assistant",
+        "content": "الله يبارك فيك، مشكور"
+      }
+    ]
+  },
+  {
+    "id": "scraped_1781821238_1821",
+    "category": "sales_electronics",
+    "dialect": "iraqi_arabic",
+    "source": "https://iq.opensooq.com/electronics?page=1",
+    "messages": [
+      {
+        "role": "user",
+        "content": "مرحبا، الـكاميرا مراقبة صغيرة حافظ على أمان منزلك لا يزال متوفر؟"
+      },
+      {
+        "role": "assistant",
+        "content": "إي موجود. السعر بالتواصل"
+      },
+      {
+        "role": "user",
+        "content": "شكد؟ آخر؟"
+      },
+      {
+        "role": "assistant",
+        "content": "والله هذا آخر سعر، ما أكدر أنزل"
+      },
+      {
+        "role": "user",
+        "content": "زين، متفقين"
+      },
+      {
+        "role": "assistant",
+        "content": "تسلم وتغنم"
+      }
+    ]
+  },
+  {
+    "id": "scraped_1781821238_8120",
+    "category": "sales_electronics",
+    "dialect": "iraqi_arabic",
+    "source": "https://iq.opensooq.com/electronics?page=1",
+    "messages": [
+      {
+        "role": "user",
+        "content": "السلام عليكم"
+      },
+      {
+        "role": "assistant",
+        "content": "وعليكم السلام، هلا وغلا! كيف أكدر أساعدك؟"
+      },
+      {
+        "role": "user",
+        "content": "شنو تفاصيل الـرسيفر بن سبورت للبيع؟"
+      },
+      {
+        "role": "assistant",
+        "content": "المهندسين, البصرة,beIN, مستعمل. السعر السعر بالتواصل"
+      },
+      {
+        "role": "user",
+        "content": "عنده ضمان؟"
+      },
+      {
+        "role": "assistant",
+        "content": "إي عنده ضمان. تعال أشوفه وتقتنع"
+      },
+      {
+        "role": "user",
+        "content": "ماشي، أجيك"
+      },
+      {
+        "role": "assistant",
+        "content": "مبارك عليك"
+      }
+    ]
+  },
+  {
+    "id": "scraped_1781821238_8198",
+    "category": "sales_electronics",
+    "dialect": "iraqi_arabic",
+    "source": "https://iq.opensooq.com/electronics?page=1",
+    "messages": [
+      {
+        "role": "user",
+        "content": "مرحبا"
+      },
+      {
+        "role": "assistant",
+        "content": "مرحبتين! شنو أكدر أساعدك؟"
+      },
+      {
+        "role": "user",
+        "content": "شنو تفاصيل الـكاميرا مراقبة WiFi صغيرة؟"
+      },
+      {
+        "role": "assistant",
+        "content": "الأعظمية, بغداد,اخرى, جديد. السعر السعر بالتواصل"
+      },
+      {
+        "role": "user",
+        "content": "عنده ضمان؟"
+      },
+      {
+        "role": "assistant",
+        "content": "إي عنده ضمان. تعال أشوفه وتقتنع"
+      },
+      {
+        "role": "user",
+        "content": "ماشي، أجيك"
+      },
+      {
+        "role": "assistant",
+        "content": "تسلم وتغنم"
+      }
+    ]
+  },
+  {
+    "id": "scraped_1781821238_4364",
+    "category": "sales_electronics",
+    "dialect": "iraqi_arabic",
+    "source": "https://iq.opensooq.com/electronics?page=1",
+    "messages": [
+      {
+        "role": "user",
+        "content": "مساء الخير"
+      },
+      {
+        "role": "assistant",
+        "content": "مساء النور! هلا وسهلاً تفضل"
+      },
+      {
+        "role": "user",
+        "content": "شنو تفاصيل الـشاشة 43 سمارت و توصيل مجاني؟"
+      },
+      {
+        "role": "assistant",
+        "content": "ابي الخصيب, البصرة,جنرال, سمارت, 43 انش, جديد. السعر السعر بالتواصل"
+      },
+      {
+        "role": "user",
+        "content": "عنده ضمان؟"
+      },
+      {
+        "role": "assistant",
+        "content": "إي عنده ضمان. تعال أشوفه وتقتنع"
+      },
+      {
+        "role": "user",
+        "content": "ماشي، أجيك"
+      },
+      {
+        "role": "assistant",
+        "content": "شكراً على تعاملك"
+      }
+    ]
+  },
+  {
+    "id": "scraped_1781821238_9065",
+    "category": "sales_electronics",
+    "dialect": "iraqi_arabic",
+    "source": "https://iq.opensooq.com/electronics?page=1",
+    "messages": [
+      {
+        "role": "user",
+        "content": "السلام عليكم"
+      },
+      {
+        "role": "assistant",
+        "content": "وعليكم السلام، هلا وغلا! كيف أكدر أساعدك؟"
+      },
+      {
+        "role": "user",
+        "content": "شنو تفاصيل الـسماعة ASTRO A10 Gen 2 للألعاب  ( الأصلية )؟"
+      },
+      {
+        "role": "assistant",
+        "content": "خور الزبير, البصرة. السعر السعر بالتواصل"
+      },
+      {
+        "role": "user",
+        "content": "عنده ضمان؟"
+      },
+      {
+        "role": "assistant",
+        "content": "إي عنده ضمان. تعال أشوفه وتقتنع"
+      },
+      {
+        "role": "user",
+        "content": "ماشي، أجيك"
+      },
+      {
+        "role": "assistant",
+        "content": "الله يبارك فيك، مشكور"
+      }
+    ]
+  },
+  {
+    "id": "scraped_1781821239_8673",
+    "category": "sales_electronics",
+    "dialect": "iraqi_arabic",
+    "source": "https://iq.opensooq.com/electronics?page=1",
+    "messages": [
+      {
+        "role": "user",
+        "content": "هلو، بيش؟ الـعداد نقود N60؟"
+      },
+      {
+        "role": "assistant",
+        "content": "عداد نقود N60 بـالسعر بالتواصل. الوحدة, بغداد,جديد"
+      },
+      {
+        "role": "user",
+        "content": "هذا غالي هواي"
+      },
+      {
+        "role": "assistant",
+        "content": "والله هذا آخر سعر، ما أكدر أنزل"
+      },
+      {
+        "role": "user",
+        "content": "بفكر وأرجعلك"
+      },
+      {
+        "role": "assistant",
+        "content": "حياك الله، البضاعة موجودة"
+      }
+    ]
+  }
+]

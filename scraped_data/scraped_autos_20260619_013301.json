@@ -1,0 +1,42 @@
+[
+  {
+    "id": "scraped_1781821972_9708",
+    "category": "sales_cars",
+    "dialect": "iraqi_arabic",
+    "source": "https://autos.opensooq.com/ar/used-cars/iraq",
+    "messages": [
+      {
+        "role": "user",
+        "content": "صباح الخير، أريد أسأل عن العراق"
+      },
+      {
+        "role": "assistant",
+        "content": "صباح النور! تفضل. "
+      },
+      {
+        "role": "user",
+        "content": "شكد السعر؟"
+      },
+      {
+        "role": "assistant",
+        "content": "السعر بالتواصل"
+      },
+      {
+        "role": "user",
+        "content": "ما أكو خصم؟"
+      },
+      {
+        "role": "assistant",
+        "content": "ماشي بس هذا آخر سعر"
+      },
+      {
+        "role": "user",
+        "content": "اتفقنا، هاي الفلوس"
+      },
+      {
+        "role": "assistant",
+        "content": "بالعافية عليك"
+      }
+    ]
+  }
+]
