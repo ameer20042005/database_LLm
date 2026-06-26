@@ -165,6 +165,76 @@ SYMPATHY    = _cat("التعاطف والمواساة")
 YOUTH_WORDS = _cat("كلمات الشباب")
 COMMANDS    = _cat("أوامر")
 
+# ============================================================
+# سلوك بشري طبيعي وأنماط البيع المتقدمة
+# ============================================================
+
+HESITATE = [
+    "والله مو عارف صراحة...", "شايف بس مو مقرر",
+    "مردد هواي على الموضوع", "قاعد أفكر فيها من زمان",
+    "مو واثق 100%", "الصراحة مترددين",
+    "مو بس أنا، حتى أهلي مترددين", "خليني أفكر بصوت عالي",
+]
+
+EXCITED = [
+    "والله هذا حلو!", "وااو ممتاز!", "لا! هذا شي ما توقعت!",
+    "صح صح! هذا اللي أريد بالضبط!", "هاي هاي! كفو!",
+    "جان ما أعرف هذا موجود!", "هذا يجنن والله!",
+    "الله الله! ما شاء الله عليه!",
+]
+
+DISAPPOINTED = [
+    "هاه... ما يصير يعني...", "آه والله، مؤسف",
+    "خسارة والله...", "بس ما عندي كافي",
+    "مشكلة هذي...", "آسف، ما ينفع",
+    "صعبة عليا هالمرة...",
+]
+
+SCARCITY_LINES = [
+    "والله هذا آخر قطعة عندنا، طلب هواي عليها",
+    "هذا الموديل ما يجي ثاني بعد هالكمية",
+    "اليوم صارت ثلاث زبائن يسألون عليه، ما نضمن بكره",
+    "هالسعر لحد نهاية اليوم بس، بكره يرجع للسعر الأصلي",
+    "عندنا قطعتين بس وعندنا حجز عليهم",
+    "ما أريدك تجي بكره وتندم",
+]
+
+SOCIAL_PROOF_LINES = [
+    "هذا أكثر شي يبيع عندنا، الكل يمدحه",
+    "كل الزبائن اللي اخذوه راضين 100%",
+    "طلبته ثلاث عائلات هالأسبوع بس",
+    "أبو علي صاحبنا اخذ هذا وراح يجيب ثاني لأخوه",
+    "نبيع منه أكثر من 50 قطعة بالشهر",
+    "حتى أنا عندي واحد بيتي وأنا راضي عليه",
+]
+
+EMPATHY_SELL_LINES = [
+    "أفهم قصدك، ولهذا أريد أساعدك تلاقي الأحسن",
+    "فاهم وضعك والله، ولذيج عندي حل تمام ليك",
+    "أعرف شعورك، بس تعال أريك شي يرضيك",
+    "ما تحتاج تتسرع، أنا أساعدك تختار بهدوء",
+    "الكيف عندك مهم، ما أريدك تاخذ شي ما يناسبك",
+]
+
+ALT_OFFER_INTROS = [
+    "ماشي، بس خليني أريك شي ثاني قد يعجبك أكثر",
+    "طيب، عندي فكرة ثانية ممكن أنسب",
+    "لا تروح هسه! عندي بديل ما خطر على بالك",
+    "صبر شوية يا أخوي، عندي شي ثاني يمكن أنسب",
+    "بس قبل ما تروح، شوف هذا الموديل الثاني",
+    "ماشي، بس اسمعني ثانية واحدة",
+    "حجي، تعال شوف هذا قبل ما تقرر",
+    "طيب طيب، عندي بديل تفكر فيه",
+]
+
+ALT_OFFER_BRIDGE = [
+    "هذا أرخص وعنده نفس الميزات",
+    "هذا أقوى وبسعر أقرب لميزانيتك",
+    "ناس كثير يفضلون هذا على الأول",
+    "هذا جديد وصل وما شافه ناس كثير بعد",
+    "ضمانه أطول وخدمة ما بعد البيع أحسن",
+]
+
 def pick(lst):
     return random.choice(lst)
 
@@ -231,7 +301,7 @@ def gen_elec(i):
     while p2["n"] == p["n"]:
         p2 = pick(ALL_ELEC)
     cust = pick(MALE_CUSTOMERS + FEMALE_CUSTOMERS)
-    tpl = random.randint(1, 25)
+    tpl = random.randint(1, 40)
 
     if tpl == 1:
         _gc, _gs = greet_pair()
@@ -482,13 +552,208 @@ def gen_elec(i):
             {"role":"user","content":"ماشي خذ"},
             {"role":"assistant","content":f"{pick(CLOSE)}"},
         ]
-    else:
+    elif tpl == 25:
         msgs = [
             {"role":"user","content":f"مرحبا، أريد {p['n']} لشركتي، عندكم فاتورة رسمية؟"},
             {"role":"assistant","content":f"إي عندنا. {p['n']} بـ{vp(p['p'])} دينار مع فاتورة رسمية"},
             {"role":"user","content":"نريد 5 حبات"},
             {"role":"assistant","content":f"بالجملة الكل {vp(p['p']*5*0.9)} دينار مع خصم 10%"},
             {"role":"user","content":"ماشي، اتفقنا"},
+            {"role":"assistant","content":f"{pick(CLOSE)}"},
+        ]
+    elif tpl == 26:
+        # خيبة أمل + تعاطف + بديل
+        msgs = [
+            {"role":"user","content":f"{pick(DISAPPOINTED)}، جيت أشتري {p['n']} بس الفلوس ما كملت"},
+            {"role":"assistant","content":f"والله ما يهم يا أخوي. {pick(EMPATHY_SELL_LINES)}. بيش عندك تقريباً؟"},
+            {"role":"user","content":f"عندي حوالي {vp(int(p['p']*0.68))} دينار"},
+            {"role":"assistant","content":f"ماشي، {pick(ALT_OFFER_INTROS)}. عندنا {p2['n']} بـ{vp(int(p2['p']*0.8))} دينار. {p2['f'][0]}"},
+            {"role":"user","content":"هذا زين؟"},
+            {"role":"assistant","content":f"إي والله، {pick(SOCIAL_PROOF_LINES)}. وعليه ضمان سنة كاملة"},
+            {"role":"user","content":"يا سلام، ماخذه"},
+            {"role":"assistant","content":f"{pick(CLOSE)}"},
+        ]
+    elif tpl == 27:
+        # رفض السعر → فهم الحاجة → عرض مناسب
+        msgs = [
+            {"role":"user","content":f"هلو، بيش {p['n']}؟"},
+            {"role":"assistant","content":f"{vp(p['p'])} دينار. {p['f'][0]}"},
+            {"role":"user","content":f"{pick(EXPENSIVE)}"},
+            {"role":"assistant","content":"أفهمك. طيب، شنو بالضبط تحتاجه؟ للشغل ولا للترفيه؟"},
+            {"role":"user","content":"للاستخدام اليومي بس، مو شي ثقيل"},
+            {"role":"assistant","content":f"بهالحالة {p2['n']} أنسب لك وبسعر {vp(p2['p'])} دينار. {p2['f'][0]} وما تحتاج أكثر"},
+            {"role":"user","content":"هذا يكفيني؟"},
+            {"role":"assistant","content":f"إي والله، {pick(SOCIAL_PROOF_LINES)}"},
+            {"role":"user","content":"ماشي، آخذه"},
+            {"role":"assistant","content":f"{pick(CLOSE)}"},
+        ]
+    elif tpl == 28:
+        # رفض → مستعمل بحالة ممتازة + ندرة
+        msgs = [
+            {"role":"user","content":f"أريد {p['n']} بس غالي"},
+            {"role":"assistant","content":f"{pick(ALT_OFFER_INTROS)}، عندنا {p['n']} مستعمل بحالة ممتازة بـ{vp(int(p['p']*0.58))} دينار"},
+            {"role":"user","content":"مستعمل؟ ما فيه مشاكل؟"},
+            {"role":"assistant","content":"فحصناه عندنا وشغال زين 100%. وعليه ضمان 3 أشهر منا"},
+            {"role":"user","content":f"{pick(HESITATE)}"},
+            {"role":"assistant","content":f"طبيعي تتردد. بس {pick(SCARCITY_LINES)}"},
+            {"role":"user","content":"زين، آخذه"},
+            {"role":"assistant","content":f"{pick(CLOSE)}"},
+        ]
+    elif tpl == 29:
+        # ثلاث محاولات: رفض → بديل → رفض → بديل ثالث → قبول
+        p3 = pick(ALL_ELEC)
+        while p3["n"] in [p["n"], p2["n"]]:
+            p3 = pick(ALL_ELEC)
+        msgs = [
+            {"role":"user","content":f"هلو، أريد {p['n']}"},
+            {"role":"assistant","content":f"هلا، بـ{vp(p['p'])} دينار. {p['f'][0]}"},
+            {"role":"user","content":f"{pick(EXPENSIVE)}"},
+            {"role":"assistant","content":f"{pick(ALT_OFFER_INTROS)}. {p2['n']} بـ{vp(p2['p'])} دينار. {p2['f'][0]}"},
+            {"role":"user","content":f"هذا كمان غالي"},
+            {"role":"assistant","content":f"ماشي، آخر عرض: {p3['n']} بـ{vp(p3['p'])} دينار. {p3['f'][0]}. ومعه ضمان إضافي"},
+            {"role":"user","content":"هذا معقول، آخذه"},
+            {"role":"assistant","content":f"{pick(CLOSE)}"},
+        ]
+    elif tpl == 30:
+        # Bundle: شراء المنتجين بخصم
+        msgs = [
+            {"role":"user","content":f"أريد {p['n']}"},
+            {"role":"assistant","content":f"هلا، {p['n']} بـ{vp(p['p'])} دينار. {p['f'][0]}"},
+            {"role":"user","content":"زين، هاي الفلوس"},
+            {"role":"assistant","content":f"قبل ما تدفع، لو تاخذ معه {p2['n']} بـ{vp(p2['p'])} دينار أعطيك خصم خاص. توفر {vp(int((p['p']+p2['p'])*0.12))} دينار"},
+            {"role":"user","content":"يعني أوفر؟"},
+            {"role":"assistant","content":f"إي، بدل {vp(p['p']+p2['p'])} يصير {vp(int((p['p']+p2['p'])*0.88))} بس"},
+            {"role":"user","content":"والله عرض مغري، خذ الاثنين"},
+            {"role":"assistant","content":f"{pick(CLOSE)}"},
+        ]
+    elif tpl == 31:
+        # ندرة لتحفيز الشراء
+        msgs = [
+            {"role":"user","content":f"هلو، أشوف {p['n']}"},
+            {"role":"assistant","content":f"تفضل، هاي {p['n']}. {p['f'][0]}. بـ{vp(p['p'])} دينار"},
+            {"role":"user","content":f"{pick(THINK)}"},
+            {"role":"assistant","content":f"بس خليني أقولك، {pick(SCARCITY_LINES)}"},
+            {"role":"user","content":"يعني لازم أقرر هسه؟"},
+            {"role":"assistant","content":"ما أجبرك أخوي، بس ما أريدك تجي بكره وما تلاقيه"},
+            {"role":"user","content":"زين والله، آخذه"},
+            {"role":"assistant","content":f"{pick(CLOSE)}"},
+        ]
+    elif tpl == 32:
+        # إثبات اجتماعي بقصة زبون
+        msgs = [
+            {"role":"user","content":f"مرحبا، {p['n']} يستاهل؟"},
+            {"role":"assistant","content":f"والله زبوني أبو جعفر اخذه الأسبوع الماضي وهسه جاي يجيب ثاني لأخوه. {pick(SOCIAL_PROOF_LINES)}"},
+            {"role":"user","content":"يعني تعيد الشراء؟"},
+            {"role":"assistant","content":f"إي، هذا دليل على جودته. {p['f'][0]} وضمان سنة"},
+            {"role":"user","content":"ماشي، هذا قرار"},
+            {"role":"assistant","content":f"بـ{vp(p['p'])} دينار. {pick(CLOSE)}"},
+        ]
+    elif tpl == 33:
+        # Upsell: ارفع الزبون لمنتج أعلى
+        cheap = p if p['p'] <= p2['p'] else p2
+        expensive = p2 if p['p'] <= p2['p'] else p
+        diff = expensive['p'] - cheap['p']
+        msgs = [
+            {"role":"user","content":f"أريد {cheap['n']}، بيش؟"},
+            {"role":"assistant","content":f"{cheap['n']} بـ{vp(cheap['p'])} دينار. {cheap['f'][0]}"},
+            {"role":"user","content":"ماشي"},
+            {"role":"assistant","content":f"قبل ما تقرر، بـ{vp(diff)} دينار زيادة بس تاخذ {expensive['n']} اللي {expensive['f'][0]}. فرق بسيط وفايدته كبيرة"},
+            {"role":"user","content":"فرق بسيط حقيقة؟"},
+            {"role":"assistant","content":f"إي والله، و{expensive['n']} يستاهل الفرق بكثير"},
+            {"role":"user","content":"صح، آخذ الأقوى"},
+            {"role":"assistant","content":f"{pick(CLOSE)}"},
+        ]
+    elif tpl == 34:
+        # بيع استشاري: البائع يسأل قبل يوصي
+        msgs = [
+            {"role":"user","content":f"هلو، أريد أشتري {p['n']} بس ما أعرف أختار"},
+            {"role":"assistant","content":"أساعدك. أول شي، للشغل ولا شخصي؟"},
+            {"role":"user","content":"شخصي، أحب الألعاب والتصوير"},
+            {"role":"assistant","content":"زين. ميزانيتك حوالي شكد؟"},
+            {"role":"user","content":f"حوالي {vp(p['p'])} دينار"},
+            {"role":"assistant","content":f"ممتاز! بهالميزانية {p['n']} هو الخيار المثالي. {p['f'][0]} للتصوير"},
+            {"role":"user","content":f"{pick(EXCITED)}"},
+            {"role":"assistant","content":"وعليه ضمان سنة. تاخذه؟"},
+            {"role":"user","content":"إي، هذا بالضبط اللي أريد"},
+            {"role":"assistant","content":f"{pick(CLOSE)}"},
+        ]
+    elif tpl == 35:
+        # زبون قديم + علاقة شخصية + سعر خاص
+        msgs = [
+            {"role":"user","content":"هلو أخوي، ما اشترينا من زمان"},
+            {"role":"assistant","content":"هلا وغلا! والله مشتاقين لكم. كيف صحتك وأهلك؟"},
+            {"role":"user","content":f"بخير الحمد لله. جيت أشوف {p['n']}"},
+            {"role":"assistant","content":f"وصل موديل جديد! {p['n']} هالمرة أحسن من السابق. {p['f'][0]}"},
+            {"role":"user","content":"وبيش؟"},
+            {"role":"assistant","content":f"لأنك زبون أمين، بـ{vp(int(p['p']*0.94))} بدل {vp(p['p'])}"},
+            {"role":"user","content":"الله يخليك يا أخوي، ماخذه"},
+            {"role":"assistant","content":f"دايماً حياك. {pick(CLOSE)}"},
+        ]
+    elif tpl == 36:
+        # تردد طويل + حوار ودي + قناعة تدريجية
+        msgs = [
+            {"role":"user","content":f"هلو... {pick(HESITATE)} على {p['n']}"},
+            {"role":"assistant","content":"طبيعي تتردد، هذا قرار مهم. شنو اللي يردك بالضبط؟"},
+            {"role":"user","content":f"مو واثق من {p['f'][0]}"},
+            {"role":"assistant","content":f"سؤال ذكي. {p['f'][0]} يعني إنك راح تستفيد أكثر مما تتوقع"},
+            {"role":"user","content":"آه فاهم الحين، يعني فايدة حقيقية؟"},
+            {"role":"assistant","content":f"إي والله. وزيادة، {pick(SOCIAL_PROOF_LINES)}"},
+            {"role":"user","content":f"{pick(EXCITED)}"},
+            {"role":"assistant","content":f"ماشي؟ تاخذ الـ{p['n']}؟"},
+            {"role":"user","content":"آخذه"},
+            {"role":"assistant","content":f"{pick(CLOSE)}"},
+        ]
+    elif tpl == 37:
+        # مفاوضة شرسة + تسوية ذكية
+        final_price = int(p['p'] * 0.92)
+        msgs = [
+            {"role":"user","content":f"أريد {p['n']} بس أريد أفاوض"},
+            {"role":"assistant","content":f"تفضل. سعره {vp(p['p'])} دينار"},
+            {"role":"user","content":f"أعطيك {vp(int(p['p']*0.80))}"},
+            {"role":"assistant","content":"والله ما أكدر، هذا دون رأس المال"},
+            {"role":"user","content":f"ماشي {vp(int(p['p']*0.85))}؟"},
+            {"role":"assistant","content":f"أخوي، أنزل لك {vp(final_price)} وهذا آخر سعر، والله يشهد"},
+            {"role":"user","content":"اتفقنا"},
+            {"role":"assistant","content":f"ممتاز! {pick(CLOSE)}"},
+        ]
+    elif tpl == 38:
+        # رفض → تقسيط بلا فائدة + هدية مجانية
+        msgs = [
+            {"role":"user","content":f"أريد {p['n']} بس غالي علي"},
+            {"role":"assistant","content":f"{pick(ALT_OFFER_INTROS)}، عندنا تقسيط بدون فائدة على 3 أشهر"},
+            {"role":"user","content":"يعني أدفع شكد بالشهر؟"},
+            {"role":"assistant","content":f"مقدم {vp(int(p['p']*0.34))} والباقي قسطين متساويين"},
+            {"role":"user","content":"وعليه هدية مع الشراء؟"},
+            {"role":"assistant","content":f"إي! معه كفر وسماعة بالمجان، العرض هالأسبوع بس"},
+            {"role":"user","content":"هذا جميل والله، آخذه"},
+            {"role":"assistant","content":f"{pick(CLOSE)}"},
+        ]
+    elif tpl == 39:
+        # أسلوب واتساب / رسائل قصيرة
+        msgs = [
+            {"role":"user","content":f"{p['n']} موجود؟"},
+            {"role":"assistant","content":f"إي موجود. بـ{vp(p['p'])} دينار"},
+            {"role":"user","content":"ألوان شنو؟"},
+            {"role":"assistant","content":"أسود، أبيض، رمادي"},
+            {"role":"user","content":"الأسود متوفر؟"},
+            {"role":"assistant","content":"إي"},
+            {"role":"user","content":"توصيل؟"},
+            {"role":"assistant","content":"إي، 5000 دينار لبغداد"},
+            {"role":"user","content":"ماشي، أريد أسود مع التوصيل"},
+            {"role":"assistant","content":f"الكل {vp(p['p']+5000)} دينار. أعطيني عنوانك"},
+        ]
+    else:
+        # رفض متكرر → سعر VIP سري للزبائن القدام
+        msgs = [
+            {"role":"user","content":f"هلو، {p['n']} بيش؟"},
+            {"role":"assistant","content":f"{vp(p['p'])} دينار"},
+            {"role":"user","content":f"{pick(EXPENSIVE)}"},
+            {"role":"assistant","content":f"{pick(ALT_OFFER_INTROS)}. {p2['n']} بـ{vp(p2['p'])} دينار"},
+            {"role":"user","content":"هذا كمان غالي"},
+            {"role":"assistant","content":"سؤال: أنت زبون قديم عندنا؟"},
+            {"role":"user","content":"إي، من زبائنكم من سنين"},
+            {"role":"assistant","content":f"عندنا سعر خاص للزبائن القدام. {p2['n']} بـ{vp(int(p2['p']*0.87))} دينار، مو للكل"},
+            {"role":"user","content":"يا سلام! هذا معقول"},
             {"role":"assistant","content":f"{pick(CLOSE)}"},
         ]
 
@@ -534,7 +799,7 @@ def gen_food(i):
     item = pick(FOOD_ITEMS)
     item2 = pick(FOOD_ITEMS)
     qty = random.randint(1, 10)
-    tpl = random.randint(1, 25)
+    tpl = random.randint(1, 40)
 
     if tpl == 1:
         _gc, _gs = greet_pair()
@@ -758,7 +1023,7 @@ def gen_food(i):
             {"role":"user","content":"ماشي"},
             {"role":"assistant","content":"أعطيني العنوان والتوصيل خلال ساعة"},
         ]
-    else:
+    elif tpl == 25:
         msgs = [
             {"role":"user","content":f"صباح الخير، عندكم {item['n']} و{item2['n']}؟"},
             {"role":"assistant","content":f"صباح النور! إي موجودين. {item['n']} بـ{vp(item['p'])} و{item2['n']} بـ{vp(item2['p'])}"},
@@ -766,6 +1031,168 @@ def gen_food(i):
             {"role":"assistant","content":f"كيلو من كل واحد؟"},
             {"role":"user","content":"إي كيلو من كل"},
             {"role":"assistant","content":f"الكل {vp(item['p']+item2['p'])} دينار. {pick(CLOSE)}"},
+        ]
+    elif tpl == 26:
+        # ندرة: البضاعة الطازجة راح تخلص
+        msgs = [
+            {"role":"user","content":f"هلو، عندكم {item['n']}؟"},
+            {"role":"assistant","content":f"إي عندنا، بس {pick(SCARCITY_LINES)}. بـ{vp(item['p'])} دينار الكيلو"},
+            {"role":"user","content":"يعني لازم آخذ هسه؟"},
+            {"role":"assistant","content":"بيدك، بس هذا طازج اليوم وما نضمن بكره"},
+            {"role":"user","content":f"ماشي، أريد {qty} كيلو"},
+            {"role":"assistant","content":f"الكل {vp(item['p']*qty)} دينار. {pick(CLOSE)}"},
+        ]
+    elif tpl == 27:
+        # رفض السعر → شرح الجودة + عرض كمية أقل
+        msgs = [
+            {"role":"user","content":f"هلو، {item['n']} بيش؟"},
+            {"role":"assistant","content":f"{vp(item['p'])} دينار الكيلو"},
+            {"role":"user","content":f"{pick(EXPENSIVE)}"},
+            {"role":"assistant","content":f"{pick(EMPATHY_SELL_LINES)}. هذا {item['n']} طازج من اليوم، جودته تستاهل"},
+            {"role":"user","content":"ماشي، أاخذ نص كيلو"},
+            {"role":"assistant","content":f"نص كيلو بـ{vp(item['p']//2)} دينار. {pick(CLOSE)}"},
+        ]
+    elif tpl == 28:
+        # إثبات اجتماعي: زبائن كثير يشترون
+        msgs = [
+            {"role":"user","content":f"صباح الخير، {item['n']} من وين؟"},
+            {"role":"assistant","content":f"محلي عراقي، طازج من المزرعة. {pick(SOCIAL_PROOF_LINES)}"},
+            {"role":"user","content":"يعني ناس كثير يشترون منه؟"},
+            {"role":"assistant","content":f"إي، ويرجعون كل يوم. بـ{vp(item['p'])} دينار الكيلو"},
+            {"role":"user","content":f"أاخذ {qty} كيلو"},
+            {"role":"assistant","content":f"الكل {vp(item['p']*qty)} دينار. {pick(CLOSE)}"},
+        ]
+    elif tpl == 29:
+        # Bundle: مشتريات مجمعة بخصم
+        msgs = [
+            {"role":"user","content":f"هلو، أريد {item['n']}"},
+            {"role":"assistant","content":f"تفضل، بـ{vp(item['p'])} دينار الكيلو"},
+            {"role":"user","content":"ماشي"},
+            {"role":"assistant","content":f"لو تاخذ معه {item2['n']} بـ{vp(item2['p'])} أعطيك خصم على الاثنين"},
+            {"role":"user","content":"شكد الخصم؟"},
+            {"role":"assistant","content":f"10% على المجموع. يعني {vp(int((item['p']*qty+item2['p']*qty)*0.9))} بدل {vp(item['p']*qty+item2['p']*qty)}"},
+            {"role":"user","content":"والله مغري، آخذهم"},
+            {"role":"assistant","content":f"{pick(CLOSE)}"},
+        ]
+    elif tpl == 30:
+        # Upsell: نوع أحسن بفرق بسيط
+        msgs = [
+            {"role":"user","content":f"أريد {item['n']}، عندكم؟"},
+            {"role":"assistant","content":f"إي عندنا. عندنا نوعين: عادي بـ{vp(item['p'])} ومميز بـ{vp(int(item['p']*1.3))}"},
+            {"role":"user","content":"شنو الفرق؟"},
+            {"role":"assistant","content":"المميز أفضل جودة وطعمه أحلى، الفرق بس {vp(int(item['p']*0.3))} دينار"},
+            {"role":"user","content":"يستاهل؟"},
+            {"role":"assistant","content":"إي والله، ناس كثير يفضلون المميز"},
+            {"role":"user","content":"ماشي، آخذ المميز"},
+            {"role":"assistant","content":f"{pick(CLOSE)}"},
+        ]
+    elif tpl == 31:
+        # زبون قديم + علاقة
+        msgs = [
+            {"role":"user","content":"أم علي! زمان ما اشترينا"},
+            {"role":"assistant","content":"هلا وغلا! والله مشتاقين. كيف الأولاد؟"},
+            {"role":"user","content":"بخير الحمد لله. شنو طازج اليوم؟"},
+            {"role":"assistant","content":f"اليوم عندنا {item['n']} طازج من الصبح. {pick(SOCIAL_PROOF_LINES)}"},
+            {"role":"user","content":"بيش الكيلو؟"},
+            {"role":"assistant","content":f"لأنك أنت، {vp(int(item['p']*0.93))} بدل {vp(item['p'])}"},
+            {"role":"user","content":"الله يخليج، أريد كيلوين"},
+            {"role":"assistant","content":f"تفضلي، {pick(CLOSE)}"},
+        ]
+    elif tpl == 32:
+        # تردد + حوار + إقناع
+        msgs = [
+            {"role":"user","content":f"{pick(HESITATE)}، {item['n']} يستاهل بهالسعر؟"},
+            {"role":"assistant","content":f"والله {pick(EMPATHY_SELL_LINES)}. هذا طازج اليوم"},
+            {"role":"user","content":"بس شايفه غالي شوية"},
+            {"role":"assistant","content":f"الجودة تعكس السعر يا أخوي. {pick(SOCIAL_PROOF_LINES)}"},
+            {"role":"user","content":"زين، هاتلي كيلو"},
+            {"role":"assistant","content":f"{vp(item['p'])} دينار. {pick(CLOSE)}"},
+        ]
+    elif tpl == 33:
+        # رفض → عرض بديل منتج آخر
+        msgs = [
+            {"role":"user","content":f"هلو، بيش {item['n']}؟"},
+            {"role":"assistant","content":f"{vp(item['p'])} دينار الكيلو"},
+            {"role":"user","content":f"{pick(EXPENSIVE)}"},
+            {"role":"assistant","content":f"{pick(ALT_OFFER_INTROS)}. {item2['n']} بـ{vp(item2['p'])} دينار وجيد هواي"},
+            {"role":"user","content":"هذا يصلح بديل؟"},
+            {"role":"assistant","content":"إي والله، للطبخ نفس النتيجة وسعره أحسن"},
+            {"role":"user","content":"ماشي، آخذ كيلو"},
+            {"role":"assistant","content":f"{vp(item2['p'])} دينار. {pick(CLOSE)}"},
+        ]
+    elif tpl == 34:
+        # بيع استشاري: ماذا تريد تطبخ؟
+        meals = ["مرق عدس","قيمة","دولمة","تشريب","مسگوف","بريانية"]
+        meal = pick(meals)
+        msgs = [
+            {"role":"user","content":f"هلو، أريد أطبخ {meal}، شنو أشتري؟"},
+            {"role":"assistant","content":f"للـ{meal} تريد {item['n']} و{item2['n']} وبهارات. كلها موجودة عندنا"},
+            {"role":"user","content":"الكل بيش؟"},
+            {"role":"assistant","content":f"حوالي {vp(item['p']*2+item2['p']*2)} دينار لكميات معقولة"},
+            {"role":"user","content":"ممتاز، جيبهم مع بعض"},
+            {"role":"assistant","content":f"تفضل، {pick(CLOSE)}"},
+        ]
+    elif tpl == 35:
+        # واتساب / رسائل قصيرة
+        msgs = [
+            {"role":"user","content":f"{item['n']} موجود؟"},
+            {"role":"assistant","content":f"إي. {vp(item['p'])} الكيلو"},
+            {"role":"user","content":"طازج؟"},
+            {"role":"assistant","content":"إي من الصبح"},
+            {"role":"user","content":"توصيل؟"},
+            {"role":"assistant","content":"إي، 3000 دينار"},
+            {"role":"user","content":f"أريد {qty} كيلو مع توصيل"},
+            {"role":"assistant","content":f"الكل {vp(item['p']*qty+3000)} دينار. أعطيني عنوانك"},
+        ]
+    elif tpl == 36:
+        # عرض اليوم محدود الوقت
+        msgs = [
+            {"role":"user","content":"هلو، عندكم عروض اليوم؟"},
+            {"role":"assistant","content":f"إي! عرض اليوم: {item['n']} بـ{vp(int(item['p']*0.80))} بدل {vp(item['p'])}. {pick(SCARCITY_LINES)}"},
+            {"role":"user","content":"وشي ثاني؟"},
+            {"role":"assistant","content":f"{item2['n']} أيضاً بخصم 15% اليوم بس"},
+            {"role":"user","content":"ماشي، آخذ من الاثنين"},
+            {"role":"assistant","content":f"ذكاء! الكل {vp(int(item['p']*0.80*qty)+int(item2['p']*0.85*qty))} دينار"},
+        ]
+    elif tpl == 37:
+        # خيبة أمل مالية + تعاطف + حل
+        msgs = [
+            {"role":"user","content":f"{pick(DISAPPOINTED)}، الراتب ما وصل وأريد أشتري مصاريف البيت"},
+            {"role":"assistant","content":f"والله ما يهم. {pick(EMPATHY_SELL_LINES)}. شنو تحتاج أكثر؟"},
+            {"role":"user","content":f"أحتاج {item['n']} و{item2['n']}"},
+            {"role":"assistant","content":f"عندنا الاثنين. {item['n']} بـ{vp(item['p'])} و{item2['n']} بـ{vp(item2['p'])}"},
+            {"role":"user","content":"أاخذ كميات أقل"},
+            {"role":"assistant","content":f"ماشي، نص كيلو من كل واحد = {vp(item['p']//2+item2['p']//2)} دينار"},
+        ]
+    elif tpl == 38:
+        # Upsell: محلي أحسن من مستورد
+        msgs = [
+            {"role":"user","content":f"هلو، عندكم {item['n']} مستورد؟"},
+            {"role":"assistant","content":f"إي عندنا مستورد. بس المحلي أطعم وأطازج بـ{vp(item['p'])} بدل {vp(int(item['p']*1.2))} للمستورد"},
+            {"role":"user","content":"المحلي أرخص؟"},
+            {"role":"assistant","content":"إي وأطعم وأطازج، دايماً المحلي أحسن"},
+            {"role":"user","content":"ماشي، آخذ المحلي"},
+            {"role":"assistant","content":f"{qty} كيلو = {vp(item['p']*qty)} دينار. {pick(CLOSE)}"},
+        ]
+    elif tpl == 39:
+        # رفض + عرض حزمة أسبوعية
+        msgs = [
+            {"role":"user","content":f"هلو، أشتري كل أسبوع من السوق، كثير يكلف"},
+            {"role":"assistant","content":f"عندنا حزمة أسبوعية. {item['n']} و{item2['n']} وبضاعة متنوعة بسعر ثابت"},
+            {"role":"user","content":"يعني توصيل أسبوعي؟"},
+            {"role":"assistant","content":"إي، كل أسبوع يوصلك طلبك وتوفر على التنقل"},
+            {"role":"user","content":"فكرة ممتازة، شنو السعر؟"},
+            {"role":"assistant","content":f"حسب الكمية، بس تقريباً {vp(item['p']*3+item2['p']*3)} أسبوعياً"},
+        ]
+    else:
+        # رفض السعر → مبرر الغلاء + تخفيض الكمية
+        msgs = [
+            {"role":"user","content":f"هلو، {item['n']} غالي هواي هالأيام"},
+            {"role":"assistant","content":"والله هالأيام الأسعار صعدت بسبب الطلب والنقل، مو بيدي"},
+            {"role":"user","content":"كيلو بيش؟"},
+            {"role":"assistant","content":f"{vp(item['p'])} دينار، أرخص ما أكو"},
+            {"role":"user","content":"ماشي، أاخذ نص كيلو"},
+            {"role":"assistant","content":f"تفضل، {vp(item['p']//2)} دينار. {pick(CLOSE)}"},
         ]
 
     return {"id":f"food_{i:04d}","category":"sales_food","dialect":"iraqi_arabic","messages":msgs}
@@ -799,7 +1226,7 @@ def gen_clothes(i):
     item = pick(CLOTHES)
     size = pick(SIZES)
     color = pick(COLORS)
-    tpl = random.randint(1, 25)
+    tpl = random.randint(1, 40)
 
     if tpl == 1:
         _gc, _gs = greet_pair()
@@ -1032,13 +1459,191 @@ def gen_clothes(i):
             {"role":"user","content":"أجرب L أول"},
             {"role":"assistant","content":"تفضل الغرفة، اجربه"},
         ]
-    else:
+    elif tpl == 25:
         msgs = [
             {"role":"user","content":f"هلو، عندكم تشكيلة جديدة للشباب؟"},
             {"role":"assistant","content":f"إي وصل كولكشن جديد. {item['n']} {item['f']} بـ{vp(item['p'])} دينار"},
             {"role":"user","content":f"عندكم بلون {color}؟"},
             {"role":"assistant","content":f"إي عندنا {color}"},
             {"role":"user","content":"أاخذه"},
+            {"role":"assistant","content":f"{pick(CLOSE)}"},
+        ]
+    elif tpl == 26:
+        # تردد على اللون + مساعدة ودية
+        item2c = pick(CLOTHES)
+        msgs = [
+            {"role":"user","content":f"هلو، {pick(HESITATE)} بين {color} و{pick(COLORS)} لـ{item['n']}"},
+            {"role":"assistant","content":f"الاثنين حلوين. بس لو سألتني، {color} أكثر تنوعاً مع الملابس الثانية"},
+            {"role":"user","content":"يعني أنسب للبس اليومي؟"},
+            {"role":"assistant","content":f"إي، والـ{item['n']} بـ{color} يطلع بأي كومبينيشن. {item['f']}"},
+            {"role":"user","content":f"{pick(EXCITED)}، آخذه"},
+            {"role":"assistant","content":f"ممتاز! بـ{vp(item['p'])} دينار. {pick(CLOSE)}"},
+        ]
+    elif tpl == 27:
+        # رفض السعر → مقارنة أصل / تقليد بوضوح
+        msgs = [
+            {"role":"user","content":f"هلو، {item['n']} بيش؟"},
+            {"role":"assistant","content":f"{vp(item['p'])} دينار. {item['f']}"},
+            {"role":"user","content":f"{pick(EXPENSIVE)}"},
+            {"role":"assistant","content":f"عندنا نوعين: الأصل بـ{vp(item['p'])} والبديل بـ{vp(int(item['p']*0.5))}"},
+            {"role":"user","content":"شنو الفرق عملياً؟"},
+            {"role":"assistant","content":f"الأصل {item['f']}، يدوم أكثر ويبقى لونه. البديل رخيص بس بعد غسلتين يتغير"},
+            {"role":"user","content":"آخذ الأصل، يستاهل"},
+            {"role":"assistant","content":f"خيار صح! {pick(CLOSE)}"},
+        ]
+    elif tpl == 28:
+        # ندرة المقاس
+        msgs = [
+            {"role":"user","content":f"هلو، عندكم {item['n']} مقاس {size}؟"},
+            {"role":"assistant","content":f"عندنا آخر قطعة مقاس {size}. {pick(SCARCITY_LINES)}"},
+            {"role":"user","content":"بيش؟"},
+            {"role":"assistant","content":f"{vp(item['p'])} دينار. {item['f']}"},
+            {"role":"user","content":f"{pick(DISC_REQ)}"},
+            {"role":"assistant","content":f"آخر قطعة ما نكدر ننزل عليها، بس على خاطرك {pick(DISC_YES)}"},
+            {"role":"user","content":"ماشي، آخذها"},
+            {"role":"assistant","content":f"{pick(CLOSE)}"},
+        ]
+    elif tpl == 29:
+        # إثبات اجتماعي + موضة
+        msgs = [
+            {"role":"user","content":f"هلو، {item['n']} عصري؟"},
+            {"role":"assistant","content":f"إي، {pick(SOCIAL_PROOF_LINES)}. هالموسم هذا الموديل أكثر شي يطلب"},
+            {"role":"user","content":"وعندكم بلون {color}؟"},
+            {"role":"assistant","content":f"إي موجود. {item['f']}"},
+            {"role":"user","content":"آخذه"},
+            {"role":"assistant","content":f"بـ{vp(item['p'])} دينار. {pick(CLOSE)}"},
+        ]
+    elif tpl == 30:
+        # Bundle: طقم كامل بسعر خاص
+        item2c = pick(CLOTHES)
+        while item2c['n'] == item['n']:
+            item2c = pick(CLOTHES)
+        msgs = [
+            {"role":"user","content":f"أريد {item['n']}"},
+            {"role":"assistant","content":f"هلا، {item['n']} بـ{vp(item['p'])} دينار. {item['f']}"},
+            {"role":"user","content":"ماشي"},
+            {"role":"assistant","content":f"لو تاخذ معه {item2c['n']} بـ{vp(item2c['p'])} أعطيك خصم طقم. توفر {vp(int((item['p']+item2c['p'])*0.15))} دينار"},
+            {"role":"user","content":"يعني طقم كامل؟"},
+            {"role":"assistant","content":f"إي، الطقم بـ{vp(int((item['p']+item2c['p'])*0.85))} بدل {vp(item['p']+item2c['p'])}"},
+            {"role":"user","content":"مغري والله، آخذهم"},
+            {"role":"assistant","content":f"{pick(CLOSE)}"},
+        ]
+    elif tpl == 31:
+        # Upsell: ماركة أفضل بفرق بسيط
+        msgs = [
+            {"role":"user","content":f"أريد {item['n']} رخيص"},
+            {"role":"assistant","content":f"عندنا بـ{vp(int(item['p']*0.6))} دينار. بس لو تزيد {vp(int(item['p']*0.4))} دينار تاخذ ماركة {item['f']}"},
+            {"role":"user","content":"الفرق يستاهل؟"},
+            {"role":"assistant","content":f"إي، الماركة تدوم ضعف العمر. {pick(SOCIAL_PROOF_LINES)}"},
+            {"role":"user","content":"ماشي، آخذ الأفضل"},
+            {"role":"assistant","content":f"{pick(CLOSE)}"},
+        ]
+    elif tpl == 32:
+        # زبون قديم + سعر خاص
+        msgs = [
+            {"role":"user","content":"هلو، ما اشترينا من فترة"},
+            {"role":"assistant","content":"هلا وغلا! والله ناقصين. كيف الأحوال؟"},
+            {"role":"user","content":f"بخير. جيت أشوف {item['n']}"},
+            {"role":"assistant","content":f"وصل كولكشن جديد! {item['n']} {item['f']}. لأنك زبون قديم بـ{vp(int(item['p']*0.93))}"},
+            {"role":"user","content":"الله يخليك، آخذه"},
+            {"role":"assistant","content":f"{pick(CLOSE)}"},
+        ]
+    elif tpl == 33:
+        # تردد + تجربة + قناعة
+        msgs = [
+            {"role":"user","content":f"هلو، أريد أشوف {item['n']} بس مو أعرف إذا يناسبني"},
+            {"role":"assistant","content":"تفضل جرب! الغرفة موجودة"},
+            {"role":"user","content":"جربته، يناسب بس السعر..."},
+            {"role":"assistant","content":f"{pick(EMPATHY_SELL_LINES)}. بـ{vp(item['p'])} دينار وعليه ضمان الغسيل"},
+            {"role":"user","content":f"{pick(HESITATE)}"},
+            {"role":"assistant","content":f"خليني أقولك، {pick(SCARCITY_LINES)}"},
+            {"role":"user","content":"زين، آخذه"},
+            {"role":"assistant","content":f"{pick(CLOSE)}"},
+        ]
+    elif tpl == 34:
+        # بيع استشاري: للمناسبة
+        occasions = ["الفرح","الدوام","السفر","الزيارات","العيد"]
+        occ = pick(occasions)
+        msgs = [
+            {"role":"user","content":f"هلو، أريد {item['n']} لـ{occ}"},
+            {"role":"assistant","content":f"ممتاز! للـ{occ} عندنا {item['n']} {item['f']}. مناسب هواي"},
+            {"role":"user","content":f"عندكم مقاس {size}؟"},
+            {"role":"assistant","content":f"إي موجود. {vp(item['p'])} دينار"},
+            {"role":"user","content":f"{pick(EXCITED)}، آخذه"},
+            {"role":"assistant","content":f"مناسبات مباركة! {pick(CLOSE)}"},
+        ]
+    elif tpl == 35:
+        # واتساب style
+        msgs = [
+            {"role":"user","content":f"{item['n']} عندكم؟"},
+            {"role":"assistant","content":f"إي. {vp(item['p'])} دينار"},
+            {"role":"user","content":f"مقاس {size}؟"},
+            {"role":"assistant","content":"موجود"},
+            {"role":"user","content":f"لون {color}؟"},
+            {"role":"assistant","content":"إي"},
+            {"role":"user","content":"توصيل؟"},
+            {"role":"assistant","content":"3000 دينار لبغداد"},
+            {"role":"user","content":"ماشي، أريده"},
+            {"role":"assistant","content":f"الكل {vp(item['p']+3000)} دينار. أعطيني عنوانك"},
+        ]
+    elif tpl == 36:
+        # رفض + بديل + قبول
+        item2c = pick(CLOTHES)
+        while item2c['n'] == item['n']:
+            item2c = pick(CLOTHES)
+        msgs = [
+            {"role":"user","content":f"هلو، بيش {item['n']}؟"},
+            {"role":"assistant","content":f"{vp(item['p'])} دينار"},
+            {"role":"user","content":f"{pick(EXPENSIVE)}"},
+            {"role":"assistant","content":f"{pick(ALT_OFFER_INTROS)}. {item2c['n']} بـ{vp(item2c['p'])} دينار. {item2c['f']}"},
+            {"role":"user","content":"يشبهه؟"},
+            {"role":"assistant","content":"نفس الجودة تقريباً بسعر أنسب"},
+            {"role":"user","content":"ماشي، آخذه"},
+            {"role":"assistant","content":f"{pick(CLOSE)}"},
+        ]
+    elif tpl == 37:
+        # هدية + تغليف مجاني
+        msgs = [
+            {"role":"user","content":f"أريد {item['n']} هدية لشخص عزيز"},
+            {"role":"assistant","content":"هلا! للهدايا نحطها بكيس هدية أنيق بالمجان"},
+            {"role":"user","content":"والتغليف؟"},
+            {"role":"assistant","content":"ورق هدية وريبون مجاني مع الشراء"},
+            {"role":"user","content":f"وبيش {item['n']}؟"},
+            {"role":"assistant","content":f"{vp(item['p'])} دينار مع التغليف"},
+            {"role":"user","content":"ممتاز، آخذه"},
+            {"role":"assistant","content":f"{pick(CLOSE)}"},
+        ]
+    elif tpl == 38:
+        # تقسيط ملابس
+        msgs = [
+            {"role":"user","content":f"أريد {item['n']} بس ما عندي كامل الفلوس"},
+            {"role":"assistant","content":f"{pick(EMPATHY_SELL_LINES)}. عندنا تقسيط بدون فائدة"},
+            {"role":"user","content":"يعني أدفع شكد هسه؟"},
+            {"role":"assistant","content":f"نص السعر هسه = {vp(item['p']//2)} والنص بعد شهر"},
+            {"role":"user","content":"هذا كافي، ماشي"},
+            {"role":"assistant","content":f"{pick(CLOSE)}"},
+        ]
+    elif tpl == 39:
+        # موسمي + خصم وقت محدد
+        season = pick(["الصيف","الشتاء","العيد","رمضان"])
+        msgs = [
+            {"role":"user","content":f"هلو، عندكم خصومات {season}؟"},
+            {"role":"assistant","content":f"إي! خصومات {season} شغالة. {item['n']} بـ{vp(int(item['p']*0.80))} بدل {vp(item['p'])}"},
+            {"role":"user","content":"لحد متى؟"},
+            {"role":"assistant","content":f"لحد نهاية الأسبوع بس. {pick(SCARCITY_LINES)}"},
+            {"role":"user","content":"ماشي، آخذ اثنين"},
+            {"role":"assistant","content":f"اثنين = {vp(int(item['p']*0.80*2))} دينار. {pick(CLOSE)}"},
+        ]
+    else:
+        # مفاوضة شرسة + تسوية
+        msgs = [
+            {"role":"user","content":f"أريد {item['n']} بأقل سعر عندك"},
+            {"role":"assistant","content":f"هلا، سعره {vp(item['p'])} دينار"},
+            {"role":"user","content":f"أعطيك {vp(int(item['p']*0.75))}"},
+            {"role":"assistant","content":"والله ما أكدر، هذا دون رأس المال"},
+            {"role":"user","content":f"ماشي {vp(int(item['p']*0.85))}؟"},
+            {"role":"assistant","content":f"على خاطرك، {vp(int(item['p']*0.88))} وهذا آخر سعر والله"},
+            {"role":"user","content":"اتفقنا"},
             {"role":"assistant","content":f"{pick(CLOSE)}"},
         ]
 
@@ -1074,7 +1679,7 @@ def gen_cars(i):
     car2 = pick(CARS)
     while car2["n"] == car["n"]:
         car2 = pick(CARS)
-    tpl = random.randint(1, 25)
+    tpl = random.randint(1, 40)
 
     if tpl == 1:
         msgs = [
@@ -1297,7 +1902,7 @@ def gen_cars(i):
             {"role":"user","content":"اتفقنا على هذا"},
             {"role":"assistant","content":"ممتاز، نسوي الأوراق"},
         ]
-    else:
+    elif tpl == 25:
         msgs = [
             {"role":"user","content":f"هلو، أريد سيارة عائلية، شنو تنصحني؟"},
             {"role":"assistant","content":f"{car['n']} {car['year']} ممتاز للعائلة. {car['f']}"},
@@ -1305,6 +1910,182 @@ def gen_cars(i):
             {"role":"assistant","content":"5 مقاعد، كراسي خلفية واسعة وكراج واسع"},
             {"role":"user","content":"السعر؟"},
             {"role":"assistant","content":f"{vp(car['p'])} دينار"},
+        ]
+    elif tpl == 26:
+        # ميزانية محدودة → سيارة أرخص + تعاطف
+        msgs = [
+            {"role":"user","content":f"{pick(DISAPPOINTED)}، أريد {car['n']} بس ميزانيتي ما تكفي"},
+            {"role":"assistant","content":f"والله ما يهم. {pick(EMPATHY_SELL_LINES)}. شنو ميزانيتك؟"},
+            {"role":"user","content":f"حوالي {vp(int(car['p']*0.65))} دينار"},
+            {"role":"assistant","content":f"ماشي، {pick(ALT_OFFER_INTROS)}. {car2['n']} {car2['year']} بـ{vp(int(car2['p']*0.85))} دينار. {car2['f']}"},
+            {"role":"user","content":"هذا يصلح؟"},
+            {"role":"assistant","content":f"إي والله، {pick(SOCIAL_PROOF_LINES)}. وفيها كفالة"},
+            {"role":"user","content":"ماشي، أجي أشوفها"},
+            {"role":"assistant","content":"حياك الله بأي وقت"},
+        ]
+    elif tpl == 27:
+        # رفض → سيارة مستعملة بحالة ممتازة
+        msgs = [
+            {"role":"user","content":f"أريد {car['n']} بس غالي"},
+            {"role":"assistant","content":f"{pick(ALT_OFFER_INTROS)}. عندنا {car['n']} موديل {car['year']-1} مستعمل بحالة ممتازة"},
+            {"role":"user","content":"مستعمل؟ شكد ماشيه؟"},
+            {"role":"assistant","content":f"40 ألف كيلو بس. بـ{vp(int(car['p']*0.72))} دينار وعليها فحص كراج"},
+            {"role":"user","content":f"{pick(HESITATE)}"},
+            {"role":"assistant","content":"ندخلها أي كراج تختاره للفحص قبل الشراء"},
+            {"role":"user","content":"زين، نفحصها أول"},
+            {"role":"assistant","content":"ماشي، نرتب موعد الفحص"},
+        ]
+    elif tpl == 28:
+        # ندرة: لون محدود الوجود
+        msgs = [
+            {"role":"user","content":f"أريد {car['n']} لون أبيض"},
+            {"role":"assistant","content":f"الأبيض موجود هسه. {pick(SCARCITY_LINES)}"},
+            {"role":"user","content":"يعني لازم أقرر هسه؟"},
+            {"role":"assistant","content":f"لو تريد الأبيض نعزله باسمك. سعره {vp(car['p'])} دينار"},
+            {"role":"user","content":"ماشي، اعزله باسمي"},
+            {"role":"assistant","content":"زين، نحتاج مبلغ رمزي كعربون. شكد تكدر تدفع؟"},
+        ]
+    elif tpl == 29:
+        # إثبات اجتماعي + أرقام مبيعات
+        msgs = [
+            {"role":"user","content":f"هلو، {car['n']} يستاهل؟"},
+            {"role":"assistant","content":f"والله {pick(SOCIAL_PROOF_LINES)}. بعنا منها {random.randint(5,20)} سيارة هالشهر"},
+            {"role":"user","content":"يعني مشهورة؟"},
+            {"role":"assistant","content":f"إي، {car['f']} وكفالة {random.randint(2,4)} سنين من الوكالة"},
+            {"role":"user","content":"ماشي، أجي أشوفها"},
+            {"role":"assistant","content":"حياك الله، المعرض مفتوح من 9 لـ7"},
+        ]
+    elif tpl == 30:
+        # Bundle: سيارة + تأمين + صيانة
+        msgs = [
+            {"role":"user","content":f"أريد {car['n']}"},
+            {"role":"assistant","content":f"هلا، {car['n']} {car['year']} بـ{vp(car['p'])} دينار. {car['f']}"},
+            {"role":"user","content":"ماشي"},
+            {"role":"assistant","content":f"لو تاخذ معها باكج التأمين والصيانة السنوية أعطيك خصم {vp(int(car['p']*0.03))} دينار"},
+            {"role":"user","content":"شنو يتضمن الباكج؟"},
+            {"role":"assistant","content":"تأمين شامل سنة + 3 صيانات مجانية + غسيل شهري"},
+            {"role":"user","content":"والله صفقة زينة، آخذ الباكج"},
+            {"role":"assistant","content":"ممتاز! نكمل الأوراق"},
+        ]
+    elif tpl == 31:
+        # Upsell: درجة أعلى بفرق معقول
+        cheap_car = car if car['p'] <= car2['p'] else car2
+        exp_car = car2 if car['p'] <= car2['p'] else car
+        diff_c = exp_car['p'] - cheap_car['p']
+        msgs = [
+            {"role":"user","content":f"أريد {cheap_car['n']}"},
+            {"role":"assistant","content":f"هلا، {cheap_car['n']} بـ{vp(cheap_car['p'])} دينار. {cheap_car['f']}"},
+            {"role":"user","content":"ماشي، يعجبني"},
+            {"role":"assistant","content":f"قبل ما تقرر، بـ{vp(diff_c)} دينار زيادة تاخذ {exp_car['n']} اللي {exp_car['f']}. فرق بسيط وفايدته كبيرة"},
+            {"role":"user","content":"الفرق يستاهل؟"},
+            {"role":"assistant","content":f"إي والله، {exp_car['n']} إعادة بيعها أحسن بكثير"},
+            {"role":"user","content":"صح، آخذ الأفضل"},
+            {"role":"assistant","content":"ممتاز! نسوي الأوراق"},
+        ]
+    elif tpl == 32:
+        # زبون قديم + سعر خاص
+        msgs = [
+            {"role":"user","content":"هلو، اشترينا من عندكم قبل سنتين"},
+            {"role":"assistant","content":"هلا وغلا! مشتاقين. كيف السيارة القديمة؟"},
+            {"role":"user","content":"زينة والحمد لله. جيت أشوف سيارة جديدة"},
+            {"role":"assistant","content":f"للزبائن القدام عندنا سعر خاص. {car['n']} {car['year']} بـ{vp(int(car['p']*0.95))} بدل {vp(car['p'])}"},
+            {"role":"user","content":"الله يخليكم! هذا يجلب"},
+            {"role":"assistant","content":"حياك الله، تعال نكمل الأوراق"},
+        ]
+    elif tpl == 33:
+        # تردد + اختبار قيادة
+        msgs = [
+            {"role":"user","content":f"{pick(HESITATE)} على {car['n']}"},
+            {"role":"assistant","content":"طبيعي تتردد على هالقرار. تريد تجربها وتقود؟"},
+            {"role":"user","content":"ممكن؟"},
+            {"role":"assistant","content":"إي طبعاً، تجربة القيادة مجانية"},
+            {"role":"user","content":"جربتها والله تجنن"},
+            {"role":"assistant","content":f"مبروك قرارك! {vp(car['p'])} دينار. نكمل؟"},
+            {"role":"user","content":"آخذها"},
+            {"role":"assistant","content":"ممتاز! نسوي الأوراق"},
+        ]
+    elif tpl == 34:
+        # بيع استشاري: للعائلة أم للشغل؟
+        msgs = [
+            {"role":"user","content":"هلو، أريد سيارة بس ما أعرف أختار"},
+            {"role":"assistant","content":"أساعدك. للعائلة ولا للشغل؟"},
+            {"role":"user","content":"للعائلة، عندنا أطفال"},
+            {"role":"assistant","content":"زين. ميزانيتك؟"},
+            {"role":"user","content":f"حوالي {vp(car['p'])} دينار"},
+            {"role":"assistant","content":f"{car['n']} {car['year']} مثالي للعائلة. {car['f']}، كراسي خلفية واسعة وأمانه 5 نجوم"},
+            {"role":"user","content":f"{pick(EXCITED)}"},
+            {"role":"assistant","content":"تعال تجربها وتشوف بنفسك"},
+        ]
+    elif tpl == 35:
+        # واتساب style
+        msgs = [
+            {"role":"user","content":f"{car['n']} {car['year']} موجود؟"},
+            {"role":"assistant","content":f"إي موجود. بـ{vp(car['p'])} دينار"},
+            {"role":"user","content":"لون أبيض؟"},
+            {"role":"assistant","content":"إي"},
+            {"role":"user","content":"كيلو شكد؟"},
+            {"role":"assistant","content":"0 كيلو، وارد جديد"},
+            {"role":"user","content":"فحص ممكن؟"},
+            {"role":"assistant","content":"إي، أي كراج تختاره"},
+            {"role":"user","content":"ماشي، نرتب"},
+            {"role":"assistant","content":"تفضل، رقمي موجود"},
+        ]
+    elif tpl == 36:
+        # مفاوضة مطولة + تسوية
+        final_car_price = int(car['p'] * 0.93)
+        msgs = [
+            {"role":"user","content":f"أريد {car['n']} وعندي {vp(int(car['p']*0.85))} دينار"},
+            {"role":"assistant","content":f"سعره {vp(car['p'])} دينار، صعب هالسعر"},
+            {"role":"user","content":"ما تنزل؟"},
+            {"role":"assistant","content":f"أكثر ما أكدر أنزل {vp(final_car_price)} دينار، وهذا آخر سعر"},
+            {"role":"user","content":"ماشي، اتفقنا"},
+            {"role":"assistant","content":"ممتاز! نسوي الأوراق"},
+        ]
+    elif tpl == 37:
+        # رهن سيارة قديمة + شراء جديدة
+        msgs = [
+            {"role":"user","content":f"عندي سيارة قديمة وأريد {car['n']}، تشتري مني؟"},
+            {"role":"assistant","content":"إي نشتري. شنو سيارتك؟"},
+            {"role":"user","content":f"عندي {car2['n']} موديل {car2['year']-2}"},
+            {"role":"assistant","content":f"نشتريها بـ{vp(int(car2['p']*0.6))} دينار. والـ{car['n']} بـ{vp(car['p'])}. الفرق {vp(car['p']-int(car2['p']*0.6))} دينار"},
+            {"role":"user","content":"معقول، اتفقنا"},
+            {"role":"assistant","content":"زين، نسوي الأوراق وندفع لك الفرق"},
+        ]
+    elif tpl == 38:
+        # رفض متكرر → تقسيط ميسر
+        msgs = [
+            {"role":"user","content":f"أريد {car['n']} بس الفلوس ما تكفي"},
+            {"role":"assistant","content":f"{pick(ALT_OFFER_INTROS)}، عندنا تقسيط على 4 سنين"},
+            {"role":"user","content":"المقدم شكد؟"},
+            {"role":"assistant","content":f"20% مقدم = {vp(int(car['p']*0.20))} دينار والباقي أقساط شهرية"},
+            {"role":"user","content":"القسط الشهري شكد؟"},
+            {"role":"assistant","content":f"تقريباً {vp(int(car['p']*0.80/48))} دينار شهري"},
+            {"role":"user","content":"معقول، ماشي"},
+            {"role":"assistant","content":"ممتاز، نكمل الإجراءات"},
+        ]
+    elif tpl == 39:
+        # فضول + سؤال + بيع
+        msgs = [
+            {"role":"user","content":f"هلو، سمعت عن {car['n']} هالموديل، شنو يميزه؟"},
+            {"role":"assistant","content":f"سؤال ذكي! {car['n']} {car['year']} {car['f']}. ومن أكثر السيارات مبيعاً الفترة هذي"},
+            {"role":"user","content":"ليش أكثر مبيعاً؟"},
+            {"role":"assistant","content":f"لأنه يجمع الجودة والسعر المعقول. {pick(SOCIAL_PROOF_LINES)}"},
+            {"role":"user","content":"ماشي، أجي أشوفها الأسبوع الجاي"},
+            {"role":"assistant","content":"حياك الله، احجز موعد حتى تكون جاهزة"},
+        ]
+    else:
+        # رفض + عرض VIP للزبائن القدام
+        msgs = [
+            {"role":"user","content":f"هلو، {car['n']} بيش؟"},
+            {"role":"assistant","content":f"{vp(car['p'])} دينار. {car['f']}"},
+            {"role":"user","content":f"{pick(EXPENSIVE)}"},
+            {"role":"assistant","content":f"{pick(ALT_OFFER_INTROS)}. {car2['n']} بـ{vp(car2['p'])} دينار. {car2['f']}"},
+            {"role":"user","content":"هذا كمان غالي"},
+            {"role":"assistant","content":"أنت زبون قديم عندنا؟"},
+            {"role":"user","content":"إي، اشتريت منكم قبل"},
+            {"role":"assistant","content":f"عندنا سعر خاص للزبائن القدام. {car2['n']} بـ{vp(int(car2['p']*0.92))} دينار"},
+            {"role":"user","content":"هذا أحسن، اتفقنا"},
+            {"role":"assistant","content":"ممتاز! نسوي الأوراق"},
         ]
 
     return {"id":f"cars_{i:04d}","category":"sales_cars","dialect":"iraqi_arabic","messages":msgs}
@@ -1334,7 +2115,10 @@ PROPERTIES = [
 
 def gen_realestate(i):
     prop = pick(PROPERTIES)
-    tpl = random.randint(1, 25)
+    prop2 = pick(PROPERTIES)
+    while prop2["n"] == prop["n"] and prop2["area"] == prop["area"]:
+        prop2 = pick(PROPERTIES)
+    tpl = random.randint(1, 40)
 
     if tpl == 1:
         msgs = [
@@ -1558,7 +2342,7 @@ def gen_realestate(i):
             {"role":"user","content":"استثمار ممتاز، فكر أشتري"},
             {"role":"assistant","content":"صح، ولا تتردد كثير لأن الطلب على المنطقة يزيد"},
         ]
-    else:
+    elif tpl == 25:
         msgs = [
             {"role":"user","content":f"مرحبا، أريد أسأل عن {prop['n']} بـ{prop['area']}"},
             {"role":"assistant","content":f"أهلاً وسهلاً، {prop['n']} بـ{prop['area']}، {prop['size']}، {prop['f']}"},
@@ -1566,6 +2350,179 @@ def gen_realestate(i):
             {"role":"assistant","content":f"إي، {vp(prop['p'])} دينار شامل كل التكاليف"},
             {"role":"user","content":"زين، أتفكر وأجيك"},
             {"role":"assistant","content":"حياك، أنا موجود"},
+        ]
+    elif tpl == 26:
+        # ميزانية محدودة → منطقة أرخص
+        msgs = [
+            {"role":"user","content":f"{pick(DISAPPOINTED)}، أريد {prop['n']} بـ{prop['area']} بس ميزانيتي ما تكفي"},
+            {"role":"assistant","content":f"والله ما يهم. {pick(EMPATHY_SELL_LINES)}. شنو ميزانيتك؟"},
+            {"role":"user","content":f"حوالي {vp(int(prop['p']*0.60))} دينار"},
+            {"role":"assistant","content":f"ماشي، {pick(ALT_OFFER_INTROS)}. عندنا {prop2['n']} بـ{prop2['area']} بـ{vp(int(prop2['p']*0.85))} دينار. {prop2['f']}"},
+            {"role":"user","content":"المنطقة زينة؟"},
+            {"role":"assistant","content":f"{prop2['area']} هادية وخدماتها كاملة. {pick(SOCIAL_PROOF_LINES)}"},
+            {"role":"user","content":"ماشي، أجي أشوفه"},
+            {"role":"assistant","content":"حياك، نرتب موعد"},
+        ]
+    elif tpl == 27:
+        # رفض الشراء → إيجار بديل
+        msgs = [
+            {"role":"user","content":f"أريد أشتري {prop['n']} بس السعر ثقيل"},
+            {"role":"assistant","content":f"{pick(ALT_OFFER_INTROS)}، ما تفكر بالإيجار أول؟"},
+            {"role":"user","content":"الإيجار بكم؟"},
+            {"role":"assistant","content":f"{vp(prop['p']//300)} دينار شهري. تسكن وتوفر فلوس"},
+            {"role":"user","content":"وبعدين أقدر أشتري؟"},
+            {"role":"assistant","content":"إي، وأحياناً يحتسبون الإيجار من الثمن"},
+            {"role":"user","content":"فكرة مو بالها، ماشي"},
+            {"role":"assistant","content":"نرتب عقد الإيجار ونبدأ"},
+        ]
+    elif tpl == 28:
+        # ندرة: الأرض الأخيرة بالمنطقة
+        msgs = [
+            {"role":"user","content":f"هلو، عندكم {prop['n']} بـ{prop['area']}؟"},
+            {"role":"assistant","content":f"إي عندنا. {pick(SCARCITY_LINES)}. {prop['size']}، {prop['f']}"},
+            {"role":"user","content":"يعني لازم أقرر بسرعة؟"},
+            {"role":"assistant","content":"ما أجبرك، بس الطلب على المنطقة يزيد وما نضمن السعر بعدين"},
+            {"role":"user","content":"ماشي، أجي بكره أشوفه"},
+            {"role":"assistant","content":"حياك، ساعد الصبح"},
+        ]
+    elif tpl == 29:
+        # إثبات اجتماعي: مستثمرون يشترون
+        msgs = [
+            {"role":"user","content":f"هلو، {prop['n']} بـ{prop['area']} استثمار زين؟"},
+            {"role":"assistant","content":f"إي والله، {pick(SOCIAL_PROOF_LINES)}. الأسعار ارتفعت 20% هالسنة"},
+            {"role":"user","content":"يعني سريع يرتفع؟"},
+            {"role":"assistant","content":f"مشاريع حكومية قادمة للمنطقة. مستثمرون كثير يشترون هالأيام"},
+            {"role":"user","content":"ماشي، أريد أشوفه"},
+            {"role":"assistant","content":"تفضل، نرتب موعد"},
+        ]
+    elif tpl == 30:
+        # Bundle: عقار + ترميم
+        msgs = [
+            {"role":"user","content":f"أريد {prop['n']} بـ{prop['area']} بس محتاج ترميم"},
+            {"role":"assistant","content":f"عندنا باكج: {prop['n']} + ترميم كامل بسعر مجمع"},
+            {"role":"user","content":"شنو يتضمن الترميم؟"},
+            {"role":"assistant","content":"صباغة وبلاط وسباكة وكهرباء، كلشي جديد"},
+            {"role":"user","content":"والمجموع؟"},
+            {"role":"assistant","content":f"{vp(int(prop['p']*1.20))} دينار شامل كل شي، وتوفر جهد ووقت كثير"},
+            {"role":"user","content":"فكرة ممتازة، نشوف التفاصيل"},
+            {"role":"assistant","content":"نرتب اجتماع مع المهندس"},
+        ]
+    elif tpl == 31:
+        # Upsell: منطقة أفضل بفرق معقول
+        msgs = [
+            {"role":"user","content":f"أريد {prop2['n']} بـ{prop2['area']}"},
+            {"role":"assistant","content":f"هلا، {prop2['n']} بـ{prop2['area']} بـ{vp(prop2['p'])} دينار. {prop2['f']}"},
+            {"role":"user","content":"ماشي"},
+            {"role":"assistant","content":f"قبل ما تقرر، بـ{vp(prop['p']-prop2['p'])} دينار زيادة عندنا {prop['n']} بـ{prop['area']} وهي أرقى وأسرع ارتفاعاً"},
+            {"role":"user","content":"الفرق يستاهل؟"},
+            {"role":"assistant","content":f"إي والله، {prop['area']} أسعارها كانت دايماً ترتفع أسرع"},
+            {"role":"user","content":"ماشي، أشوف الأفضل"},
+            {"role":"assistant","content":"نرتب جولة على الاثنين"},
+        ]
+    elif tpl == 32:
+        # زبون قديم + عمولة مخفضة
+        msgs = [
+            {"role":"user","content":"هلو، اشترينا عقار من عندكم قبل"},
+            {"role":"assistant","content":"هلا وغلا! مشتاقين. كيف العقار القديم؟"},
+            {"role":"user","content":"بخير الحمد لله. أريد عقار ثاني للاستثمار"},
+            {"role":"assistant","content":f"للزبائن القدام نخفض العمولة. عندنا {prop['n']} بـ{prop['area']} بـ{vp(prop['p'])} دينار"},
+            {"role":"user","content":"العمولة؟"},
+            {"role":"assistant","content":"1.5% بدل 2%، لأنك زبون قديم"},
+            {"role":"user","content":"ممتاز، أجي أشوفه"},
+            {"role":"assistant","content":"حياك الله"},
+        ]
+    elif tpl == 33:
+        # تردد + مشاهدة ثانية + إقناع
+        msgs = [
+            {"role":"user","content":f"{pick(HESITATE)} على {prop['n']} اللي شفته"},
+            {"role":"assistant","content":"طبيعي، هذا قرار كبير. شنو اللي يردك؟"},
+            {"role":"user","content":"مو متأكد من المنطقة"},
+            {"role":"assistant","content":f"{prop['area']} منطقة هادية، خدماتها كاملة. تعال نمشي فيها مع بعض"},
+            {"role":"user","content":"زين، نروح مع بعض"},
+            {"role":"assistant","content":"ماشي، نرتب موعد هذا الأسبوع"},
+        ]
+    elif tpl == 34:
+        # بيع استشاري: للسكن أم للاستثمار؟
+        msgs = [
+            {"role":"user","content":"هلو، أريد أشتري عقار بس ما أعرف أختار"},
+            {"role":"assistant","content":"أساعدك. للسكن ولا للاستثمار؟"},
+            {"role":"user","content":"للسكن، عندنا عيلة"},
+            {"role":"assistant","content":"زين. كم غرفة تحتاج؟"},
+            {"role":"user","content":"3 غرف وصالة"},
+            {"role":"assistant","content":f"عندنا {prop['n']} بـ{prop['area']}، {prop['size']}، {prop['f']}. مناسب للعيلة"},
+            {"role":"user","content":"قرب المدارس؟"},
+            {"role":"assistant","content":"على بعد 5 دقائق من مدرسة حكومية وخاصة"},
+        ]
+    elif tpl == 35:
+        # واتساب style
+        msgs = [
+            {"role":"user","content":f"{prop['n']} بـ{prop['area']} موجود؟"},
+            {"role":"assistant","content":f"إي. {vp(prop['p'])} دينار"},
+            {"role":"user","content":"المساحة؟"},
+            {"role":"assistant","content":prop['size']},
+            {"role":"user","content":"الصك طابو؟"},
+            {"role":"assistant","content":"إي، طابو رسمي"},
+            {"role":"user","content":"مشاهدة ممكنة؟"},
+            {"role":"assistant","content":"إي، أي وقت"},
+            {"role":"user","content":"بكره الصبح"},
+            {"role":"assistant","content":"ماشي، 10 الصبح. أعطيني رقمك"},
+        ]
+    elif tpl == 36:
+        # مفاوضة + تسوية
+        final_prop_price = int(prop['p'] * 0.93)
+        msgs = [
+            {"role":"user","content":f"أريد {prop['n']} بـ{prop['area']} وعندي {vp(int(prop['p']*0.85))} دينار"},
+            {"role":"assistant","content":f"سعره {vp(prop['p'])} دينار، صعب هالسعر"},
+            {"role":"user","content":"ما تنزل؟"},
+            {"role":"assistant","content":f"أكثر ما أكدر {vp(final_prop_price)} دينار، وهذا آخر سعر"},
+            {"role":"user","content":"اتفقنا"},
+            {"role":"assistant","content":"زين، نسوي الأوراق"},
+        ]
+    elif tpl == 37:
+        # رفض + تمويل بنكي
+        msgs = [
+            {"role":"user","content":f"أريد {prop['n']} بس ما عندي الكامل"},
+            {"role":"assistant","content":f"{pick(ALT_OFFER_INTROS)}، تقدر تاخذ قرض بنكي"},
+            {"role":"user","content":"البنك يعطي قرض للعقار؟"},
+            {"role":"assistant","content":"إي، البنك الرافدين والرشيد عندهم قروض عقارية بفائدة معقولة"},
+            {"role":"user","content":"الشروط شنو؟"},
+            {"role":"assistant","content":"راتب حكومي أو تقاعد، ضمان الراتب، وما عليك قرض ثاني"},
+            {"role":"user","content":"أنا موظف حكومي، يصلح"},
+            {"role":"assistant","content":"ممتاز، نساعدك بالأوراق"},
+        ]
+    elif tpl == 38:
+        # فضول + عرض استثماري
+        msgs = [
+            {"role":"user","content":f"هلو، سمعت إن {prop['area']} أسعارها رايحة تصعد"},
+            {"role":"assistant","content":f"صح! المنطقة فيها مشاريع حكومية قادمة. {pick(SOCIAL_PROOF_LINES)}"},
+            {"role":"user","content":"يعني لو اشتريت هسه ربح؟"},
+            {"role":"assistant","content":f"متوقع ارتفاع 25-30% خلال سنتين. {prop['n']} {prop['size']} بـ{vp(prop['p'])} دينار هسه"},
+            {"role":"user","content":"هذا استثمار ممتاز"},
+            {"role":"assistant","content":"لا تتأخر، الأسعار ما تنتظر"},
+        ]
+    elif tpl == 39:
+        # رفض + شراكة مع صاحب الملك
+        msgs = [
+            {"role":"user","content":f"أريد {prop['n']} بـ{prop['area']} بس غالي علي"},
+            {"role":"assistant","content":f"{pick(ALT_OFFER_INTROS)}، شراكة مع صاحب الملك؟"},
+            {"role":"user","content":"يعني شنو؟"},
+            {"role":"assistant","content":"تدفع 40% وصاحب الملك 60%، وتتقاسمون الأرباح"},
+            {"role":"user","content":"وإذا أريد أبيع؟"},
+            {"role":"assistant","content":"بعد 3 سنين تقدر تبيع حصتك أو تشتري الباقي"},
+            {"role":"user","content":"فكرة ما فكرت فيها، تفصيل أكثر"},
+            {"role":"assistant","content":"نرتب اجتماع مع صاحب الملك والمحامي"},
+        ]
+    else:
+        # ثلاث محاولات: رفض → بديل → رفض → بديل → قبول
+        msgs = [
+            {"role":"user","content":f"هلو، أريد {prop['n']} بـ{prop['area']}"},
+            {"role":"assistant","content":f"هلا، بـ{vp(prop['p'])} دينار. {prop['f']}"},
+            {"role":"user","content":f"{pick(EXPENSIVE)}"},
+            {"role":"assistant","content":f"{pick(ALT_OFFER_INTROS)}. {prop2['n']} بـ{prop2['area']} بـ{vp(prop2['p'])} دينار"},
+            {"role":"user","content":"هذا كمان غالي"},
+            {"role":"assistant","content":f"ماشي، عندنا {prop2['n']} بالإيجار بـ{vp(prop2['p']//300)} شهري. خيار وسط"},
+            {"role":"user","content":"الإيجار أنسب هسه"},
+            {"role":"assistant","content":"ممتاز، نرتب عقد الإيجار"},
         ]
 
     return {"id":f"re_{i:04d}","category":"sales_realestate","dialect":"iraqi_arabic","messages":msgs}
@@ -1591,7 +2548,10 @@ FURNITURE = [
 
 def gen_furniture(i):
     item = pick(FURNITURE)
-    tpl = random.randint(1, 25)
+    item2f = pick(FURNITURE)
+    while item2f['n'] == item['n']:
+        item2f = pick(FURNITURE)
+    tpl = random.randint(1, 40)
 
     if tpl == 1:
         msgs = [
@@ -1811,7 +2771,7 @@ def gen_furniture(i):
             {"role":"user","content":"يبدو مناسب، آخذه"},
             {"role":"assistant","content":f"{pick(CLOSE)}"},
         ]
-    else:
+    elif tpl == 25:
         msgs = [
             {"role":"user","content":f"هلو، أريد أفرش شقتي الجديدة"},
             {"role":"assistant","content":"مبارك على الشقة! نحن متخصصين بتأثيث البيوت الجديدة"},
@@ -1819,6 +2779,181 @@ def gen_furniture(i):
             {"role":"assistant","content":f"{item['n']} بـ{vp(item['p'])} دينار. {item['f']}"},
             {"role":"user","content":"زين، أريد أشوف الكتالوج كامل"},
             {"role":"assistant","content":"تفضل، الكتالوج كامل وفيه كل الغرف"},
+        ]
+    elif tpl == 26:
+        # خيبة أمل + تعاطف + بديل أرخص
+        msgs = [
+            {"role":"user","content":f"{pick(DISAPPOINTED)}، أريد {item['n']} بس الميزانية ما تكفي"},
+            {"role":"assistant","content":f"والله ما يهم. {pick(EMPATHY_SELL_LINES)}. بيش ميزانيتك؟"},
+            {"role":"user","content":f"حوالي {vp(int(item['p']*0.6))} دينار"},
+            {"role":"assistant","content":f"ماشي، {pick(ALT_OFFER_INTROS)}. عندنا {item2f['n']} بـ{vp(int(item2f['p']*0.85))} دينار. {item2f['f']}"},
+            {"role":"user","content":"هذا يصلح؟"},
+            {"role":"assistant","content":f"إي والله، {pick(SOCIAL_PROOF_LINES)}"},
+            {"role":"user","content":"ماشي، آخذه"},
+            {"role":"assistant","content":f"{pick(CLOSE)}"},
+        ]
+    elif tpl == 27:
+        # رفض السعر → عرض مستعمل
+        msgs = [
+            {"role":"user","content":f"أريد {item['n']} بس غالي"},
+            {"role":"assistant","content":f"{pick(ALT_OFFER_INTROS)}، عندنا {item['n']} مستعمل بحالة ممتازة بـ{vp(int(item['p']*0.5))} دينار"},
+            {"role":"user","content":"مستعمل؟ بحالة زينة؟"},
+            {"role":"assistant","content":"زبون غيّر ديكور بيته، الأثاث بحالة مثالية"},
+            {"role":"user","content":f"{pick(HESITATE)}"},
+            {"role":"assistant","content":f"تعال أشوفه بنفسك، {pick(SCARCITY_LINES)}"},
+            {"role":"user","content":"زين، آخذه"},
+            {"role":"assistant","content":f"{pick(CLOSE)}"},
+        ]
+    elif tpl == 28:
+        # ندرة التصميم
+        msgs = [
+            {"role":"user","content":f"هلو، عندكم {item['n']} بتصميم كلاسيكي؟"},
+            {"role":"assistant","content":f"إي عندنا. {pick(SCARCITY_LINES)}. {item['f']}"},
+            {"role":"user","content":"بيش؟"},
+            {"role":"assistant","content":f"{vp(item['p'])} دينار. وعليه ضمان سنتين"},
+            {"role":"user","content":"يعني لازم أقرر هسه؟"},
+            {"role":"assistant","content":"ما أجبرك، بس هذا التصميم ما يجي ثاني"},
+            {"role":"user","content":"ماشي، آخذه"},
+            {"role":"assistant","content":f"{pick(CLOSE)}"},
+        ]
+    elif tpl == 29:
+        # إثبات اجتماعي
+        msgs = [
+            {"role":"user","content":f"هلو، {item['n']} يستاهل؟"},
+            {"role":"assistant","content":f"والله {pick(SOCIAL_PROOF_LINES)}. {item['f']}"},
+            {"role":"user","content":"يعني زبائن راضين؟"},
+            {"role":"assistant","content":"إي، وعندنا تقييمات ممتازة. تجربتنا {random.randint(5,20)} سنة بالسوق"},
+            {"role":"user","content":"هذا يريح. آخذه"},
+            {"role":"assistant","content":f"بـ{vp(item['p'])} دينار. {pick(CLOSE)}"},
+        ]
+    elif tpl == 30:
+        # Bundle: أثاث كامل للغرفة
+        msgs = [
+            {"role":"user","content":f"أريد {item['n']}"},
+            {"role":"assistant","content":f"هلا، {item['n']} بـ{vp(item['p'])} دينار. {item['f']}"},
+            {"role":"user","content":"ماشي"},
+            {"role":"assistant","content":f"لو تاخذ معه {item2f['n']} بـ{vp(item2f['p'])} دينار نعطيك خصم غرفة كاملة. توفر {vp(int((item['p']+item2f['p'])*0.12))} دينار"},
+            {"role":"user","content":"يعني أوفر بالمجموعة؟"},
+            {"role":"assistant","content":f"إي، بدل {vp(item['p']+item2f['p'])} يصير {vp(int((item['p']+item2f['p'])*0.88))} بس"},
+            {"role":"user","content":"مغري، آخذهم مع بعض"},
+            {"role":"assistant","content":f"{pick(CLOSE)}"},
+        ]
+    elif tpl == 31:
+        # Upsell: تركي بدل صيني
+        msgs = [
+            {"role":"user","content":f"أريد {item['n']} بأرخص سعر"},
+            {"role":"assistant","content":f"عندنا صيني بـ{vp(int(item['p']*0.6))} دينار. بس لو تزيد {vp(int(item['p']*0.4))} دينار تاخذ التركي اللي {item['f']}"},
+            {"role":"user","content":"الفرق يستاهل؟"},
+            {"role":"assistant","content":f"إي، التركي يدوم ضعف عمر الصيني. {pick(SOCIAL_PROOF_LINES)}"},
+            {"role":"user","content":"ماشي، آخذ الأفضل"},
+            {"role":"assistant","content":f"{pick(CLOSE)}"},
+        ]
+    elif tpl == 32:
+        # زبون قديم
+        msgs = [
+            {"role":"user","content":"هلو، اشترينا من عندكم سابق"},
+            {"role":"assistant","content":"هلا وغلا! مشتاقين. كيف الأثاث القديم؟"},
+            {"role":"user","content":"زين والحمد لله. جيت أشوف شي جديد"},
+            {"role":"assistant","content":f"للزبائن القدام عندنا سعر خاص. {item['n']} بـ{vp(int(item['p']*0.93))} بدل {vp(item['p'])}"},
+            {"role":"user","content":"الله يخليكم، ماخذه"},
+            {"role":"assistant","content":f"{pick(CLOSE)}"},
+        ]
+    elif tpl == 33:
+        # تردد + مشاهدة + قناعة
+        msgs = [
+            {"role":"user","content":f"{pick(HESITATE)} على {item['n']}"},
+            {"role":"assistant","content":"طبيعي. تعال شوف الجودة بنفسك"},
+            {"role":"user","content":"جبته ولمسته، يبدو زين بس السعر..."},
+            {"role":"assistant","content":f"{pick(EMPATHY_SELL_LINES)}. وعليه ضمان سنتين"},
+            {"role":"user","content":f"{pick(SCARCITY_LINES)}؟"},
+            {"role":"assistant","content":"صح، هذا الموديل طلب عليه هواي"},
+            {"role":"user","content":"زين، آخذه"},
+            {"role":"assistant","content":f"{pick(CLOSE)}"},
+        ]
+    elif tpl == 34:
+        # بيع استشاري: وصف البيت
+        msgs = [
+            {"role":"user","content":f"هلو، أريد {item['n']} بس ما أعرف أختار"},
+            {"role":"assistant","content":"وصفلي البيت وأساعدك تختار"},
+            {"role":"user","content":"ديكوري أبيض وخشبي مع لمسات ذهبية"},
+            {"role":"assistant","content":f"عندنا {item['n']} كلاسيكي بخشب فاتح وتفاصيل ذهبية. مناسب هواي. {item['f']}"},
+            {"role":"user","content":f"{pick(EXCITED)}"},
+            {"role":"assistant","content":f"بـ{vp(item['p'])} دينار مع التوصيل والتركيب"},
+            {"role":"user","content":"ماشي، آخذه"},
+            {"role":"assistant","content":f"{pick(CLOSE)}"},
+        ]
+    elif tpl == 35:
+        # واتساب style
+        msgs = [
+            {"role":"user","content":f"{item['n']} موجود؟"},
+            {"role":"assistant","content":f"إي. {vp(item['p'])} دينار"},
+            {"role":"user","content":"توصيل؟"},
+            {"role":"assistant","content":"مجاني داخل بغداد"},
+            {"role":"user","content":"تركيب؟"},
+            {"role":"assistant","content":"مجاني مع التوصيل"},
+            {"role":"user","content":"ألوان؟"},
+            {"role":"assistant","content":"أبيض، رمادي، بيج، وخشبي"},
+            {"role":"user","content":"أريد الرمادي"},
+            {"role":"assistant","content":"ماشي، أعطيني العنوان"},
+        ]
+    elif tpl == 36:
+        # رفض + بديل مختلف
+        msgs = [
+            {"role":"user","content":f"هلو، {item['n']} بيش؟"},
+            {"role":"assistant","content":f"{vp(item['p'])} دينار. {item['f']}"},
+            {"role":"user","content":f"{pick(EXPENSIVE)}"},
+            {"role":"assistant","content":f"{pick(ALT_OFFER_INTROS)}. {item2f['n']} بـ{vp(item2f['p'])} دينار. {item2f['f']}"},
+            {"role":"user","content":"هذا أنسب لميزانيتي؟"},
+            {"role":"assistant","content":"إي، وجودته ممتازة أيضاً"},
+            {"role":"user","content":"ماشي، آخذه"},
+            {"role":"assistant","content":f"{pick(CLOSE)}"},
+        ]
+    elif tpl == 37:
+        # تقسيط ميسر
+        msgs = [
+            {"role":"user","content":f"أريد {item['n']} بالتقسيط"},
+            {"role":"assistant","content":f"إي عندنا. سعره {vp(item['p'])} دينار على 6 أشهر بدون فائدة"},
+            {"role":"user","content":"القسط الشهري شكد؟"},
+            {"role":"assistant","content":f"{vp(item['p']//6)} دينار شهري"},
+            {"role":"user","content":"وبدون فائدة؟"},
+            {"role":"assistant","content":"إي، تماماً بدون فائدة"},
+            {"role":"user","content":"ماشي، آخذه"},
+            {"role":"assistant","content":"ممتاز، نكمل الأوراق"},
+        ]
+    elif tpl == 38:
+        # مفاوضة + تسوية
+        final_furn_price = int(item['p'] * 0.91)
+        msgs = [
+            {"role":"user","content":f"أريد {item['n']} بأقل سعر"},
+            {"role":"assistant","content":f"هلا، سعره {vp(item['p'])} دينار"},
+            {"role":"user","content":f"أعطيك {vp(int(item['p']*0.78))}"},
+            {"role":"assistant","content":"والله ما أكدر، هذا دون التكلفة"},
+            {"role":"user","content":f"ماشي {vp(int(item['p']*0.85))}؟"},
+            {"role":"assistant","content":f"على خاطرك {vp(final_furn_price)} وهذا آخر سعر"},
+            {"role":"user","content":"اتفقنا"},
+            {"role":"assistant","content":f"{pick(CLOSE)}"},
+        ]
+    elif tpl == 39:
+        # عرض وقت محدد: خصم افتتاح
+        msgs = [
+            {"role":"user","content":"هلو، عندكم عروض الافتتاح؟"},
+            {"role":"assistant","content":f"إي! خصم 20% على كل شي هالأسبوع. {item['n']} بـ{vp(int(item['p']*0.80))} بدل {vp(item['p'])}"},
+            {"role":"user","content":"وشي ثاني بالعرض؟"},
+            {"role":"assistant","content":f"{item2f['n']} أيضاً بـ{vp(int(item2f['p']*0.80))} بدل {vp(item2f['p'])}"},
+            {"role":"user","content":"آخذهم مع بعض"},
+            {"role":"assistant","content":f"ممتاز! الكل {vp(int((item['p']+item2f['p'])*0.80))} دينار. {pick(CLOSE)}"},
+        ]
+    else:
+        # رفض متكرر → باكج تأثيث كامل بسعر خاص
+        msgs = [
+            {"role":"user","content":f"هلو، أريد أفرش غرفة النوم بس الأسعار كلها غالية"},
+            {"role":"assistant","content":f"{pick(EMPATHY_SELL_LINES)}. عندنا باكج غرفة كاملة بسعر خاص"},
+            {"role":"user","content":"شنو يتضمن الباكج؟"},
+            {"role":"assistant","content":f"{item['n']} + {item2f['n']} + توصيل وتركيب مجاني"},
+            {"role":"user","content":"شكد المجموع؟"},
+            {"role":"assistant","content":f"الباكج بـ{vp(int((item['p']+item2f['p'])*0.82))} دينار بدل {vp(item['p']+item2f['p'])}"},
+            {"role":"user","content":"والله هذا عرض ما أكدر أرفضه"},
+            {"role":"assistant","content":f"{pick(CLOSE)}"},
         ]
 
     return {"id":f"furn_{i:04d}","category":"sales_furniture","dialect":"iraqi_arabic","messages":msgs}
