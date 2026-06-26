@@ -1080,9 +1080,9 @@ def gen_food(i):
             {"role":"user","content":f"أريد {item['n']}، عندكم؟"},
             {"role":"assistant","content":f"إي عندنا. عندنا نوعين: عادي بـ{vp(item['p'])} ومميز بـ{vp(int(item['p']*1.3))}"},
             {"role":"user","content":"شنو الفرق؟"},
-            {"role":"assistant","content":"المميز أفضل جودة وطعمه أحلى، الفرق بس {vp(int(item['p']*0.3))} دينار"},
+            {"role":"assistant","content":f"المميز أفضل جودة وطعمه أحلى، الفرق بس {vp(int(item['p']*0.3))} دينار"},
             {"role":"user","content":"يستاهل؟"},
-            {"role":"assistant","content":"إي والله، ناس كثير يفضلون المميز"},
+            {"role":"assistant","content":"إي والله، ناس هواية يفضلون المميز"},
             {"role":"user","content":"ماشي، آخذ المميز"},
             {"role":"assistant","content":f"{pick(CLOSE)}"},
         ]
