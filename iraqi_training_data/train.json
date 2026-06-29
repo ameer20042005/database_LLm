@@ -1,0 +1,2162 @@
+[
+  {
+    "Question": "دوامك شلون وياك؟",
+    "Answer": "متعب والله، كل يوم شغل زيادة وماكو راحة.",
+    "Topic": "Work",
+    "Formality": "informal",
+    "Dialect": "Iraqi Arabic",
+    "Date": "2024-07-24T00:00:00"
+  },
+  {
+    "Question": "شلون أتعامل ويا الضغط النفسي؟",
+    "Answer": "خذ وقت ترتاح بيه واحچي ويه شخص ترتاحله.",
+    "Topic": "Health",
+    "Formality": "Casual",
+    "Dialect": "Iraqi Arabic",
+    "Date": "2025-01-15T00:00:00"
+  },
+  {
+    "Question": "شلون أرتب وقتي بالدراسة؟",
+    "Answer": "قسم وقتك بين المواد وخليلك فترات راحة قصيرة.",
+    "Topic": "Routine",
+    "Formality": "Polite",
+    "Dialect": "Iraqi Arabic",
+    "Date": "2025-04-04T00:00:00"
+  },
+  {
+    "Question": "شنو أسهل طريقة أوفر فلوس؟",
+    "Answer": "حاول تقلل المصاريف اليومية وخلي جزء ثابت للادخار.",
+    "Topic": "Finance",
+    "Formality": "Casual",
+    "Dialect": "Iraqi Arabic",
+    "Date": "2025-01-15T00:00:00"
+  },
+  {
+    "Question": "شنو أحسن أكل للفطور؟",
+    "Answer": "الفطور العراقي البسيط مثل الجبن والخبز والشاي يكون زين.",
+    "Topic": "Cooking",
+    "Formality": "Casual",
+    "Dialect": "Iraqi Arabic",
+    "Date": "2025-04-04T00:00:00"
+  },
+  {
+    "Question": "شفت المباراة البارحة؟",
+    "Answer": "إي شفتها، الحكم كان ظالم.",
+    "Topic": "Football",
+    "Formality": "informal",
+    "Dialect": "Iraqi Arabic",
+    "Date": "2024-07-24T00:00:00"
+  },
+  {
+    "Question": "العراق شارك بالأولمبياد؟",
+    "Answer": "إي نعم، العراق شارك بعدة دورات أولمبية.",
+    "Topic": "Sports",
+    "Formality": "Casual",
+    "Dialect": "Iraqi Arabic",
+    "Date": "2025-04-04T00:00:00"
+  },
+  {
+    "Question": "شلون الجو بره؟",
+    "Answer": "حار كلش، الواحد يذوب من الحر.",
+    "Topic": "Weather",
+    "Formality": "informal",
+    "Dialect": "Iraqi Arabic",
+    "Date": "2024-07-24T00:00:00"
+  },
+  {
+    "Question": "شنو البرنامج العلمي المشهور؟",
+    "Answer": "والأربعاء جان عدنه برنامج العلم للجميع.",
+    "Topic": "Science",
+    "Formality": "informal",
+    "Dialect": "Iraqi Arabic",
+    "Date": "2022-11-18T00:00:00"
+  },
+  {
+    "Question": "إذا أريد أزور الأهوار، شنو أگدر أسوي هناك؟",
+    "Answer": "تكدر تركب مشحوف، تشوف الطيور، وتجرب الأكل المحلي.",
+    "Topic": "Travel",
+    "Formality": "Casual",
+    "Dialect": "Iraqi Arabic",
+    "Date": "2025-04-04T00:00:00"
+  },
+  {
+    "Question": "ليش لازم المدرس يعد دروسه زين؟",
+    "Answer": "الإعداد الجيد للدرس هو المخطط الذي يتوصل به المدرس إلى أهدافه من الدرس.",
+    "Topic": "Lesson Planning",
+    "Formality": "formal",
+    "Dialect": "Iraqi Arabic",
+    "Date": "2025-11-22T00:00:00"
+  },
+  {
+    "Question": "شلون أطور نفسي بالشغل؟",
+    "Answer": "تعلم مهارات جديدة وخلك ملتزم بشغلك.",
+    "Topic": "Work",
+    "Formality": "Casual",
+    "Dialect": "Iraqi Arabic",
+    "Date": "2025-01-15T00:00:00"
+  },
+  {
+    "Question": "عندك حبيبة لو بعد؟",
+    "Answer": "لا والله، بعدني أدور.",
+    "Topic": "Dating",
+    "Formality": "informal",
+    "Dialect": "Iraqi Arabic",
+    "Date": "2024-07-24T00:00:00"
+  },
+  {
+    "Question": "شنو أحسن مكان أتمشى بيه بالعراق؟",
+    "Answer": "حسب المحافظة، بس الكورنيش والحدائق دائماً حلوة.",
+    "Topic": "Travel",
+    "Formality": "Casual",
+    "Dialect": "Iraqi Arabic",
+    "Date": "2025-01-15T00:00:00"
+  },
+  {
+    "Question": "شنو أحسن رياضة للمبتدئين؟",
+    "Answer": "المشي يعتبر أسهل رياضة ومفيدة للجسم.",
+    "Topic": "Sports",
+    "Formality": "Casual",
+    "Dialect": "Iraqi Arabic",
+    "Date": "2025-01-15T00:00:00"
+  },
+  {
+    "Question": "شنو أحسن طريقة أرتاح بيها؟",
+    "Answer": "امشِ شوي أو اسمع موسيقى تحبها.",
+    "Topic": "Daily Life",
+    "Formality": "Casual",
+    "Dialect": "Iraqi Arabic",
+    "Date": "2025-01-15T00:00:00"
+  },
+  {
+    "Question": "ليش الناس تسهر هواي؟",
+    "Answer": "بسبب الشغل أو السوشال ميديا أو لأن ما عدهم نوم.",
+    "Topic": "Daily Life",
+    "Formality": "Casual",
+    "Dialect": "Iraqi Arabic",
+    "Date": "2025-01-15T00:00:00"
+  },
+  {
+    "Question": "شنو جانت المقدمة الموسيقية لبرنامج الرياضة؟",
+    "Answer": "وحتى جانت المقدمة الموسيقية مالته مال حلاق اشبيلية.",
+    "Topic": "Sports",
+    "Formality": "informal",
+    "Dialect": "Iraqi Arabic",
+    "Date": "2022-11-18T00:00:00"
+  },
+  {
+    "Question": "شنو أحسن وقت أزور بيه بغداد؟",
+    "Answer": "أحسن وقت تزور بغداد بيه هو بالخريف أو الربيع لأن الجو يكون معتدل وماكو حر كلش.",
+    "Topic": "Travel",
+    "Formality": "Casual",
+    "Dialect": "Iraqi Arabic",
+    "Date": "2025-04-04T00:00:00"
+  },
+  {
+    "Question": "شلون المدرس الناجح يتعامل ويا صعوبات التعلم؟",
+    "Answer": "المدرس الناجح هو الذي يستطيع أن يتنبأ بعناصر الدرس التي ستكون صعبة على الطلاب.",
+    "Topic": "Students",
+    "Formality": "formal",
+    "Dialect": "Iraqi Arabic",
+    "Date": "2025-11-22T00:00:00"
+  },
+  {
+    "Question": "شلون يختار المدرس طريقة التدريس المناسبة؟",
+    "Answer": "هناك عدة عوامل تحدد متى تكون طريقة ما أكثر مناسبة من غيرها.",
+    "Topic": "Teaching Methods",
+    "Formality": "formal",
+    "Dialect": "Iraqi Arabic",
+    "Date": "2025-11-22T00:00:00"
+  },
+  {
+    "Question": "إذا أريد أزور أربيل، شنو الأماكن اللي لازم أشوفها؟",
+    "Answer": "لازم تشوف قلعة أربيل، السوق القيصري، وحديقة سامي عبد الرحمن.",
+    "Topic": "Travel",
+    "Formality": "Casual",
+    "Dialect": "Iraqi Arabic",
+    "Date": "2025-04-04T00:00:00"
+  },
+  {
+    "Question": "شنو أكثر لعبة يحبونها الأطفال بالعراق؟",
+    "Answer": "هواية أطفال يحبون كرة القدم لأن سهلة ويلعبوها بأي مكان.",
+    "Topic": "Sports",
+    "Formality": "Casual",
+    "Dialect": "Iraqi Arabic",
+    "Date": "2025-04-04T00:00:00"
+  },
+  {
+    "Question": "شنو أكثر أكلة تحبها؟",
+    "Answer": "أحب الدولمة.",
+    "Topic": "Food",
+    "Formality": "informal",
+    "Dialect": "Iraqi Arabic",
+    "Date": "2019-02-06T00:00:00"
+  },
+  {
+    "Question": "من فضلك شلون أروح لجامع الحسين؟",
+    "Answer": "روح گبال لنهاية الشارع دايور يسرة.",
+    "Topic": "Directions",
+    "Formality": "informal",
+    "Dialect": "Iraqi Arabic",
+    "Date": "2021-05-03T00:00:00"
+  },
+  {
+    "Question": "شنو أول خطوة بإعداد الدرس؟",
+    "Answer": "على المدرس أن يحدد أهداف الدرس بدقة ووضوح.",
+    "Topic": "Lesson Planning",
+    "Formality": "formal",
+    "Dialect": "Iraqi Arabic",
+    "Date": "2025-11-22T00:00:00"
+  },
+  {
+    "Question": "ليش الناس تحب الذكريات القديمة؟",
+    "Answer": "لأن تذكرهم بأيام حلوة وأشخاص يحبونهم.",
+    "Topic": "Social",
+    "Formality": "Casual",
+    "Dialect": "Iraqi Arabic",
+    "Date": "2025-01-15T00:00:00"
+  },
+  {
+    "Question": "شلون أعرف إذا الرحلة انلغت؟",
+    "Answer": "تكدر تشيك على شاشة الرحلات أو تسأل موظف الاستعلامات.",
+    "Topic": "Airport",
+    "Formality": "Casual",
+    "Dialect": "Iraqi Arabic",
+    "Date": "2025-04-04T00:00:00"
+  },
+  {
+    "Question": "شنو الكارتونات اللي جانت تعرض بذاك الوقت؟",
+    "Answer": "وحتى من الكارتونات الي جانت تعرض بذاك الوقت كارتون مسلسل سندباد وعلي بابا.",
+    "Topic": "Cartoons",
+    "Formality": "informal",
+    "Dialect": "Iraqi Arabic",
+    "Date": "2022-11-18T00:00:00"
+  },
+  {
+    "Question": "أكو فرق عراقية معروفة بكرة السلة؟",
+    "Answer": "إي نعم، أكو فرق تمثل الأندية والجامعات بمختلف المحافظات.",
+    "Topic": "Sports",
+    "Formality": "Casual",
+    "Dialect": "Iraqi Arabic",
+    "Date": "2025-04-04T00:00:00"
+  },
+  {
+    "Question": "ليش لازم المدرس يطور نفسه باستمرار؟",
+    "Answer": "لا شيء من هذه الدنيا في ثبات فكل ما لا ينمو فهو يذبل.",
+    "Topic": "Professional Development",
+    "Formality": "formal",
+    "Dialect": "Iraqi Arabic",
+    "Date": "2025-11-22T00:00:00"
+  },
+  {
+    "Question": "هل الموصل بيها أماكن سياحية؟",
+    "Answer": "إي نعم، بيها أماكن مثل الجامع النوري، متحف الموصل، وآثار نينوى.",
+    "Topic": "Travel",
+    "Formality": "Casual",
+    "Dialect": "Iraqi Arabic",
+    "Date": "2025-04-04T00:00:00"
+  },
+  {
+    "Question": "شلون أگدر أوفر فلوس بالشهر؟",
+    "Answer": "حاول تقلل المصاريف اليومية وتسوي خطة بسيطة للصرف.",
+    "Topic": "Weather",
+    "Formality": "Casual",
+    "Dialect": "Iraqi Arabic",
+    "Date": "2025-04-04T00:00:00"
+  },
+  {
+    "Question": "عندك حيوان أليف؟",
+    "Answer": "إي نعم، عندي بزون.",
+    "Topic": "Pets",
+    "Formality": "informal",
+    "Dialect": "Iraqi Arabic",
+    "Date": "2019-02-06T00:00:00"
+  },
+  {
+    "Question": "شنو لازم يسوي المدرس قبل يقدم درس جديد لأول مرة؟",
+    "Answer": "بعض الدروس وخاصة التي تقدم لأول مرة قد تحتاج إلى شيء من التدريب.",
+    "Topic": "Teaching Methods",
+    "Formality": "formal",
+    "Dialect": "Iraqi Arabic",
+    "Date": "2025-11-22T00:00:00"
+  },
+  {
+    "Question": "شنو أحسن مدينة بالعراق للراحة والاستجمام؟",
+    "Answer": "هواية ناس يفضلون السليمانية لأن جوها حلو وبيها أماكن هادئة.",
+    "Topic": "Travel",
+    "Formality": "Casual",
+    "Dialect": "Iraqi Arabic",
+    "Date": "2025-04-04T00:00:00"
+  },
+  {
+    "Question": "وبعدين وين أروح؟",
+    "Answer": "دايور يمنة.",
+    "Topic": "Directions",
+    "Formality": "informal",
+    "Dialect": "Iraqi Arabic",
+    "Date": "2021-05-03T00:00:00"
+  },
+  {
+    "Question": "وين ابن خالتك حيدر؟",
+    "Answer": "ابن خالتي معتقل.",
+    "Topic": "Family",
+    "Formality": "informal",
+    "Dialect": "Iraqi Arabic",
+    "Date": "2021-05-03T00:00:00"
+  },
+  {
+    "Question": "خبر الإسعاف بالعجل!",
+    "Answer": "شبيه هذا الريّال؟",
+    "Topic": "Health",
+    "Formality": "urgent",
+    "Dialect": "Iraqi Arabic",
+    "Date": "2021-05-03T00:00:00"
+  },
+  {
+    "Question": "ليش الكهرباء تطفي هواي بالصيف؟",
+    "Answer": "بسبب الضغط العالي على الشبكة واستخدام المكيفات.",
+    "Topic": "Daily Life",
+    "Formality": "Casual",
+    "Dialect": "Iraqi Arabic",
+    "Date": "2025-01-15T00:00:00"
+  },
+  {
+    "Question": "شنو أحسن أكلة عراقية؟",
+    "Answer": "الدولمة والكباب من أكثر الأكلات اللي يحبونها.",
+    "Topic": "Food",
+    "Formality": "Casual",
+    "Dialect": "Iraqi Arabic",
+    "Date": "2025-01-15T00:00:00"
+  },
+  {
+    "Question": "الرحلة اتأخرت لو لا؟",
+    "Answer": "إي نعم، الرحلة متأخرة تقريباً ساعة.",
+    "Topic": "Airport",
+    "Formality": "Casual",
+    "Dialect": "Iraqi Arabic",
+    "Date": "2025-04-04T00:00:00"
+  },
+  {
+    "Question": "إمته جانت نشرة الأخبار؟",
+    "Answer": "وراها عدنه جانت نشرة الأخبار ساعة ثمانية.",
+    "Topic": "News",
+    "Formality": "informal",
+    "Dialect": "Iraqi Arabic",
+    "Date": "2022-11-18T00:00:00"
+  },
+  {
+    "Question": "ليش العراقيين يحبون التجمعات؟",
+    "Answer": "لأن اللمة والضيافة جزء من طبيعتهم.",
+    "Topic": "Culture",
+    "Formality": "Casual",
+    "Dialect": "Iraqi Arabic",
+    "Date": "2025-01-15T00:00:00"
+  },
+  {
+    "Question": "شنو تسوي بوقت الفراغ؟",
+    "Answer": "أقرا كتب وأشوف أفلام.",
+    "Topic": "Hobbies",
+    "Formality": "informal",
+    "Dialect": "Iraqi Arabic",
+    "Date": "2019-02-06T00:00:00"
+  },
+  {
+    "Question": "شلون أتعامل ويا شخص عصبي؟",
+    "Answer": "احچي بهدوء وخليه يهدأ قبل تكملون الكلام.",
+    "Topic": "Social",
+    "Formality": "Casual",
+    "Dialect": "Iraqi Arabic",
+    "Date": "2025-01-15T00:00:00"
+  },
+  {
+    "Question": "شنو تأثير نظرة المدرس للطلاب؟",
+    "Answer": "إذا كان المدرس ينظر إلى طلابه على أنهم أذكياء وقادرون على التعلم فسيؤثر هذا إيجابياً عليهم.",
+    "Topic": "Psychology",
+    "Formality": "formal",
+    "Dialect": "Iraqi Arabic",
+    "Date": "2025-11-22T00:00:00"
+  },
+  {
+    "Question": "أريد أغير مقعدي، شلون؟",
+    "Answer": "تكدر تراجع موظف الخطوط حتى يشوف إذا أكو مقاعد فارغة.",
+    "Topic": "Airport",
+    "Formality": "Casual",
+    "Dialect": "Iraqi Arabic",
+    "Date": "2025-04-04T00:00:00"
+  },
+  {
+    "Question": "شنو المطلوب حتى أسوي تسجيل دخول؟",
+    "Answer": "تحتاج الجواز والتذكرة حتى تسوي تسجيل الدخول.",
+    "Topic": "Airport",
+    "Formality": "Casual",
+    "Dialect": "Iraqi Arabic",
+    "Date": "2025-04-04T00:00:00"
+  },
+  {
+    "Question": "شلون الأهداف تساعد المدرس؟",
+    "Answer": "توجيه الأنشطة ذات العلاقة باتجاه واحد وتمنع التشتت والانحراف.",
+    "Topic": "Education",
+    "Formality": "formal",
+    "Dialect": "Iraqi Arabic",
+    "Date": "2025-11-22T00:00:00"
+  },
+  {
+    "Question": "شلونك؟",
+    "Answer": "آني زين.",
+    "Topic": "Greeting",
+    "Formality": "informal",
+    "Dialect": "Iraqi Arabic",
+    "Date": "2021-05-03T00:00:00"
+  },
+  {
+    "Question": "شنو أكثر رياضة تنلعب بالأحياء الشعبية؟",
+    "Answer": "أكثر رياضة هي كرة القدم لأن تحتاج بس طابة ومكان مفتوح.",
+    "Topic": "Sports",
+    "Formality": "Casual",
+    "Dialect": "Iraqi Arabic",
+    "Date": "2025-04-04T00:00:00"
+  },
+  {
+    "Question": "شنو أحسن مسلسل عراقي قديم؟",
+    "Answer": "هواي ناس يحبون ذيب السرايا والنسر وعيون المدينة.",
+    "Topic": "Entertainment",
+    "Formality": "Casual",
+    "Dialect": "Iraqi Arabic",
+    "Date": "2025-01-15T00:00:00"
+  },
+  {
+    "Question": "ليش الناس تحب الشاي العراقي؟",
+    "Answer": "لأنه قوي وطعمه مميز خصوصاً إذا كان على الفحم.",
+    "Topic": "Culture",
+    "Formality": "Casual",
+    "Dialect": "Iraqi Arabic",
+    "Date": "2025-01-15T00:00:00"
+  },
+  {
+    "Question": "شنو اشتهرت بيه الحضارة البابلية؟",
+    "Answer": "اشتهرت بالقوانين مثل شريعة حمورابي وبالحدائق المعلقة.",
+    "Topic": "History",
+    "Formality": "Formal",
+    "Dialect": "Iraqi Arabic",
+    "Date": "2025-04-04T00:00:00"
+  },
+  {
+    "Question": "شنو أحسن وقت أزور بيه العراق؟",
+    "Answer": "الربيع والخريف أحسن لأن الجو يكون معتدل.",
+    "Topic": "Car",
+    "Formality": "Everyday",
+    "Dialect": "Iraqi Arabic",
+    "Date": "2025-04-04T00:00:00"
+  },
+  {
+    "Question": "ليش الجو يتغير بسرعة بالربيع؟",
+    "Answer": "لأن الفصل يكون بين الشتة والصيف ويصير تقلب.",
+    "Topic": "Weather",
+    "Formality": "Casual",
+    "Dialect": "Iraqi Arabic",
+    "Date": "2025-01-15T00:00:00"
+  },
+  {
+    "Question": "شنو لونك المفضل؟",
+    "Answer": "لوني المفضل الأزرق.",
+    "Topic": "Personal Preference",
+    "Formality": "informal",
+    "Dialect": "Iraqi Arabic",
+    "Date": "2019-02-06T00:00:00"
+  },
+  {
+    "Question": "وين أگدر ألقى فنادق زينة ببغداد؟",
+    "Answer": "تكدر تلقى فنادق زينة بمنطقة الكرادة، الجادرية، أو قرب المنطقة الخضراء.",
+    "Topic": "Travel",
+    "Formality": "Casual",
+    "Dialect": "Iraqi Arabic",
+    "Date": "2025-04-04T00:00:00"
+  },
+  {
+    "Question": "ليش الناس تحب الجمعة؟",
+    "Answer": "لأن بيها راحة ولمّة أهل.",
+    "Topic": "Culture",
+    "Formality": "Casual",
+    "Dialect": "Iraqi Arabic",
+    "Date": "2025-01-15T00:00:00"
+  },
+  {
+    "Question": "شلون أطبخ تمن عراقي مضبوط؟",
+    "Answer": "اغسل التمن زين وخله ينطبخ على نار هادئة.",
+    "Topic": "Food",
+    "Formality": "Casual",
+    "Dialect": "Iraqi Arabic",
+    "Date": "2025-01-15T00:00:00"
+  },
+  {
+    "Question": "شنو الرياضة اللي يحبونها البنات بالعراق؟",
+    "Answer": "هواية بنات يحبون الكرة الطائرة وكرة السلة.",
+    "Topic": "Sports",
+    "Formality": "Casual",
+    "Dialect": "Iraqi Arabic",
+    "Date": "2025-04-04T00:00:00"
+  },
+  {
+    "Question": "شنو الحضارة اللي إجت بعد السومريين؟",
+    "Answer": "إجت الحضارة الأكدية وبعدها الآشورية والبابلية.",
+    "Topic": "History",
+    "Formality": "Formal",
+    "Dialect": "Iraqi Arabic",
+    "Date": "2025-04-04T00:00:00"
+  },
+  {
+    "Question": "هذا الأكل صحي؟",
+    "Answer": "إي.",
+    "Topic": "Food",
+    "Formality": "informal",
+    "Dialect": "Iraqi Arabic",
+    "Date": "2021-05-03T00:00:00"
+  },
+  {
+    "Question": "ليش الدراسة تصير صعبة مرات؟",
+    "Answer": "لأن الضغط والتعب يخلي التركيز أقل.",
+    "Topic": "Study",
+    "Formality": "Casual",
+    "Dialect": "Iraqi Arabic",
+    "Date": "2025-01-15T00:00:00"
+  },
+  {
+    "Question": "شلون جانوا العراقيين يتابعون برنامج الرياضة؟",
+    "Answer": "فجانو كل العراقيين يتجمعون على هذا البرنامج يشوفوه.",
+    "Topic": "Sports",
+    "Formality": "informal",
+    "Dialect": "Iraqi Arabic",
+    "Date": "2022-11-18T00:00:00"
+  },
+  {
+    "Question": "ليش مهم تحضير الوسائل التعليمية قبل الدرس؟",
+    "Answer": "لأن تأجيل إعداد الوسيلة إلى بداية الدرس يضيع الكثير من الوقت.",
+    "Topic": "Educational Tools",
+    "Formality": "formal",
+    "Dialect": "Iraqi Arabic",
+    "Date": "2025-11-22T00:00:00"
+  },
+  {
+    "Question": "أبويه راح ويا الحجيّة للطبيب.",
+    "Answer": "شبيهة؟ سلامتها.",
+    "Topic": "Family",
+    "Formality": "informal",
+    "Dialect": "Iraqi Arabic",
+    "Date": "2021-05-03T00:00:00"
+  },
+  {
+    "Question": "شنو كانت عاصمة الدولة العباسية؟",
+    "Answer": "عاصمة الدولة العباسية كانت بغداد.",
+    "Topic": "History",
+    "Formality": "Formal",
+    "Dialect": "Iraqi Arabic",
+    "Date": "2025-04-04T00:00:00"
+  },
+  {
+    "Question": "شنو أحسن وقت للسفر؟",
+    "Answer": "الربيع والخريف يكون الجو بيهم أريح.",
+    "Topic": "Travel",
+    "Formality": "Casual",
+    "Dialect": "Iraqi Arabic",
+    "Date": "2025-01-15T00:00:00"
+  },
+  {
+    "Question": "شنو يعني الإعداد الذهني للدرس؟",
+    "Answer": "وهي رسم الخطة لتحقيق تلك الأهداف.",
+    "Topic": "Lesson Planning",
+    "Formality": "formal",
+    "Dialect": "Iraqi Arabic",
+    "Date": "2025-11-22T00:00:00"
+  },
+  {
+    "Question": "شنو أحسن وقت أدرس بيه؟",
+    "Answer": "هواي ناس يركزون أكثر الصبح لأن الذهن يكون صافي.",
+    "Topic": "Study",
+    "Formality": "Casual",
+    "Dialect": "Iraqi Arabic",
+    "Date": "2025-01-15T00:00:00"
+  },
+  {
+    "Question": "شنو لازم يعرف المدرس حتى يطلع درس ناجح؟",
+    "Answer": "لإخراج درس ناجح يجب على المدرس أن يعرف الأمور الآتية.",
+    "Topic": "Education",
+    "Formality": "formal",
+    "Dialect": "Iraqi Arabic",
+    "Date": "2025-11-22T00:00:00"
+  },
+  {
+    "Question": "ليش السيارة تستهلك بانزين هواي؟",
+    "Answer": "يمكن تحتاج تصليح أو ضغط التايرات مو مضبوط.",
+    "Topic": "Cars",
+    "Formality": "Casual",
+    "Dialect": "Iraqi Arabic",
+    "Date": "2025-01-15T00:00:00"
+  },
+  {
+    "Question": "ليش الناس تحب بغداد؟",
+    "Answer": "لأن بيها تاريخ وأماكن وأسواق ما تلقاها بأي مكان ثاني.",
+    "Topic": "Culture",
+    "Formality": "Casual",
+    "Dialect": "Iraqi Arabic",
+    "Date": "2025-01-15T00:00:00"
+  },
+  {
+    "Question": "وين أگدر أروح حتى أشوف طبيعة حلوة بالعراق؟",
+    "Answer": "تكدر تروح للشلالات بأحمد آوا، جبال كردستان، أو أهوار الجنوب.",
+    "Topic": "Travel",
+    "Formality": "Casual",
+    "Dialect": "Iraqi Arabic",
+    "Date": "2025-04-04T00:00:00"
+  },
+  {
+    "Question": "عندك أخوان؟",
+    "Answer": "إي نعم، عندي أخوان اثنين.",
+    "Topic": "Family",
+    "Formality": "informal",
+    "Dialect": "Iraqi Arabic",
+    "Date": "2019-02-06T00:00:00"
+  },
+  {
+    "Question": "بأي يوم جان ينعرض برنامج الرياضة؟",
+    "Answer": "وهذا يعرض يوم الثلاثاء.",
+    "Topic": "Sports",
+    "Formality": "informal",
+    "Dialect": "Iraqi Arabic",
+    "Date": "2022-11-18T00:00:00"
+  },
+  {
+    "Question": "لأي شغل؟",
+    "Answer": "مترجم.",
+    "Topic": "Work",
+    "Formality": "informal",
+    "Dialect": "Iraqi Arabic",
+    "Date": "2021-05-03T00:00:00"
+  },
+  {
+    "Question": "الله يخليك، گلي وين شارع الرشيد؟",
+    "Answer": "روح گبال، إلين تجيك ساحة التحرير.",
+    "Topic": "Directions",
+    "Formality": "informal",
+    "Dialect": "Iraqi Arabic",
+    "Date": "2021-05-03T00:00:00"
+  },
+  {
+    "Question": "وين ألكه كاونتر الخطوط الجوية؟",
+    "Answer": "الكاونتر هناك يم البوابة رقم 3.",
+    "Topic": "Airport",
+    "Formality": "Casual",
+    "Dialect": "Iraqi Arabic",
+    "Date": "2025-04-04T00:00:00"
+  },
+  {
+    "Question": "البقية بحياتكم.",
+    "Answer": "حياتكم الباقية، شكراً!",
+    "Topic": "Condolence",
+    "Formality": "formal",
+    "Dialect": "Iraqi Arabic",
+    "Date": "2021-05-03T00:00:00"
+  },
+  {
+    "Question": "ليش الناس تفضل الشغل الحكومي؟",
+    "Answer": "لأن بي استقرار أكثر وراتب ثابت.",
+    "Topic": "Work",
+    "Formality": "Casual",
+    "Dialect": "Iraqi Arabic",
+    "Date": "2025-01-15T00:00:00"
+  },
+  {
+    "Question": "شلون أتعلم لهجة عراقية بسرعة؟",
+    "Answer": "حاول تسمع سوالف عراقية يومياً وتحچي ويه ناس من العراق.",
+    "Topic": "Language",
+    "Formality": "Casual",
+    "Dialect": "Iraqi Arabic",
+    "Date": "2025-01-15T00:00:00"
+  },
+  {
+    "Question": "شلون أتعرف على أصدقاء جدد؟",
+    "Answer": "شارك بنشاطات أو كروبات تهتم بنفس اهتماماتك.",
+    "Topic": "Social",
+    "Formality": "Casual",
+    "Dialect": "Iraqi Arabic",
+    "Date": "2025-01-15T00:00:00"
+  },
+  {
+    "Question": "شلون أتعلم سياقة؟",
+    "Answer": "ابدأ بمكان هادئ وتعلم الأساسيات وحدة وحدة.",
+    "Topic": "Cars",
+    "Formality": "Casual",
+    "Dialect": "Iraqi Arabic",
+    "Date": "2025-01-15T00:00:00"
+  },
+  {
+    "Question": "عندك سيارة؟",
+    "Answer": "إي نعم، عندي سيارة بيضة.",
+    "Topic": "Transport",
+    "Formality": "informal",
+    "Dialect": "Iraqi Arabic",
+    "Date": "2019-02-06T00:00:00"
+  },
+  {
+    "Question": "ليش الناس تسافر لأربيل؟",
+    "Answer": "لأن جوها حلو وبها أماكن حلوة للتسوق والتمشي.",
+    "Topic": "Travel",
+    "Formality": "Casual",
+    "Dialect": "Iraqi Arabic",
+    "Date": "2025-01-15T00:00:00"
+  },
+  {
+    "Question": "أگدر آخذ وياي ماي بالطائرة؟",
+    "Answer": "لا، إذا كان أكثر من الحجم المسموح لازم تخليه بالشنطة.",
+    "Topic": "Airport",
+    "Formality": "Casual",
+    "Dialect": "Iraqi Arabic",
+    "Date": "2025-04-04T00:00:00"
+  },
+  {
+    "Question": "عفواً أخي، وين مركز الشرطة؟",
+    "Answer": "يم جامع الإمام موسى الكاظم.",
+    "Topic": "Directions",
+    "Formality": "informal",
+    "Dialect": "Iraqi Arabic",
+    "Date": "2021-05-03T00:00:00"
+  },
+  {
+    "Question": "الله يخليكم اشتروا مني هالأكل كلش طيب.",
+    "Answer": "إحنا متأسفين، ما نكدر نشتري منچ.",
+    "Topic": "Food",
+    "Formality": "informal",
+    "Dialect": "Iraqi Arabic",
+    "Date": "2021-05-03T00:00:00"
+  },
+  {
+    "Question": "شنو أسوي إذا ضاعت شنطتي؟",
+    "Answer": "لازم تراجع مكتب المفقودات وتعطيهم تفاصيل الشنطة.",
+    "Topic": "Airport",
+    "Formality": "Casual",
+    "Dialect": "Iraqi Arabic",
+    "Date": "2025-04-04T00:00:00"
+  },
+  {
+    "Question": "وين صالة الانتظار للرحلات الدولية؟",
+    "Answer": "الصالة بالطابق الثاني يم السوق الحرة.",
+    "Topic": "Airport",
+    "Formality": "Casual",
+    "Dialect": "Iraqi Arabic",
+    "Date": "2025-04-04T00:00:00"
+  },
+  {
+    "Question": "ليش لا، هذا أكل نظيف.",
+    "Answer": "عدنا أوامر ما ناكل بره.",
+    "Topic": "Food",
+    "Formality": "informal",
+    "Dialect": "Iraqi Arabic",
+    "Date": "2021-05-03T00:00:00"
+  },
+  {
+    "Question": "شلون أتصرف إذا ضعت بمكان؟",
+    "Answer": "اسأل أقرب شخص أو استخدم الخرائط بالموبايل.",
+    "Topic": "Travel",
+    "Formality": "Casual",
+    "Dialect": "Iraqi Arabic",
+    "Date": "2025-01-15T00:00:00"
+  },
+  {
+    "Question": "تعرف نكتة حلوة؟",
+    "Answer": "إي، بس إذا أكلك ياها يمكن تبطل تضحك.",
+    "Topic": "Jokes",
+    "Formality": "informal",
+    "Dialect": "Iraqi Arabic",
+    "Date": "2024-07-24T00:00:00"
+  },
+  {
+    "Question": "شلون أختار تخصص جامعي؟",
+    "Answer": "فكر بشنو تحب وشوف شنو يناسب مستقبلك.",
+    "Topic": "Study",
+    "Formality": "Casual",
+    "Dialect": "Iraqi Arabic",
+    "Date": "2025-01-15T00:00:00"
+  },
+  {
+    "Question": "شلون أتنقل داخل بغداد بسهولة؟",
+    "Answer": "تكدر تستخدم التكسي أو تطبيقات النقل أو الباصات إذا تريد أوفر.",
+    "Topic": "Travel",
+    "Formality": "Casual",
+    "Dialect": "Iraqi Arabic",
+    "Date": "2025-04-04T00:00:00"
+  },
+  {
+    "Question": "شلون أرتب غرفتي بسرعة؟",
+    "Answer": "ابدأ بالأشياء الكبيرة وبعدها رتب التفاصيل الصغيرة.",
+    "Topic": "Daily Life",
+    "Formality": "Casual",
+    "Dialect": "Iraqi Arabic",
+    "Date": "2025-01-15T00:00:00"
+  },
+  {
+    "Question": "منو جان يقدم برنامج العلم للجميع؟",
+    "Answer": "كان يعرضه المرحوم كامل الدباغ، رجل علمي.",
+    "Topic": "Science",
+    "Formality": "informal",
+    "Dialect": "Iraqi Arabic",
+    "Date": "2022-11-18T00:00:00"
+  },
+  {
+    "Question": "ليش الناس تضحك على المواقف القديمة؟",
+    "Answer": "لأن بعد فترة تصير الذكريات أخف وأحلى.",
+    "Topic": "Entertainment",
+    "Formality": "Casual",
+    "Dialect": "Iraqi Arabic",
+    "Date": "2025-01-15T00:00:00"
+  },
+  {
+    "Question": "اشتريت شي من السوق اليوم؟",
+    "Answer": "إي والله، أخذت جفين وكم قميص.",
+    "Topic": "Shopping",
+    "Formality": "informal",
+    "Dialect": "Iraqi Arabic",
+    "Date": "2024-07-24T00:00:00"
+  },
+  {
+    "Question": "شنو اللغة اللي كانوا يحجونها السومريين؟",
+    "Answer": "كانوا يحجون اللغة السومرية ويكتبون بالخط المسماري.",
+    "Topic": "History",
+    "Formality": "Formal",
+    "Dialect": "Iraqi Arabic",
+    "Date": "2025-04-04T00:00:00"
+  },
+  {
+    "Question": "شنو أحسن شي ينشرب بالصيف؟",
+    "Answer": "الشربت والعصير البارد ينعشون أكثر شي.",
+    "Topic": "Food",
+    "Formality": "Casual",
+    "Dialect": "Iraqi Arabic",
+    "Date": "2025-01-15T00:00:00"
+  },
+  {
+    "Question": "شنو الرياضة اللي تحتاج لياقة عالية؟",
+    "Answer": "الركض وكرة القدم يحتاجن لياقة عالية وتحمل.",
+    "Topic": "Sports",
+    "Formality": "Casual",
+    "Dialect": "Iraqi Arabic",
+    "Date": "2025-04-04T00:00:00"
+  },
+  {
+    "Question": "شنو أشهر أكلة لازم أجربها بالعراق؟",
+    "Answer": "لازم تجرب المسگوف، الدولمة، والكبة العراقية لأن تعتبر من أشهر الأكلات.",
+    "Topic": "Travel",
+    "Formality": "Casual",
+    "Dialect": "Iraqi Arabic",
+    "Date": "2025-04-04T00:00:00"
+  },
+  {
+    "Question": "شنو تشتغل؟",
+    "Answer": "اني أشتغل مدرس.",
+    "Topic": "Work",
+    "Formality": "informal",
+    "Dialect": "Iraqi Arabic",
+    "Date": "2019-02-06T00:00:00"
+  },
+  {
+    "Question": "أعزمك عالفطور.",
+    "Answer": "لا شكراً، ما أگدر.",
+    "Topic": "Hospitality",
+    "Formality": "informal",
+    "Dialect": "Iraqi Arabic",
+    "Date": "2021-05-03T00:00:00"
+  },
+  {
+    "Question": "شلون أوصل للكرادة؟",
+    "Answer": "امشي سيده وبعدين لف يم اليسار.",
+    "Topic": "Directions",
+    "Formality": "informal",
+    "Dialect": "Iraqi Arabic",
+    "Date": "2024-07-24T00:00:00"
+  },
+  {
+    "Question": "شنو أكثر رياضة مشهورة بالعراق؟",
+    "Answer": "أكثر رياضة مشهورة بالعراق هي كرة القدم.",
+    "Topic": "Sports",
+    "Formality": "Casual",
+    "Dialect": "Iraqi Arabic",
+    "Date": "2025-04-04T00:00:00"
+  },
+  {
+    "Question": "شنو أشهر معلم تاريخي بالعراق؟",
+    "Answer": "من أشهر المعالم التاريخية زقورة أور وبوابة عشتار.",
+    "Topic": "History",
+    "Formality": "Formal",
+    "Dialect": "Iraqi Arabic",
+    "Date": "2025-04-04T00:00:00"
+  },
+  {
+    "Question": "ومنو هذا وياك؟",
+    "Answer": "هذا أخويه عامر.",
+    "Topic": "Family",
+    "Formality": "informal",
+    "Dialect": "Iraqi Arabic",
+    "Date": "2021-05-03T00:00:00"
+  },
+  {
+    "Question": "شنو أحسن تطبيق للدفع بالعراق؟",
+    "Answer": "هواي ناس يستخدمون زين كاش وآسيا حوالة لأن سهلة.",
+    "Topic": "Technology",
+    "Formality": "Casual",
+    "Dialect": "Iraqi Arabic",
+    "Date": "2025-01-15T00:00:00"
+  },
+  {
+    "Question": "شنو أفضل وقت أزور بيه شمال العراق؟",
+    "Answer": "أفضل وقت هو بالصيف إذا تريد جو أبرد وطبيعة حلوة، خصوصاً بدهوك والسليمانية.",
+    "Topic": "Travel",
+    "Formality": "Casual",
+    "Dialect": "Iraqi Arabic",
+    "Date": "2025-04-04T00:00:00"
+  },
+  {
+    "Question": "شلون يعرف المدرس إذا نجح لو فشل؟",
+    "Answer": "تقويم العمل لمعرفة مدى النجاح والفشل.",
+    "Topic": "Evaluation",
+    "Formality": "formal",
+    "Dialect": "Iraqi Arabic",
+    "Date": "2025-11-22T00:00:00"
+  },
+  {
+    "Question": "تحب الرياضة؟",
+    "Answer": "إي نعم، أحب كرة القدم.",
+    "Topic": "Sports",
+    "Formality": "informal",
+    "Dialect": "Iraqi Arabic",
+    "Date": "2019-02-06T00:00:00"
+  },
+  {
+    "Question": "السلام عليكم، شلونك؟",
+    "Answer": "وعليكم السلام، آني زين.",
+    "Topic": "Greeting",
+    "Formality": "informal",
+    "Dialect": "Iraqi Arabic",
+    "Date": "2021-05-03T00:00:00"
+  },
+  {
+    "Question": "ليش ما أكدر أنام بسرعة؟",
+    "Answer": "يمكن لأن تستخدم الموبايل قبل النوم أو تشرب شاي متأخر.",
+    "Topic": "Health",
+    "Formality": "Casual",
+    "Dialect": "Iraqi Arabic",
+    "Date": "2025-01-15T00:00:00"
+  },
+  {
+    "Question": "منو جان مؤيد البدري؟",
+    "Answer": "طبعا أشهر شخصية إعلامية رياضية يتناول البرامج الرياضية للعالم وللعراق وللعرب.",
+    "Topic": "Sports",
+    "Formality": "informal",
+    "Dialect": "Iraqi Arabic",
+    "Date": "2022-11-18T00:00:00"
+  },
+  {
+    "Question": "أكدر أشوفك الساعة أربعة العصر؟",
+    "Answer": "إن شاء الله.",
+    "Topic": "Time",
+    "Formality": "informal",
+    "Dialect": "Iraqi Arabic",
+    "Date": "2021-05-03T00:00:00"
+  },
+  {
+    "Question": "شنو أشهر البرامج اللي جانت موجودة بالعراق؟",
+    "Answer": "واتذكر أكو برنامجين جانو كلش مشهورات بالعراق.",
+    "Topic": "Television",
+    "Formality": "informal",
+    "Dialect": "Iraqi Arabic",
+    "Date": "2022-11-18T00:00:00"
+  },
+  {
+    "Question": "أكو بطولات محلية لكرة القدم بالعراق؟",
+    "Answer": "إي، أكو الدوري العراقي الممتاز وكأس العراق.",
+    "Topic": "Sports",
+    "Formality": "Casual",
+    "Dialect": "Iraqi Arabic",
+    "Date": "2025-04-04T00:00:00"
+  },
+  {
+    "Question": "شنو أشهر ملعب بالعراق؟",
+    "Answer": "من أشهر الملاعب هو ملعب الشعب الدولي ببغداد.",
+    "Topic": "Sports",
+    "Formality": "Casual",
+    "Dialect": "Iraqi Arabic",
+    "Date": "2025-04-04T00:00:00"
+  },
+  {
+    "Question": "ليش جان التلفزيون يركز على الأخبار العسكرية؟",
+    "Answer": "وكان أغلبية الأوقات لأن جان عدنه حرب إيران لمدة ثمن سنوات، فكان التلفزيون كله يطلع من الثمانية لحد السلام الجمهوري كله بس على البيانات العسكرية.",
+    "Topic": "War",
+    "Formality": "informal",
+    "Dialect": "Iraqi Arabic",
+    "Date": "2022-11-18T00:00:00"
+  },
+  {
+    "Question": "شلون صارت الكتابة الإبداعية بالسياق المعاصر؟",
+    "Answer": "لم تعد الكتابة الإبداعية، في سياقها المعاصر، ممارسة لغوية بريئة أو محايدة، وإنما غدت فعلا معرفيا وجماليا يتقاطع فيه السؤال اللغوي مع السؤال الفلسفي.",
+    "Topic": "Literature",
+    "Formality": "formal",
+    "Dialect": "Iraqi Arabic",
+    "Date": "#N/A"
+  },
+  {
+    "Question": "وين ألكه أحسن أكل عراقي؟",
+    "Answer": "تلكه الأكل الزين بالمطاعم الشعبية لأن طعمه يكون أقرب للبيت.",
+    "Topic": "Coffee",
+    "Formality": "Everyday",
+    "Dialect": "Iraqi Arabic",
+    "Date": "2025-04-04T00:00:00"
+  },
+  {
+    "Question": "شنو صار ببغداد سنة 1258؟",
+    "Answer": "سقطت بغداد بيد المغول وانتهت الدولة العباسية.",
+    "Topic": "History",
+    "Formality": "Formal",
+    "Dialect": "Iraqi Arabic",
+    "Date": "2025-04-04T00:00:00"
+  },
+  {
+    "Question": "شنو أشهر رياضة فردية بالعراق؟",
+    "Answer": "من أشهر الرياضات الفردية هي المصارعة ورفع الأثقال.",
+    "Topic": "Sports",
+    "Formality": "Casual",
+    "Dialect": "Iraqi Arabic",
+    "Date": "2025-04-04T00:00:00"
+  },
+  {
+    "Question": "وين بيت الحاج رحيم؟",
+    "Answer": "اطلع گبال وبعدين تجيك فلكة، روح يسرة.",
+    "Topic": "Directions",
+    "Formality": "informal",
+    "Dialect": "Iraqi Arabic",
+    "Date": "2021-05-03T00:00:00"
+  },
+  {
+    "Question": "سمعت آخر أخبار السياسة؟",
+    "Answer": "إي سمعت، بس كله حچي وماكو فعل.",
+    "Topic": "Politics",
+    "Formality": "informal",
+    "Dialect": "Iraqi Arabic",
+    "Date": "2024-07-24T00:00:00"
+  },
+  {
+    "Question": "شنو وقتك المفضل باليوم؟",
+    "Answer": "أفضل وقت عندي هو الصبح.",
+    "Topic": "Lifestyle",
+    "Formality": "informal",
+    "Dialect": "Iraqi Arabic",
+    "Date": "2019-02-06T00:00:00"
+  },
+  {
+    "Question": "شنو نوع المسلسلات اللي جانت تنعرض؟",
+    "Answer": "يعني بغض النظر عن انو عربية وال عراقية وال اجنبية.",
+    "Topic": "Entertainment",
+    "Formality": "informal",
+    "Dialect": "Iraqi Arabic",
+    "Date": "2022-11-18T00:00:00"
+  },
+  {
+    "Question": "أكو مكان أدخن بيه بالمطار؟",
+    "Answer": "إي، بعض المطارات بيها مناطق مخصصة للتدخين.",
+    "Topic": "Airport",
+    "Formality": "Casual",
+    "Dialect": "Iraqi Arabic",
+    "Date": "2025-04-04T00:00:00"
+  },
+  {
+    "Question": "وين أبدل عملة بالمطار؟",
+    "Answer": "تكدر تبدل من مكاتب الصيرفة الموجودة بالصالة.",
+    "Topic": "Airport",
+    "Formality": "Casual",
+    "Dialect": "Iraqi Arabic",
+    "Date": "2025-04-04T00:00:00"
+  },
+  {
+    "Question": "عمي نريد نفتش بيتك.",
+    "Answer": "انتظروا بره شوية، مرتي وبناتي جوه.",
+    "Topic": "House",
+    "Formality": "formal",
+    "Dialect": "Iraqi Arabic",
+    "Date": "2021-05-03T00:00:00"
+  },
+  {
+    "Question": "وين تدرس؟",
+    "Answer": "أدرس بالجامعة.",
+    "Topic": "School",
+    "Formality": "informal",
+    "Dialect": "Iraqi Arabic",
+    "Date": "2019-02-06T00:00:00"
+  },
+  {
+    "Question": "ليش العراق يسموه بلاد الرافدين؟",
+    "Answer": "لأن بيه نهر دجلة ونهر الفرات.",
+    "Topic": "History",
+    "Formality": "Formal",
+    "Dialect": "Iraqi Arabic",
+    "Date": "2025-04-04T00:00:00"
+  },
+  {
+    "Question": "شلون الجو بالعراق بالصيف؟",
+    "Answer": "الصيف بالعراق يكون حار كلش خصوصاً بالمناطق الجنوبية والوسطى.",
+    "Topic": "Travel",
+    "Formality": "Casual",
+    "Dialect": "Iraqi Arabic",
+    "Date": "2025-04-04T00:00:00"
+  },
+  {
+    "Question": "شنو جان يطلع بالتلفزيون عن صدام حسين؟",
+    "Answer": "أو مثلا زيارات صدام حسين الى مواقع الجبهة وال يزور محافظات وال يلتقي بقادة عسكريين أو وزراء.",
+    "Topic": "Politics",
+    "Formality": "informal",
+    "Dialect": "Iraqi Arabic",
+    "Date": "2022-11-18T00:00:00"
+  },
+  {
+    "Question": "ليش لازم المدرس يعرف طلابه؟",
+    "Answer": "عندما يواجه المدرس طلابه لأول مرة فإنه يشعر أنه يواجه عالماً مجهولاً لديه إلى حد بعيد.",
+    "Topic": "Students",
+    "Formality": "formal",
+    "Dialect": "Iraqi Arabic",
+    "Date": "2025-11-22T00:00:00"
+  },
+  {
+    "Question": "أكو واي فاي مجاني بالمطار؟",
+    "Answer": "إي نعم، المطار يوفر واي فاي مجاني للمسافرين.",
+    "Topic": "Airport",
+    "Formality": "Casual",
+    "Dialect": "Iraqi Arabic",
+    "Date": "2025-04-04T00:00:00"
+  },
+  {
+    "Question": "شلون كانت الضيافة يمهم؟",
+    "Answer": "فد شي، جابوا كلشي يخطر بالبال.",
+    "Topic": "Hospitality",
+    "Formality": "informal",
+    "Dialect": "Iraqi Arabic",
+    "Date": "2024-07-24T00:00:00"
+  },
+  {
+    "Question": "شنو أهم مكان ديني يزوروه الناس بالنجف؟",
+    "Answer": "أكثر مكان يزوروه هو مرقد الإمام علي عليه السلام.",
+    "Topic": "Travel",
+    "Formality": "Casual",
+    "Dialect": "Iraqi Arabic",
+    "Date": "2025-04-04T00:00:00"
+  },
+  {
+    "Question": "ومنو هاي؟",
+    "Answer": "هاي مرتة ليلى.",
+    "Topic": "Family",
+    "Formality": "informal",
+    "Dialect": "Iraqi Arabic",
+    "Date": "2021-05-03T00:00:00"
+  },
+  {
+    "Question": "شنو أفضل رياضة حتى الواحد يحافظ على صحته؟",
+    "Answer": "المشي والسباحة من أفضل الرياضات للصحة.",
+    "Topic": "Sports",
+    "Formality": "Casual",
+    "Dialect": "Iraqi Arabic",
+    "Date": "2025-04-04T00:00:00"
+  },
+  {
+    "Question": "وين كانت نينوى؟",
+    "Answer": "نينوى كانت بالموصل وتعتبر من أهم المدن الآشورية.",
+    "Topic": "History",
+    "Formality": "Formal",
+    "Dialect": "Iraqi Arabic",
+    "Date": "2025-04-04T00:00:00"
+  },
+  {
+    "Question": "شنو اشتهر بيه الآشوريين؟",
+    "Answer": "اشتهروا بالقوة العسكرية وبناء المدن الكبيرة.",
+    "Topic": "History",
+    "Formality": "Formal",
+    "Dialect": "Iraqi Arabic",
+    "Date": "2025-04-04T00:00:00"
+  },
+  {
+    "Question": "وين قضيت العطلة؟",
+    "Answer": "قضيتها بالبصرة.",
+    "Topic": "Travel",
+    "Formality": "informal",
+    "Dialect": "Iraqi Arabic",
+    "Date": "2019-02-06T00:00:00"
+  },
+  {
+    "Question": "شنو يفيد المدرس إذا يعرف طريقة التعلم؟",
+    "Answer": "إلمام المعلم بالطريقة التي يتم بها التعلم يساعده على اختيار الطريقة الصحيحة بالتدريس.",
+    "Topic": "Teaching Methods",
+    "Formality": "formal",
+    "Dialect": "Iraqi Arabic",
+    "Date": "2025-11-22T00:00:00"
+  },
+  {
+    "Question": "أگدر أشحن تلفوني بالمطار؟",
+    "Answer": "إي، أكو أماكن مخصصة للشحن بصالة الانتظار.",
+    "Topic": "Airport",
+    "Formality": "Casual",
+    "Dialect": "Iraqi Arabic",
+    "Date": "2025-04-04T00:00:00"
+  },
+  {
+    "Question": "شنو جان وضع التلفزيون بفترة حرب إيران؟",
+    "Answer": "جان عدنه حرب ايران، ببينه وبين ايران من الثمانينات، فهالوقت جان يتخلله مسلسلات وتمثيليات تلفزيونية عراقية وافلام مصرية وعربية وافلام اجنبية.",
+    "Topic": "History",
+    "Formality": "informal",
+    "Dialect": "Iraqi Arabic",
+    "Date": "2022-11-18T00:00:00"
+  },
+  {
+    "Question": "وين تحب تاكل كباب؟",
+    "Answer": "أحب آكل بالكاظمية، الكباب هناك يخبل.",
+    "Topic": "Food",
+    "Formality": "informal",
+    "Dialect": "Iraqi Arabic",
+    "Date": "2024-07-24T00:00:00"
+  },
+  {
+    "Question": "شلون ألقى شغل وأنا طالب؟",
+    "Answer": "دور على شغل جزئي أو أونلاين حتى يناسب وقتك.",
+    "Topic": "Work",
+    "Formality": "Casual",
+    "Dialect": "Iraqi Arabic",
+    "Date": "2025-01-15T00:00:00"
+  },
+  {
+    "Question": "منو كان أشهر عالم عاش ببغداد؟",
+    "Answer": "من أشهر العلماء كان الخوارزمي.",
+    "Topic": "History",
+    "Formality": "Formal",
+    "Dialect": "Iraqi Arabic",
+    "Date": "2025-04-04T00:00:00"
+  },
+  {
+    "Question": "شلون أنظم وقتي بين الدراسة والشغل؟",
+    "Answer": "قسم يومك على فترات قصيرة وخلي وقت ثابت للدراسة والراحة.",
+    "Topic": "Study",
+    "Formality": "Casual",
+    "Dialect": "Iraqi Arabic",
+    "Date": "2025-01-15T00:00:00"
+  },
+  {
+    "Question": "ليش مهم المدرس يستثير دافعية الطلاب؟",
+    "Answer": "من الصعب جداً أن يتعلم طالب ليس لديه دافعية للتعلم.",
+    "Topic": "Motivation",
+    "Formality": "formal",
+    "Dialect": "Iraqi Arabic",
+    "Date": "2025-11-22T00:00:00"
+  },
+  {
+    "Question": "ليش الناس تحب كرة القدم؟",
+    "Answer": "لأن بيها حماس وتجمع الناس على شي واحد.",
+    "Topic": "Sports",
+    "Formality": "Casual",
+    "Dialect": "Iraqi Arabic",
+    "Date": "2025-01-15T00:00:00"
+  },
+  {
+    "Question": "خلصت معاملتك بالدائرة؟",
+    "Answer": "لا بعدني أركض ورا التواقيع.",
+    "Topic": "Bureaucracy",
+    "Formality": "informal",
+    "Dialect": "Iraqi Arabic",
+    "Date": "2024-07-24T00:00:00"
+  },
+  {
+    "Question": "أكو بالعراق اهتمام برياضات القتال؟",
+    "Answer": "إي نعم، أكو اهتمام بالملاكمة، التايكوندو، والجودو.",
+    "Topic": "Sports",
+    "Formality": "Casual",
+    "Dialect": "Iraqi Arabic",
+    "Date": "2025-04-04T00:00:00"
+  },
+  {
+    "Question": "شنو أهمية الأهداف بالتدريس؟",
+    "Answer": "للأهداف في أي عمل أهمية كبيرة.",
+    "Topic": "Education",
+    "Formality": "formal",
+    "Dialect": "Iraqi Arabic",
+    "Date": "2025-11-22T00:00:00"
+  },
+  {
+    "Question": "شنو فائدة الوسائل التعليمية؟",
+    "Answer": "الوسائل التعليمية توفر على المدرس الكثير من الكلام النظري وتجذب انتباه الطلاب.",
+    "Topic": "Educational Tools",
+    "Formality": "formal",
+    "Dialect": "Iraqi Arabic",
+    "Date": "2025-11-22T00:00:00"
+  },
+  {
+    "Question": "تكدر تكلي وين مستشفى الكرادة؟",
+    "Answer": "إي، دايور يسرة.",
+    "Topic": "Directions",
+    "Formality": "informal",
+    "Dialect": "Iraqi Arabic",
+    "Date": "2021-05-03T00:00:00"
+  },
+  {
+    "Question": "أكو رياضات مائية بالعراق؟",
+    "Answer": "إي، أكو سباحة وتجديف خصوصاً بالمناطق القريبة على الأنهر.",
+    "Topic": "Sports",
+    "Formality": "Casual",
+    "Dialect": "Iraqi Arabic",
+    "Date": "2025-04-04T00:00:00"
+  },
+  {
+    "Question": "شنو أحسن أكل للفطور الصبح؟",
+    "Answer": "البيض والجبن ويه خبز حار يشبعون ويخلونك تبدي يومك زين.",
+    "Topic": "Food",
+    "Formality": "Casual",
+    "Dialect": "Iraqi Arabic",
+    "Date": "2025-01-15T00:00:00"
+  },
+  {
+    "Question": "شنو أكثر شي مضايقك؟",
+    "Answer": "الكهرباء، كل شويه تطفي.",
+    "Topic": "Complaints",
+    "Formality": "informal",
+    "Dialect": "Iraqi Arabic",
+    "Date": "2024-07-24T00:00:00"
+  },
+  {
+    "Question": "ليش الأطفال يحبون الألعاب الإلكترونية؟",
+    "Answer": "لأن بيها تحدي وتسليهم لفترة طويلة.",
+    "Topic": "Entertainment",
+    "Formality": "Casual",
+    "Dialect": "Iraqi Arabic",
+    "Date": "2025-01-15T00:00:00"
+  },
+  {
+    "Question": "ليش معصب هالكثر؟",
+    "Answer": "لأن كلشي ما دايمشي مثل ما أريد.",
+    "Topic": "Arguments",
+    "Formality": "informal",
+    "Dialect": "Iraqi Arabic",
+    "Date": "2024-07-24T00:00:00"
+  },
+  {
+    "Question": "منو أسس مدينة بغداد؟",
+    "Answer": "الخليفة أبو جعفر المنصور هو اللي أسس بغداد.",
+    "Topic": "History",
+    "Formality": "Formal",
+    "Dialect": "Iraqi Arabic",
+    "Date": "2025-04-04T00:00:00"
+  },
+  {
+    "Question": "إذا أزور كربلاء، شنو الأماكن المهمة هناك؟",
+    "Answer": "أهم الأماكن هي مرقد الإمام الحسين ومرقد العباس والأسواق القريبة منهم.",
+    "Topic": "Travel",
+    "Formality": "Casual",
+    "Dialect": "Iraqi Arabic",
+    "Date": "2025-04-04T00:00:00"
+  },
+  {
+    "Question": "شبيك؟",
+    "Answer": "سيارة ملغومة انفجرت يمنا.",
+    "Topic": "Emergency",
+    "Formality": "urgent",
+    "Dialect": "Iraqi Arabic",
+    "Date": "2021-05-03T00:00:00"
+  },
+  {
+    "Question": "شلون أتعلم لهجة عراقية أسرع؟",
+    "Answer": "اسمع ناس يحجون عراقي يومياً وحاول تستخدم الكلمات البسيطة.",
+    "Topic": "Internet",
+    "Formality": "Casual",
+    "Dialect": "Iraqi Arabic",
+    "Date": "2025-04-04T00:00:00"
+  },
+  {
+    "Question": "شنو أحسن طريقة أتعلم بيها بسرعة؟",
+    "Answer": "كرر المعلومة أكثر من مرة واستخدم أمثلة.",
+    "Topic": "Study",
+    "Formality": "Casual",
+    "Dialect": "Iraqi Arabic",
+    "Date": "2025-01-15T00:00:00"
+  },
+  {
+    "Question": "صباح الخير.",
+    "Answer": "صباح النور.",
+    "Topic": "Greeting",
+    "Formality": "informal",
+    "Dialect": "Iraqi Arabic",
+    "Date": "2021-05-03T00:00:00"
+  },
+  {
+    "Question": "تحب الشاي لو القهوة؟",
+    "Answer": "أحب الشاي أكثر.",
+    "Topic": "Food",
+    "Formality": "informal",
+    "Dialect": "Iraqi Arabic",
+    "Date": "2019-02-06T00:00:00"
+  },
+  {
+    "Question": "تحب السفر؟",
+    "Answer": "إي نعم، أحب السفر هواية.",
+    "Topic": "Travel",
+    "Formality": "informal",
+    "Dialect": "Iraqi Arabic",
+    "Date": "2019-02-06T00:00:00"
+  },
+  {
+    "Question": "شنو أهمية بغداد بالتاريخ الإسلامي؟",
+    "Answer": "كانت مركز للعلم والثقافة والتجارة.",
+    "Topic": "History",
+    "Formality": "Formal",
+    "Dialect": "Iraqi Arabic",
+    "Date": "2025-04-04T00:00:00"
+  },
+  {
+    "Question": "شنو جان يطلع بعد نشرة الأخبار؟",
+    "Answer": "وراها عدنه نشيد وطني يطلع.",
+    "Topic": "News",
+    "Formality": "informal",
+    "Dialect": "Iraqi Arabic",
+    "Date": "2022-11-18T00:00:00"
+  },
+  {
+    "Question": "هل أكو أماكن سياحية للأطفال بالعراق؟",
+    "Answer": "إي أكو مثل مدينة الألعاب ببغداد، الزوراء بارك، وبعض المنتزهات بأربيل.",
+    "Topic": "Travel",
+    "Formality": "Casual",
+    "Dialect": "Iraqi Arabic",
+    "Date": "2025-04-04T00:00:00"
+  },
+  {
+    "Question": "شنو يفيد المدرس إذا يعرف خصائص الطلاب؟",
+    "Answer": "معرفته المسبقة بالخصائص العامة لتلك الفئة يفيده في وضع القواعد للتعامل معها.",
+    "Topic": "Students",
+    "Formality": "formal",
+    "Dialect": "Iraqi Arabic",
+    "Date": "2025-11-22T00:00:00"
+  },
+  {
+    "Question": "شراح تعلمنا اليوم؟",
+    "Answer": "شلون نقره خريطة.",
+    "Topic": "School",
+    "Formality": "informal",
+    "Dialect": "Iraqi Arabic",
+    "Date": "2021-05-03T00:00:00"
+  },
+  {
+    "Question": "شلون أحافظ على تركيزي بالدراسة؟",
+    "Answer": "ابعد الموبايل وخذ استراحات قصيرة بين كل فترة.",
+    "Topic": "Study",
+    "Formality": "Casual",
+    "Dialect": "Iraqi Arabic",
+    "Date": "2025-01-15T00:00:00"
+  },
+  {
+    "Question": "شنو المواضيع اللي جان يحجي بيها برنامج العلم للجميع؟",
+    "Answer": "طبعا هو برنامج خاص بالفضاء، بالرياضيات، بالأشياء العلمية البحتة.",
+    "Topic": "Science",
+    "Formality": "informal",
+    "Dialect": "Iraqi Arabic",
+    "Date": "2022-11-18T00:00:00"
+  },
+  {
+    "Question": "شنو أقدم حضارة كانت بالعراق؟",
+    "Answer": "أقدم حضارة كانت بالعراق هي الحضارة السومرية.",
+    "Topic": "History",
+    "Formality": "Formal",
+    "Dialect": "Iraqi Arabic",
+    "Date": "2025-04-04T00:00:00"
+  },
+  {
+    "Question": "شلون أحافظ على صحتي؟",
+    "Answer": "اكل زين وتحرك يومياً واشرب مي كافي.",
+    "Topic": "Health",
+    "Formality": "Casual",
+    "Dialect": "Iraqi Arabic",
+    "Date": "2025-01-15T00:00:00"
+  },
+  {
+    "Question": "شنو الشي اللي يخلي المدرس يظل متحفز للإنجاز؟",
+    "Answer": "إيجاد الدافع للإنجاز وإبقاؤه فاعل.",
+    "Topic": "Motivation",
+    "Formality": "formal",
+    "Dialect": "Iraqi Arabic",
+    "Date": "2025-11-22T00:00:00"
+  },
+  {
+    "Question": "منو كان نبوخذ نصر؟",
+    "Answer": "نبوخذ نصر كان ملك بابلي معروف وقوى دولة بابل.",
+    "Topic": "History",
+    "Formality": "Formal",
+    "Dialect": "Iraqi Arabic",
+    "Date": "2025-04-04T00:00:00"
+  },
+  {
+    "Question": "وين صاير شارع السعدون؟",
+    "Answer": "تطلع گبال، تعبر جسر الجمهورية.",
+    "Topic": "Directions",
+    "Formality": "informal",
+    "Dialect": "Iraqi Arabic",
+    "Date": "2021-05-03T00:00:00"
+  },
+  {
+    "Question": "شنو هوة؟",
+    "Answer": "تمن ومرگ.",
+    "Topic": "Food",
+    "Formality": "informal",
+    "Dialect": "Iraqi Arabic",
+    "Date": "2021-05-03T00:00:00"
+  },
+  {
+    "Question": "شنو الفرق بين النص القابل للقراءة والنص القابل للكتابة حسب بارت؟",
+    "Answer": "فالأول يقدّم معناه جاهزا، ويطلب من القارئ استهلاكه، بينما الثاني يغوي القارئ للمشاركة في إنتاج المعنى، ويستفزه على التأويل، ويشركه في اجتراح دلالاته.",
+    "Topic": "Literary Criticism",
+    "Formality": "formal",
+    "Dialect": "Iraqi Arabic",
+    "Date": "#N/A"
+  },
+  {
+    "Question": "الساعة بيش هسه؟",
+    "Answer": "الساعة وحدة ونص بعد الظهر.",
+    "Topic": "Time",
+    "Formality": "informal",
+    "Dialect": "Iraqi Arabic",
+    "Date": "2021-05-03T00:00:00"
+  },
+  {
+    "Question": "شنو اسمك؟",
+    "Answer": "اسمي علي.",
+    "Topic": "Introduction",
+    "Formality": "informal",
+    "Dialect": "Iraqi Arabic",
+    "Date": "2019-02-06T00:00:00"
+  },
+  {
+    "Question": "وين رايح هسه؟",
+    "Answer": "رايح للسوق.",
+    "Topic": "Travel",
+    "Formality": "informal",
+    "Dialect": "Iraqi Arabic",
+    "Date": "2019-02-06T00:00:00"
+  },
+  {
+    "Question": "شنو أهمية نهر دجلة والفرات بالحضارات القديمة؟",
+    "Answer": "كانوا مصدر للزراعة والحياة والنقل.",
+    "Topic": "History",
+    "Formality": "Formal",
+    "Dialect": "Iraqi Arabic",
+    "Date": "2025-04-04T00:00:00"
+  },
+  {
+    "Question": "المدرسة شلون وياك؟",
+    "Answer": "زينه، بس الامتحانات مخبلتني.",
+    "Topic": "School",
+    "Formality": "informal",
+    "Dialect": "Iraqi Arabic",
+    "Date": "2024-07-24T00:00:00"
+  },
+  {
+    "Question": "ليش المدرس لازم يبتعد عن الروتين؟",
+    "Answer": "التزام المدرس بطريقة واحدة يجعل الدرس عبارة عن عمل رتيب وممل.",
+    "Topic": "Teaching Methods",
+    "Formality": "formal",
+    "Dialect": "Iraqi Arabic",
+    "Date": "2025-11-22T00:00:00"
+  },
+  {
+    "Question": "وين ناوي تسافر بالصيف؟",
+    "Answer": "يمكن أروح أربيل، الجو هناك أبرد.",
+    "Topic": "Travel",
+    "Formality": "informal",
+    "Dialect": "Iraqi Arabic",
+    "Date": "2024-07-24T00:00:00"
+  },
+  {
+    "Question": "شنو أحسن مكان للتسوق؟",
+    "Answer": "المولات والأسواق الشعبية حسب شنو تريد تشتري.",
+    "Topic": "Daily Life",
+    "Formality": "Casual",
+    "Dialect": "Iraqi Arabic",
+    "Date": "2025-01-15T00:00:00"
+  },
+  {
+    "Question": "شكد الوزن المسموح للشنطة؟",
+    "Answer": "الوزن المسموح يختلف حسب شركة الطيران، بس غالباً 23 كيلو.",
+    "Topic": "Airport",
+    "Formality": "Casual",
+    "Dialect": "Iraqi Arabic",
+    "Date": "2025-04-04T00:00:00"
+  },
+  {
+    "Question": "شنو البرنامج الرياضي المشهور؟",
+    "Answer": "يوم الثلاثاء الرياضة في أسبوع يقدمه مؤيد البدري.",
+    "Topic": "Sports",
+    "Formality": "informal",
+    "Dialect": "Iraqi Arabic",
+    "Date": "2022-11-18T00:00:00"
+  },
+  {
+    "Question": "شنو أحسن هدية للصديق؟",
+    "Answer": "شي بسيط يعبر عن اهتمامك مثل كتاب أو عطر.",
+    "Topic": "Social",
+    "Formality": "Casual",
+    "Dialect": "Iraqi Arabic",
+    "Date": "2025-01-15T00:00:00"
+  },
+  {
+    "Question": "وين تروح بالويكند؟",
+    "Answer": "أروح للمول أو أزور أهلي.",
+    "Topic": "Leisure",
+    "Formality": "informal",
+    "Dialect": "Iraqi Arabic",
+    "Date": "2019-02-06T00:00:00"
+  },
+  {
+    "Question": "جوازي لازم يضل وياي لو أخليه بالشنطة؟",
+    "Answer": "لازم يبقى وياك لأن تحتاجه بالتفتيش والصعود للطائرة.",
+    "Topic": "Airport",
+    "Formality": "Casual",
+    "Dialect": "Iraqi Arabic",
+    "Date": "2025-04-04T00:00:00"
+  },
+  {
+    "Question": "شنو أحسن أكل بالشتا؟",
+    "Answer": "الشوربة والدولمة والأكلات الحارة تصير ألذ بالبرد.",
+    "Topic": "Food",
+    "Formality": "Casual",
+    "Dialect": "Iraqi Arabic",
+    "Date": "2025-01-15T00:00:00"
+  },
+  {
+    "Question": "شلون المدرس يگدر يشد انتباه الطلاب؟",
+    "Answer": "كلما كانت البداية غير متوقعة كلما استطاع أن يشد انتباه الطلاب أكثر.",
+    "Topic": "Students",
+    "Formality": "formal",
+    "Dialect": "Iraqi Arabic",
+    "Date": "2025-11-22T00:00:00"
+  },
+  {
+    "Question": "حباية مال أيش، شبيك عيني؟",
+    "Answer": "راسي دا يوجعني.",
+    "Topic": "Health",
+    "Formality": "informal",
+    "Dialect": "Iraqi Arabic",
+    "Date": "2021-05-03T00:00:00"
+  },
+  {
+    "Question": "شنو جانت تسوي العائلة العراقية بالتلفزيون؟",
+    "Answer": "وكان ايضا العائلة العراقية كانت ونستها انه تتفرج على التلفزيون وعلى المسلسلات العراقية.",
+    "Topic": "Family",
+    "Formality": "informal",
+    "Dialect": "Iraqi Arabic",
+    "Date": "2022-11-18T00:00:00"
+  },
+  {
+    "Question": "وين المنطقة الخضرة؟",
+    "Answer": "اطلع گبال ودايور يمنة.",
+    "Topic": "Directions",
+    "Formality": "informal",
+    "Dialect": "Iraqi Arabic",
+    "Date": "2021-05-03T00:00:00"
+  },
+  {
+    "Question": "ليش القهوة العراقية طعمها قوي؟",
+    "Answer": "لأن تنطبخ على نار هادئة وتنحط بيها هيل.",
+    "Topic": "Market",
+    "Formality": "Polite",
+    "Dialect": "Iraqi Arabic",
+    "Date": "2025-04-04T00:00:00"
+  },
+  {
+    "Question": "أكو نشرة أخبار ثانية بالليل؟",
+    "Answer": "وبالعشرة كان عدنه أيضا نشرة الأخبار.",
+    "Topic": "News",
+    "Formality": "informal",
+    "Dialect": "Iraqi Arabic",
+    "Date": "2022-11-18T00:00:00"
+  },
+  {
+    "Question": "شنو أشهر الأماكن السياحية بالبصرة؟",
+    "Answer": "من أشهر الأماكن بالبصرة شط العرب، كورنيش البصرة، وجزيرة السندباد.",
+    "Topic": "Travel",
+    "Formality": "Casual",
+    "Dialect": "Iraqi Arabic",
+    "Date": "2025-04-04T00:00:00"
+  },
+  {
+    "Question": "شنو أشهر سوق ببغداد؟",
+    "Answer": "أشهر سوق هو سوق الشورجة لأن بيه كلشي من ملابس وأكل وتحف.",
+    "Topic": "Travel",
+    "Formality": "Casual",
+    "Dialect": "Iraqi Arabic",
+    "Date": "2025-04-04T00:00:00"
+  },
+  {
+    "Question": "إمته جانت تنعرض هذي البرامج؟",
+    "Answer": "الثلاثاء والأربعاء وهمين يعرض بنفس الوقت الساعة تسعة.",
+    "Topic": "Television Schedule",
+    "Formality": "informal",
+    "Dialect": "Iraqi Arabic",
+    "Date": "2022-11-18T00:00:00"
+  },
+  {
+    "Question": "تحب الصيف لو الشتة؟",
+    "Answer": "أحب الشتة أكثر.",
+    "Topic": "Weather",
+    "Formality": "informal",
+    "Dialect": "Iraqi Arabic",
+    "Date": "2019-02-06T00:00:00"
+  },
+  {
+    "Question": "الله يخليك، عندك حباية؟",
+    "Answer": "حباية مال أيش، شبيك عيني؟",
+    "Topic": "Health",
+    "Formality": "informal",
+    "Dialect": "Iraqi Arabic",
+    "Date": "2021-05-03T00:00:00"
+  },
+  {
+    "Question": "أكو ناس بالعراق يلعبون كرة سلة؟",
+    "Answer": "إي نعم، كرة السلة موجودة وعدها جماهير خصوصاً بالمدارس والجامعات.",
+    "Topic": "Sports",
+    "Formality": "Casual",
+    "Dialect": "Iraqi Arabic",
+    "Date": "2025-04-04T00:00:00"
+  },
+  {
+    "Question": "وين التفتيش الأمني؟",
+    "Answer": "التفتيش الأمني بعد كاونتر تسجيل الدخول مباشرة.",
+    "Topic": "Airport",
+    "Formality": "Casual",
+    "Dialect": "Iraqi Arabic",
+    "Date": "2025-04-04T00:00:00"
+  },
+  {
+    "Question": "شلون كانت العرس؟",
+    "Answer": "حلوة، بس الموسيقى كانت عالية كلش.",
+    "Topic": "Weddings",
+    "Formality": "informal",
+    "Dialect": "Iraqi Arabic",
+    "Date": "2024-07-24T00:00:00"
+  },
+  {
+    "Question": "وين أگدر أطلع ويه الأصدقاء؟",
+    "Answer": "تگدر تروح لكافيه أو حديقة أو تتمشى بالسوق.",
+    "Topic": "Car",
+    "Formality": "Polite",
+    "Dialect": "Iraqi Arabic",
+    "Date": "2025-04-04T00:00:00"
+  },
+  {
+    "Question": "شلون يصير الدرس ممتع؟",
+    "Answer": "على المدرس أن يستخدم الأسلوب القصصي ويسمح بشيء من الدعابة.",
+    "Topic": "Teaching Methods",
+    "Formality": "formal",
+    "Dialect": "Iraqi Arabic",
+    "Date": "2025-11-22T00:00:00"
+  },
+  {
+    "Question": "العراق عنده لاعبين مشهورين بكرة القدم؟",
+    "Answer": "إي نعم، مثل يونس محمود ونشأت أكرم.",
+    "Topic": "Sports",
+    "Formality": "Casual",
+    "Dialect": "Iraqi Arabic",
+    "Date": "2025-04-04T00:00:00"
+  },
+  {
+    "Question": "تريد شي؟",
+    "Answer": "آني هنا للمقابلة.",
+    "Topic": "Work",
+    "Formality": "informal",
+    "Dialect": "Iraqi Arabic",
+    "Date": "2021-05-03T00:00:00"
+  },
+  {
+    "Question": "شنو البرامج الثقافية اللي جانت موجودة؟",
+    "Answer": "وراها تبدي عدنه تقريبا من السبعة للثمانية هذا مخصص اله برنامج ثقافي مثلا عن المرور يحجي ومثال عن الزراعة.",
+    "Topic": "Culture",
+    "Formality": "informal",
+    "Dialect": "Iraqi Arabic",
+    "Date": "2022-11-18T00:00:00"
+  },
+  {
+    "Question": "المنتخب العراقي شنو أكثر بطولة فاز بيها؟",
+    "Answer": "أكثر إنجاز معروف هو فوزه بكأس آسيا سنة 2007.",
+    "Topic": "Sports",
+    "Formality": "Casual",
+    "Dialect": "Iraqi Arabic",
+    "Date": "2025-04-04T00:00:00"
+  },
+  {
+    "Question": "كم ساعة تنام بالليل؟",
+    "Answer": "أنام تقريباً سبع ساعات.",
+    "Topic": "Health",
+    "Formality": "informal",
+    "Dialect": "Iraqi Arabic",
+    "Date": "2019-02-06T00:00:00"
+  },
+  {
+    "Question": "شنو أحسن فاكهة بالصيف؟",
+    "Answer": "الرقي والبطيخ يبردون ويصير طعمهم أحلى بالصيف.",
+    "Topic": "Food",
+    "Formality": "Casual",
+    "Dialect": "Iraqi Arabic",
+    "Date": "2025-01-15T00:00:00"
+  },
+  {
+    "Question": "أگدر أدخل أكل وياي للطائرة؟",
+    "Answer": "إي، بس لازم يكون ضمن التعليمات المسموحة.",
+    "Topic": "Airport",
+    "Formality": "Casual",
+    "Dialect": "Iraqi Arabic",
+    "Date": "2025-04-04T00:00:00"
+  },
+  {
+    "Question": "شنو أشهر نادي كرة قدم بالعراق؟",
+    "Answer": "من أشهر الأندية العراقية نادي الزوراء ونادي القوة الجوية.",
+    "Topic": "Sports",
+    "Formality": "Casual",
+    "Dialect": "Iraqi Arabic",
+    "Date": "2025-04-04T00:00:00"
+  },
+  {
+    "Question": "شلون جانت البرامج محصورة بذاك الوقت؟",
+    "Answer": "فالبرنامج كله، الوقت كله محصور لصدام حسين.",
+    "Topic": "Politics",
+    "Formality": "informal",
+    "Dialect": "Iraqi Arabic",
+    "Date": "2022-11-18T00:00:00"
+  },
+  {
+    "Question": "وين كانت مدينة بابل القديمة؟",
+    "Answer": "مدينة بابل كانت قريبة على الحلة الحالية.",
+    "Topic": "History",
+    "Formality": "Formal",
+    "Dialect": "Iraqi Arabic",
+    "Date": "2025-04-04T00:00:00"
+  },
+  {
+    "Question": "وين ساكن؟",
+    "Answer": "اني ساكن ببغداد.",
+    "Topic": "Location",
+    "Formality": "informal",
+    "Dialect": "Iraqi Arabic",
+    "Date": "2019-02-06T00:00:00"
+  },
+  {
+    "Question": "شلون صحتك هالفترة؟",
+    "Answer": "مو ذاك الزود، عندي صداع من يومين.",
+    "Topic": "Health",
+    "Formality": "informal",
+    "Dialect": "Iraqi Arabic",
+    "Date": "2024-07-24T00:00:00"
+  },
+  {
+    "Question": "شنو جان ينعرض بعد النشيد الوطني؟",
+    "Answer": "وبعدين إذا أكو مسلسل عراقي بهذا الوقت مثلا بهذا اليوم المحدد يعرض أو مسلسل عربي.",
+    "Topic": "Television Schedule",
+    "Formality": "informal",
+    "Dialect": "Iraqi Arabic",
+    "Date": "2022-11-18T00:00:00"
+  },
+  {
+    "Question": "شلون جان الجمهور يتابع هذي البرامج؟",
+    "Answer": "فكانوا هذولي البرنامجين مستأثرين على الجمهور وأغلبية العوائل العراقية تتفرجهن.",
+    "Topic": "Audience",
+    "Formality": "informal",
+    "Dialect": "Iraqi Arabic",
+    "Date": "2022-11-18T00:00:00"
+  },
+  {
+    "Question": "ليش مهم المدرس يعرف شلون تصير عملية التدريس؟",
+    "Answer": "إن أي مهنة لا يمكن اتقانها إلا بعد الإلمام بأصولها ومبادئها.",
+    "Topic": "Education",
+    "Formality": "formal",
+    "Dialect": "Iraqi Arabic",
+    "Date": "2025-11-22T00:00:00"
+  },
+  {
+    "Question": "شلون أتعلم طبخ؟",
+    "Answer": "ابدأ بأكلات سهلة ومع الوقت راح تتحسن.",
+    "Topic": "Food",
+    "Formality": "Casual",
+    "Dialect": "Iraqi Arabic",
+    "Date": "2025-01-15T00:00:00"
+  },
+  {
+    "Question": "شنو أكثر رياضة منتشرة بالمدارس؟",
+    "Answer": "كرة القدم وألعاب الساحة مثل الركض تعتبر الأكثر انتشاراً.",
+    "Topic": "Sports",
+    "Formality": "Casual",
+    "Dialect": "Iraqi Arabic",
+    "Date": "2025-04-04T00:00:00"
+  },
+  {
+    "Question": "شنو يعني الإعداد الكتابي؟",
+    "Answer": "وهو تسجيل لطريقة سير الدرس بشكل خطوات واضحة ومحددة.",
+    "Topic": "Lesson Planning",
+    "Formality": "formal",
+    "Dialect": "Iraqi Arabic",
+    "Date": "2025-11-22T00:00:00"
+  },
+  {
+    "Question": "شنو البرامج الخاصة بالأطفال اللي جانت موجودة؟",
+    "Answer": "وراها تطلع برامج للأطفال يعني المرسم الصغير، يعلم الأطفال شلون يرسمون.",
+    "Topic": "Children Programs",
+    "Formality": "informal",
+    "Dialect": "Iraqi Arabic",
+    "Date": "2022-11-18T00:00:00"
+  },
+  {
+    "Question": "تفضل ويانه للبيت.",
+    "Answer": "بيا مناسبة؟",
+    "Topic": "Hospitality",
+    "Formality": "informal",
+    "Dialect": "Iraqi Arabic",
+    "Date": "2021-05-03T00:00:00"
+  },
+  {
+    "Question": "شلونك؟",
+    "Answer": "اني زين، الحمد لله.",
+    "Topic": "Greeting",
+    "Formality": "informal",
+    "Dialect": "Iraqi Arabic",
+    "Date": "2019-02-06T00:00:00"
+  },
+  {
+    "Question": "شلون أطور لغتي الإنكليزية؟",
+    "Answer": "شوف أفلام واسمع كلمات جديدة كل يوم.",
+    "Topic": "Language",
+    "Formality": "Casual",
+    "Dialect": "Iraqi Arabic",
+    "Date": "2025-01-15T00:00:00"
+  },
+  {
+    "Question": "شلون ألقى هواية جديدة؟",
+    "Answer": "جرب أكثر من نشاط وشوف شنو يعجبك أكثر.",
+    "Topic": "Hobbies",
+    "Formality": "Casual",
+    "Dialect": "Iraqi Arabic",
+    "Date": "2025-01-15T00:00:00"
+  },
+  {
+    "Question": "شلون أهلك هالأيام؟",
+    "Answer": "زينين الحمدلله، بس أبويه شويه تعبان من الشغل.",
+    "Topic": "Family",
+    "Formality": "informal",
+    "Dialect": "Iraqi Arabic",
+    "Date": "2024-07-24T00:00:00"
+  },
+  {
+    "Question": "شنو أحسن طريقة أبدأ يومي؟",
+    "Answer": "قوم بدري وافطر زين حتى يكون عندك نشاط.",
+    "Topic": "Daily Life",
+    "Formality": "Casual",
+    "Dialect": "Iraqi Arabic",
+    "Date": "2025-01-15T00:00:00"
+  },
+  {
+    "Question": "التكسي غالي هالأيام؟",
+    "Answer": "إي والله، السواقين صاروا يطلبون دبل.",
+    "Topic": "Taxi rides",
+    "Formality": "informal",
+    "Dialect": "Iraqi Arabic",
+    "Date": "2024-07-24T00:00:00"
+  },
+  {
+    "Question": "شسمك؟",
+    "Answer": "اسمي جان.",
+    "Topic": "Introduction",
+    "Formality": "informal",
+    "Dialect": "Iraqi Arabic",
+    "Date": "2021-05-03T00:00:00"
+  },
+  {
+    "Question": "شنو أكثر رياضة يحبون يتابعوها بالتلفزيون؟",
+    "Answer": "أغلب الناس يتابعون مباريات كرة القدم.",
+    "Topic": "Sports",
+    "Formality": "Casual",
+    "Dialect": "Iraqi Arabic",
+    "Date": "2025-04-04T00:00:00"
+  },
+  {
+    "Question": "رحت الجامع الجمعة؟",
+    "Answer": "إي رحت، والخطيب طول بالحچي.",
+    "Topic": "Religion",
+    "Formality": "informal",
+    "Dialect": "Iraqi Arabic",
+    "Date": "2024-07-24T00:00:00"
+  },
+  {
+    "Question": "شنو بيت الحكمة؟",
+    "Answer": "بيت الحكمة كان مكان للعلم والترجمة ببغداد.",
+    "Topic": "History",
+    "Formality": "Formal",
+    "Dialect": "Iraqi Arabic",
+    "Date": "2025-04-04T00:00:00"
+  },
+  {
+    "Question": "ليش النت يصير بطيء بالليل؟",
+    "Answer": "لأن هواي ناس يستخدمون النت بنفس الوقت بالليل.",
+    "Topic": "Food",
+    "Formality": "Casual",
+    "Dialect": "Iraqi Arabic",
+    "Date": "2025-04-04T00:00:00"
+  },
+  {
+    "Question": "اتمدد على بطنك، وين مجروح؟",
+    "Answer": "بكل جسمي أكو شظايا.",
+    "Topic": "Emergency",
+    "Formality": "urgent",
+    "Dialect": "Iraqi Arabic",
+    "Date": "2021-05-03T00:00:00"
+  },
+  {
+    "Question": "شنو جان منهج التلفزيون بذاك الوقت؟",
+    "Answer": "فهذا جان المنهاج مال التلفزيون بذاك الوقت.",
+    "Topic": "Television",
+    "Formality": "informal",
+    "Dialect": "Iraqi Arabic",
+    "Date": "2022-11-18T00:00:00"
+  },
+  {
+    "Question": "شلون أگدر أحجز تكسي من المطار؟",
+    "Answer": "تكدر تحجز من مكتب التكاسي أو من تطبيقات النقل.",
+    "Topic": "Airport",
+    "Formality": "Casual",
+    "Dialect": "Iraqi Arabic",
+    "Date": "2025-04-04T00:00:00"
+  },
+  {
+    "Question": "كل عيد وإنتو بخير.",
+    "Answer": "وإنتو همين.",
+    "Topic": "Holiday",
+    "Formality": "formal",
+    "Dialect": "Iraqi Arabic",
+    "Date": "2021-05-03T00:00:00"
+  },
+  {
+    "Question": "شنو أكثر شي يميز تاريخ العراق؟",
+    "Answer": "يميزه وجود حضارات قديمة ومهمة أثرت على العالم كله.",
+    "Topic": "History",
+    "Formality": "Formal",
+    "Dialect": "Iraqi Arabic",
+    "Date": "2025-04-04T00:00:00"
+  },
+  {
+    "Question": "شلون يتعامل المدرس ويا الطلاب بشكل صحيح؟",
+    "Answer": "على المدرس أن يكون شفاف وموضوعي ويتجنب العنف مع الطلاب.",
+    "Topic": "Students",
+    "Formality": "formal",
+    "Dialect": "Iraqi Arabic",
+    "Date": "2025-11-22T00:00:00"
+  },
+  {
+    "Question": "وين ولدت الحضارة السومرية؟",
+    "Answer": "ولدت بجنوب العراق بمناطق مثل أور وأريدو.",
+    "Topic": "History",
+    "Formality": "Formal",
+    "Dialect": "Iraqi Arabic",
+    "Date": "2025-04-04T00:00:00"
+  },
+  {
+    "Question": "شنو أگدر أشتري كتذكار من العراق؟",
+    "Answer": "تكدر تشتري سجاد، مصنوعات نحاسية، أو شغلات تراثية من الأسواق القديمة.",
+    "Topic": "Travel",
+    "Formality": "Casual",
+    "Dialect": "Iraqi Arabic",
+    "Date": "2025-04-04T00:00:00"
+  },
+  {
+    "Question": "شلون أعرف رقم البوابة مالتي؟",
+    "Answer": "رقم البوابة يطلع على شاشة الرحلات أو مطبوع بالتذكرة.",
+    "Topic": "Airport",
+    "Formality": "Casual",
+    "Dialect": "Iraqi Arabic",
+    "Date": "2025-04-04T00:00:00"
+  },
+  {
+    "Question": "شكد لازم أوصل للمطار قبل الرحلة؟",
+    "Answer": "الأفضل توصل قبل الرحلة بثلاث ساعات إذا كانت دولية.",
+    "Topic": "Airport",
+    "Formality": "Casual",
+    "Dialect": "Iraqi Arabic",
+    "Date": "2025-04-04T00:00:00"
+  },
+  {
+    "Question": "ليش النت يضعف بالليل؟",
+    "Answer": "هواي ناس يستخدمون النت بنفس الوقت ولهذا يصير أبطأ.",
+    "Topic": "Technology",
+    "Formality": "Casual",
+    "Dialect": "Iraqi Arabic",
+    "Date": "2025-01-15T00:00:00"
+  },
+  {
+    "Question": "شلون أگدر أروح من بغداد للنجف؟",
+    "Answer": "تكدر تروح للنجف بالسيارة أو الباص أو الطيارة إذا تريد توصل بسرعة.",
+    "Topic": "Travel",
+    "Formality": "Casual",
+    "Dialect": "Iraqi Arabic",
+    "Date": "2025-04-04T00:00:00"
+  },
+  {
+    "Question": "وين أگدر أستلم الشنط بعد ما أوصل؟",
+    "Answer": "تستلم الشنط من منطقة استلام الأمتعة حسب رقم الرحلة.",
+    "Topic": "Airport",
+    "Formality": "Casual",
+    "Dialect": "Iraqi Arabic",
+    "Date": "2025-04-04T00:00:00"
+  },
+  {
+    "Question": "موبايلك شنو نوعه؟",
+    "Answer": "سامسونگ، قديم شويه بس يمشي الحال.",
+    "Topic": "Technology",
+    "Formality": "informal",
+    "Dialect": "Iraqi Arabic",
+    "Date": "2024-07-24T00:00:00"
+  },
+  {
+    "Question": "شكد يحتاج الواحد حتى يشتري سيارة مستعملة؟",
+    "Answer": "يعتمد على نوع السيارة وحالتها، بس أكو خيارات بأسعار مختلفة.",
+    "Topic": "Education",
+    "Formality": "Polite",
+    "Dialect": "Iraqi Arabic",
+    "Date": "2025-04-04T00:00:00"
+  },
+  {
+    "Question": "عندك العافية، حمدلله عالسلامة.",
+    "Answer": "الله يسلمك!",
+    "Topic": "Health",
+    "Formality": "informal",
+    "Dialect": "Iraqi Arabic",
+    "Date": "2021-05-03T00:00:00"
+  },
+  {
+    "Question": "منو كان حمورابي؟",
+    "Answer": "حمورابي كان ملك بابلي مشهور ووضع واحد من أقدم القوانين بالتاريخ.",
+    "Topic": "History",
+    "Formality": "Formal",
+    "Dialect": "Iraqi Arabic",
+    "Date": "2025-04-04T00:00:00"
+  },
+  {
+    "Question": "شنو الرياضة اللي تنلعب بالصيف أكثر شي؟",
+    "Answer": "أكثر شي الشباب يلعبون كرة القدم والطائرة بالصيف.",
+    "Topic": "Sports",
+    "Formality": "Casual",
+    "Dialect": "Iraqi Arabic",
+    "Date": "2025-04-04T00:00:00"
+  },
+  {
+    "Question": "شنو جان ينعرض بعد استعراض البرامج؟",
+    "Answer": "بعدين يبدي كارتون، طبعا مدة الكارتون ربع ساعة بس.",
+    "Topic": "Cartoons",
+    "Formality": "informal",
+    "Dialect": "Iraqi Arabic",
+    "Date": "2022-11-18T00:00:00"
+  },
+  {
+    "Question": "شنو يصير إذا النص يذعن لقوانين النوع ويخضع للشكل الجاهز؟",
+    "Answer": "فالنص الذي يذعن لقوانين النوع، ويخضع لإكراهات الشكل الجاهز، يفقد قدرته على المفاجأة، وإنتاج الدهشة، وزعزعة أفق التوقع.",
+    "Topic": "Literature Theory",
+    "Formality": "formal",
+    "Dialect": "Iraqi Arabic",
+    "Date": "2022-11-18T00:00:00"
+  }
+]
