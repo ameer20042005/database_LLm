@@ -4000,7 +4000,7 @@ def gen_daily(i):
     elif tpl == 64:
         decor_color = pick(["بيج","رمادي","أزرق فاتح","أخضر فاتح","أبيض"])
         decor_budget2 = random.randint(1, 8) * 1000000
-        msgs = [{"role":"user","content":f"أريد أعيد تزيين بيتي بـ{_dplace}، ميزانية {decor_budget2:,}"},{"role":"assistant","content":"فكرة حلوة! شنو تريد تغير؟"},{"role":"user","content":f"الـ{_hw} والألوان، أفضل {decor_color}؟"},{"role":"assistant","content":f"لون {decor_color} هادي وأنيق"},{"role":"user","content":"والـ{_hw} أشتري جديد؟"},{"role":"assistant","content":"لو ميزانيتك تحتمل، يستاهل"}]
+        msgs = [{"role":"user","content":f"أريد أعيد تزيين بيتي بـ{_dplace}، ميزانية {decor_budget2:,}"},{"role":"assistant","content":"فكرة حلوة! شنو تريد تغير؟"},{"role":"user","content":f"الـ{_hw} والألوان، أفضل {decor_color}؟"},{"role":"assistant","content":f"لون {decor_color} هادي وأنيق"},{"role":"user","content":f"والـ{_hw} أشتري جديد؟"},{"role":"assistant","content":"لو ميزانيتك تحتمل، يستاهل"}]
     elif tpl == 65:
         time2 = pick(["الصباح","العصر","المساء","الليل","الجمعة"])
         act2 = pick(["مشي","رياضة","صور","قهوة","قراءة"])
@@ -4232,7 +4232,7 @@ def gen_social(i):
         msgs = [{"role":"user","content":f"زميلي {_mname} ترقى بعد {promo_yrs} سنين وأنا ما ترقيت"},{"role":"assistant","content":"شنو شعورك؟"},{"role":"user","content":"زعلان بس ما أريد أظهر"},{"role":"assistant","content":f"طبيعي. اسأل مديرك شنو ينقصك للترقية"},{"role":"user","content":"صح، لازم أتطور"},{"role":"assistant","content":f"ربي يوفقك، {_pr}"}]
     elif tpl == 51:
         bride_job = pick(["طالبة","معلمة","دكتورة","مهندسة","موظفة"])
-        msgs = [{"role":"user","content":f"أريد أتزوج من بنت {bride_job} من {_city}، شنو رأيك؟"},{"role":"assistant","content":f"ناس {_city} محترمون. المهم الكفاءة والأخلاق"},{"role":"user","content":"أخاف الفرق الجغرافي بين {_city} و{_prov} مشكلة"},{"role":"assistant","content":"مو مشكلة لو الاثنين راضيين ومتفاهمين"},{"role":"user","content":"صح"},{"role":"assistant","content":"ربي يوفقك"}]
+        msgs = [{"role":"user","content":f"أريد أتزوج من بنت {bride_job} من {_city}، شنو رأيك؟"},{"role":"assistant","content":f"ناس {_city} محترمون. المهم الكفاءة والأخلاق"},{"role":"user","content":f"أخاف الفرق الجغرافي بين {_city} و{_prov} مشكلة"},{"role":"assistant","content":"مو مشكلة لو الاثنين راضيين ومتفاهمين"},{"role":"user","content":"صح"},{"role":"assistant","content":"ربي يوفقك"}]
     elif tpl == 52:
         n3 = random.randint(20, 100)
         msgs = [{"role":"user","content":f"عندي عرس لـ{n3} شخص، شنو أطبخ؟"},{"role":"assistant","content":f"{_pfood} خيار ممتاز للأعراس"},{"role":"user","content":"بقدر أطبخ بيتياً؟"},{"role":"assistant","content":"للأعداد الكبيرة أفضل طباخ أعراس"},{"role":"user","content":"شكد يكلف؟"},{"role":"assistant","content":f"{random.randint(3,8)*1000:,} دينار للشخص"}]
@@ -4314,7 +4314,7 @@ def gen_social(i):
     elif tpl == 77:
         old_rent = random.randint(2, 8) * 100000
         new_rent = old_rent + random.randint(1, 5) * 100000
-        msgs = [{"role":"user","content":f"صاحب بيتنا بـ{_city} يريد يرفع الإيجار من {old_rent:,} لـ{new_rent:,}"},{"role":"assistant","content":"تفاوض معه، وإذا ما نفع ابحث عن بديل"},{"role":"user","content":"الإيجار غالي كلش هالأيام بـ{_city}"},{"role":"assistant","content":f"أطراف {_city} أرخص بكثير"},{"role":"user","content":"صح، أبحث"},{"role":"assistant","content":"الله يوفقك"}]
+        msgs = [{"role":"user","content":f"صاحب بيتنا بـ{_city} يريد يرفع الإيجار من {old_rent:,} لـ{new_rent:,}"},{"role":"assistant","content":"تفاوض معه، وإذا ما نفع ابحث عن بديل"},{"role":"user","content":f"الإيجار غالي كلش هالأيام بـ{_city}"},{"role":"assistant","content":f"أطراف {_city} أرخص بكثير"},{"role":"user","content":"صح، أبحث"},{"role":"assistant","content":"الله يوفقك"}]
     elif tpl == 78:
         child_age = random.randint(5, 15)
         parenting_challenge = pick(["الموبايل","الأصحاب السيئين","الألعاب","الإنترنت","التلفزيون"])

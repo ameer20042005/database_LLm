@@ -1056,7 +1056,7 @@ def gen_education(i):
         msgs = [
             {"role":"user","content":f"هلو، أريد أسألك عن نظام التقييم بـ{school} للـ{_grade}"},
             {"role":"assistant","content":f"التقييم: {_yr_pct} أعمال سنة و{_final_pct} امتحان نهائي"},
-            {"role":"user","content":"أعمال السنة شتشمل بالـ{_grade}؟"},
+            {"role":"user","content":f"أعمال السنة شتشمل بالـ{_grade}؟"},
             {"role":"assistant","content":f"حضور وواجبات {subj} ومشاريع وامتحانات شهرية"},
             {"role":"user","content":"الحضور كم نقطة؟"},
             {"role":"assistant","content":f"{_attend_pct} من درجة الأعمال السنة. ما تتغيب بدون عذر"},
@@ -1080,7 +1080,7 @@ def gen_education(i):
             {"role":"assistant","content":f"ابتعاث {_spec} لـ{_abroad} للمتميزين من خريجي الجامعات الحكومية"},
             {"role":"user","content":"الشروط؟"},
             {"role":"assistant","content":f"معدل تراكمي {_gpa_req} فأكثر + اختبار {_lang_test} + موافقة وزارة التعليم"},
-            {"role":"user","content":"الراتب التشغيلي كافي بـ{_abroad}؟"},
+            {"role":"user","content":f"الراتب التشغيلي كافي بـ{_abroad}؟"},
             {"role":"assistant","content":f"يعطونك منحة {pick(['800','1000','1200'])} دولار شهرياً. يختلف حسب {_abroad}"},
         ]
     else:
@@ -1314,7 +1314,7 @@ def gen_government(i):
             {"role":"assistant","content":f"لتسجيل {_prop_type} تحتاج: صك الملكية، هوية مدنية، وتقييم حكومي"},
             {"role":"user","content":"التقييم كم يكلف؟"},
             {"role":"assistant","content":f"التقييم الحكومي {vp(_fee*2)} دينار ويستغرق {_insp_time}"},
-            {"role":"user","content":"وإذا كان {_prop_type} موروث؟"},
+            {"role":"user","content":f"وإذا كان {_prop_type} موروث؟"},
             {"role":"assistant","content":"تحتاج إضافة وثيقة الوفاة وتقسيم الإرث بقرار المحكمة"},
         ]
     elif tpl == 21:
@@ -1550,7 +1550,7 @@ def gen_government(i):
         msgs = [
             {"role":"user","content":f"أريد أسأل، انتهت مدة إقامتي الدراسية، شسوي؟"},
             {"role":"assistant","content":"تجديد الإقامة من دائرة الإقامة قبل انتهاء المدة"},
-            {"role":"user","content":"انتهت من {_expire_yrs}"},
+            {"role":"user","content":f"انتهت من {_expire_yrs}"},
             {"role":"assistant","content":f"في غرامة تأخير {vp(_fine)} دينار. تعال هسه قبل ما تزيد"},
             {"role":"user","content":"هل أتعرض لمشكلة قانونية؟"},
             {"role":"assistant","content":"لو تأخرت أكثر ممكن. اسرع وأنجز وضعك"},
@@ -1671,7 +1671,7 @@ def gen_restaurant(i):
             {"role":"user","content":"يشمل خبز وشاي؟"},
             {"role":"assistant","content":f"يشمل خبز، أما {drink} بـ{vp(_price2)} إضافي"},
             {"role":"user","content":"ماشي، آخذ واحد"},
-            {"role":"assistant","content":"حاضر يا أخوي، يجيك خلال {_wait_min}"},
+            {"role":"assistant","content":f"حاضر يا أخوي، يجيك خلال {_wait_min}"},
         ]
     elif tpl == 3:
         msgs = [
@@ -2046,7 +2046,7 @@ def gen_restaurant(i):
     elif tpl == 44:
         msgs = [
             {"role":"user","content":f"هلو، هالإيصال صح؟ جاي {vp(_total)} دينار"},
-            {"role":"assistant","content":"أشوف... حسبنا {_pax} وجبات صح؟"},
+            {"role":"assistant","content":f"أشوف... حسبنا {_pax} وجبات صح؟"},
             {"role":"user","content":"إي بس الحساب يبدو كثير"},
             {"role":"assistant","content":f"الضريبة {_tax_pct}% مضافة. هذا يرفع المجموع"},
             {"role":"user","content":"ماشي، هذا الحساب صح"},
@@ -2102,7 +2102,7 @@ def gen_restaurant(i):
             {"role":"user","content":f"هلو، عندكم {meal} و{meal2} هالأيام؟"},
             {"role":"assistant","content":f"إي والله، {meal} موجود. {meal2} بيتذبذب"},
             {"role":"user","content":f"آخذ {meal} إذاً"},
-            {"role":"assistant","content":"كلشي يتحضر طازج. يجيك خلال {_wait_min}"},
+            {"role":"assistant","content":f"كلشي يتحضر طازج. يجيك خلال {_wait_min}"},
             {"role":"user","content":f"مع {drink}"},
             {"role":"assistant","content":f"حاضر. المجموع {vp(_price1+_price2)} دينار"},
         ]
@@ -2743,7 +2743,7 @@ def gen_sports(i):
         msgs = [
             {"role":"user","content":f"المباراة النهائية بين {team1} و{team2} {_match_day}؟"},
             {"role":"assistant","content":f"إي، النهائي {_match_day} بـ{_stadium} الساعة {pick(['5','6','7'])} المسا"},
-            {"role":"user","content":"أريد أروح بـ{_stadium}، تيكيت باقي؟"},
+            {"role":"user","content":f"أريد أروح بـ{_stadium}، تيكيت باقي؟"},
             {"role":"assistant","content":f"عادي باقي. VIP يمكن انتهى"},
             {"role":"user","content":"أروح من وين أشتري؟"},
             {"role":"assistant","content":f"شباك {_stadium} يفتح من الصبح {_match_day}. روح بكير"},
@@ -3238,7 +3238,7 @@ def gen_family(i):
         msgs = [
             {"role":"user","content":f"الماي {_water_prob} من {pick(['يومين','أمس','أسبوع'])}"},
             {"role":"assistant","content":f"الماطور شغال؟"},
-            {"role":"user","content":"إي شغال بس {_water_prob}"},
+            {"role":"user","content":f"إي شغال بس {_water_prob}"},
             {"role":"assistant","content":f"لو {_water_prob} يمكن انسداد بالمواسير أو الخزان"},
             {"role":"user","content":"شسوي؟"},
             {"role":"assistant","content":f"اتصل بسباك، {_water_prob} يحتاج واحد متخصص"},
@@ -4295,7 +4295,7 @@ def gen_neighborhood(i):
             {"role":"assistant","content":f"إي، من أسبوعين صارت أكثر. {_dog_count} كلاب كثير بالحارة"},
             {"role":"user","content":"من يتصل بالبلدية؟"},
             {"role":"assistant","content":f"أنا أتصل باچر الصبح، {_stray_action} الحل الأفضل"},
-            {"role":"user","content":"شكراً يا حجي، الأولاد خايفين بـ{_dog_time}"},
+            {"role":"user","content":f"شكراً يا حجي، الأولاد خايفين بـ{_dog_time}"},
             {"role":"assistant","content":f"ولا يهمك. {_dog_count} كلاب بالحارة خطر. نتصل بـ{_stray_action} سوية"},
         ]
     elif tpl == 7:
@@ -4678,7 +4678,7 @@ def gen_neighborhood(i):
         msgs = [
             {"role":"user","content":f"أريد أعمل حديقة {_garden_size} أمام بيتي بـ{_garden_plant}"},
             {"role":"assistant","content":f"حديقة {_garden_size} بـ{_garden_plant} جميلة! بس الرصيف ملكية عامة"},
-            {"role":"user","content":"ما تسد الطريق، {_garden_plant} بس"},
+            {"role":"user","content":f"ما تسد الطريق، {_garden_plant} بس"},
             {"role":"assistant","content":f"{_garden_plant} مقبولة لو ما تسد المشي. راجع البلدية بـ{_council_loc}"},
             {"role":"user","content":f"التكلفة تقريباً {vp(_garden_cost)}؟"},
             {"role":"assistant","content":f"{vp(_garden_cost)} للـ{_garden_size} بـ{_garden_plant} معقول. الجيران يفرحون بيها"},
@@ -4862,7 +4862,7 @@ def gen_work(i):
             {"role":"user","content":"بس ما أكدر أشكو، خايف أخسر الشغل"},
             {"role":"assistant","content":f"وثّق الساعات الإضافية برسائل أو ايميل"},
             {"role":"user","content":"ومن بعدين؟"},
-            {"role":"assistant","content":"راجع محامي عمالي. {comp} ملزمة بدفع {_overtime_h} إضافية"},
+            {"role":"assistant","content":f"راجع محامي عمالي. {comp} ملزمة بدفع {_overtime_h} إضافية"},
         ]
     elif tpl == 7:
         msgs = [
@@ -5232,7 +5232,7 @@ def gen_work(i):
             {"role":"assistant","content":f"كورس {_train_topic} لـ{_course_goal}؟ الميزانية كم؟"},
             {"role":"user","content":f"حوالي {vp(_course_budget)} دينار، أريده {_course_lang}"},
             {"role":"assistant","content":f"بـ{vp(_course_budget)} تلاقي كورس {_train_topic} {_course_lang} ممتاز"},
-            {"role":"user","content":"شهادة معتمدة توصل لـ{_course_goal}؟"},
+            {"role":"user","content":f"شهادة معتمدة توصل لـ{_course_goal}؟"},
             {"role":"assistant","content":f"شهادة {_train_topic} مع مشاريع عملية تفرق لـ{_course_goal} كثير"},
         ]
     elif tpl == 45:
@@ -5256,7 +5256,7 @@ def gen_work(i):
             {"role":"assistant","content":f"من {_hours_old} لـ{_hours_new} بدون زيادة؟ تغيير أحادي مخالف للعقد"},
             {"role":"user","content":f"قالوا قرار إداري من {_change_since}"},
             {"role":"assistant","content":f"القرار الإداري ما يلغي عقدك الأصلي اللي يحدد {_hours_old}"},
-            {"role":"user","content":"كيف أحتج على {_hours_new} بدون زيادة؟"},
+            {"role":"user","content":f"كيف أحتج على {_hours_new} بدون زيادة؟"},
             {"role":"assistant","content":f"راسل {_manager_nm} رسمياً ترفض تعديل الساعات. وثّق كل شي من {_change_since}"},
         ]
     elif tpl == 47:
