@@ -1,0 +1,66 @@
+[
+  {
+    "Question": "شكد سعر تلفزيون سامسونج 55 إنش؟",
+    "Answer": "650,000 دينار آخر سعر، مال أول وماكو مثيله بالسوق.",
+    "Topic": "Price Inquiry",
+    "Formality": "informal",
+    "Dialect": "Iraqi Arabic",
+    "Date": "2025-09-30T00:00:00"
+  },
+  {
+    "Question": "عندكم طابعة كانون غير اللون أبيض؟ ما يعجبني.",
+    "Answer": "متوفر بثلاث ألوان: أبيض وزيتي وخمري، والأكثر طلب هو زيتي.",
+    "Topic": "Colors",
+    "Formality": "informal",
+    "Dialect": "Iraqi Arabic",
+    "Date": "2023-03-11T00:00:00"
+  },
+  {
+    "Question": "غالي هواي خوية، ما تنزل شوية بسعر بدلة رجالية تركية؟",
+    "Answer": "أصل البضاعة غالي هالأيام، بس خاطرك أنزلك لـ223,000 دينار، ولا يهمك.",
+    "Topic": "Bargaining",
+    "Formality": "informal",
+    "Dialect": "Iraqi Arabic",
+    "Date": "2025-09-30T00:00:00"
+  },
+  {
+    "Question": "سومي 165,000 بس، تبيع لو أروح لغير محل؟",
+    "Answer": "مو ممكن أخوية، بهالسعر أخسر، روح شوف السوق وارجعلي وأهلاً بيك.",
+    "Topic": "Bargaining",
+    "Formality": "Casual",
+    "Dialect": "Iraqi Arabic",
+    "Date": "2026-02-08T00:00:00"
+  },
+  {
+    "Question": "أريد هدية تخرج لواحد عزيز، شتقترح عليّ؟",
+    "Answer": "أكيد نغلف، وتغليف الهدايا عدنا مرتب ومجاني، ونحط وياه كارت تهنئة.",
+    "Topic": "Gifts",
+    "Formality": "informal",
+    "Dialect": "Iraqi Arabic",
+    "Date": "2025-04-04T00:00:00"
+  },
+  {
+    "Question": "وين محلكم بالضبط؟ آني جاي من بعقوبة.",
+    "Answer": "نفتح من 9 الصبح لـ10 بالليل، والجمعة نفتح العصر بس.",
+    "Topic": "Shop Info",
+    "Formality": "Casual",
+    "Dialect": "Iraqi Arabic",
+    "Date": "2024-07-24T00:00:00"
+  },
+  {
+    "Question": "شنو سياسة الإرجاع عندكم؟ خايف آخذ موبايل شاومي ريدمي نوت وما يناسبني.",
+    "Answer": "ولا يهمك، خذه جرب، وإذا ما ناسبك ارجعه بس لا تفتح الكارتون.",
+    "Topic": "Returns",
+    "Formality": "informal",
+    "Dialect": "Iraqi Arabic",
+    "Date": "2024-05-16T00:00:00"
+  },
+  {
+    "Question": "إذا خرب غسالة LG أوتوماتيك بفترة الضمان، شتسوون؟",
+    "Answer": "كل بضاعتنا عليها ضمان 6 أشهر، والصيانة عدنا داخل المحل.",
+    "Topic": "Warranty",
+    "Formality": "informal",
+    "Dialect": "Iraqi Arabic",
+    "Date": "2024-05-16T00:00:00"
+  }
+]
