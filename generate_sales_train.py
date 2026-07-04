@@ -448,10 +448,28 @@ def sc_recommend():
     return q, a, "Recommendation", ch("Casual", "informal")
 
 
+COMPARE_GROUPS = [
+    ELECTRONICS[0:5],    # موبايلات
+    ELECTRONICS[5:9],    # لابتوبات
+    ELECTRONICS[9:12],   # تلفزيونات
+    ELECTRONICS[12:14],  # سماعات
+    APPLIANCES[0:2],     # ثلاجات
+    APPLIANCES[3:6],     # تبريد
+    APPLIANCES[7:9],     # بنكات
+    APPLIANCES[13:15],   # صوبات
+    CLOTHES[8:10],       # أحذية
+]
+
+
 def sc_compare():
-    pool = ch(ELECTRONICS, APPLIANCES, CLOTHES, FURNITURE)
-    (n1, lo1, hi1), (n2, lo2, hi2) = random.sample(pool, 2)
+    pool = ch(*COMPARE_GROUPS)
+    a_item, b_item = random.sample(pool, 2)
+    # الأغلى يكون n1 حتى تظل الأجوبة منطقية (n1 أقوى/أغلى، n2 أوفر)
+    (n1, lo1, hi1), (n2, lo2, hi2) = sorted(
+        [a_item, b_item], key=lambda it: it[1] + it[2], reverse=True)
     p1, p2 = rprice(lo1, hi1), rprice(lo2, hi2)
+    if p2 >= p1:
+        p2 = max(lo2, int(p1 * 0.85) // 1000 * 1000)
     q = ch(
         f"شنو الفرق بين {n1} و{n2}؟",
         f"أيهما أحسن، {n1} لو {n2}؟",
