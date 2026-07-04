@@ -170,18 +170,19 @@
 
 ---
 
-## بنك المفردات — RAG Reference (word.json)
+## بنك المفردات — word.json (في فولدر مستقل)
 
-> **ملف RAG دائم** — يُستخدم كقاعدة معرفة للاسترجاع المعزز (Retrieval-Augmented Generation).  
-> يُحمَّل أثناء التوليد ليضمن أن كل محادثة تستخدم مفردات عراقية أصيلة.  
+> **ملف المصطلحات انتقل إلى فولدر مستقل**: `../iraqi_words_finetuning/word.json`  
+> ذلك الفولدر مخصص للـ **Fine-Tuning** من المصطلحات فقط، بينما هذا المشروع (`database_LLm`) مخصص لبيانات الـ **RAG** (محادثات وبيانات مجمّعة).  
+> سكربتات التوليد هنا تقرأ الملف تلقائياً من موقعه الجديد.  
 > المصدر: مراجعة يدوية + [معجم اللهجة العراقية](https://ar.mo3jam.com/dialect/Iraqi)
 
-### الاستخدام كـ RAG
+### الاستخدام
 
 ```python
 import json
 
-with open("word.json", encoding="utf-8") as f:
+with open("../iraqi_words_finetuning/word.json", encoding="utf-8") as f:
     vocab = json.load(f)
 
 # البحث عن مفردة في تصنيف معين

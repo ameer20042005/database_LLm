@@ -12,7 +12,7 @@ import json, random, os
 # LOAD WORD BANK
 # ============================================================
 def _load_words():
-    path = os.path.join(os.path.dirname(__file__), "word.json")
+    path = os.path.join(os.path.dirname(__file__), "..", "iraqi_words_finetuning", "word.json")
     with open(path, encoding="utf-8") as f:
         data = json.load(f)
     return {cat["category"]: [i["word"] for i in cat["items"]] for cat in data}
@@ -5315,16 +5315,17 @@ FILES = [
     ("iraqi_train_20_work.json",         gen_work,         "work"),
 ]
 
-OUT_DIR = os.path.join(os.path.dirname(__file__), "iraqi_training_data")
-os.makedirs(OUT_DIR, exist_ok=True)
+if __name__ == "__main__":
+    OUT_DIR = os.path.join(os.path.dirname(__file__), "iraqi_training_data")
+    os.makedirs(OUT_DIR, exist_ok=True)
 
-for fname, gen_fn, _ in FILES:
-    print(f"Generating {fname} ...")
-    data = [gen_fn(i+1) for i in range(10000)]
-    path = os.path.join(OUT_DIR, fname)
-    with open(path, "w", encoding="utf-8") as f:
-        json.dump(data, f, ensure_ascii=False, indent=2)
-    print(f"  -> Saved 10000 conversations to {path}")
+    for fname, gen_fn, _ in FILES:
+        print(f"Generating {fname} ...")
+        data = [gen_fn(i+1) for i in range(10000)]
+        path = os.path.join(OUT_DIR, fname)
+        with open(path, "w", encoding="utf-8") as f:
+            json.dump(data, f, ensure_ascii=False, indent=2)
+        print(f"  -> Saved 10000 conversations to {path}")
 
-print("\nDone! Files 11-20 generated.")
+    print("\nDone! Files 11-20 generated.")
 

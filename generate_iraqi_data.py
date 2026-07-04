@@ -15,7 +15,7 @@ import os
 # ============================================================
 
 def _load_words():
-    path = os.path.join(os.path.dirname(__file__), "word.json")
+    path = os.path.join(os.path.dirname(__file__), "..", "iraqi_words_finetuning", "word.json")
     with open(path, encoding="utf-8") as f:
         data = json.load(f)
     cats = {}
