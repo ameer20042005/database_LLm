@@ -1,0 +1,4542 @@
+{
+  "ملاحظة": "نسخة مقروءة (indented) لمراجعة عينة من بيانات data/ يدوياً. الملف الفعلي للتدريب يبقى JSONL كما هو.",
+  "الإضافات_الجديدة_لتغطية_مفردات_word.json": {
+    "jokes_banter": [
+      {
+        "id": "vocab_jokes_00001",
+        "category": "jokes_banter",
+        "dialect": "iraqi_arabic",
+        "messages": [
+          {
+            "role": "user",
+            "content": "عندي نقزة، تريد تسمعها؟"
+          },
+          {
+            "role": "assistant",
+            "content": "إي گول بسرعة"
+          },
+          {
+            "role": "user",
+            "content": "شفتها؟ هه"
+          },
+          {
+            "role": "assistant",
+            "content": "هاهاها ضحكتني والله، واي هاهاه ما گدرت أوكف"
+          },
+          {
+            "role": "user",
+            "content": "شفت؟ گلتلك زينة"
+          },
+          {
+            "role": "assistant",
+            "content": "إي والله، جيب وحدة ثانية"
+          }
+        ],
+        "source_file": "manual_vocab_coverage_addition"
+      },
+      {
+        "id": "vocab_jokes_00002",
+        "category": "jokes_banter",
+        "dialect": "iraqi_arabic",
+        "messages": [
+          {
+            "role": "user",
+            "content": "أخوك دايم يسوي تنكيت بالمجلس"
+          },
+          {
+            "role": "assistant",
+            "content": "إي هذا معروف عنه، چذاب من زمان بس بطريقة مرحة"
+          },
+          {
+            "role": "user",
+            "content": "صدگ اللي گاله البارحة عن الجيران؟"
+          },
+          {
+            "role": "assistant",
+            "content": "لا والله، مو صدگ، بس تنكيت مب أكثر"
+          }
+        ],
+        "source_file": "manual_vocab_coverage_addition"
+      },
+      {
+        "id": "vocab_jokes_00003",
+        "category": "jokes_banter",
+        "dialect": "iraqi_arabic",
+        "messages": [
+          {
+            "role": "user",
+            "content": "شفت شلون فلان يضحك عليك بهاي الحركة؟"
+          },
+          {
+            "role": "assistant",
+            "content": "إي دريت، بس ما اريد أزعل، دايم يتمسخر على الكل مو بس علي"
+          },
+          {
+            "role": "user",
+            "content": "خله، مزاحه خفيف"
+          },
+          {
+            "role": "assistant",
+            "content": "إي بس بعض المرات يزيد شوي"
+          }
+        ],
+        "source_file": "manual_vocab_coverage_addition"
+      },
+      {
+        "id": "vocab_jokes_00004",
+        "category": "jokes_banter",
+        "dialect": "iraqi_arabic",
+        "messages": [
+          {
+            "role": "user",
+            "content": "شفت ابن عمي شلون يحچي عن سيارته الجديدة؟"
+          },
+          {
+            "role": "assistant",
+            "content": "إي كلش يتشوط، دايم يبالغ بقصصه"
+          },
+          {
+            "role": "user",
+            "content": "وبعده پرچي، ما يسكت من الصبح"
+          },
+          {
+            "role": "assistant",
+            "content": "هاها گص عليك، خله يفرفش شوي"
+          }
+        ],
+        "source_file": "manual_vocab_coverage_addition"
+      },
+      {
+        "id": "vocab_jokes_val_00001",
+        "category": "jokes_banter",
+        "dialect": "iraqi_arabic",
+        "messages": [
+          {
+            "role": "user",
+            "content": "جيب نقزة اليوم اضحك شوي"
+          },
+          {
+            "role": "assistant",
+            "content": "خل شوفلك وحدة زينة... هذي تضحك الحجر"
+          },
+          {
+            "role": "user",
+            "content": "هاهاها ضحكتني بيها"
+          },
+          {
+            "role": "assistant",
+            "content": "گلتلك، دايم عندي شي يفرفش"
+          }
+        ],
+        "source_file": "manual_vocab_coverage_addition"
+      }
+    ],
+    "negative_traits": [
+      {
+        "id": "vocab_negtraits_00001",
+        "category": "negative_traits",
+        "dialect": "iraqi_arabic",
+        "messages": [
+          {
+            "role": "user",
+            "content": "شلون امتحانك؟"
+          },
+          {
+            "role": "assistant",
+            "content": "خربان، كلش بليد صرت هالفصل، ما درست شي"
+          },
+          {
+            "role": "user",
+            "content": "ليش هيچ بلافة بيك؟"
+          },
+          {
+            "role": "assistant",
+            "content": "والله ما ادري، تشتت ذهني هالفترة"
+          }
+        ],
+        "source_file": "manual_vocab_coverage_addition"
+      },
+      {
+        "id": "vocab_negtraits_00002",
+        "category": "negative_traits",
+        "dialect": "iraqi_arabic",
+        "messages": [
+          {
+            "role": "user",
+            "content": "شفت فلان شلون رد علينا بغرور؟"
+          },
+          {
+            "role": "assistant",
+            "content": "إي، صار بطران من يوم صار مدير"
+          },
+          {
+            "role": "user",
+            "content": "وبعده بهيم بمعاملته مع الزبائن"
+          },
+          {
+            "role": "assistant",
+            "content": "الله يهديه، بس هيچي ناس"
+          }
+        ],
+        "source_file": "manual_vocab_coverage_addition"
+      },
+      {
+        "id": "vocab_negtraits_00003",
+        "category": "negative_traits",
+        "dialect": "iraqi_arabic",
+        "messages": [
+          {
+            "role": "user",
+            "content": "شخباره أخوك اليوم، شكله متضايق"
+          },
+          {
+            "role": "assistant",
+            "content": "إي امغندب من الصبح، ما حچى وياي"
+          },
+          {
+            "role": "user",
+            "content": "شنو صاير؟"
+          },
+          {
+            "role": "assistant",
+            "content": "ماكو شي، بس مزاجه هيچي، مب اثول بس متضايق شوي"
+          }
+        ],
+        "source_file": "manual_vocab_coverage_addition"
+      },
+      {
+        "id": "vocab_negtraits_00004",
+        "category": "negative_traits",
+        "dialect": "iraqi_arabic",
+        "messages": [
+          {
+            "role": "user",
+            "content": "ليش ما دفعت الدين؟"
+          },
+          {
+            "role": "assistant",
+            "content": "والله امفلس هالشهر، الفلوس خلصت"
+          },
+          {
+            "role": "user",
+            "content": "خل بس لا تصير أملس وياي وتتهرب"
+          },
+          {
+            "role": "assistant",
+            "content": "لا والله، بس اعطيني مهلة، هاي ترقيع مؤقت لحد الراتب"
+          }
+        ],
+        "source_file": "manual_vocab_coverage_addition"
+      },
+      {
+        "id": "vocab_negtraits_val_00001",
+        "category": "negative_traits",
+        "dialect": "iraqi_arabic",
+        "messages": [
+          {
+            "role": "user",
+            "content": "شلون صار فلان بعد ما غنى؟"
+          },
+          {
+            "role": "assistant",
+            "content": "صار بطران والله، تغير كلش"
+          },
+          {
+            "role": "user",
+            "content": "حتى بالدوام صار بليد ما يشتغل متل الأول"
+          },
+          {
+            "role": "assistant",
+            "content": "الفلوس تغير الناس بالعراق كلش"
+          }
+        ],
+        "source_file": "manual_vocab_coverage_addition"
+      }
+    ],
+    "praise_expressions": [
+      {
+        "id": "vocab_praise_00001",
+        "category": "praise_expressions",
+        "dialect": "iraqi_arabic",
+        "messages": [
+          {
+            "role": "user",
+            "content": "خيتي طبخت لج اليوم دولمة وياك"
+          },
+          {
+            "role": "assistant",
+            "content": "عاشت يداك والله، أكلج زينة كلش"
+          },
+          {
+            "role": "user",
+            "content": "تسلمين، إنتي بريعة بالطبخ برضو"
+          },
+          {
+            "role": "assistant",
+            "content": "الله يخليكم"
+          }
+        ],
+        "source_file": "manual_vocab_coverage_addition"
+      },
+      {
+        "id": "vocab_praise_00002",
+        "category": "praise_expressions",
+        "dialect": "iraqi_arabic",
+        "messages": [
+          {
+            "role": "user",
+            "content": "شكو حبيبي، شلونك اليوم"
+          },
+          {
+            "role": "assistant",
+            "content": "زين الحمد لله، شخبارك إنت؟"
+          },
+          {
+            "role": "user",
+            "content": "بخير، بس اموت عليك، دايم تسأل عني"
+          },
+          {
+            "role": "assistant",
+            "content": "روحي تفداك، أنت أهل لأكثر من هيچي"
+          }
+        ],
+        "source_file": "manual_vocab_coverage_addition"
+      },
+      {
+        "id": "vocab_praise_00003",
+        "category": "praise_expressions",
+        "dialect": "iraqi_arabic",
+        "messages": [
+          {
+            "role": "user",
+            "content": "أبويه، جبتلك الهدية اللي طلبتها"
+          },
+          {
+            "role": "assistant",
+            "content": "الله يخليلي ياك، أنت تاج راسي"
+          },
+          {
+            "role": "user",
+            "content": "وياك أبويه، أنت بعد تاج راسك عدنا"
+          },
+          {
+            "role": "assistant",
+            "content": "الله يحفظك ولدي"
+          }
+        ],
+        "source_file": "manual_vocab_coverage_addition"
+      },
+      {
+        "id": "vocab_praise_00004",
+        "category": "praise_expressions",
+        "dialect": "iraqi_arabic",
+        "messages": [
+          {
+            "role": "user",
+            "content": "أحس دايم تفهمني من نظرة"
+          },
+          {
+            "role": "assistant",
+            "content": "إي والله، أنت افهمك على الطاير، ما احتاج أشرح كلشي"
+          },
+          {
+            "role": "user",
+            "content": "أنت بعد إسم على مسمى، وفي فعلاً"
+          },
+          {
+            "role": "assistant",
+            "content": "تسلم، احنه رفگة بالغالي والرخيص"
+          }
+        ],
+        "source_file": "manual_vocab_coverage_addition"
+      },
+      {
+        "id": "vocab_praise_val_00001",
+        "category": "praise_expressions",
+        "dialect": "iraqi_arabic",
+        "messages": [
+          {
+            "role": "user",
+            "content": "دگيت الباب اجيت اساعدك بالنقل"
+          },
+          {
+            "role": "assistant",
+            "content": "عاشت يداك خويه، ما قصرت"
+          },
+          {
+            "role": "user",
+            "content": "واجب، أنت تاج راسي"
+          },
+          {
+            "role": "assistant",
+            "content": "الله يخليك"
+          }
+        ],
+        "source_file": "manual_vocab_coverage_addition"
+      }
+    ],
+    "proverbs_sayings": [
+      {
+        "id": "vocab_proverbs_00001",
+        "category": "proverbs_sayings",
+        "dialect": "iraqi_arabic",
+        "messages": [
+          {
+            "role": "user",
+            "content": "ليش ما جه خالد الحفلة؟"
+          },
+          {
+            "role": "assistant",
+            "content": "ما ادري بس أكيد عنده سبب، الغايب عذره وياه"
+          },
+          {
+            "role": "user",
+            "content": "صحيح، ما لازم نحكم بسرعة"
+          },
+          {
+            "role": "assistant",
+            "content": "بالضبط"
+          }
+        ],
+        "source_file": "manual_vocab_coverage_addition"
+      },
+      {
+        "id": "vocab_proverbs_00002",
+        "category": "proverbs_sayings",
+        "dialect": "iraqi_arabic",
+        "messages": [
+          {
+            "role": "user",
+            "content": "شفتي ولد الجيران؟ مب هواي حلو بس أمه دايم تمدحه"
+          },
+          {
+            "role": "assistant",
+            "content": "هاي طبيعي، القرد بعين أمه غزال"
+          },
+          {
+            "role": "user",
+            "content": "هه صح، كل أم تشوف ولدها الأحسن"
+          },
+          {
+            "role": "assistant",
+            "content": "إي والله"
+          }
+        ],
+        "source_file": "manual_vocab_coverage_addition"
+      },
+      {
+        "id": "vocab_proverbs_00003",
+        "category": "proverbs_sayings",
+        "dialect": "iraqi_arabic",
+        "messages": [
+          {
+            "role": "user",
+            "content": "ليش ما تريد تدخل بمشروع تجاري ثاني؟"
+          },
+          {
+            "role": "assistant",
+            "content": "خسرت مرة وتعلمت، الي تعضه حية يخاف من الحبل"
+          },
+          {
+            "role": "user",
+            "content": "أفهم عليك، الحذر أحسن"
+          },
+          {
+            "role": "assistant",
+            "content": "إي والله"
+          }
+        ],
+        "source_file": "manual_vocab_coverage_addition"
+      },
+      {
+        "id": "vocab_proverbs_00004",
+        "category": "proverbs_sayings",
+        "dialect": "iraqi_arabic",
+        "messages": [
+          {
+            "role": "user",
+            "content": "شفت فلان شلون نجح بمشروعه؟"
+          },
+          {
+            "role": "assistant",
+            "content": "إي، تعب وسعى، الغاب جاب والقعد خاب"
+          },
+          {
+            "role": "user",
+            "content": "يعني لازم نتحرك مو نگعد"
+          },
+          {
+            "role": "assistant",
+            "content": "بالضبط هيچي"
+          }
+        ],
+        "source_file": "manual_vocab_coverage_addition"
+      },
+      {
+        "id": "vocab_proverbs_00005",
+        "category": "proverbs_sayings",
+        "dialect": "iraqi_arabic",
+        "messages": [
+          {
+            "role": "user",
+            "content": "احذر منه، وياك زين بس وراك يحچي عليك"
+          },
+          {
+            "role": "assistant",
+            "content": "إي دريت، بالوجه مرايه وبالكفه سلايه"
+          },
+          {
+            "role": "user",
+            "content": "شخصية صعبة"
+          },
+          {
+            "role": "assistant",
+            "content": "والله صح"
+          }
+        ],
+        "source_file": "manual_vocab_coverage_addition"
+      },
+      {
+        "id": "vocab_proverbs_00006",
+        "category": "proverbs_sayings",
+        "dialect": "iraqi_arabic",
+        "messages": [
+          {
+            "role": "user",
+            "content": "شلون فلان صار مدير بسرعة؟"
+          },
+          {
+            "role": "assistant",
+            "content": "بالأول كان متواضع وياكل الكل، تمسكن حتى تمكّن"
+          },
+          {
+            "role": "user",
+            "content": "يعني كانت خطة؟"
+          },
+          {
+            "role": "assistant",
+            "content": "أكيد، بعض الناس هيچي"
+          }
+        ],
+        "source_file": "manual_vocab_coverage_addition"
+      },
+      {
+        "id": "vocab_proverbs_00007",
+        "category": "proverbs_sayings",
+        "dialect": "iraqi_arabic",
+        "messages": [
+          {
+            "role": "user",
+            "content": "شفت هذا الشاب الطويل؟ سوى غلطة كبيرة اليوم"
+          },
+          {
+            "role": "assistant",
+            "content": "الطول طول النخلة والعقل عقل الصخلة، مو كل طويل عاقل"
+          },
+          {
+            "role": "user",
+            "content": "هه صح كلامك"
+          },
+          {
+            "role": "assistant",
+            "content": "إي والله"
+          }
+        ],
+        "source_file": "manual_vocab_coverage_addition"
+      },
+      {
+        "id": "vocab_proverbs_00008",
+        "category": "proverbs_sayings",
+        "dialect": "iraqi_arabic",
+        "messages": [
+          {
+            "role": "user",
+            "content": "ليش ما تشرح للكل شنو صاير؟"
+          },
+          {
+            "role": "assistant",
+            "content": "خليها هيچي، اليدري يدري والمايدري قضية عدس"
+          },
+          {
+            "role": "user",
+            "content": "يعني تريد تخليها بسيطة"
+          },
+          {
+            "role": "assistant",
+            "content": "إي أحسن هيچي"
+          }
+        ],
+        "source_file": "manual_vocab_coverage_addition"
+      },
+      {
+        "id": "vocab_proverbs_00009",
+        "category": "proverbs_sayings",
+        "dialect": "iraqi_arabic",
+        "messages": [
+          {
+            "role": "user",
+            "content": "خايف الناس تحسدني على النجاح"
+          },
+          {
+            "role": "assistant",
+            "content": "لا تخاف، بعين الحسود عود"
+          },
+          {
+            "role": "user",
+            "content": "الله يخليك، ارتحت"
+          },
+          {
+            "role": "assistant",
+            "content": "توكل على الله وكمل شغلك"
+          }
+        ],
+        "source_file": "manual_vocab_coverage_addition"
+      },
+      {
+        "id": "vocab_proverbs_val_00001",
+        "category": "proverbs_sayings",
+        "dialect": "iraqi_arabic",
+        "messages": [
+          {
+            "role": "user",
+            "content": "ليش صرت متواضع فجأة بعد ما صرت مدير؟"
+          },
+          {
+            "role": "assistant",
+            "content": "تمسكن حتى تمكّن، هاي الطريقة الزينة"
+          },
+          {
+            "role": "user",
+            "content": "بس بعدين ترجع لطبيعتك؟"
+          },
+          {
+            "role": "assistant",
+            "content": "لا والله، بس هيچي الناس بعضهم"
+          }
+        ],
+        "source_file": "manual_vocab_coverage_addition"
+      }
+    ]
+  },
+  "عينة_من_كل_فئة_موجودة": {
+    "sales_electronics": {
+      "عدد_المحادثات_بهذي_الفئة": 10866,
+      "عينة": [
+        {
+          "id": "01_electronics__electronics_sales_6038",
+          "category": "sales_electronics",
+          "dialect": "iraqi_arabic",
+          "messages": [
+            {
+              "role": "user",
+              "content": "أريد لابتوب HP Core i5 بس أريد أفاوض"
+            },
+            {
+              "role": "assistant",
+              "content": "تفضل. سعره 609,000 دينار"
+            },
+            {
+              "role": "user",
+              "content": "أعطيك 516,000"
+            },
+            {
+              "role": "assistant",
+              "content": "والله ما أكدر، هذا دون رأس المال"
+            },
+            {
+              "role": "user",
+              "content": "ماشي 544,000؟"
+            },
+            {
+              "role": "assistant",
+              "content": "أخوي، أنزل لك 564,000 وهذا آخر سعر، والله يشهد"
+            },
+            {
+              "role": "user",
+              "content": "اتفقنا"
+            },
+            {
+              "role": "assistant",
+              "content": "خشنو كلش! بالعافية عليك، أي شي تريده تعال"
+            }
+          ],
+          "source_file": "iraqi_train_01_electronics.json"
+        },
+        {
+          "id": "10_mixed__elec_8716",
+          "category": "sales_electronics",
+          "dialect": "iraqi_arabic",
+          "messages": [
+            {
+              "role": "user",
+              "content": "هلا، لابتوب Acer Core i5 بيه ألوان متعددة؟"
+            },
+            {
+              "role": "assistant",
+              "content": "إي عندنا لابتوب Acer Core i5 بألوان: أسود، أبيض، وأزرق. أيهم تحب؟"
+            },
+            {
+              "role": "user",
+              "content": "أريد الأسود"
+            },
+            {
+              "role": "assistant",
+              "content": "الأسود متوفر. 506,000 دينار"
+            },
+            {
+              "role": "user",
+              "content": "عندك خصم للزبون المعميل؟"
+            },
+            {
+              "role": "assistant",
+              "content": "حاضر، على العين والرأس، بس هذا آخر سعر"
+            },
+            {
+              "role": "user",
+              "content": "ماشي خذ"
+            },
+            {
+              "role": "assistant",
+              "content": "شوفك على خير"
+            }
+          ],
+          "source_file": "iraqi_train_10_mixed.json"
+        },
+        {
+          "id": "01_electronics__electronics_sales_2210",
+          "category": "sales_electronics",
+          "dialect": "iraqi_arabic",
+          "messages": [
+            {
+              "role": "user",
+              "content": "أريد لابتوب Dell Core i7"
+            },
+            {
+              "role": "assistant",
+              "content": "هلا، لابتوب Dell Core i7 بـ874,000 دينار. رام 16 گيگا"
+            },
+            {
+              "role": "user",
+              "content": "زين، هاي الفلوس"
+            },
+            {
+              "role": "assistant",
+              "content": "قبل ما تدفع، لو تاخذ معه موبايل فيفو V29 بـ310,000 دينار أعطيك خصم خاص. توفر 136,000 دينار"
+            },
+            {
+              "role": "user",
+              "content": "يعني أوفر؟"
+            },
+            {
+              "role": "assistant",
+              "content": "إي، بدل 1,189,000 يصير 1,038,000 بس"
+            },
+            {
+              "role": "user",
+              "content": "والله عرض مغري، خذ الاثنين"
+            },
+            {
+              "role": "assistant",
+              "content": "شكراً على تعاملك، تعال مرة ثانية"
+            }
+          ],
+          "source_file": "iraqi_train_01_electronics.json"
+        }
+      ]
+    },
+    "services": {
+      "عدد_المحادثات_بهذي_الفئة": 10787,
+      "عينة": [
+        {
+          "id": "07_services__svc_1826",
+          "category": "services",
+          "dialect": "iraqi_arabic",
+          "messages": [
+            {
+              "role": "user",
+              "content": "هلا، خدمة توصيل لو اشتريت من عندكم، هل تركبونه؟"
+            },
+            {
+              "role": "assistant",
+              "content": "إي، بيع وتركيب مع بعض"
+            },
+            {
+              "role": "user",
+              "content": "وشكد؟"
+            },
+            {
+              "role": "assistant",
+              "content": "جهاز شارپ جديد مع التركيب بـ74,000 دينار مع متابعة لاحقة"
+            },
+            {
+              "role": "user",
+              "content": "ويشمل ضمان؟"
+            },
+            {
+              "role": "assistant",
+              "content": "ضمان 3 أشهر على الجهاز والتركيب"
+            }
+          ],
+          "source_file": "iraqi_train_07_services.json"
+        },
+        {
+          "id": "07_services__svc_3516",
+          "category": "services",
+          "dialect": "iraqi_arabic",
+          "messages": [
+            {
+              "role": "user",
+              "content": "هلا، عندكم خدمة توصيل القطع الغيار لـتصليح غسالة؟"
+            },
+            {
+              "role": "assistant",
+              "content": "إي، نجيب القطع ونركبها عندك"
+            },
+            {
+              "role": "user",
+              "content": "أريد قطعة الضاغط لماركة توشيبا"
+            },
+            {
+              "role": "assistant",
+              "content": "القطعة الأصل بـ39,000 دينار، نجيبها خلال يومين"
+            },
+            {
+              "role": "user",
+              "content": "والتركيب؟"
+            },
+            {
+              "role": "assistant",
+              "content": "التركيب بـ25,000 دينار إضافية"
+            }
+          ],
+          "source_file": "iraqi_train_07_services.json"
+        },
+        {
+          "id": "10_mixed__svc_8834",
+          "category": "services",
+          "dialect": "iraqi_arabic",
+          "messages": [
+            {
+              "role": "user",
+              "content": "هلا، عندي ضيف ويحتاج تركيب كاميرات بسرعة"
+            },
+            {
+              "role": "assistant",
+              "content": "حاضر، هذا طارئ. وين المكان؟"
+            },
+            {
+              "role": "user",
+              "content": "بمنطقة شارع الرشيد"
+            },
+            {
+              "role": "assistant",
+              "content": "فني ينطلق هسه لـشارع الرشيد. بـ529,000 دينار شامل القطع"
+            },
+            {
+              "role": "user",
+              "content": "الله يخليك"
+            },
+            {
+              "role": "assistant",
+              "content": "واجبنا، نتصل عند الوصول"
+            }
+          ],
+          "source_file": "iraqi_train_10_mixed.json"
+        }
+      ]
+    },
+    "sales_cars": {
+      "عدد_المحادثات_بهذي_الفئة": 10485,
+      "عينة": [
+        {
+          "id": "10_mixed__cars_5311",
+          "category": "sales_cars",
+          "dialect": "iraqi_arabic",
+          "messages": [
+            {
+              "role": "user",
+              "content": "أريد شيفروليه ماليبو"
+            },
+            {
+              "role": "assistant",
+              "content": "هلا، شيفروليه ماليبو بـ25,872,000 دينار. LT، كاميرا خلفية"
+            },
+            {
+              "role": "user",
+              "content": "ماشي، يعجبني"
+            },
+            {
+              "role": "assistant",
+              "content": "قبل ما تقرر، بـ29,118,000 دينار زيادة تاخذ تويوتا راف فور اللي هجين، فل كامل. فرق بسيط وفايدته كبيرة"
+            },
+            {
+              "role": "user",
+              "content": "الفرق يستاهل؟"
+            },
+            {
+              "role": "assistant",
+              "content": "إي والله، تويوتا راف فور إعادة بيعها أحسن بكثير"
+            },
+            {
+              "role": "user",
+              "content": "صح، آخذ الأفضل"
+            },
+            {
+              "role": "assistant",
+              "content": "خشنو كلش! نسوي الأوراق"
+            }
+          ],
+          "source_file": "iraqi_train_10_mixed.json"
+        },
+        {
+          "id": "04_cars__cars_sales_9402",
+          "category": "sales_cars",
+          "dialect": "iraqi_arabic",
+          "messages": [
+            {
+              "role": "user",
+              "content": "هلا، تويوتا راف فور بنزين ولا هجين؟"
+            },
+            {
+              "role": "assistant",
+              "content": "تويوتا راف فور موديل 2023 متوفر بنزين وهجين"
+            },
+            {
+              "role": "user",
+              "content": "الهجين شكد السعر؟"
+            },
+            {
+              "role": "assistant",
+              "content": "الهجين أغلى شوية، بـ67,652,000 دينار بس يوفر بالبنزين"
+            },
+            {
+              "role": "user",
+              "content": "والبنزين؟"
+            },
+            {
+              "role": "assistant",
+              "content": "البنزين بـ53,056,000 دينار"
+            }
+          ],
+          "source_file": "iraqi_train_04_cars_plus_scraped.json"
+        },
+        {
+          "id": "04_cars__cars_sales_7966",
+          "category": "sales_cars",
+          "dialect": "iraqi_arabic",
+          "messages": [
+            {
+              "role": "user",
+              "content": "هلا، فولكسواكن باسات بنزين ولا هجين؟"
+            },
+            {
+              "role": "assistant",
+              "content": "فولكسواكن باسات موديل 2021 متوفر بنزين وهجين"
+            },
+            {
+              "role": "user",
+              "content": "الهجين بيش؟"
+            },
+            {
+              "role": "assistant",
+              "content": "الهجين أغلى شوية، بـ47,952,000 دينار بس يوفر بالبنزين"
+            },
+            {
+              "role": "user",
+              "content": "والبنزين؟"
+            },
+            {
+              "role": "assistant",
+              "content": "البنزين بـ44,181,000 دينار"
+            }
+          ],
+          "source_file": "iraqi_train_04_cars_plus_scraped.json"
+        }
+      ]
+    },
+    "sales_food": {
+      "عدد_المحادثات_بهذي_الفئة": 10203,
+      "عينة": [
+        {
+          "id": "02_food__food_sales_0351",
+          "category": "sales_food",
+          "dialect": "iraqi_arabic",
+          "messages": [
+            {
+              "role": "user",
+              "content": "هلا، عندكم منتجات عضوية؟"
+            },
+            {
+              "role": "assistant",
+              "content": "إي عندنا رز بسمتي عضوي، بدون مبيدات"
+            },
+            {
+              "role": "user",
+              "content": "أغلى من العادي؟"
+            },
+            {
+              "role": "assistant",
+              "content": "شوية، بـ11,000 بدل 7,000"
+            },
+            {
+              "role": "user",
+              "content": "يستاهل للصحة، آخذ"
+            },
+            {
+              "role": "assistant",
+              "content": "الله يحفظك"
+            }
+          ],
+          "source_file": "iraqi_train_02_food.json"
+        },
+        {
+          "id": "10_mixed__food_4751",
+          "category": "sales_food",
+          "dialect": "iraqi_arabic",
+          "messages": [
+            {
+              "role": "user",
+              "content": "هلا، أشتري كل أسبوع من السوق، كثير يكلف"
+            },
+            {
+              "role": "assistant",
+              "content": "عندنا حزمة أسبوعية. دهن نباتي وخبز تنور وبضاعة متنوعة بسعر ثابت"
+            },
+            {
+              "role": "user",
+              "content": "يعني توصيل أسبوعي؟"
+            },
+            {
+              "role": "assistant",
+              "content": "إي، كل أسبوع يوصلك طلبك وتوفر على التنقل"
+            },
+            {
+              "role": "user",
+              "content": "فكرة ممتازة، شنو السعر؟"
+            },
+            {
+              "role": "assistant",
+              "content": "حسب الكمية، بس تقريباً 20,000 أسبوعياً"
+            }
+          ],
+          "source_file": "iraqi_train_10_mixed.json"
+        },
+        {
+          "id": "02_food__food_sales_7891",
+          "category": "sales_food",
+          "dialect": "iraqi_arabic",
+          "messages": [
+            {
+              "role": "user",
+              "content": "هلا، عندكم كيك جاهز؟"
+            },
+            {
+              "role": "assistant",
+              "content": "إي عندنا، بس اليوم صارت ثلاث زبائن يسألون عليه، ما نضمن بكره. بـ4,000 دينار الكيلو"
+            },
+            {
+              "role": "user",
+              "content": "يعني لازم آخذ هسه؟"
+            },
+            {
+              "role": "assistant",
+              "content": "بيدك، بس هذا طازج اليوم وما نضمن بكره"
+            },
+            {
+              "role": "user",
+              "content": "ماشي، أريد 9 كيلو"
+            },
+            {
+              "role": "assistant",
+              "content": "الكل 43,000 دينار. الله يوفقك، تسلم"
+            }
+          ],
+          "source_file": "iraqi_train_02_food.json"
+        }
+      ]
+    },
+    "sales_clothes": {
+      "عدد_المحادثات_بهذي_الفئة": 9939,
+      "عينة": [
+        {
+          "id": "03_clothes__clothes_sales_3505",
+          "category": "sales_clothes",
+          "dialect": "iraqi_arabic",
+          "messages": [
+            {
+              "role": "user",
+              "content": "هلا، أريد تيشرت من ماركة معينة"
+            },
+            {
+              "role": "assistant",
+              "content": "شنو الماركة؟"
+            },
+            {
+              "role": "user",
+              "content": "Zara أو H&M"
+            },
+            {
+              "role": "assistant",
+              "content": "عندنا ملابس تشبه H&M بجودة ممتازة. تيشرت بـ14,000 دينار"
+            },
+            {
+              "role": "user",
+              "content": "أشوفه؟"
+            },
+            {
+              "role": "assistant",
+              "content": "تفضل، هذا هو"
+            }
+          ],
+          "source_file": "iraqi_train_03_clothes.json"
+        },
+        {
+          "id": "03_clothes__clothes_sales_1327",
+          "category": "sales_clothes",
+          "dialect": "iraqi_arabic",
+          "messages": [
+            {
+              "role": "user",
+              "content": "هلا، دشداشة رجالي بيش؟"
+            },
+            {
+              "role": "assistant",
+              "content": "36,000 دينار. قماش ممتاز، مقاسات متوفرة"
+            },
+            {
+              "role": "user",
+              "content": "هاي أكثر مما توقعت"
+            },
+            {
+              "role": "assistant",
+              "content": "عندنا نوعين: الأصل بـ36,000 والبديل بـ17,000"
+            },
+            {
+              "role": "user",
+              "content": "شنو الفرق عملياً؟"
+            },
+            {
+              "role": "assistant",
+              "content": "الأصل قماش ممتاز، مقاسات متوفرة، يدوم أكثر ويبقى لونه. البديل رخيص بس بعد غسلتين يتغير"
+            },
+            {
+              "role": "user",
+              "content": "آخذ الأصل، يستاهل"
+            },
+            {
+              "role": "assistant",
+              "content": "خيار صح! الله يوفقك، تسلم"
+            }
+          ],
+          "source_file": "iraqi_train_03_clothes.json"
+        },
+        {
+          "id": "03_clothes__clothes_sales_1722",
+          "category": "sales_clothes",
+          "dialect": "iraqi_arabic",
+          "messages": [
+            {
+              "role": "user",
+              "content": "عندكم ملابس أطفال؟"
+            },
+            {
+              "role": "assistant",
+              "content": "إي عندنا قسم أطفال. شنو عمر الطفل؟"
+            },
+            {
+              "role": "user",
+              "content": "سنتين ونص"
+            },
+            {
+              "role": "assistant",
+              "content": "عندنا دشداشة رجالي مناسب لعمره. بـ22,000 دينار"
+            },
+            {
+              "role": "user",
+              "content": "حلو، أاخذ واحد أبيض وواحد أزرق"
+            },
+            {
+              "role": "assistant",
+              "content": "الاثنين = 44,000 دينار. شكراً على تعاملك، تعال مرة ثانية"
+            }
+          ],
+          "source_file": "iraqi_train_03_clothes.json"
+        }
+      ]
+    },
+    "sales_realestate": {
+      "عدد_المحادثات_بهذي_الفئة": 9745,
+      "عينة": [
+        {
+          "id": "05_realestate__re_4031",
+          "category": "sales_realestate",
+          "dialect": "iraqi_arabic",
+          "messages": [
+            {
+              "role": "user",
+              "content": "هلا، شلون البنية التحتية بـالكرادة؟"
+            },
+            {
+              "role": "assistant",
+              "content": "كهرباء وطنية نظام متفق، ماء شبكة منتظم، صرف صحي كامل"
+            },
+            {
+              "role": "user",
+              "content": "والشوارع؟"
+            },
+            {
+              "role": "assistant",
+              "content": "معبدة وواسعة، والمنطقة شعبية ودافية"
+            },
+            {
+              "role": "user",
+              "content": "زين، عندكم بيت سكني بهاي المنطقة؟"
+            },
+            {
+              "role": "assistant",
+              "content": "إي، بيت سكني 200 متر، 3 غرف وصالة وحديقة. بـ279,038,000 دينار"
+            }
+          ],
+          "source_file": "iraqi_train_05_realestate.json"
+        },
+        {
+          "id": "05_realestate__re_7690",
+          "category": "sales_realestate",
+          "dialect": "iraqi_arabic",
+          "messages": [
+            {
+              "role": "user",
+              "content": "تريد تشارك بمشروع سكني بـالدورة؟"
+            },
+            {
+              "role": "assistant",
+              "content": "ممكن، شنو الفكرة؟"
+            },
+            {
+              "role": "user",
+              "content": "أشتري قطعة أرض 400 متر وأبني عليه طابقين، تشارك بالتمويل"
+            },
+            {
+              "role": "assistant",
+              "content": "فكرة زينة. اللي عندنا الأرض وإنتو التمويل نكتب عقد واضح. النسبة 20% لكل طرف"
+            },
+            {
+              "role": "user",
+              "content": "موافق من مبدأ. نرتب اجتماع؟"
+            },
+            {
+              "role": "assistant",
+              "content": "إي، نرتب أي يوم يناسبك مع المحامي والمهندس"
+            }
+          ],
+          "source_file": "iraqi_train_05_realestate.json"
+        },
+        {
+          "id": "05_realestate__re_4848",
+          "category": "sales_realestate",
+          "dialect": "iraqi_arabic",
+          "messages": [
+            {
+              "role": "user",
+              "content": "تريد تشارك بمشروع سكني بـالمعلف؟"
+            },
+            {
+              "role": "assistant",
+              "content": "ممكن، شنو الفكرة؟"
+            },
+            {
+              "role": "user",
+              "content": "أشتري فيلا 350 متر وأبني عليه طابق ثالث، تشارك بالتمويل"
+            },
+            {
+              "role": "assistant",
+              "content": "فكرة زينة. اللي عندنا الأرض وإنتو التمويل نكتب عقد واضح. النسبة 25% لكل طرف"
+            },
+            {
+              "role": "user",
+              "content": "موافق من مبدأ. نرتب اجتماع؟"
+            },
+            {
+              "role": "assistant",
+              "content": "إي، نرتب أي يوم يناسبك مع المحامي والمهندس"
+            }
+          ],
+          "source_file": "iraqi_train_05_realestate.json"
+        }
+      ]
+    },
+    "social_family": {
+      "عدد_المحادثات_بهذي_الفئة": 9654,
+      "عينة": [
+        {
+          "id": "09_social__social_1272",
+          "category": "social_family",
+          "dialect": "iraqi_arabic",
+          "messages": [
+            {
+              "role": "user",
+              "content": "ابني يبكي هواي، عمره 19 شهر"
+            },
+            {
+              "role": "assistant",
+              "content": "شنو صاير فيه؟"
+            },
+            {
+              "role": "user",
+              "content": "ما أدري، كل ليلة يبكي"
+            },
+            {
+              "role": "assistant",
+              "content": "ممكن جوع، شوف إذا حرارة"
+            },
+            {
+              "role": "user",
+              "content": "ما عنده حرارة"
+            },
+            {
+              "role": "assistant",
+              "content": "شيله ولعب معه، يحتاج انتباه"
+            }
+          ],
+          "source_file": "iraqi_train_09_social.json"
+        },
+        {
+          "id": "09_social__social_3182",
+          "category": "social_family",
+          "dialect": "iraqi_arabic",
+          "messages": [
+            {
+              "role": "user",
+              "content": "شلونكم بـالكرادة؟ رعد بخير؟"
+            },
+            {
+              "role": "assistant",
+              "content": "الحمد لله كلنا بخير. وأنتم؟"
+            },
+            {
+              "role": "user",
+              "content": "كلنا تمام. فاطمة سألت عنكم"
+            },
+            {
+              "role": "assistant",
+              "content": "الله يخليها، سلمي عليها"
+            },
+            {
+              "role": "user",
+              "content": "شوكت تجون تزورونا؟"
+            },
+            {
+              "role": "assistant",
+              "content": "قريب إن شاء الله، الله يجمعنا"
+            }
+          ],
+          "source_file": "iraqi_train_09_social.json"
+        },
+        {
+          "id": "09_social__social_2900",
+          "category": "social_family",
+          "dialect": "iraqi_arabic",
+          "messages": [
+            {
+              "role": "user",
+              "content": "عندي عرس لـ95 شخص، شنو أطبخ؟"
+            },
+            {
+              "role": "assistant",
+              "content": "قيمر خيار ممتاز للأعراس"
+            },
+            {
+              "role": "user",
+              "content": "بقدر أطبخ بيتياً؟"
+            },
+            {
+              "role": "assistant",
+              "content": "للأعداد الكبيرة أفضل طباخ أعراس"
+            },
+            {
+              "role": "user",
+              "content": "شكد يكلف؟"
+            },
+            {
+              "role": "assistant",
+              "content": "6,000 دينار للشخص"
+            }
+          ],
+          "source_file": "iraqi_train_09_social.json"
+        }
+      ]
+    },
+    "daily_life": {
+      "عدد_المحادثات_بهذي_الفئة": 9571,
+      "عينة": [
+        {
+          "id": "08_daily__daily_6189",
+          "category": "daily_life",
+          "dialect": "iraqi_arabic",
+          "messages": [
+            {
+              "role": "user",
+              "content": "عندكم تجمعات شباب بـسوق شورجة؟"
+            },
+            {
+              "role": "assistant",
+              "content": "إي، كل جمعة لقاء بالمسجد"
+            },
+            {
+              "role": "user",
+              "content": "وملعب كرة؟"
+            },
+            {
+              "role": "assistant",
+              "content": "إي، قرب أسواق بغداد، الشباب يلعبون كل عصر"
+            },
+            {
+              "role": "user",
+              "content": "أجي معاهم؟"
+            },
+            {
+              "role": "assistant",
+              "content": "أكيد، كلهم أهل طيبين"
+            }
+          ],
+          "source_file": "iraqi_train_08_daily.json"
+        },
+        {
+          "id": "08_daily__daily_2443",
+          "category": "daily_life",
+          "dialect": "iraqi_arabic",
+          "messages": [
+            {
+              "role": "user",
+              "content": "وين أحسن دكتور أطفال قرب ميناء البصرة؟"
+            },
+            {
+              "role": "assistant",
+              "content": "دكتور حسن الخفاجي، أفضل طفلية بالمنطقة"
+            },
+            {
+              "role": "user",
+              "content": "ساعات الدوام؟"
+            },
+            {
+              "role": "assistant",
+              "content": "من 5 لـ9 المسا"
+            },
+            {
+              "role": "user",
+              "content": "الكشف بيش؟"
+            },
+            {
+              "role": "assistant",
+              "content": "22,000 دينار"
+            }
+          ],
+          "source_file": "iraqi_train_08_daily.json"
+        },
+        {
+          "id": "08_daily__daily_9887",
+          "category": "daily_life",
+          "dialect": "iraqi_arabic",
+          "messages": [
+            {
+              "role": "user",
+              "content": "أريد أتعلم طبخ عنبة من صفر"
+            },
+            {
+              "role": "assistant",
+              "content": "فكرة حلوة! ابدأ من يوتيوب"
+            },
+            {
+              "role": "user",
+              "content": "في كورس متخصص؟"
+            },
+            {
+              "role": "assistant",
+              "content": "في أكاديميات طبخ بـديالى"
+            },
+            {
+              "role": "user",
+              "content": "شكراً، أسجل"
+            },
+            {
+              "role": "assistant",
+              "content": "بالتوفيق، إن شاء الله تنجح"
+            }
+          ],
+          "source_file": "iraqi_train_08_daily.json"
+        }
+      ]
+    },
+    "sales_furniture": {
+      "عدد_المحادثات_بهذي_الفئة": 9388,
+      "عينة": [
+        {
+          "id": "06_furniture__furniture_sales_6487",
+          "category": "sales_furniture",
+          "dialect": "iraqi_arabic",
+          "messages": [
+            {
+              "role": "user",
+              "content": "هلا، شنو عندكم من طاولة سفرة؟"
+            },
+            {
+              "role": "assistant",
+              "content": "عندنا طاولة سفرة ممتاز. زجاج وستيل، 6 كراسي. بـ576,000 دينار"
+            },
+            {
+              "role": "user",
+              "content": "ما تنزل علي؟"
+            },
+            {
+              "role": "assistant",
+              "content": "والله على خاطرك، هذا آخر سعر"
+            },
+            {
+              "role": "user",
+              "content": "ماشي"
+            },
+            {
+              "role": "assistant",
+              "content": "إن شاء الله"
+            }
+          ],
+          "source_file": "iraqi_train_06_furniture.json"
+        },
+        {
+          "id": "06_furniture__furniture_sales_0704",
+          "category": "sales_furniture",
+          "dialect": "iraqi_arabic",
+          "messages": [
+            {
+              "role": "user",
+              "content": "هلا، عندكم ميكرويف بتصميم كلاسيكي؟"
+            },
+            {
+              "role": "assistant",
+              "content": "إي عندنا. ما أريدك تجي بكره وتندم. 30 لتر، شاشة ديجيتال"
+            },
+            {
+              "role": "user",
+              "content": "بيش؟"
+            },
+            {
+              "role": "assistant",
+              "content": "151,000 دينار. وعليه ضمان سنتين"
+            },
+            {
+              "role": "user",
+              "content": "يعني لازم أقرر هسه؟"
+            },
+            {
+              "role": "assistant",
+              "content": "ما أجبرك، بس هذا التصميم ما يجي ثاني"
+            },
+            {
+              "role": "user",
+              "content": "ماشي، آخذه"
+            },
+            {
+              "role": "assistant",
+              "content": "إن شاء الله"
+            }
+          ],
+          "source_file": "iraqi_train_06_furniture.json"
+        },
+        {
+          "id": "06_furniture__furniture_sales_8419",
+          "category": "sales_furniture",
+          "dialect": "iraqi_arabic",
+          "messages": [
+            {
+              "role": "user",
+              "content": "هلا، أريد أفرش شقتي الجديدة"
+            },
+            {
+              "role": "assistant",
+              "content": "مبارك على الشقة! نحن متخصصين بتأثيث البيوت الجديدة"
+            },
+            {
+              "role": "user",
+              "content": "ابدأ بـمطبخ ألمنيوم للـباب، شكد؟"
+            },
+            {
+              "role": "assistant",
+              "content": "مطبخ ألمنيوم بـ3,112,000 دينار. هايگلوس، أدراج ناعمة"
+            },
+            {
+              "role": "user",
+              "content": "وللـشباك شنو عندكم؟"
+            },
+            {
+              "role": "assistant",
+              "content": "تفضل، الكتالوج كامل وفيه كل الغرف والصالات"
+            }
+          ],
+          "source_file": "iraqi_train_06_furniture.json"
+        }
+      ]
+    },
+    "work_jobs": {
+      "عدد_المحادثات_بهذي_الفئة": 8358,
+      "عينة": [
+        {
+          "id": "20_work__work_6670",
+          "category": "work_jobs",
+          "dialect": "iraqi_arabic",
+          "messages": [
+            {
+              "role": "user",
+              "content": "صاحبي أبو أحمد يشتغل فريلانس وربح 722,000 الشهر الماضي"
+            },
+            {
+              "role": "assistant",
+              "content": "ماشاءالله! بأي مجال يشتغل؟"
+            },
+            {
+              "role": "user",
+              "content": "محاسبة على فريلانسر"
+            },
+            {
+              "role": "assistant",
+              "content": "محاسبة على فريلانسر سوق ممتاز. ليش ما تجرب؟"
+            },
+            {
+              "role": "user",
+              "content": "ما أعرف أبدأ من وين"
+            },
+            {
+              "role": "assistant",
+              "content": "ابدأ بملف على فريلانسر مع 3 نماذج شغل. الأول صعب، بعدين تنطلق"
+            }
+          ],
+          "source_file": "iraqi_train_20_work.json"
+        },
+        {
+          "id": "20_work__work_1343",
+          "category": "work_jobs",
+          "dialect": "iraqi_arabic",
+          "messages": [
+            {
+              "role": "user",
+              "content": "أريد أنظم وقتي بين شركة بغداد للتجارة وتدريس خصوصي الجانبي، الاثنين مرهقين"
+            },
+            {
+              "role": "assistant",
+              "content": "شغلين معاً؟ تنظيم الوقت أهم شي. تستخدم تطبيق توقيت؟"
+            },
+            {
+              "role": "user",
+              "content": "لا، مجرب بس ما انتظم"
+            },
+            {
+              "role": "assistant",
+              "content": "خصص نهاية الأسبوع ثابتة لـتدريس خصوصي. تطبيق توقيت يساعد بالتنظيم"
+            },
+            {
+              "role": "user",
+              "content": "التعب يأثر على جودة شغلي بـ{comp}"
+            },
+            {
+              "role": "assistant",
+              "content": "يوم الخميس كامل راحة. الإنتاجية تحتاج شحن لا تراكم تعب"
+            }
+          ],
+          "source_file": "iraqi_train_20_work.json"
+        },
+        {
+          "id": "20_work__work_1511",
+          "category": "work_jobs",
+          "dialect": "iraqi_arabic",
+          "messages": [
+            {
+              "role": "user",
+              "content": "شغل الحكومة بـوزارة الصحة أفضل ولا مجموعة النهرين الخاصة؟"
+            },
+            {
+              "role": "assistant",
+              "content": "الحكومة أمان وتقاعد. مجموعة النهرين راتب أعلى وفرص نمو"
+            },
+            {
+              "role": "user",
+              "content": "الحكومة الدرجة الخامسة الراتب 503,000"
+            },
+            {
+              "role": "assistant",
+              "content": "مجموعة النهرين تعطي 493,000 ابتداءً. الفرق كبير بس بدون ضمان"
+            },
+            {
+              "role": "user",
+              "content": "أنا شاب عندي مخاطرة"
+            },
+            {
+              "role": "assistant",
+              "content": "الشباب يتحمل مخاطرة مجموعة النهرين. الخبرة والدخل أعلى بكثير"
+            }
+          ],
+          "source_file": "iraqi_train_20_work.json"
+        }
+      ]
+    },
+    "education": {
+      "عدد_المحادثات_بهذي_الفئة": 7685,
+      "عينة": [
+        {
+          "id": "12_education__edu_1983",
+          "category": "education",
+          "dialect": "iraqi_arabic",
+          "messages": [
+            {
+              "role": "user",
+              "content": "أستاذ، ابنتي تريد تدرس هندسة بـالجامعة التكنولوجية بس العيلة تريدها طب"
+            },
+            {
+              "role": "assistant",
+              "content": "هذا موقف صعب. شنو سبب رفض هندسة؟"
+            },
+            {
+              "role": "user",
+              "content": "يقولون سوق هندسة ما فيه توظيف"
+            },
+            {
+              "role": "assistant",
+              "content": "سوق هندسة واعد. خريجيه بالقطاع الخاص يكسبون أكثر من طب"
+            },
+            {
+              "role": "user",
+              "content": "كيف أقنعهم؟"
+            },
+            {
+              "role": "assistant",
+              "content": "أرهم إحصائيات التوظيف الحقيقية وراتب متخصصي هندسة بالسوق الحالي"
+            }
+          ],
+          "source_file": "iraqi_train_12_education.json"
+        },
+        {
+          "id": "12_education__edu_3911",
+          "category": "education",
+          "dialect": "iraqi_arabic",
+          "messages": [
+            {
+              "role": "user",
+              "content": "هلا، ابني الصف الخامس بـالمتوسطة يريد يشتغل وهو يدرس، ممكن؟"
+            },
+            {
+              "role": "assistant",
+              "content": "ممكن بس صعب. الدراسة تحتاج تركيز"
+            },
+            {
+              "role": "user",
+              "content": "شغل نص وقت بس"
+            },
+            {
+              "role": "assistant",
+              "content": "شغل نص وقت ممكن، بس لازم ينظم وقته ولا يهمل رياضيات"
+            },
+            {
+              "role": "user",
+              "content": "وإذا أثر على معدله؟"
+            },
+            {
+              "role": "assistant",
+              "content": "الأولوية للدراسة. شغل الإجازة الصيفية أفضل بكثير"
+            }
+          ],
+          "source_file": "iraqi_train_12_education.json"
+        },
+        {
+          "id": "12_education__edu_8535",
+          "category": "education",
+          "dialect": "iraqi_arabic",
+          "messages": [
+            {
+              "role": "user",
+              "content": "هلا، أريد معلومات عن كلية طب بـجامعة بغداد"
+            },
+            {
+              "role": "assistant",
+              "content": "كلية طب عندها 4 سنوات دراسية"
+            },
+            {
+              "role": "user",
+              "content": "التوظيف بعد التخرج؟"
+            },
+            {
+              "role": "assistant",
+              "content": "خريجي طب عندهم فرص ممتازة بالقطاع كليهما"
+            },
+            {
+              "role": "user",
+              "content": "الرسوم؟"
+            },
+            {
+              "role": "assistant",
+              "content": "للحكومية مجانية. الأهلية بـ142,000 بالفصل"
+            }
+          ],
+          "source_file": "iraqi_train_12_education.json"
+        }
+      ]
+    },
+    "healthcare": {
+      "عدد_المحادثات_بهذي_الفئة": 7346,
+      "عينة": [
+        {
+          "id": "11_health__health_4921",
+          "category": "healthcare",
+          "dialect": "iraqi_arabic",
+          "messages": [
+            {
+              "role": "user",
+              "content": "ابني 3 سنين عنده حرارة من شوية، شسوي؟"
+            },
+            {
+              "role": "assistant",
+              "content": "كم درجة الحرارة؟"
+            },
+            {
+              "role": "user",
+              "content": "39.2"
+            },
+            {
+              "role": "assistant",
+              "content": "حرارة 39.2 متوسطة. أعطيه مضاد حيوي وماي هواي. لو ارتفعت روح الطوارئ"
+            },
+            {
+              "role": "user",
+              "content": "وإذا ما نزلت باچر؟"
+            },
+            {
+              "role": "assistant",
+              "content": "روح مستشفى الكندي الصبح وما تأخر"
+            }
+          ],
+          "source_file": "iraqi_train_11_health.json"
+        },
+        {
+          "id": "11_health__health_6752",
+          "category": "healthcare",
+          "dialect": "iraqi_arabic",
+          "messages": [
+            {
+              "role": "user",
+              "content": "عندي حساسية من يومين، شتنصحني؟"
+            },
+            {
+              "role": "assistant",
+              "content": "لازم تروح دكتور. روح عيادة الشفاء قريب منك"
+            },
+            {
+              "role": "user",
+              "content": "ما أحب روح المستشفى"
+            },
+            {
+              "role": "assistant",
+              "content": "تره حساسية ما يتهاون فيها. الدكتور دكتورة سارة متاح بعد باچر"
+            },
+            {
+              "role": "user",
+              "content": "ماشي، إن شاء الله أروح"
+            },
+            {
+              "role": "assistant",
+              "content": "الله يشفيك ويعافيك"
+            }
+          ],
+          "source_file": "iraqi_train_11_health.json"
+        },
+        {
+          "id": "11_health__health_6851",
+          "category": "healthcare",
+          "dialect": "iraqi_arabic",
+          "messages": [
+            {
+              "role": "user",
+              "content": "أريد أسأل، سونار تحتاج موعد مسبق؟"
+            },
+            {
+              "role": "assistant",
+              "content": "إي، لازم حجز لـسونار. شنو المشكلة؟"
+            },
+            {
+              "role": "user",
+              "content": "عندي ضغط عالي من شوية"
+            },
+            {
+              "role": "assistant",
+              "content": "عندنا موعد باچر الصبح. بكم تكدر تجي؟"
+            },
+            {
+              "role": "user",
+              "content": "الصبح"
+            },
+            {
+              "role": "assistant",
+              "content": "تمام، سجلتك الساعة 8 الصبح. السعر 14,000 دينار"
+            }
+          ],
+          "source_file": "iraqi_train_11_health.json"
+        }
+      ]
+    },
+    "religious_occasions": {
+      "عدد_المحادثات_بهذي_الفئة": 7330,
+      "عينة": [
+        {
+          "id": "18_occasions__occ_6403",
+          "category": "religious_occasions",
+          "dialect": "iraqi_arabic",
+          "messages": [
+            {
+              "role": "user",
+              "content": "عندنا إفطار جماعي بـالحسينية يوم العشرة الأواخر، تجي؟"
+            },
+            {
+              "role": "assistant",
+              "content": "إي والله أجي! إفطار الحسينية يوم العشرة الأواخر روح ومحبة"
+            },
+            {
+              "role": "user",
+              "content": "الساعة 6 المغرب. متوقعين 150 شخص"
+            },
+            {
+              "role": "assistant",
+              "content": "إن شاء الله أكون هناك. 150 شخص؟ منظمين كلش"
+            },
+            {
+              "role": "user",
+              "content": "إي، الجامع جاهز. بس الحضور يكفي"
+            },
+            {
+              "role": "assistant",
+              "content": "ماشي، إن شاء الله أجي مع العيلة لـالحسينية"
+            }
+          ],
+          "source_file": "iraqi_train_18_occasions.json"
+        },
+        {
+          "id": "18_occasions__occ_1085",
+          "category": "religious_occasions",
+          "dialect": "iraqi_arabic",
+          "messages": [
+            {
+              "role": "user",
+              "content": "أريد أزور قبر أبوي بمناسبة العيد الصغير، وين المقبرة؟"
+            },
+            {
+              "role": "assistant",
+              "content": "مقبرة وين؟ أي منطقة؟"
+            },
+            {
+              "role": "user",
+              "content": "مقبرة الشعب"
+            },
+            {
+              "role": "assistant",
+              "content": "مقبرة الشعب معروفة. تاخذ ختمة قرآن لروحه"
+            },
+            {
+              "role": "user",
+              "content": "نزورهم مرة بالشهر. الله يرحمه ويوسع مضجعه"
+            },
+            {
+              "role": "assistant",
+              "content": "آمين يا رب، الله يرحم باجي ريم وكل أمواتنا. زيارة مرة بالشهر طيبة"
+            }
+          ],
+          "source_file": "iraqi_train_18_occasions.json"
+        },
+        {
+          "id": "18_occasions__occ_2550",
+          "category": "religious_occasions",
+          "dialect": "iraqi_arabic",
+          "messages": [
+            {
+              "role": "user",
+              "content": "رمضان كريم حجي فلاح، كيف الاستعداد عندكم؟"
+            },
+            {
+              "role": "assistant",
+              "content": "رمضان كريم أستاذ حيدر! جاهزين، دعوة الجيران ودعوة الأهل من أمس"
+            },
+            {
+              "role": "user",
+              "content": "شنو تفطرون عادةً وأي ساعة؟"
+            },
+            {
+              "role": "assistant",
+              "content": "الساعة 6:30 نفطر. الأول تمر وشاي، وبعدين مرق وأرز"
+            },
+            {
+              "role": "user",
+              "content": "مثلنا تماماً! التمر الساعة 6:30 أول شي"
+            },
+            {
+              "role": "assistant",
+              "content": "سنة النبي صلى الله عليه وسلم. مرق وأرز أكل رمضان الأصيل"
+            }
+          ],
+          "source_file": "iraqi_train_18_occasions.json"
+        }
+      ]
+    },
+    "neighborhood_community": {
+      "عدد_المحادثات_بهذي_الفئة": 7042,
+      "عينة": [
+        {
+          "id": "19_neighborhood__neigh_6696",
+          "category": "neighborhood_community",
+          "dialect": "iraqi_arabic",
+          "messages": [
+            {
+              "role": "user",
+              "content": "أبو حجي جاسم، الجيران الجدد من الصدر ما يحترمون الخصوصية"
+            },
+            {
+              "role": "assistant",
+              "content": "شنو يسوون تحديداً؟"
+            },
+            {
+              "role": "user",
+              "content": "يتفحصون من الشباك بشكل متكرر"
+            },
+            {
+              "role": "assistant",
+              "content": "كلمهم بأدب أولاً. ربما ما يدرون بـيتفحصون من الشباك"
+            },
+            {
+              "role": "user",
+              "content": "جربت مرتين وما نفع"
+            },
+            {
+              "role": "assistant",
+              "content": "اعمل حاجز خشبي. حقك بالخصوصية مكفول"
+            }
+          ],
+          "source_file": "iraqi_train_19_neighborhood.json"
+        },
+        {
+          "id": "19_neighborhood__neigh_7594",
+          "category": "neighborhood_community",
+          "dialect": "iraqi_arabic",
+          "messages": [
+            {
+              "role": "user",
+              "content": "صيدلية الجديد بالحارة، جربته يا أبو يوسف؟"
+            },
+            {
+              "role": "assistant",
+              "content": "إي، الحاج صالح صاحبه محترم وأسعاره معقولة"
+            },
+            {
+              "role": "user",
+              "content": "شنو يبيع تحديداً؟"
+            },
+            {
+              "role": "assistant",
+              "content": "متخصص بـصيدلية، نظيف ومرتب. أحسن من اللي قبله"
+            },
+            {
+              "role": "user",
+              "content": "أروح أشوف أسعاره"
+            },
+            {
+              "role": "assistant",
+              "content": "اروح بكير قبل ما يزدحم. الحاج صالح يفتح الساعة 7 الصبح"
+            }
+          ],
+          "source_file": "iraqi_train_19_neighborhood.json"
+        },
+        {
+          "id": "19_neighborhood__neigh_9595",
+          "category": "neighborhood_community",
+          "dialect": "iraqi_arabic",
+          "messages": [
+            {
+              "role": "user",
+              "content": "نريد نسوي إضاءة وزينة بمناسبة ذكرى عاشوراء، الحارة تتفق؟"
+            },
+            {
+              "role": "assistant",
+              "content": "فكرة رائعة! إضاءة وزينة بـذكرى عاشوراء يجمع الجيران"
+            },
+            {
+              "role": "user",
+              "content": "كيف ننظم؟"
+            },
+            {
+              "role": "assistant",
+              "content": "نكلم الشيخ حمزة ونحدد مكان. الجيران يتبرعون بـإضاءة وزينة"
+            },
+            {
+              "role": "user",
+              "content": "الأطفال رح يفرحون"
+            },
+            {
+              "role": "assistant",
+              "content": "إي والله، إضاءة وزينة بـذكرى عاشوراء ذكرى ما تنسى للعيال"
+            }
+          ],
+          "source_file": "iraqi_train_19_neighborhood.json"
+        }
+      ]
+    },
+    "government_services": {
+      "عدد_المحادثات_بهذي_الفئة": 6937,
+      "عينة": [
+        {
+          "id": "13_government__gov_0203",
+          "category": "government_services",
+          "dialect": "iraqi_arabic",
+          "messages": [
+            {
+              "role": "user",
+              "content": "أريد أستخرج شهادة إقامة لـالتسجيل بالجامعة"
+            },
+            {
+              "role": "assistant",
+              "content": "شهادة الإقامة لـالتسجيل بالجامعة تجيبها من المحلة، تحتاج هوية الأحوال والمختار"
+            },
+            {
+              "role": "user",
+              "content": "المختار وين؟"
+            },
+            {
+              "role": "assistant",
+              "content": "مختار المحلة موجود بـشارع الرشيد. يفتح أوقات الصبح عادةً"
+            },
+            {
+              "role": "user",
+              "content": "الرسوم والمدة؟"
+            },
+            {
+              "role": "assistant",
+              "content": "رمزية، 1,000 دينار. تجيك في نفس اليوم أو يوم"
+            }
+          ],
+          "source_file": "iraqi_train_13_government.json"
+        },
+        {
+          "id": "13_government__gov_5129",
+          "category": "government_services",
+          "dialect": "iraqi_arabic",
+          "messages": [
+            {
+              "role": "user",
+              "content": "السلام عليكم، أريد أفتح محل تجاري، شنو الإجراءات؟"
+            },
+            {
+              "role": "assistant",
+              "content": "تحتاج سجل تجاري، رخصة بلدية، وموافقة وزارة التجارة"
+            },
+            {
+              "role": "user",
+              "content": "وين أبدأ؟"
+            },
+            {
+              "role": "assistant",
+              "content": "ابدأ بالبلدية، بعدين السجل التجاري بـدائرة التقاعد"
+            },
+            {
+              "role": "user",
+              "content": "الرسوم الكلية كم؟"
+            },
+            {
+              "role": "assistant",
+              "content": "بين 26,000 وـ74,000 حسب نوع المحل والموقع"
+            }
+          ],
+          "source_file": "iraqi_train_13_government.json"
+        },
+        {
+          "id": "13_government__gov_5958",
+          "category": "government_services",
+          "dialect": "iraqi_arabic",
+          "messages": [
+            {
+              "role": "user",
+              "content": "جوازي انتهى، وعندي سفر بعد 3 أسابيع"
+            },
+            {
+              "role": "assistant",
+              "content": "اللحاق ممكن لو قدمت هسه. أكو تعجيل برسوم إضافية"
+            },
+            {
+              "role": "user",
+              "content": "كم رسوم التعجيل؟"
+            },
+            {
+              "role": "assistant",
+              "content": "التعجيل 48,000 دينار إضافية ويجي خلال 3 أيام"
+            },
+            {
+              "role": "user",
+              "content": "ماشي، أريد التعجيل"
+            },
+            {
+              "role": "assistant",
+              "content": "تفضل ملأ الاستمارة وادفع بالشباك رقم 2"
+            }
+          ],
+          "source_file": "iraqi_train_13_government.json"
+        }
+      ]
+    },
+    "transportation": {
+      "عدد_المحادثات_بهذي_الفئة": 6914,
+      "عينة": [
+        {
+          "id": "15_transport__trans_3175",
+          "category": "transportation",
+          "dialect": "iraqi_arabic",
+          "messages": [
+            {
+              "role": "user",
+              "content": "أريد سيارة لنقل أجهزة كهربائية من الكرادة لـالشعب"
+            },
+            {
+              "role": "assistant",
+              "content": "نقل أجهزة كهربائية يحتاج تريلة صغيرة"
+            },
+            {
+              "role": "user",
+              "content": "بيش؟"
+            },
+            {
+              "role": "assistant",
+              "content": "نقل أجهزة كهربائية من الكرادة لـالشعب بـ143,000 دينار"
+            },
+            {
+              "role": "user",
+              "content": "شوكت تكدر؟"
+            },
+            {
+              "role": "assistant",
+              "content": "أكدر باچر، أقولك على الموعد"
+            }
+          ],
+          "source_file": "iraqi_train_15_transport.json"
+        },
+        {
+          "id": "15_transport__trans_0550",
+          "category": "transportation",
+          "dialect": "iraqi_arabic",
+          "messages": [
+            {
+              "role": "user",
+              "content": "أريد أرسل طرد لـالعطيفية، في خدمة توصيل؟"
+            },
+            {
+              "role": "assistant",
+              "content": "إي، توصيل العطيفية موجودة"
+            },
+            {
+              "role": "user",
+              "content": "كم يكلف؟"
+            },
+            {
+              "role": "assistant",
+              "content": "حسب الوزن، من 2,000 للـ3 كيلو الأول"
+            },
+            {
+              "role": "user",
+              "content": "كم يستغرق؟"
+            },
+            {
+              "role": "assistant",
+              "content": "توصيل داخل بغداد نفس اليوم أو بعد باچر"
+            }
+          ],
+          "source_file": "iraqi_train_15_transport.json"
+        },
+        {
+          "id": "15_transport__trans_9231",
+          "category": "transportation",
+          "dialect": "iraqi_arabic",
+          "messages": [
+            {
+              "role": "user",
+              "content": "سيارتي عندها إطار مثقوب، كيف أوصل لـالنهضة؟"
+            },
+            {
+              "role": "assistant",
+              "content": "إطار مثقوب مشكلة، لازم تسوي كاري أول"
+            },
+            {
+              "role": "user",
+              "content": "رقم مكانيكي قريب عندك؟"
+            },
+            {
+              "role": "assistant",
+              "content": "أبو صالح يجي للموقع، يصلح إطار مثقوب"
+            },
+            {
+              "role": "user",
+              "content": "وبعدين أكمل لـ{area2}؟"
+            },
+            {
+              "role": "assistant",
+              "content": "إي بعد الإصلاح تكمل. أو أطلب أوبر حالياً"
+            }
+          ],
+          "source_file": "iraqi_train_15_transport.json"
+        }
+      ]
+    },
+    "sports_entertainment": {
+      "عدد_المحادثات_بهذي_الفئة": 6908,
+      "عينة": [
+        {
+          "id": "16_sports__sport_5143",
+          "category": "sports_entertainment",
+          "dialect": "iraqi_arabic",
+          "messages": [
+            {
+              "role": "user",
+              "content": "أريد أروح كافيه پلايستيشن الليلة"
+            },
+            {
+              "role": "assistant",
+              "content": "كافيه پلايستيشن؟ زين! بيش الساعة؟"
+            },
+            {
+              "role": "user",
+              "content": "كم ساعة تقريباً؟"
+            },
+            {
+              "role": "assistant",
+              "content": "ساعة 15,000 دينار، PS5 موجود"
+            },
+            {
+              "role": "user",
+              "content": "نلعب بلايستيشن وياك؟"
+            },
+            {
+              "role": "assistant",
+              "content": "إي زين! بلايستيشن على PS5 يهبل بالكافيه"
+            }
+          ],
+          "source_file": "iraqi_train_16_sports.json"
+        },
+        {
+          "id": "16_sports__sport_0032",
+          "category": "sports_entertainment",
+          "dialect": "iraqi_arabic",
+          "messages": [
+            {
+              "role": "user",
+              "content": "أريد أسجل ابني باسم بنادي كرة سلة للأطفال"
+            },
+            {
+              "role": "assistant",
+              "content": "عمر باسم كم سنة؟"
+            },
+            {
+              "role": "user",
+              "content": "9 سنين"
+            },
+            {
+              "role": "assistant",
+              "content": "كفو، عندنا فئة 9 سنة. تدريب ثلاث مرات بالأسبوع"
+            },
+            {
+              "role": "user",
+              "content": "الرسوم؟"
+            },
+            {
+              "role": "assistant",
+              "content": "شهري 66,000 دينار يشمل الزي الرياضي لـباسم"
+            }
+          ],
+          "source_file": "iraqi_train_16_sports.json"
+        },
+        {
+          "id": "16_sports__sport_6907",
+          "category": "sports_entertainment",
+          "dialect": "iraqi_arabic",
+          "messages": [
+            {
+              "role": "user",
+              "content": "المباراة النهائية بين الكهرباء والشرطة الجمعة؟"
+            },
+            {
+              "role": "assistant",
+              "content": "إي، النهائي الجمعة بـملعب بغداد الدولي الساعة 6 المسا"
+            },
+            {
+              "role": "user",
+              "content": "أريد أروح بـملعب الكرادة، تيكيت باقي؟"
+            },
+            {
+              "role": "assistant",
+              "content": "عادي باقي. VIP يمكن انتهى"
+            },
+            {
+              "role": "user",
+              "content": "أروح من وين أشتري؟"
+            },
+            {
+              "role": "assistant",
+              "content": "شباك ملعب بغداد الدولي يفتح من الصبح الجمعة. روح بكير"
+            }
+          ],
+          "source_file": "iraqi_train_16_sports.json"
+        }
+      ]
+    },
+    "family_home": {
+      "عدد_المحادثات_بهذي_الفئة": 6565,
+      "عينة": [
+        {
+          "id": "17_family__fam_4134",
+          "category": "family_home",
+          "dialect": "iraqi_arabic",
+          "messages": [
+            {
+              "role": "user",
+              "content": "أريد أشتري بيت، شنو الخطوات؟"
+            },
+            {
+              "role": "assistant",
+              "content": "أول تحدد الميزانية والمنطقة اللي تريد"
+            },
+            {
+              "role": "user",
+              "content": "ميزانيتي 200,423,000 دينار"
+            },
+            {
+              "role": "assistant",
+              "content": "بهالميزانية تلقى بيت جيد. تدور عبر دلالين أو أونلاين"
+            },
+            {
+              "role": "user",
+              "content": "في فحص قانوني؟"
+            },
+            {
+              "role": "assistant",
+              "content": "لازم تفحص الصك وتتأكد من السجل العقاري قبل الشراء"
+            }
+          ],
+          "source_file": "iraqi_train_17_family.json"
+        },
+        {
+          "id": "17_family__fam_5154",
+          "category": "family_home",
+          "dialect": "iraqi_arabic",
+          "messages": [
+            {
+              "role": "user",
+              "content": "أم أبو ليث، شنو طابخة اليوم؟"
+            },
+            {
+              "role": "assistant",
+              "content": "طابخة شاي وسلطة، وأريد أسوي دولمة بعد"
+            },
+            {
+              "role": "user",
+              "content": "وياني أجيب خبز وسمن؟"
+            },
+            {
+              "role": "assistant",
+              "content": "إي أجيب صمون طازج من الفرن وسمن بلدي"
+            },
+            {
+              "role": "user",
+              "content": "ماشي، بجي قبل الغداء"
+            },
+            {
+              "role": "assistant",
+              "content": "تفضل يا باجي فاطمة، الأكل جاهز الساعة 1"
+            }
+          ],
+          "source_file": "iraqi_train_17_family.json"
+        },
+        {
+          "id": "17_family__fam_8188",
+          "category": "family_home",
+          "dialect": "iraqi_arabic",
+          "messages": [
+            {
+              "role": "user",
+              "content": "أريد أحوّل المطبخ لمكتب عمل بالبيت"
+            },
+            {
+              "role": "assistant",
+              "content": "فكرة زينة! المطبخ واسعة؟"
+            },
+            {
+              "role": "user",
+              "content": "معقولة، 4×5 متر"
+            },
+            {
+              "role": "assistant",
+              "content": "تكفي. تحتاج مكتب، كرسي مريح، وإضاءة جيدة لـالمطبخ"
+            },
+            {
+              "role": "user",
+              "content": "كم يكلف التجهيز؟"
+            },
+            {
+              "role": "assistant",
+              "content": "مكتب وكرسي جيد من 312,000 دينار"
+            }
+          ],
+          "source_file": "iraqi_train_17_family.json"
+        }
+      ]
+    },
+    "restaurant_cafe": {
+      "عدد_المحادثات_بهذي_الفئة": 5642,
+      "عينة": [
+        {
+          "id": "14_restaurant__rest_3996",
+          "category": "restaurant_cafe",
+          "dialect": "iraqi_arabic",
+          "messages": [
+            {
+              "role": "user",
+              "content": "بيش طبق قوزي عندكم؟"
+            },
+            {
+              "role": "assistant",
+              "content": "قوزي بـ16,000 دينار للشخص"
+            },
+            {
+              "role": "user",
+              "content": "يشمل خبز وشاي؟"
+            },
+            {
+              "role": "assistant",
+              "content": "يشمل خبز، أما قهوة بـ14,000 إضافي"
+            },
+            {
+              "role": "user",
+              "content": "ماشي، آخذ واحد"
+            },
+            {
+              "role": "assistant",
+              "content": "حاضر يا أخوي، يجيك خلال 15 دقيقة"
+            }
+          ],
+          "source_file": "iraqi_train_14_restaurant.json"
+        },
+        {
+          "id": "14_restaurant__rest_7959",
+          "category": "restaurant_cafe",
+          "dialect": "iraqi_arabic",
+          "messages": [
+            {
+              "role": "user",
+              "content": "أريد فطور عراقي أصيل بـكافيه الرصافة، عندكم؟"
+            },
+            {
+              "role": "assistant",
+              "content": "إي والله، عندنا سلطة ومقبلات وبيض وعسل"
+            },
+            {
+              "role": "user",
+              "content": "وقهوة؟"
+            },
+            {
+              "role": "assistant",
+              "content": "طبعاً، ما يكمل الفطور بدون قهوة"
+            },
+            {
+              "role": "user",
+              "content": "هذا يهبل، آخذ واحد"
+            },
+            {
+              "role": "assistant",
+              "content": "بـ12,000 دينار. يجي فوراً"
+            }
+          ],
+          "source_file": "iraqi_train_14_restaurant.json"
+        },
+        {
+          "id": "14_restaurant__rest_9941",
+          "category": "restaurant_cafe",
+          "dialect": "iraqi_arabic",
+          "messages": [
+            {
+              "role": "user",
+              "content": "هلا، طاولة لـ4 أشخاص"
+            },
+            {
+              "role": "assistant",
+              "content": "هلا بيك، تفضل. تفضل، عندنا طاولة قرب الكاشير"
+            },
+            {
+              "role": "user",
+              "content": "شنو تنصحنا من المينيو؟"
+            },
+            {
+              "role": "assistant",
+              "content": "اليوم عندنا قوزي طازج وعليه طلب كثير"
+            },
+            {
+              "role": "user",
+              "content": "آخذ 4 أشخاص حصص قوزي"
+            },
+            {
+              "role": "assistant",
+              "content": "حاضر، وشنو تشربون؟"
+            }
+          ],
+          "source_file": "iraqi_train_14_restaurant.json"
+        }
+      ]
+    },
+    "greetings_chat": {
+      "عدد_المحادثات_بهذي_الفئة": 2064,
+      "عينة": [
+        {
+          "id": "greetings_chat_01154",
+          "category": "greetings_chat",
+          "dialect": "iraqi_arabic",
+          "messages": [
+            {
+              "role": "user",
+              "content": "هلو شلونك"
+            },
+            {
+              "role": "assistant",
+              "content": "صباح النور! الحمد لله بخير، شلونك إنت؟"
+            },
+            {
+              "role": "user",
+              "content": "زين الحمد لله. العائلة شلونهم؟"
+            },
+            {
+              "role": "assistant",
+              "content": "بخير يسلمون عليك، الحمد لله كلهم زينين"
+            },
+            {
+              "role": "user",
+              "content": "ممنون منك والله"
+            },
+            {
+              "role": "assistant",
+              "content": "لا شكر على واجب، هذا أقل شي"
+            }
+          ],
+          "source_file": "greetings_smalltalk_generated.jsonl"
+        },
+        {
+          "id": "greetings_chat_00546",
+          "category": "greetings_chat",
+          "dialect": "iraqi_arabic",
+          "messages": [
+            {
+              "role": "user",
+              "content": "شلونك"
+            },
+            {
+              "role": "assistant",
+              "content": "هلا عيني! الحمد لله، شخبارك؟"
+            },
+            {
+              "role": "user",
+              "content": "الحمد لله زين. شسويت اليوم؟"
+            },
+            {
+              "role": "assistant",
+              "content": "يوم عادي، دوام وبيت. إنت شسالفتك؟"
+            }
+          ],
+          "source_file": "greetings_smalltalk_generated.jsonl"
+        },
+        {
+          "id": "greetings_chat_00789",
+          "category": "greetings_chat",
+          "dialect": "iraqi_arabic",
+          "messages": [
+            {
+              "role": "user",
+              "content": "ها شلونك"
+            },
+            {
+              "role": "assistant",
+              "content": "مساء النور! زين الحمد لله، وإنت؟"
+            },
+            {
+              "role": "user",
+              "content": "بخير. الشغل شلونه وياك؟"
+            },
+            {
+              "role": "assistant",
+              "content": "ماشي الحال، ضغط بس الحمد لله على كل حال"
+            }
+          ],
+          "source_file": "greetings_smalltalk_generated.jsonl"
+        }
+      ]
+    },
+    "greetings_chat_sys": {
+      "عدد_المحادثات_بهذي_الفئة": 1052,
+      "عينة": [
+        {
+          "id": "greetings_chat_sys_01988",
+          "category": "greetings_chat_sys",
+          "dialect": "iraqi_arabic",
+          "messages": [
+            {
+              "role": "system",
+              "content": "مساعد عراقي ودود، رد بالعراقي دائماً."
+            },
+            {
+              "role": "user",
+              "content": "اشلونك"
+            },
+            {
+              "role": "assistant",
+              "content": "هلا والله! ماكو شي جديد، إنت شكو عندك؟"
+            },
+            {
+              "role": "user",
+              "content": "زين. الدراسة شلونها؟"
+            },
+            {
+              "role": "assistant",
+              "content": "زينة الحمد لله، باقيلنا امتحانات وننتهي"
+            }
+          ],
+          "source_file": "greetings_smalltalk_generated.jsonl"
+        },
+        {
+          "id": "greetings_chat_sys_01778",
+          "category": "greetings_chat_sys",
+          "dialect": "iraqi_arabic",
+          "messages": [
+            {
+              "role": "system",
+              "content": "أنت مساعد ذكي يرد باللهجة العراقية الطبيعية باختصار ولطف."
+            },
+            {
+              "role": "user",
+              "content": "اشلونك اليوم"
+            },
+            {
+              "role": "assistant",
+              "content": "زين نشكر الله، إنت علومك؟"
+            },
+            {
+              "role": "user",
+              "content": "الحمد لله. الجو شلونه عدكم اليوم؟"
+            },
+            {
+              "role": "assistant",
+              "content": "حار شوية بس يتحمل، إن شاء الله يبرد قريب"
+            },
+            {
+              "role": "user",
+              "content": "خوش، نلتقي قريب إن شاء الله"
+            },
+            {
+              "role": "assistant",
+              "content": "إن شاء الله، بالانتظار"
+            }
+          ],
+          "source_file": "greetings_smalltalk_generated.jsonl"
+        },
+        {
+          "id": "greetings_chat_sys_02098",
+          "category": "greetings_chat_sys",
+          "dialect": "iraqi_arabic",
+          "messages": [
+            {
+              "role": "system",
+              "content": "أنت مساعد ذكي يرد باللهجة العراقية الطبيعية باختصار ولطف."
+            },
+            {
+              "role": "user",
+              "content": "شلون الصحة"
+            },
+            {
+              "role": "assistant",
+              "content": "هلا والله! ماكو شي جديد، إنت شكو عندك؟"
+            },
+            {
+              "role": "user",
+              "content": "بخير الحمد لله. وين هالغيبة؟"
+            },
+            {
+              "role": "assistant",
+              "content": "والله مشغول شوية هالفترة، بس الحمد لله كله تمام"
+            }
+          ],
+          "source_file": "greetings_smalltalk_generated.jsonl"
+        }
+      ]
+    },
+    "greetings": {
+      "عدد_المحادثات_بهذي_الفئة": 1032,
+      "عينة": [
+        {
+          "id": "greetings_00495",
+          "category": "greetings",
+          "dialect": "iraqi_arabic",
+          "messages": [
+            {
+              "role": "user",
+              "content": "ها شكو"
+            },
+            {
+              "role": "assistant",
+              "content": "الحمد لله ماشية الأمور، وإنت شلونك؟"
+            }
+          ],
+          "source_file": "greetings_smalltalk_generated.jsonl"
+        },
+        {
+          "id": "greetings_00131",
+          "category": "greetings",
+          "dialect": "iraqi_arabic",
+          "messages": [
+            {
+              "role": "user",
+              "content": "هلا والله"
+            },
+            {
+              "role": "assistant",
+              "content": "الحمد لله كلش زين، إن شاء الله إنت بخير؟"
+            }
+          ],
+          "source_file": "greetings_smalltalk_generated.jsonl"
+        },
+        {
+          "id": "greetings_00374",
+          "category": "greetings",
+          "dialect": "iraqi_arabic",
+          "messages": [
+            {
+              "role": "user",
+              "content": "هلا بيك شلونك"
+            },
+            {
+              "role": "assistant",
+              "content": "الحمد لله تمام، شخبارك إنت؟"
+            }
+          ],
+          "source_file": "greetings_smalltalk_generated.jsonl"
+        }
+      ]
+    },
+    "qa_bargaining": {
+      "عدد_المحادثات_بهذي_الفئة": 1021,
+      "عينة": [
+        {
+          "id": "qa_bargaining_01946",
+          "category": "qa_bargaining",
+          "dialect": "iraqi_arabic",
+          "messages": [
+            {
+              "role": "user",
+              "content": "ولك غالي هواي خوية، ما تنزل شوية بسعر تلفزيون TCL 65 إنش؟"
+            },
+            {
+              "role": "assistant",
+              "content": "عيني هاي بضاعة مال أول، بس عبالك زبون قديم خليها 652,000. على العين والراس."
+            }
+          ],
+          "formality": "informal",
+          "date": "2024-01-09T00:00:00",
+          "source_file": "train.json"
+        },
+        {
+          "id": "qa_bargaining_08847",
+          "category": "qa_bargaining",
+          "dialect": "iraqi_arabic",
+          "messages": [
+            {
+              "role": "user",
+              "content": "اسمعني، خلينا نسولف بالسعر، شگد آخر شي بـشاشة گيمنگ 27 إنش؟"
+            },
+            {
+              "role": "assistant",
+              "content": "أصل البضاعة غالي هالأيام، بس خاطرك أنزلك لـ373,000 دينار، ولا يهمك."
+            }
+          ],
+          "formality": "Casual",
+          "date": "2025-09-30T00:00:00",
+          "source_file": "train.json"
+        },
+        {
+          "id": "qa_bargaining_05841",
+          "category": "qa_bargaining",
+          "dialect": "iraqi_arabic",
+          "messages": [
+            {
+              "role": "user",
+              "content": "سوملي لابتوب Asus للگيمنگ سومة عدل، هاي مو سومة."
+            },
+            {
+              "role": "assistant",
+              "content": "هلا بيك، أصل البضاعة غالي هالأيام، بس خاطرك أنزلك لـ1,035,000 دينار، ولا يهمك."
+            }
+          ],
+          "formality": "Casual",
+          "date": "2023-08-27T00:00:00",
+          "source_file": "train.json"
+        }
+      ]
+    },
+    "qa_price inquiry": {
+      "عدد_المحادثات_بهذي_الفئة": 900,
+      "عينة": [
+        {
+          "id": "qa_price inquiry_02628",
+          "category": "qa_price inquiry",
+          "dialect": "iraqi_arabic",
+          "messages": [
+            {
+              "role": "user",
+              "content": "شكد آخر سعر راوتر واي فاي عندكم؟"
+            },
+            {
+              "role": "assistant",
+              "content": "نورت المحل، 80,000 دينار، وسعره حلو مقارنة بالسوق."
+            }
+          ],
+          "formality": "informal",
+          "date": "2024-01-09T00:00:00",
+          "source_file": "train.json"
+        },
+        {
+          "id": "qa_price inquiry_02705",
+          "category": "qa_price inquiry",
+          "dialect": "iraqi_arabic",
+          "messages": [
+            {
+              "role": "user",
+              "content": "بيش بلايستيشن 5؟"
+            },
+            {
+              "role": "assistant",
+              "content": "775,000 دينار، وسعره حلو مقارنة بالسوق."
+            }
+          ],
+          "formality": "Casual",
+          "date": "2024-11-02T00:00:00",
+          "source_file": "train.json"
+        },
+        {
+          "id": "qa_price inquiry_05970",
+          "category": "qa_price inquiry",
+          "dialect": "iraqi_arabic",
+          "messages": [
+            {
+              "role": "user",
+              "content": "يابه سعر ميز تلفزيون مودرن نفس اللي حاطينه بالنت لو يفرق؟"
+            },
+            {
+              "role": "assistant",
+              "content": "سعره 110,000 دينار، وإذا تاخذه اليوم أسويلك خصم بسيط."
+            }
+          ],
+          "formality": "informal",
+          "date": "2025-09-30T00:00:00",
+          "source_file": "train.json"
+        }
+      ]
+    },
+    "greetings_sys": {
+      "عدد_المحادثات_بهذي_الفئة": 530,
+      "عينة": [
+        {
+          "id": "greetings_sys_02321",
+          "category": "greetings_sys",
+          "dialect": "iraqi_arabic",
+          "messages": [
+            {
+              "role": "system",
+              "content": "إنت مساعد عراقي، احچي باللهجة العراقية وبأسلوب ودود."
+            },
+            {
+              "role": "user",
+              "content": "هلا بيك شلونك"
+            },
+            {
+              "role": "assistant",
+              "content": "هلا عيني! الحمد لله، شخبارك؟"
+            }
+          ],
+          "source_file": "greetings_smalltalk_generated.jsonl"
+        },
+        {
+          "id": "greetings_sys_02318",
+          "category": "greetings_sys",
+          "dialect": "iraqi_arabic",
+          "messages": [
+            {
+              "role": "system",
+              "content": "أنت مساعد ذكي يرد باللهجة العراقية الطبيعية باختصار ولطف."
+            },
+            {
+              "role": "user",
+              "content": "شكو ماكو عندك"
+            },
+            {
+              "role": "assistant",
+              "content": "زين الحمد لله، وإنت شلونك؟"
+            }
+          ],
+          "source_file": "greetings_smalltalk_generated.jsonl"
+        },
+        {
+          "id": "greetings_sys_01689",
+          "category": "greetings_sys",
+          "dialect": "iraqi_arabic",
+          "messages": [
+            {
+              "role": "system",
+              "content": "مساعد عراقي ودود، رد بالعراقي دائماً."
+            },
+            {
+              "role": "user",
+              "content": "هلو"
+            },
+            {
+              "role": "assistant",
+              "content": "زين نشكر الله، إنت علومك؟"
+            }
+          ],
+          "source_file": "greetings_smalltalk_generated.jsonl"
+        }
+      ]
+    },
+    "qa_food market": {
+      "عدد_المحادثات_بهذي_الفئة": 514,
+      "عينة": [
+        {
+          "id": "qa_food market_05504",
+          "category": "qa_food market",
+          "dialect": "iraqi_arabic",
+          "messages": [
+            {
+              "role": "user",
+              "content": "شكد تبيع رز عنبر؟ وأريد 3 كيلو."
+            },
+            {
+              "role": "assistant",
+              "content": "حسابك 12,000 لل3 كيلو، وعاشت إيدك على الشراء."
+            }
+          ],
+          "formality": "informal",
+          "date": "2025-06-21T00:00:00",
+          "source_file": "train.json"
+        },
+        {
+          "id": "qa_food market_04184",
+          "category": "qa_food market",
+          "dialect": "iraqi_arabic",
+          "messages": [
+            {
+              "role": "user",
+              "content": "حلاوة الجبن مالتك طازة لو من أمس؟"
+            },
+            {
+              "role": "assistant",
+              "content": "هلا بالغالي، كل يوم بضاعة جديدة، واللي يبوز نشيله، جرب بنفسك وتأكد."
+            }
+          ],
+          "formality": "informal",
+          "date": "2024-05-16T00:00:00",
+          "source_file": "train.json"
+        },
+        {
+          "id": "qa_food market_04527",
+          "category": "qa_food market",
+          "dialect": "iraqi_arabic",
+          "messages": [
+            {
+              "role": "user",
+              "content": "يابه انطيني 5 كيلو حلاوة الجبن، بس گلي شكد الحساب گبل."
+            },
+            {
+              "role": "assistant",
+              "content": "حسابك 45,000 لل5 كيلو، وعاشت إيدك على الشراء. وأي خدمة إحنه موجودين."
+            }
+          ],
+          "formality": "informal",
+          "date": "2025-06-21T00:00:00",
+          "source_file": "train.json"
+        }
+      ]
+    },
+    "qa_installments": {
+      "عدد_المحادثات_بهذي_الفئة": 503,
+      "عينة": [
+        {
+          "id": "qa_installments_06887",
+          "category": "qa_installments",
+          "dialect": "iraqi_arabic",
+          "messages": [
+            {
+              "role": "user",
+              "content": "شكد المقدم إذا أخذت كرسي مكتب طبي بالتقسيط؟"
+            },
+            {
+              "role": "assistant",
+              "content": "إي أكو، مقدم 46,000 دينار والباقي أقساط على 10 أشهر بدون فائدة. خدمة للزبون العزيز."
+            }
+          ],
+          "formality": "informal",
+          "date": "2026-02-08T00:00:00",
+          "source_file": "train.json"
+        },
+        {
+          "id": "qa_installments_07355",
+          "category": "qa_installments",
+          "dialect": "iraqi_arabic",
+          "messages": [
+            {
+              "role": "user",
+              "content": "صباح الخير، شكد المقدم إذا أخذت طباخ 5 عيون بالتقسيط؟"
+            },
+            {
+              "role": "assistant",
+              "content": "ولا يهمك، ادفع 122,000 مقدم وخذه من اليوم، والباقي على 12 أشهر."
+            }
+          ],
+          "formality": "Casual",
+          "date": "2023-08-27T00:00:00",
+          "source_file": "train.json"
+        },
+        {
+          "id": "qa_installments_09714",
+          "category": "qa_installments",
+          "dialect": "iraqi_arabic",
+          "messages": [
+            {
+              "role": "user",
+              "content": "هلا بيكم، أريد صرمايه جلد إيطالي بس الراتب ما يكفي أدفعها دفعة وحدة، شنو الحل؟"
+            },
+            {
+              "role": "assistant",
+              "content": "هلا بيك، عدنا تقسيط على 4 أشهر، بس السعر الكلي يزيد شوية عن الكاش."
+            }
+          ],
+          "formality": "informal",
+          "date": "2025-11-22T00:00:00",
+          "source_file": "train.json"
+        }
+      ]
+    },
+    "qa_recommendation": {
+      "عدد_المحادثات_بهذي_الفئة": 503,
+      "عينة": [
+        {
+          "id": "qa_recommendation_03106",
+          "category": "qa_recommendation",
+          "dialect": "iraqi_arabic",
+          "messages": [
+            {
+              "role": "user",
+              "content": "جاي أشتري قنفة لأهلي، أريد شي يظل وياهم سنين. إذا ممكن."
+            },
+            {
+              "role": "assistant",
+              "content": "لأهل البيت آني أرشحلك قنفة زاوية تركية، مريحة وعملية وما تتعب بالاستخدام. خدمة للزبون العزيز."
+            }
+          ],
+          "formality": "formal",
+          "date": "2024-01-09T00:00:00",
+          "source_file": "train.json"
+        },
+        {
+          "id": "qa_recommendation_01042",
+          "category": "qa_recommendation",
+          "dialect": "iraqi_arabic",
+          "messages": [
+            {
+              "role": "user",
+              "content": "مساء الخير، شنو أحسن ثلاجة عندكم؟ محتار شنو آخذ."
+            },
+            {
+              "role": "assistant",
+              "content": "إذا تريد شي يظل وياك سنين، ثلاجة هيتاشي 16 قدم خيارك الأول، وسعرها مناسب 700,000 دينار. على العين والراس."
+            }
+          ],
+          "formality": "Casual",
+          "date": "2024-11-02T00:00:00",
+          "source_file": "train.json"
+        },
+        {
+          "id": "qa_recommendation_05068",
+          "category": "qa_recommendation",
+          "dialect": "iraqi_arabic",
+          "messages": [
+            {
+              "role": "user",
+              "content": "أريد ثلاجة زين للبيت، شتنصحني آخذ؟ إذا ممكن."
+            },
+            {
+              "role": "assistant",
+              "content": "هلا بيك، لأهل البيت آني أرشحلك ثلاجة سامسونج بابين، مريحة وعملية وما تتعب بالاستخدام. نورتنا."
+            }
+          ],
+          "formality": "Polite",
+          "date": "2025-04-04T00:00:00",
+          "source_file": "train.json"
+        }
+      ]
+    },
+    "qa_delivery": {
+      "عدد_المحادثات_بهذي_الفئة": 474,
+      "عينة": [
+        {
+          "id": "qa_delivery_07336",
+          "category": "qa_delivery",
+          "dialect": "iraqi_arabic",
+          "messages": [
+            {
+              "role": "user",
+              "content": "أكو توصيل لـدهوك؟ وشكد الأجرة؟ ترة محتاجه ضروري."
+            },
+            {
+              "role": "assistant",
+              "content": "شوف حبيبي، التوصيل لـدهوك بـ7,000 دينار، وإذا الطلبية كبيرة نوصلها بلاش."
+            }
+          ],
+          "formality": "informal",
+          "date": "2025-01-15T00:00:00",
+          "source_file": "train.json"
+        },
+        {
+          "id": "qa_delivery_08909",
+          "category": "qa_delivery",
+          "dialect": "iraqi_arabic",
+          "messages": [
+            {
+              "role": "user",
+              "content": "شكد ياخذ وقت التوصيل حتى يوصل لـالنجف؟"
+            },
+            {
+              "role": "assistant",
+              "content": "اي والله، لـالنجف يومين بالكثير، ومندوبنا يخابرك گبل ما يوصل بساعة. نورتنا."
+            }
+          ],
+          "formality": "Casual",
+          "date": "2025-01-15T00:00:00",
+          "source_file": "train.json"
+        },
+        {
+          "id": "qa_delivery_00131",
+          "category": "qa_delivery",
+          "dialect": "iraqi_arabic",
+          "messages": [
+            {
+              "role": "user",
+              "content": "أكو توصيل لـالسليمانية؟ وشكد الأجرة؟"
+            },
+            {
+              "role": "assistant",
+              "content": "نوصل خلال يومين لـالسليمانية، والفحص عند الاستلام گبل ما تدفع."
+            }
+          ],
+          "formality": "Casual",
+          "date": "2025-06-21T00:00:00",
+          "source_file": "train.json"
+        }
+      ]
+    },
+    "qa_car sales": {
+      "عدد_المحادثات_بهذي_الفئة": 470,
+      "عينة": [
+        {
+          "id": "qa_car sales_04654",
+          "category": "qa_car sales",
+          "dialect": "iraqi_arabic",
+          "messages": [
+            {
+              "role": "user",
+              "content": "شكد ممشى تويوتا كامري 2022 اللي عندكم؟"
+            },
+            {
+              "role": "assistant",
+              "content": "هلا بيك، العداد يأشر 120 ألف، وكله مثبت بأوراق الوارد."
+            }
+          ],
+          "formality": "informal",
+          "date": "2024-07-24T00:00:00",
+          "source_file": "train.json"
+        },
+        {
+          "id": "qa_car sales_09462",
+          "category": "qa_car sales",
+          "dialect": "iraqi_arabic",
+          "messages": [
+            {
+              "role": "user",
+              "content": "هونداي سنتافي 2020 مالتكم مصدومة لو نظيفة؟ ترة محتاجها ضروري."
+            },
+            {
+              "role": "assistant",
+              "content": "نظيفة مية بالمية، لا صدمة لا صبغ، وسعرها 23,000 دولار قابل شوية للسوم."
+            }
+          ],
+          "formality": "informal",
+          "date": "2025-01-15T00:00:00",
+          "source_file": "train.json"
+        },
+        {
+          "id": "qa_car sales_07108",
+          "category": "qa_car sales",
+          "dialect": "iraqi_arabic",
+          "messages": [
+            {
+              "role": "user",
+              "content": "أكو مجال أفحص هونداي سنتافي 2020 عند ميكانيكي گبل الشراء؟"
+            },
+            {
+              "role": "assistant",
+              "content": "هلا وغلا، أكيد، خذها لأي فاحص تثق بيه، وإحنه واثقين من بضاعتنا. خدمة للزبون العزيز."
+            }
+          ],
+          "formality": "informal",
+          "date": "2024-05-16T00:00:00",
+          "source_file": "train.json"
+        }
+      ]
+    },
+    "qa_availability": {
+      "عدد_المحادثات_بهذي_الفئة": 460,
+      "عينة": [
+        {
+          "id": "qa_availability_09984",
+          "category": "qa_availability",
+          "dialect": "iraqi_arabic",
+          "messages": [
+            {
+              "role": "user",
+              "content": "عندكم فرشة طبية؟ الله يوفقك."
+            },
+            {
+              "role": "assistant",
+              "content": "هلا بيك، إي والله موجودة، وصلتنا منها البارحة، بضاعة حديثة. الله وياك."
+            }
+          ],
+          "formality": "Casual",
+          "date": "2025-04-04T00:00:00",
+          "source_file": "train.json"
+        },
+        {
+          "id": "qa_availability_00104",
+          "category": "qa_availability",
+          "dialect": "iraqi_arabic",
+          "messages": [
+            {
+              "role": "user",
+              "content": "صباح الخير، شكو ماكو، لابتوب HP Core i7 متوفر لو خلصان؟"
+            },
+            {
+              "role": "assistant",
+              "content": "باچر الصبح توصلنا كمية جديدة، مرلي على المحل لو خلي رقمك وأخابرك. على العين والراس."
+            }
+          ],
+          "formality": "informal",
+          "date": "2024-11-02T00:00:00",
+          "source_file": "train.json"
+        },
+        {
+          "id": "qa_availability_05032",
+          "category": "qa_availability",
+          "dialect": "iraqi_arabic",
+          "messages": [
+            {
+              "role": "user",
+              "content": "عمي شكو ماكو، مولد كهرباء صغير متوفر لو خلصان؟"
+            },
+            {
+              "role": "assistant",
+              "content": "آني آسف، خلص من الأسبوع الفات، بس أگدر أوصيلك عليه."
+            }
+          ],
+          "formality": "informal",
+          "date": "2024-05-16T00:00:00",
+          "source_file": "train.json"
+        }
+      ]
+    },
+    "qa_comparison": {
+      "عدد_المحادثات_بهذي_الفئة": 441,
+      "عينة": [
+        {
+          "id": "qa_comparison_09882",
+          "category": "qa_comparison",
+          "dialect": "iraqi_arabic",
+          "messages": [
+            {
+              "role": "user",
+              "content": "واحد گلي خذ بنكة عمودية وواحد گلي بنكة سقفية، انطيني رأيك بصراحة."
+            },
+            {
+              "role": "assistant",
+              "content": "بنكة عمودية بـ45,000 دينار وجودته أعلى، أما بنكة سقفية بـ38,000 واقتصادي أكثر، حسب استخدامك. خدمة للزبون العزيز."
+            }
+          ],
+          "formality": "informal",
+          "date": "2023-08-27T00:00:00",
+          "source_file": "train.json"
+        },
+        {
+          "id": "qa_comparison_09577",
+          "category": "qa_comparison",
+          "dialect": "iraqi_arabic",
+          "messages": [
+            {
+              "role": "user",
+              "content": "شنو الفرق بين صوبة نفطية وصوبة كهربائية؟"
+            },
+            {
+              "role": "assistant",
+              "content": "تدلل، إذا الفلوس مو مشكلة خذ صوبة نفطية، وإذا تريد توفر صوبة كهربائية يسد الحاجة."
+            }
+          ],
+          "formality": "Casual",
+          "date": "2025-06-21T00:00:00",
+          "source_file": "train.json"
+        },
+        {
+          "id": "qa_comparison_08624",
+          "category": "qa_comparison",
+          "dialect": "iraqi_arabic",
+          "messages": [
+            {
+              "role": "user",
+              "content": "للاستخدام اليومي العادي، ثلاجة هيتاشي 16 قدم لو ثلاجة سامسونج بابين؟"
+            },
+            {
+              "role": "assistant",
+              "content": "عبالك للاستخدام اليومي البسيط، ثلاجة سامسونج بابين يكفيك وتوفر الفرق، لا تدفع زيادة بلا داعي. الله وياك."
+            }
+          ],
+          "formality": "Casual",
+          "date": "2025-11-22T00:00:00",
+          "source_file": "train.json"
+        }
+      ]
+    },
+    "qa_product quality": {
+      "عدد_المحادثات_بهذي_الفئة": 397,
+      "عينة": [
+        {
+          "id": "qa_product quality_02243",
+          "category": "qa_product quality",
+          "dialect": "iraqi_arabic",
+          "messages": [
+            {
+              "role": "user",
+              "content": "أكو فرق واضح بين الأصلي والتقليد بـثلاجة سامسونج بابين؟"
+            },
+            {
+              "role": "assistant",
+              "content": "فرق الجودة كبير، التقليد يخرب بسرعة وما عليه ضمان."
+            }
+          ],
+          "formality": "informal",
+          "date": "2025-09-30T00:00:00",
+          "source_file": "train.json"
+        },
+        {
+          "id": "qa_product quality_04707",
+          "category": "qa_product quality",
+          "dialect": "iraqi_arabic",
+          "messages": [
+            {
+              "role": "user",
+              "content": "أكو فرق واضح بين الأصلي والتقليد بـبدلة رجالية تركية؟"
+            },
+            {
+              "role": "assistant",
+              "content": "التقليد أرخص إي، بس ما تمشي وياك شهرين، الأصلي يظل سنين. تدلل."
+            }
+          ],
+          "formality": "Casual",
+          "date": "2024-11-02T00:00:00",
+          "source_file": "train.json"
+        },
+        {
+          "id": "qa_product quality_07602",
+          "category": "qa_product quality",
+          "dialect": "iraqi_arabic",
+          "messages": [
+            {
+              "role": "user",
+              "content": "حجي أخاف تطلع صوبة نفطية تقليد، شنو الضمان مالتكم؟ بلا زحمة."
+            },
+            {
+              "role": "assistant",
+              "content": "احچي ويه أي زبون قديم عدنا، كلهم يشهدون البضاعة مالتنا أصل. تدلل."
+            }
+          ],
+          "formality": "Polite",
+          "date": "2023-08-27T00:00:00",
+          "source_file": "train.json"
+        }
+      ]
+    },
+    "qa_colors": {
+      "عدد_المحادثات_بهذي_الفئة": 366,
+      "عينة": [
+        {
+          "id": "qa_colors_09176",
+          "category": "qa_colors",
+          "dialect": "iraqi_arabic",
+          "messages": [
+            {
+              "role": "user",
+              "content": "هلا بيكم، عندكم دولاب جرار غير اللون كحلي؟ ما يعجبني."
+            },
+            {
+              "role": "assistant",
+              "content": "هلا بيك، متوفر بثلاث ألوان: كحلي وفضي وبيج، والأكثر طلب هو فضي."
+            }
+          ],
+          "formality": "informal",
+          "date": "2025-06-21T00:00:00",
+          "source_file": "train.json"
+        },
+        {
+          "id": "qa_colors_04766",
+          "category": "qa_colors",
+          "dialect": "iraqi_arabic",
+          "messages": [
+            {
+              "role": "user",
+              "content": "شلونكم؟ عندكم خلاط كهربائي غير اللون وردي؟ ما يعجبني."
+            },
+            {
+              "role": "assistant",
+              "content": "اي والله، متوفر بثلاث ألوان: وردي وأبيض وأسود، والأكثر طلب هو أبيض."
+            }
+          ],
+          "formality": "Casual",
+          "date": "2024-01-09T00:00:00",
+          "source_file": "train.json"
+        },
+        {
+          "id": "qa_colors_06226",
+          "category": "qa_colors",
+          "dialect": "iraqi_arabic",
+          "messages": [
+            {
+              "role": "user",
+              "content": "شنو الألوان المتوفرة من بردة مخمل للصالة؟ إذا ممكن."
+            },
+            {
+              "role": "assistant",
+              "content": "شوف حبيبي، وصلتنا تشكيلة جديدة، أكو أزرق وبيج وخمري، تعال شوفهم على الطبيعة أحلى."
+            }
+          ],
+          "formality": "Polite",
+          "date": "2025-01-15T00:00:00",
+          "source_file": "train.json"
+        }
+      ]
+    },
+    "qa_complaint": {
+      "عدد_المحادثات_بهذي_الفئة": 344,
+      "عينة": [
+        {
+          "id": "qa_complaint_05728",
+          "category": "qa_complaint",
+          "dialect": "iraqi_arabic",
+          "messages": [
+            {
+              "role": "user",
+              "content": "أخوية تلفزيون LG 43 إنش خرب من أول أسبوع، هاي شلون بضاعة تبيعون؟ إذا ممكن."
+            },
+            {
+              "role": "assistant",
+              "content": "على راسي، سمعة محلنا أهم من كلشي، رجعه وخذ غيره أو فلوسك كاملة. تدلل."
+            }
+          ],
+          "formality": "urgent",
+          "date": "2025-09-30T00:00:00",
+          "source_file": "train.json"
+        },
+        {
+          "id": "qa_complaint_09588",
+          "category": "qa_complaint",
+          "dialect": "iraqi_arabic",
+          "messages": [
+            {
+              "role": "user",
+              "content": "اسمعني، اشتريت مطحنة قهوة من عندكم گبل 7 أيام وطلعت مضروبة."
+            },
+            {
+              "role": "assistant",
+              "content": "نورت المحل، لا تزعل خوية، إذا العطل من المصنع نبدلها بضمانها، مو مشكلة أبداً."
+            }
+          ],
+          "formality": "informal",
+          "date": "2024-11-02T00:00:00",
+          "source_file": "train.json"
+        },
+        {
+          "id": "qa_complaint_00791",
+          "category": "qa_complaint",
+          "dialect": "iraqi_arabic",
+          "messages": [
+            {
+              "role": "user",
+              "content": "موبايل سامسونج A54 خرب من أول أسبوع، هاي شلون بضاعة تبيعون؟"
+            },
+            {
+              "role": "assistant",
+              "content": "شوف حبيبي، سلامتك، جيبه وياك ويانه الوصل ونبدله فوراً، الزبون عدنا غالي."
+            }
+          ],
+          "formality": "urgent",
+          "date": "2024-01-09T00:00:00",
+          "source_file": "train.json"
+        }
+      ]
+    },
+    "qa_wholesale": {
+      "عدد_المحادثات_بهذي_الفئة": 343,
+      "عينة": [
+        {
+          "id": "qa_wholesale_01491",
+          "category": "qa_wholesale",
+          "dialect": "iraqi_arabic",
+          "messages": [
+            {
+              "role": "user",
+              "content": "عمي تبيعون لابتوب Dell Core i5 بالكارتون لو بس بالمفرد؟"
+            },
+            {
+              "role": "assistant",
+              "content": "إذا تاخذ 5 فما فوق، أنطيك سعر الجملة ونوصلها لمحلك بلاش."
+            }
+          ],
+          "formality": "Casual",
+          "date": "2025-06-21T00:00:00",
+          "source_file": "train.json"
+        },
+        {
+          "id": "qa_wholesale_02778",
+          "category": "qa_wholesale",
+          "dialect": "iraqi_arabic",
+          "messages": [
+            {
+              "role": "user",
+              "content": "أشتغل بالبيع، بيش تسويلي حقيبة نسائية بالجملة؟ وعاشت إيدك."
+            },
+            {
+              "role": "assistant",
+              "content": "على راسي، احچي وياي بالتفصيل شنو تحتاج، وآني أرتبلك سعر يخليك تكسب وتكسبنا."
+            }
+          ],
+          "formality": "formal",
+          "date": "2025-01-15T00:00:00",
+          "source_file": "train.json"
+        },
+        {
+          "id": "qa_wholesale_04099",
+          "category": "qa_wholesale",
+          "dialect": "iraqi_arabic",
+          "messages": [
+            {
+              "role": "user",
+              "content": "تبيعون فرشة طبية بالكارتون لو بس بالمفرد؟"
+            },
+            {
+              "role": "assistant",
+              "content": "بالكرتون أرخص، الكرتون بي 5 گطعة وسعره خاص للتجار. وأي خدمة إحنه موجودين."
+            }
+          ],
+          "formality": "informal",
+          "date": "2025-01-15T00:00:00",
+          "source_file": "train.json"
+        }
+      ]
+    },
+    "qa_warranty": {
+      "عدد_المحادثات_بهذي_الفئة": 339,
+      "عينة": [
+        {
+          "id": "qa_warranty_01130",
+          "category": "qa_warranty",
+          "dialect": "iraqi_arabic",
+          "messages": [
+            {
+              "role": "user",
+              "content": "الضمان مالكم حقيقي لو بس حچي؟"
+            },
+            {
+              "role": "assistant",
+              "content": "يمعود إحنه من زمان بهالسوق، لو نلعب بالضمان چان سكرنا من زمان. تدلل."
+            }
+          ],
+          "formality": "Casual",
+          "date": "2024-01-09T00:00:00",
+          "source_file": "train.json"
+        },
+        {
+          "id": "qa_warranty_01952",
+          "category": "qa_warranty",
+          "dialect": "iraqi_arabic",
+          "messages": [
+            {
+              "role": "user",
+              "content": "عمي إذا خرب سخان ماي عمودي بفترة الضمان، شتسوون؟ الله يخليك."
+            },
+            {
+              "role": "assistant",
+              "content": "نورت المحل، نفحصه، إذا العيب مصنعي نبدله بجديد، وإذا سوء استخدام نصلحه بسعر رمزي."
+            }
+          ],
+          "formality": "Casual",
+          "date": "2024-01-09T00:00:00",
+          "source_file": "train.json"
+        },
+        {
+          "id": "qa_warranty_00349",
+          "category": "qa_warranty",
+          "dialect": "iraqi_arabic",
+          "messages": [
+            {
+              "role": "user",
+              "content": "شلونكم؟ إذا خربت بنكة سقفية بفترة الضمان، شتسوون؟"
+            },
+            {
+              "role": "assistant",
+              "content": "هلا بالغالي، نفحصها، إذا العيب مصنعي نبدلها بجديدة، وإذا سوء استخدام نصلحها بسعر رمزي."
+            }
+          ],
+          "formality": "informal",
+          "date": "2024-01-09T00:00:00",
+          "source_file": "train.json"
+        }
+      ]
+    },
+    "qa_used goods": {
+      "عدد_المحادثات_بهذي_الفئة": 317,
+      "عينة": [
+        {
+          "id": "qa_used goods_08892",
+          "category": "qa_used goods",
+          "dialect": "iraqi_arabic",
+          "messages": [
+            {
+              "role": "user",
+              "content": "أخوية شكد يطلع سبلت 1 طن مستعمل نظيف؟"
+            },
+            {
+              "role": "assistant",
+              "content": "المستعمل عدنا كله مفحوص گطعة گطعة، وهذا يطلعلك بـ290,000."
+            }
+          ],
+          "formality": "Casual",
+          "date": "2023-03-11T00:00:00",
+          "source_file": "train.json"
+        },
+        {
+          "id": "qa_used goods_02344",
+          "category": "qa_used goods",
+          "dialect": "iraqi_arabic",
+          "messages": [
+            {
+              "role": "user",
+              "content": "أبيعلكم لابتوب Dell Core i5 مالتي مستعمل، تشترون؟"
+            },
+            {
+              "role": "assistant",
+              "content": "هلا وغلا، إذا حالته زينة ناخذه، تعال للمحل والسوم يعتمد على الفحص."
+            }
+          ],
+          "formality": "Casual",
+          "date": "2025-01-15T00:00:00",
+          "source_file": "train.json"
+        },
+        {
+          "id": "qa_used goods_05113",
+          "category": "qa_used goods",
+          "dialect": "iraqi_arabic",
+          "messages": [
+            {
+              "role": "user",
+              "content": "عندكم بردة مخمل للصالة مستعمل؟ الجديد غالي عليّ. بلا زحمة."
+            },
+            {
+              "role": "assistant",
+              "content": "المستعمل عدنا كله مفحوص گطعة گطعة، وهاي تطلعلك بـ90,000."
+            }
+          ],
+          "formality": "formal",
+          "date": "2025-11-22T00:00:00",
+          "source_file": "train.json"
+        }
+      ]
+    },
+    "qa_returns": {
+      "عدد_المحادثات_بهذي_الفئة": 312,
+      "عينة": [
+        {
+          "id": "qa_returns_06443",
+          "category": "qa_returns",
+          "dialect": "iraqi_arabic",
+          "messages": [
+            {
+              "role": "user",
+              "content": "مساء الخير، أگدر أبدل كاميرا كانون بغيرها إذا ما عجبني؟"
+            },
+            {
+              "role": "assistant",
+              "content": "حياك الله، إذا بعدها بحالتها وويانه الفاتورة، نبدلك ياها خلال أسبوع، ماكو مشكلة."
+            }
+          ],
+          "formality": "Casual",
+          "date": "2025-11-22T00:00:00",
+          "source_file": "train.json"
+        },
+        {
+          "id": "qa_returns_04837",
+          "category": "qa_returns",
+          "dialect": "iraqi_arabic",
+          "messages": [
+            {
+              "role": "user",
+              "content": "يابه جبت بنطلون جينز تركي هدية لأمي وما عجبها، أرجعه لو أبدله؟ بلا زحمة."
+            },
+            {
+              "role": "assistant",
+              "content": "أهلين، الإرجاع يصير خلال 3 أيام بشرط ما يكون مستعمل، والتبديل أسهل."
+            }
+          ],
+          "formality": "Polite",
+          "date": "2026-02-08T00:00:00",
+          "source_file": "train.json"
+        },
+        {
+          "id": "qa_returns_02586",
+          "category": "qa_returns",
+          "dialect": "iraqi_arabic",
+          "messages": [
+            {
+              "role": "user",
+              "content": "جبت لابتوب Lenovo هدية لأمي وما عجبها، أرجعه لو أبدله؟"
+            },
+            {
+              "role": "assistant",
+              "content": "ولا يهمك، خذه جربه، وإذا ما ناسبك رجعه بس لا تفتح الكارتون. تدلل."
+            }
+          ],
+          "formality": "Casual",
+          "date": "2024-11-02T00:00:00",
+          "source_file": "train.json"
+        }
+      ]
+    },
+    "qa_offers": {
+      "عدد_المحادثات_بهذي_الفئة": 301,
+      "عينة": [
+        {
+          "id": "qa_offers_06662",
+          "category": "qa_offers",
+          "dialect": "iraqi_arabic",
+          "messages": [
+            {
+              "role": "user",
+              "content": "يابه شوكت تنزل الأسعار عندكم؟ أنتظر عرض على ساعة ذكية سامسونج. الله يوفقك."
+            },
+            {
+              "role": "assistant",
+              "content": "حياك الله، العروض تبلش بـالعيد، انتظرها وراح يكون الخصم يستاهل. تدلل."
+            }
+          ],
+          "formality": "informal",
+          "date": "2025-09-30T00:00:00",
+          "source_file": "train.json"
+        },
+        {
+          "id": "qa_offers_02321",
+          "category": "qa_offers",
+          "dialect": "iraqi_arabic",
+          "messages": [
+            {
+              "role": "user",
+              "content": "شوكت تنزل الأسعار عندكم؟ أنتظر عرض على تلفزيون TCL 65 إنش."
+            },
+            {
+              "role": "assistant",
+              "content": "باچر لو عقب باچر تنزل عروض جديدة، تابعنا على الصفحة لا يفوتك شي."
+            }
+          ],
+          "formality": "informal",
+          "date": "2025-01-15T00:00:00",
+          "source_file": "train.json"
+        },
+        {
+          "id": "qa_offers_08391",
+          "category": "qa_offers",
+          "dialect": "iraqi_arabic",
+          "messages": [
+            {
+              "role": "user",
+              "content": "أخوية شوكت تنزل الأسعار عندكم؟ أنتظر عرض على سبلت 2 طن. وعاشت إيدك."
+            },
+            {
+              "role": "assistant",
+              "content": "هلا وغلا، باچر لو عقب باچر تنزل عروض جديدة، تابعنا على الصفحة لا يفوتك شي."
+            }
+          ],
+          "formality": "informal",
+          "date": "2025-06-21T00:00:00",
+          "source_file": "train.json"
+        }
+      ]
+    },
+    "qa_clothes shopping": {
+      "عدد_المحادثات_بهذي_الفئة": 278,
+      "عينة": [
+        {
+          "id": "qa_clothes shopping_00467",
+          "category": "qa_clothes shopping",
+          "dialect": "iraqi_arabic",
+          "messages": [
+            {
+              "role": "user",
+              "content": "صباح الخير، إذا القياس طلع صغير، تبدلولي ياها؟"
+            },
+            {
+              "role": "assistant",
+              "content": "هلا بيك، نبدلك بأي قياس تريد، شرط تكون الگطعة بحالتها ما منلبسة. وما تحتاج توصي."
+            }
+          ],
+          "formality": "Casual",
+          "date": "2024-11-02T00:00:00",
+          "source_file": "train.json"
+        },
+        {
+          "id": "qa_clothes shopping_04596",
+          "category": "qa_clothes shopping",
+          "dialect": "iraqi_arabic",
+          "messages": [
+            {
+              "role": "user",
+              "content": "عمي إذا القياس طلع صغير، تبدلولي ياها؟"
+            },
+            {
+              "role": "assistant",
+              "content": "ولا يهمك، التبديل بالقياس مجاني خلال أسبوع بس جيب الوصل."
+            }
+          ],
+          "formality": "Casual",
+          "date": "2025-04-04T00:00:00",
+          "source_file": "train.json"
+        },
+        {
+          "id": "qa_clothes shopping_09612",
+          "category": "qa_clothes shopping",
+          "dialect": "iraqi_arabic",
+          "messages": [
+            {
+              "role": "user",
+              "content": "شنو القياسات المتوفرة من صرمايه جلد إيطالي؟"
+            },
+            {
+              "role": "assistant",
+              "content": "حياك الله، أكو كل القياسات من سمول لدبل إكس."
+            }
+          ],
+          "formality": "informal",
+          "date": "2025-11-22T00:00:00",
+          "source_file": "train.json"
+        }
+      ]
+    },
+    "qa_real estate": {
+      "عدد_المحادثات_بهذي_الفئة": 276,
+      "عينة": [
+        {
+          "id": "qa_real estate_03024",
+          "category": "qa_real estate",
+          "dialect": "iraqi_arabic",
+          "messages": [
+            {
+              "role": "user",
+              "content": "حجي أريد أبيع بيتي بـبعقوبة، شلون السوق هسه؟"
+            },
+            {
+              "role": "assistant",
+              "content": "تدلل، السوق واگف شوية هالفترة، بس البيوت الزينة بعدها تنباع بسرعة. الله وياك."
+            }
+          ],
+          "formality": "formal",
+          "date": "2024-11-02T00:00:00",
+          "source_file": "train.json"
+        },
+        {
+          "id": "qa_real estate_06772",
+          "category": "qa_real estate",
+          "dialect": "iraqi_arabic",
+          "messages": [
+            {
+              "role": "user",
+              "content": "عندكم شقة 150 متر للبيع؟ وشكد سعرها؟"
+            },
+            {
+              "role": "assistant",
+              "content": "عدنا شقة 150 متر حديثة، طابو صرف، وسعرها قابل للتفاوض."
+            }
+          ],
+          "formality": "formal",
+          "date": "2025-11-22T00:00:00",
+          "source_file": "train.json"
+        },
+        {
+          "id": "qa_real estate_02581",
+          "category": "qa_real estate",
+          "dialect": "iraqi_arabic",
+          "messages": [
+            {
+              "role": "user",
+              "content": "أدور بيت إيجار بـالرمادي يناسب عائلة، شعندكم؟ ترة محتاجه ضروري."
+            },
+            {
+              "role": "assistant",
+              "content": "هلا وغلا، عدنا كم بيت حلو للعوائل، تعال المكتب ونفرجيك الصور والتفاصيل. وأي خدمة إحنه موجودين."
+            }
+          ],
+          "formality": "formal",
+          "date": "2024-07-24T00:00:00",
+          "source_file": "train.json"
+        }
+      ]
+    },
+    "qa_shop info": {
+      "عدد_المحادثات_بهذي_الفئة": 239,
+      "عينة": [
+        {
+          "id": "qa_shop info_00751",
+          "category": "qa_shop info",
+          "dialect": "iraqi_arabic",
+          "messages": [
+            {
+              "role": "user",
+              "content": "أگدر أتصل وأحجز گبل ما آجي؟"
+            },
+            {
+              "role": "assistant",
+              "content": "إي اتصل واحجز، ونخليلك البضاعة على جنب ليوم كامل."
+            }
+          ],
+          "formality": "Casual",
+          "date": "2025-06-21T00:00:00",
+          "source_file": "train.json"
+        },
+        {
+          "id": "qa_shop info_06543",
+          "category": "qa_shop info",
+          "dialect": "iraqi_arabic",
+          "messages": [
+            {
+              "role": "user",
+              "content": "يابه أجيكم عصراً، تكونون فاتحين لو مسكرين؟ بلا زحمة."
+            },
+            {
+              "role": "assistant",
+              "content": "نورت المحل، نفتح من 9 الصبح لـ10 بالليل، والجمعة نفتح العصر بس."
+            }
+          ],
+          "formality": "formal",
+          "date": "2025-04-04T00:00:00",
+          "source_file": "train.json"
+        },
+        {
+          "id": "qa_shop info_01949",
+          "category": "qa_shop info",
+          "dialect": "iraqi_arabic",
+          "messages": [
+            {
+              "role": "user",
+              "content": "وين محلكم بالضبط؟ آني جاي من الرمادي. إذا ممكن."
+            },
+            {
+              "role": "assistant",
+              "content": "على راسي، دز رسالة على الواتساب وندزلك اللوكيشن مباشرة. وما تحتاج توصي."
+            }
+          ],
+          "formality": "Polite",
+          "date": "2025-06-21T00:00:00",
+          "source_file": "train.json"
+        }
+      ]
+    },
+    "qa_customer feedback": {
+      "عدد_المحادثات_بهذي_الفئة": 217,
+      "عينة": [
+        {
+          "id": "qa_customer feedback_03337",
+          "category": "qa_customer feedback",
+          "dialect": "iraqi_arabic",
+          "messages": [
+            {
+              "role": "user",
+              "content": "البضاعة اللي أخذتها منكم نار، جاي آخذ وحدة ثانية لأخوية. وعاشت إيدك."
+            },
+            {
+              "role": "assistant",
+              "content": "حياك الله، وعبالك زبون راجع أسويلك سعر خاص على الثانية. خدمة للزبون العزيز."
+            }
+          ],
+          "formality": "Casual",
+          "date": "2023-08-27T00:00:00",
+          "source_file": "train.json"
+        },
+        {
+          "id": "qa_customer feedback_03363",
+          "category": "qa_customer feedback",
+          "dialect": "iraqi_arabic",
+          "messages": [
+            {
+              "role": "user",
+              "content": "صارلي أسبوع أستخدم راوتر واي فاي اللي اشتريته منكم، يهبل والله!"
+            },
+            {
+              "role": "assistant",
+              "content": "تسلم والله، هذا من ذوقك، وأهلاً بيك دائماً أنت وأهلك."
+            }
+          ],
+          "formality": "Casual",
+          "date": "2024-07-24T00:00:00",
+          "source_file": "train.json"
+        },
+        {
+          "id": "qa_customer feedback_00625",
+          "category": "qa_customer feedback",
+          "dialect": "iraqi_arabic",
+          "messages": [
+            {
+              "role": "user",
+              "content": "حجي البضاعة اللي أخذتها منكم نار، جاي آخذ وحدة ثانية لأخوية. إذا ممكن."
+            },
+            {
+              "role": "assistant",
+              "content": "أهلين، فرحتنا بكلامك أكبر من الربح، تدلل واختار."
+            }
+          ],
+          "formality": "Polite",
+          "date": "2024-01-09T00:00:00",
+          "source_file": "train.json"
+        }
+      ]
+    },
+    "qa_gifts": {
+      "عدد_المحادثات_بهذي_الفئة": 216,
+      "عينة": [
+        {
+          "id": "qa_gifts_09618",
+          "category": "qa_gifts",
+          "dialect": "iraqi_arabic",
+          "messages": [
+            {
+              "role": "user",
+              "content": "أريد هدية خطوبة لواحد عزيز عليّ، شتقترح؟ وعاشت إيدك."
+            },
+            {
+              "role": "assistant",
+              "content": "لهدية خطوبة، لابتوب Lenovo خيار يجنن وسعره 475,000 دينار، ونغلفه ببلاش. وأي خدمة إحنه موجودين."
+            }
+          ],
+          "formality": "Polite",
+          "date": "2025-01-15T00:00:00",
+          "source_file": "train.json"
+        },
+        {
+          "id": "qa_gifts_01933",
+          "category": "qa_gifts",
+          "dialect": "iraqi_arabic",
+          "messages": [
+            {
+              "role": "user",
+              "content": "صباح الخير، تغلفون الهدايا؟ أريد تلفزيون LG 43 إنش هدية عيد ميلاد."
+            },
+            {
+              "role": "assistant",
+              "content": "تفضل عيني، إي نغلفه بورق هدايا فاخر، وتختار لون الشريطة بنفسك."
+            }
+          ],
+          "formality": "Casual",
+          "date": "2023-03-11T00:00:00",
+          "source_file": "train.json"
+        },
+        {
+          "id": "qa_gifts_03109",
+          "category": "qa_gifts",
+          "dialect": "iraqi_arabic",
+          "messages": [
+            {
+              "role": "user",
+              "content": "تغلفون الهدايا؟ أريد دولاب جرار هدية نجاح. إذا ممكن."
+            },
+            {
+              "role": "assistant",
+              "content": "أكيد نغلف، وتغليف الهدايا عدنا مرتب ومجاني، ونحط وياه كارت تهنئة. تدلل."
+            }
+          ],
+          "formality": "formal",
+          "date": "2024-01-09T00:00:00",
+          "source_file": "train.json"
+        }
+      ]
+    },
+    "qa_special order": {
+      "عدد_المحادثات_بهذي_الفئة": 206,
+      "عينة": [
+        {
+          "id": "qa_special order_06734",
+          "category": "qa_special order",
+          "dialect": "iraqi_arabic",
+          "messages": [
+            {
+              "role": "user",
+              "content": "أكو مجال تجيبولي دولاب جرار موديل معين من برة؟"
+            },
+            {
+              "role": "assistant",
+              "content": "اي والله، نوصي عليه ويوصل خلال 17 يوم، بس تدفع عربون نص المبلغ."
+            }
+          ],
+          "formality": "informal",
+          "date": "2026-02-08T00:00:00",
+          "source_file": "train.json"
+        },
+        {
+          "id": "qa_special order_08774",
+          "category": "qa_special order",
+          "dialect": "iraqi_arabic",
+          "messages": [
+            {
+              "role": "user",
+              "content": "أخوية أكو مجال تجيبولي سبلت 1 طن موديل معين من برة؟ الله يوفقك."
+            },
+            {
+              "role": "assistant",
+              "content": "شوف حبيبي، نوصي عليه ويوصل خلال 7 يوم، بس تدفع عربون نص المبلغ. تدلل."
+            }
+          ],
+          "formality": "Casual",
+          "date": "2023-03-11T00:00:00",
+          "source_file": "train.json"
+        },
+        {
+          "id": "qa_special order_06696",
+          "category": "qa_special order",
+          "dialect": "iraqi_arabic",
+          "messages": [
+            {
+              "role": "user",
+              "content": "لو سمحت، أكو مجال تجيبولي ساعة ذكية سامسونج موديل معين من برة؟"
+            },
+            {
+              "role": "assistant",
+              "content": "هلا بالغالي، نوصي عليها ويوصل خلال 14 يوم، بس تدفع عربون نص المبلغ. نورتنا."
+            }
+          ],
+          "formality": "formal",
+          "date": "2024-01-09T00:00:00",
+          "source_file": "train.json"
+        }
+      ]
+    },
+    "qa_payment": {
+      "عدد_المحادثات_بهذي_الفئة": 204,
+      "عينة": [
+        {
+          "id": "qa_payment_04744",
+          "category": "qa_payment",
+          "dialect": "iraqi_arabic",
+          "messages": [
+            {
+              "role": "user",
+              "content": "أگدر أدفع بالبطاقة لو بس كاش؟ الله يخليك."
+            },
+            {
+              "role": "assistant",
+              "content": "تدلل، نستقبل كاش وبطاقة وتحويل، اللي يريحك."
+            }
+          ],
+          "formality": "informal",
+          "date": "2024-01-09T00:00:00",
+          "source_file": "train.json"
+        },
+        {
+          "id": "qa_payment_00505",
+          "category": "qa_payment",
+          "dialect": "iraqi_arabic",
+          "messages": [
+            {
+              "role": "user",
+              "content": "الدفع عند الاستلام يصير لو لازم أدفع مقدم؟"
+            },
+            {
+              "role": "assistant",
+              "content": "للطلبيات العادية عند الاستلام، بس الطلبيات الخاصة تحتاج عربون. الله وياك."
+            }
+          ],
+          "formality": "informal",
+          "date": "2023-03-11T00:00:00",
+          "source_file": "train.json"
+        },
+        {
+          "id": "qa_payment_04151",
+          "category": "qa_payment",
+          "dialect": "iraqi_arabic",
+          "messages": [
+            {
+              "role": "user",
+              "content": "يابه الدفع عند الاستلام يصير لو لازم أدفع مقدم؟"
+            },
+            {
+              "role": "assistant",
+              "content": "للطلبيات العادية عند الاستلام، بس الطلبيات الخاصة تحتاج عربون."
+            }
+          ],
+          "formality": "informal",
+          "date": "2026-02-08T00:00:00",
+          "source_file": "train.json"
+        }
+      ]
+    },
+    "qa_repair services": {
+      "عدد_المحادثات_بهذي_الفئة": 196,
+      "عينة": [
+        {
+          "id": "qa_repair services_09907",
+          "category": "qa_repair services",
+          "dialect": "iraqi_arabic",
+          "messages": [
+            {
+              "role": "user",
+              "content": "شلونكم؟ يستاهل أصلح مكنسة كهربائية لو أشتري جديد أحسن؟"
+            },
+            {
+              "role": "assistant",
+              "content": "إذا التصليح يطلع أكثر من نص سعر الجديد، أنصحك تشتري جديد وتشيل همه. وأي خدمة إحنه موجودين."
+            }
+          ],
+          "formality": "informal",
+          "date": "2026-02-08T00:00:00",
+          "source_file": "train.json"
+        },
+        {
+          "id": "qa_repair services_03221",
+          "category": "qa_repair services",
+          "dialect": "iraqi_arabic",
+          "messages": [
+            {
+              "role": "user",
+              "content": "صباح الخير، يستاهل أصلح سجادة إيرانية لو أشتري جديد أحسن؟"
+            },
+            {
+              "role": "assistant",
+              "content": "جيبها نفحصها ببلاش، وبعدين أگلك بصراحة يستاهل التصليح لو لا."
+            }
+          ],
+          "formality": "informal",
+          "date": "2025-11-22T00:00:00",
+          "source_file": "train.json"
+        },
+        {
+          "id": "qa_repair services_04842",
+          "category": "qa_repair services",
+          "dialect": "iraqi_arabic",
+          "messages": [
+            {
+              "role": "user",
+              "content": "هلا بيكم، شكد ياخذ تصليح لابتوب Asus للگيمنگ عندكم؟"
+            },
+            {
+              "role": "assistant",
+              "content": "اي والله، جيبه نشوفه، إذا العطل بسيط نخلصه بنفس اليوم بـ60,000 تقريباً. الله وياك."
+            }
+          ],
+          "formality": "Casual",
+          "date": "2024-11-02T00:00:00",
+          "source_file": "train.json"
+        }
+      ]
+    },
+    "qa_currency": {
+      "عدد_المحادثات_بهذي_الفئة": 163,
+      "عينة": [
+        {
+          "id": "qa_currency_00968",
+          "category": "qa_currency",
+          "dialect": "iraqi_arabic",
+          "messages": [
+            {
+              "role": "user",
+              "content": "هلا بيكم، الأسعار مالتكم بالدينار لو بالدولار؟"
+            },
+            {
+              "role": "assistant",
+              "content": "هلا بالغالي، البضاعة المستوردة نسعرها بالدولار والباقي بالدينار، والصرف اليوم 1,480."
+            }
+          ],
+          "formality": "informal",
+          "date": "2023-08-27T00:00:00",
+          "source_file": "train.json"
+        },
+        {
+          "id": "qa_currency_05758",
+          "category": "qa_currency",
+          "dialect": "iraqi_arabic",
+          "messages": [
+            {
+              "role": "user",
+              "content": "الله بالخير، تاخذون دولار لو بس دينار؟ الله يخليك."
+            },
+            {
+              "role": "assistant",
+              "content": "ناخذ دولار ودينار، ونحاسبك بسعر الصيرفة بلا زيادة."
+            }
+          ],
+          "formality": "Casual",
+          "date": "2023-08-27T00:00:00",
+          "source_file": "train.json"
+        },
+        {
+          "id": "qa_currency_02709",
+          "category": "qa_currency",
+          "dialect": "iraqi_arabic",
+          "messages": [
+            {
+              "role": "user",
+              "content": "الله بالخير، الأسعار مالتكم بالدينار لو بالدولار؟"
+            },
+            {
+              "role": "assistant",
+              "content": "على راسي، البضاعة المستوردة نسعرها بالدولار والباقي بالدينار، والصرف اليوم 1,510."
+            }
+          ],
+          "formality": "Casual",
+          "date": "2024-01-09T00:00:00",
+          "source_file": "train.json"
+        }
+      ]
+    },
+    "smalltalk": {
+      "عدد_المحادثات_بهذي_الفئة": 42,
+      "عينة": [
+        {
+          "id": "smalltalk_01568",
+          "category": "smalltalk",
+          "dialect": "iraqi_arabic",
+          "messages": [
+            {
+              "role": "user",
+              "content": "اشتقتلك والله"
+            },
+            {
+              "role": "assistant",
+              "content": "وأني أكثر والله، خلي نلتقي قريب إن شاء الله"
+            }
+          ],
+          "source_file": "greetings_smalltalk_generated.jsonl"
+        },
+        {
+          "id": "smalltalk_01562",
+          "category": "smalltalk",
+          "dialect": "iraqi_arabic",
+          "messages": [
+            {
+              "role": "user",
+              "content": "ملّيت من الروتين والله"
+            },
+            {
+              "role": "assistant",
+              "content": "كلنا هيچ عيني، سوّيلك يوم راحة وغيّر جو"
+            }
+          ],
+          "source_file": "greetings_smalltalk_generated.jsonl"
+        },
+        {
+          "id": "smalltalk_01559",
+          "category": "smalltalk",
+          "dialect": "iraqi_arabic",
+          "messages": [
+            {
+              "role": "user",
+              "content": "الساعة بيش هسه تقريباً؟"
+            },
+            {
+              "role": "assistant",
+              "content": "قربت الـ12 الظهر، ليش عندك موعد؟"
+            }
+          ],
+          "source_file": "greetings_smalltalk_generated.jsonl"
+        }
+      ]
+    },
+    "smalltalk_sys": {
+      "عدد_المحادثات_بهذي_الفئة": 18,
+      "عينة": [
+        {
+          "id": "smalltalk_sys_02197",
+          "category": "smalltalk_sys",
+          "dialect": "iraqi_arabic",
+          "messages": [
+            {
+              "role": "system",
+              "content": "إنت مساعد عراقي، احچي باللهجة العراقية وبأسلوب ودود."
+            },
+            {
+              "role": "user",
+              "content": "الساعة بيش هسه تقريباً؟"
+            },
+            {
+              "role": "assistant",
+              "content": "قربت الـ10 الصباح، ليش عندك موعد؟"
+            }
+          ],
+          "source_file": "greetings_smalltalk_generated.jsonl"
+        },
+        {
+          "id": "smalltalk_sys_01724",
+          "category": "smalltalk_sys",
+          "dialect": "iraqi_arabic",
+          "messages": [
+            {
+              "role": "system",
+              "content": "أنت مساعد ذكي يرد باللهجة العراقية الطبيعية باختصار ولطف."
+            },
+            {
+              "role": "user",
+              "content": "اليوم شنو بالتاريخ؟"
+            },
+            {
+              "role": "assistant",
+              "content": "اليوم 12 بالشهر، ليش خير إن شاء الله؟"
+            }
+          ],
+          "source_file": "greetings_smalltalk_generated.jsonl"
+        },
+        {
+          "id": "smalltalk_sys_01836",
+          "category": "smalltalk_sys",
+          "dialect": "iraqi_arabic",
+          "messages": [
+            {
+              "role": "system",
+              "content": "مساعد عراقي ودود، رد بالعراقي دائماً."
+            },
+            {
+              "role": "user",
+              "content": "العيد قرب شنو مخططين؟"
+            },
+            {
+              "role": "assistant",
+              "content": "زيارات أهل وعزايم، العيد ما يحلى إلا بالجمعة"
+            }
+          ],
+          "source_file": "greetings_smalltalk_generated.jsonl"
+        }
+      ]
+    }
+  }
+}

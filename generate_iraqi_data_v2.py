@@ -282,7 +282,7 @@ def gen_health(i):
         ]
     elif tpl == 19:
         msgs = [
-            {"role":"user","content":f"شلونك {doc}، أجيت أشكرك، تحسنت كلش من {dis}"},
+            {"role":"user","content":f"شلونك {doc}، أجيت أگلك تسلم إيدك، تحسنت كلش من {dis}"},
             {"role":"assistant","content":"الله يشفيك ويعافيك، هذا واجبنا"},
             {"role":"user","content":f"الأدوية {med} كملتها، لازم أكمل؟"},
             {"role":"assistant","content":f"إي، لا تقطع الأدوية بدون مراجعة، تعال بعد {pick(['أسبوع','أسبوعين','شهر'])}"},
@@ -4981,7 +4981,7 @@ def gen_work(i):
     elif tpl == 19:
         msgs = [
             {"role":"user","content":f"{_abroad_comp} تعرض علي {vp(_abroad_sal)} دينار، أروح؟"},
-            {"role":"assistant","content":f"{vp(_abroad_sal)} دينار؟ عرض ممتاز. أين تحديداً؟"},
+            {"role":"assistant","content":f"{vp(_abroad_sal)} دينار؟ عرض ممتاز. وين تحديداً؟"},
             {"role":"user","content":f"بـ{pick(['الخليج','السعودية','الإمارات','قطر'])}، {_contract_type}"},
             {"role":"assistant","content":f"{_contract_type} بـ{vp(_abroad_sal)} جيد. بس العيلة والبعد؟"},
             {"role":"user","content":"العيلة أكبر هاجس عندي"},
