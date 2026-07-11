@@ -143,6 +143,27 @@ Q_BRAND_ASK = ["عندكم {brand}؟", "أريد {type} {brand}", "أكو {brand
 
 GREET_PREFIX = ["هلو، ", "هلا، ", "السلام عليكم، ", "مساء الخير، ", ""]
 
+# ---- follow-up scenes used to chain conversations into longer sessions ----
+REGIONS = [
+    "الكرادة", "المنصور", "الجادرية", "الكاظمية", "الأعظمية", "الحارثية",
+    "الدورة", "الزعفرانية", "الشعلة", "حي الرشيد", "زيونة", "الغزالية",
+]
+Q_DELIVERY_ASK = ["توصلون البيت؟", "أكو توصيل؟", "تجيبونه لعندي؟", "توصلون لو أروح أستلم؟"]
+A_DELIVERY_CLARIFY = [
+    "إي نوصل، بس لأي منطقة تريد التوصيل؟",
+    "أكيد نوصل، گلي وين منطقتك؟",
+    "نوصل، بس خبرني المنطقة أول",
+]
+Q_REGION_ANSWER = ["{region}", "أني من {region}", "منطقتي {region}"]
+A_DELIVERY_CONFIRM = [
+    "إي نوصل لمنطقة {region} إن شاء الله",
+    "ماكو مشكلة، نوصلها لمنطقة {region}",
+    "تمام، توصيل لمنطقة {region} متوفر",
+]
+
+Q_CLOSING = ["ماشي، آخذه", "زين، اتفقنا", "خلص، بيه", "تمام، راح آخذه", "ماشي، هاي الفلوس"]
+A_CLOSING = ["الله يعطيك العافية، تفضل", "ماشي، تكرم عينك", "الله يبارك فيك، تفضل بالسلامة", "زين، جاهزلك الفاتورة"]
+
 
 def load_bank():
     with open(BANK_PATH, encoding="utf-8") as f:
@@ -226,6 +247,48 @@ def assistant_answer_item(item, rng):
     return t
 
 
+def chain_followups(messages, items, chosen, rng, exclude=None):
+    """Append 0-3 extra scenes (+ optional closing) to lengthen a session,
+    reusing the catalog already injected in the system prompt — no new
+    catalog, same context, just more turns for the model to track."""
+    if rng.random() < 0.15:
+        return messages  # keep some sessions short for distribution diversity
+
+    exclude = exclude or set()
+    pool = [s for s in ["negotiate", "warranty", "second_item", "region"] if s not in exclude]
+    if not chosen.get("warranty"):
+        pool = [s for s in pool if s != "warranty"]
+    other_items = [it for it in items if it is not chosen]
+    if not other_items:
+        pool = [s for s in pool if s != "second_item"]
+    if not pool:
+        return messages
+
+    n = rng.randint(1, min(3, len(pool)))
+    for scene in rng.sample(pool, n):
+        if scene == "negotiate":
+            messages.append({"role": "user", "content": rng.choice(Q_NEGOTIATE)})
+            messages.append({"role": "assistant", "content": rng.choice(A_HOLD_PRICE)})
+        elif scene == "warranty":
+            messages.append({"role": "user", "content": rng.choice(Q_WARRANTY)})
+            messages.append({"role": "assistant", "content": rng.choice(A_WARRANTY).format(warranty=chosen["warranty"])})
+        elif scene == "second_item":
+            nxt = rng.choice(other_items)
+            messages.append({"role": "user", "content": user_ask_item(nxt, rng)})
+            messages.append({"role": "assistant", "content": assistant_answer_item(nxt, rng)})
+        elif scene == "region":
+            messages.append({"role": "user", "content": rng.choice(Q_DELIVERY_ASK)})
+            messages.append({"role": "assistant", "content": rng.choice(A_DELIVERY_CLARIFY)})
+            region = rng.choice(REGIONS)
+            messages.append({"role": "user", "content": rng.choice(Q_REGION_ANSWER).format(region=region)})
+            messages.append({"role": "assistant", "content": rng.choice(A_DELIVERY_CONFIRM).format(region=region)})
+
+    if rng.random() < 0.6:
+        messages.append({"role": "user", "content": rng.choice(Q_CLOSING)})
+        messages.append({"role": "assistant", "content": rng.choice(A_CLOSING)})
+    return messages
+
+
 def gen_copy(idx, all_types, rng):
     items = build_catalog(all_types, rng)
     target = rng.choice(items)
@@ -233,14 +296,7 @@ def gen_copy(idx, all_types, rng):
     messages = [{"role": "system", "content": system}]
     messages.append({"role": "user", "content": user_ask_item(target, rng)})
     messages.append({"role": "assistant", "content": assistant_answer_item(target, rng)})
-    if rng.random() < 0.5:
-        # extra turn: negotiate (price must not move) or ask warranty
-        if target["warranty"] and rng.random() < 0.5:
-            messages.append({"role": "user", "content": rng.choice(Q_WARRANTY)})
-            messages.append({"role": "assistant", "content": rng.choice(A_WARRANTY).format(warranty=target["warranty"])})
-        else:
-            messages.append({"role": "user", "content": rng.choice(Q_NEGOTIATE)})
-            messages.append({"role": "assistant", "content": rng.choice(A_HOLD_PRICE)})
+    chain_followups(messages, items, target, rng)
     return messages, "grounded_catalog_copy"
 
 
@@ -260,6 +316,7 @@ def gen_reject(idx, bank, all_types, rng):
     offer_item = rng.choice(items)
     offer = rng.choice(REJECT_OFFER).format(name=offer_item["name"], price=fmt_price(offer_item["price"]))
     messages.append({"role": "assistant", "content": f"{reject}، {offer}"})
+    chain_followups(messages, items, offer_item, rng)
     return messages, "grounded_catalog_reject"
 
 
@@ -282,6 +339,7 @@ def gen_resist(idx, all_types, rng):
     messages.append({"role": "user", "content": prefix + ask})
     reply = rng.choice(RESIST_PHRASES).format(brand=absent_brand, name=catalog_item["name"], price=fmt_price(catalog_item["price"]))
     messages.append({"role": "assistant", "content": reply})
+    chain_followups(messages, items, catalog_item, rng)
     return messages, "grounded_catalog_resist"
 
 
@@ -310,6 +368,7 @@ def gen_memory(idx, all_types, rng):
     else:
         followup = [f"والله هذا آخر سعر {name}، بس البضاعة تستاهل", f"ما أكدر أنزل أكثر {name}، هذا السعر الصافي"]
     messages.append({"role": "assistant", "content": rng.choice(followup)})
+    chain_followups(messages, items, target, rng, exclude={"warranty", "negotiate"})
     return messages, "grounded_catalog_memory"
 
 

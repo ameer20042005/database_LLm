@@ -33,14 +33,16 @@ from pathlib import Path
 from generate_v5_grounded_data import (
     DATA_DIR,
     Q_GENERIC,
-    Q_NEGOTIATE,
-    A_HOLD_PRICE,
-    Q_WARRANTY,
-    A_WARRANTY,
     GREET_PREFIX,
+    REGIONS,
+    Q_DELIVERY_ASK,
+    A_DELIVERY_CLARIFY,
+    Q_REGION_ANSWER,
+    A_DELIVERY_CONFIRM,
     build_catalog,
     build_system,
     catalog_text,  # noqa: F401  (re-exported for parity/debugging)
+    chain_followups,
     flatten_types,
     load_bank,
     pick_price,
@@ -82,23 +84,6 @@ CLARIFY_BRAND_Q = [
 
 CUSTOMER_RESOLVE = ["{val}", "أريد {val}", "خليها {val}", "الـ{val}", "{val} زين"]
 
-REGIONS = [
-    "الكرادة", "المنصور", "الجادرية", "الكاظمية", "الأعظمية", "الحارثية",
-    "الدورة", "الزعفرانية", "الشعلة", "حي الرشيد", "زيونة", "الغزالية",
-]
-Q_DELIVERY_ASK = ["توصلون البيت؟", "أكو توصيل؟", "تجيبونه لعندي؟", "توصلون لو أروح أستلم؟"]
-A_DELIVERY_CLARIFY = [
-    "إي نوصل، بس لأي منطقة تريد التوصيل؟",
-    "أكيد نوصل، گلي وين منطقتك؟",
-    "نوصل، بس خبرني المنطقة أول",
-]
-Q_REGION_ANSWER = ["{region}", "أني من {region}", "منطقتي {region}"]
-A_DELIVERY_CONFIRM = [
-    "إي نوصل لمنطقة {region} إن شاء الله",
-    "ماكو مشكلة، نوصلها لمنطقة {region}",
-    "تمام، توصيل لمنطقة {region} متوفر",
-]
-
 
 def join_options(vals):
     if len(vals) == 1:
@@ -135,16 +120,6 @@ def add_distractors(items, type_name, all_types, rng):
     return items
 
 
-def maybe_extra_turn(messages, chosen, rng):
-    if rng.random() < 0.5:
-        if chosen["warranty"] and rng.random() < 0.5:
-            messages.append({"role": "user", "content": rng.choice(Q_WARRANTY)})
-            messages.append({"role": "assistant", "content": rng.choice(A_WARRANTY).format(warranty=chosen["warranty"])})
-        else:
-            messages.append({"role": "user", "content": rng.choice(Q_NEGOTIATE)})
-            messages.append({"role": "assistant", "content": rng.choice(A_HOLD_PRICE)})
-
-
 def gen_clarify_spec(all_types, rng):
     _, type_name, cfg = rng.choice(all_types)
     n = rng.choice([2, 2, 3])
@@ -164,7 +139,7 @@ def gen_clarify_spec(all_types, rng):
     messages.append({"role": "user", "content": rng.choice(CUSTOMER_RESOLVE).format(val=chosen["spec"])})
     messages.append({"role": "assistant", "content": assistant_answer_item(chosen, rng)})
 
-    maybe_extra_turn(messages, chosen, rng)
+    chain_followups(messages, items, chosen, rng)
     return messages, "grounded_catalog_clarify_spec"
 
 
@@ -187,7 +162,7 @@ def gen_clarify_brand(all_types, rng):
     messages.append({"role": "user", "content": rng.choice(CUSTOMER_RESOLVE).format(val=chosen["brand"])})
     messages.append({"role": "assistant", "content": assistant_answer_item(chosen, rng)})
 
-    maybe_extra_turn(messages, chosen, rng)
+    chain_followups(messages, items, chosen, rng)
     return messages, "grounded_catalog_clarify_brand"
 
 
@@ -220,7 +195,7 @@ def gen_clarify_qty(all_types, rng):
     messages.append({"role": "user", "content": rng.choice(CUSTOMER_RESOLVE).format(val=chosen["spec"])})
     messages.append({"role": "assistant", "content": assistant_answer_item(chosen, rng)})
 
-    maybe_extra_turn(messages, chosen, rng)
+    chain_followups(messages, items, chosen, rng)
     return messages, "grounded_catalog_clarify_qty"
 
 
@@ -236,6 +211,7 @@ def gen_clarify_region(all_types, rng):
     region = rng.choice(REGIONS)
     messages.append({"role": "user", "content": rng.choice(Q_REGION_ANSWER).format(region=region)})
     messages.append({"role": "assistant", "content": rng.choice(A_DELIVERY_CONFIRM).format(region=region)})
+    chain_followups(messages, items, target, rng, exclude={"region"})
     return messages, "grounded_catalog_clarify_region"
 
 
