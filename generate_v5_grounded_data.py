@@ -47,7 +47,7 @@ FOREIGN_BRAND_POOL = [
 PERSONA_INTROS = [
     "أنت بائع عراقي.",
     "انت بياع بمحل عراقي.",
-    "أنت بائع بمحل أجهزة عراقي، تحچي بلهجة عراقية.",
+    "أنت بائع عراقي، تحچي بلهجة عراقية.",
     "أنت موظف مبيعات بمحل عراقي.",
     "انت بائع بسوق عراقي، ردودك مختصرة وبالعراقي.",
 ]
@@ -179,6 +179,27 @@ def flatten_types(bank):
     return out
 
 
+# domains that plausibly coexist in one shop's catalog. The original 6
+# appliance-ish domains are a realistic Iraqi appliance megastore (plus
+# repair "خدمات"); the domains extracted from v4 (food/clothes/cars/real
+# estate) are each their own separate business and must not mix together
+# or with appliances.
+DOMAIN_GROUPS = [
+    {"تبريد", "غسيل", "مطبخ", "إلكترونيات", "أثاث", "تنظيف_وتدفئة", "خدمات"},
+    {"مواد_غذائية"},
+    {"ملابس"},
+    {"سيارات"},
+    {"عقارات"},
+]
+
+
+def domain_group_of(domain):
+    for group in DOMAIN_GROUPS:
+        if domain in group:
+            return group
+    return {domain}
+
+
 def round_price(n):
     return int(round(n / 1000.0)) * 1000
 
@@ -192,11 +213,18 @@ def pick_price(price_range, rng):
     return round_price(rng.randint(lo, hi))
 
 
+def join_name(*parts):
+    """Join type/brand/spec into a display name, collapsing blanks (some v5
+    bank entries — e.g. single-product domains extracted from v4 — carry an
+    empty brand or spec since there's no combinatorial variation)."""
+    return " ".join(p for p in parts if p)
+
+
 def make_item(type_name, cfg, rng, exclude_brand=None):
     brands = [b for b in cfg["brands"] if b != exclude_brand] or cfg["brands"]
     brand = rng.choice(brands)
     spec = rng.choice(cfg["specs"])
-    name = f"{type_name} {brand} {spec}"
+    name = join_name(type_name, brand, spec)
     price = pick_price(cfg["price_range"], rng)
     warranty = rng.choice(cfg["warranty"]) if cfg["warranty"] else None
     return {"type": type_name, "brand": brand, "spec": spec, "name": name,
@@ -205,7 +233,15 @@ def make_item(type_name, cfg, rng, exclude_brand=None):
 
 def build_catalog(all_types, rng, k=None):
     k = k or rng.randint(2, 5)
-    chosen_types = rng.sample(all_types, min(k, len(all_types)))
+    # keep one catalog within one plausible shop (single domain group).
+    # Only roll among groups actually present in the (possibly
+    # pre-filtered) input — rolling an absent group and falling back to
+    # the full unfiltered input would silently mix unrelated shops.
+    present_domains = {t[0] for t in all_types}
+    candidate_groups = [g for g in DOMAIN_GROUPS if g & present_domains] or [present_domains]
+    group = rng.choice(candidate_groups)
+    pool = [t for t in all_types if t[0] in group]
+    chosen_types = rng.sample(pool, min(k, len(pool)))
     items = [make_item(t, cfg, rng) for _, t, cfg in chosen_types]
     return items
 
@@ -247,6 +283,22 @@ def assistant_answer_item(item, rng):
     return t
 
 
+_realestate_types = None
+
+
+def is_realestate(item):
+    """"region"/delivery scene makes no sense for property sales (you don't
+    deliver an apartment) — check the item's type against the real-estate
+    domain, lazily loaded once."""
+    global _realestate_types
+    if _realestate_types is None:
+        try:
+            _realestate_types = set(load_bank().get("عقارات", {}).keys())
+        except Exception:
+            _realestate_types = set()
+    return item.get("type") in _realestate_types
+
+
 def chain_followups(messages, items, chosen, rng, exclude=None):
     """Append 0-3 extra scenes (+ optional closing) to lengthen a session,
     reusing the catalog already injected in the system prompt — no new
@@ -254,7 +306,9 @@ def chain_followups(messages, items, chosen, rng, exclude=None):
     if rng.random() < 0.15:
         return messages  # keep some sessions short for distribution diversity
 
-    exclude = exclude or set()
+    exclude = set(exclude) if exclude else set()
+    if is_realestate(chosen):
+        exclude.add("region")
     pool = [s for s in ["negotiate", "warranty", "second_item", "region"] if s not in exclude]
     if not chosen.get("warranty"):
         pool = [s for s in pool if s != "warranty"]
@@ -321,11 +375,18 @@ def gen_reject(idx, bank, all_types, rng):
 
 
 def gen_resist(idx, all_types, rng):
-    _, type_name, cfg = rng.choice(all_types)
+    # brand-substitution only makes sense for domains with a real brand
+    # concept (e.g. appliances) — not single-product domains like real
+    # estate/food/services extracted from v4, which have brands=[""]
+    branded_types = [(d, t, c) for d, t, c in all_types if len(c["brands"]) >= 2] or all_types
+    domain, type_name, cfg = rng.choice(branded_types)
     catalog_item = make_item(type_name, cfg, rng)
-    # distractors are mandatory: sample only from *other* types so the
-    # catalog can never collapse to a single item (see spec: "مشتّتات إلزامية")
-    other_types = [t for t in all_types if t[1] != type_name]
+    # distractors are mandatory: sample only from *other* types, restricted
+    # to the same domain group as the anchor item, so the catalog can never
+    # collapse to a single item AND never mixes unrelated shops (a car next
+    # to an AC) — see spec: "مشتّتات إلزامية"
+    anchor_group = domain_group_of(domain)
+    other_types = [t for t in all_types if t[1] != type_name and t[0] in anchor_group]
     k = rng.randint(1, min(3, len(other_types)))
     extra_items = build_catalog(other_types, rng, k=k)
     items = [catalog_item] + extra_items

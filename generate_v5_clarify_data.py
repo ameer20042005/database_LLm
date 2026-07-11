@@ -43,7 +43,9 @@ from generate_v5_grounded_data import (
     build_system,
     catalog_text,  # noqa: F401  (re-exported for parity/debugging)
     chain_followups,
+    domain_group_of,
     flatten_types,
+    join_name,
     load_bank,
     pick_price,
     fmt_price,
@@ -96,7 +98,7 @@ def join_options(vals):
 def make_item_fixed(type_name, cfg, rng, brand, spec):
     price = pick_price(cfg["price_range"], rng)
     warranty = rng.choice(cfg["warranty"]) if cfg["warranty"] else None
-    name = f"{type_name} {brand} {spec}"
+    name = join_name(type_name, brand, spec)
     return {"type": type_name, "brand": brand, "spec": spec, "name": name,
             "price": price, "warranty": warranty, "plural": cfg["plural"]}
 
@@ -112,7 +114,11 @@ def build_variant_items(type_name, cfg, rng, n, vary):
 
 
 def add_distractors(items, type_name, all_types, rng):
-    other_types = [t for t in all_types if t[1] != type_name]
+    # restrict distractors to the anchor type's own domain group so a
+    # catalog never mixes unrelated shops (e.g. a car next to an AC)
+    anchor_domain = next((d for d, t, c in all_types if t == type_name), None)
+    group = domain_group_of(anchor_domain) if anchor_domain else None
+    other_types = [t for t in all_types if t[1] != type_name and (group is None or t[0] in group)]
     k = rng.choice([0, 0, 1, 2])
     if k and other_types:
         items = items + build_catalog(other_types, rng, k=min(k, len(other_types)))
@@ -121,7 +127,8 @@ def add_distractors(items, type_name, all_types, rng):
 
 
 def gen_clarify_spec(all_types, rng):
-    _, type_name, cfg = rng.choice(all_types)
+    candidates = [(d, t, c) for d, t, c in all_types if len(c["specs"]) >= 2] or all_types
+    _, type_name, cfg = rng.choice(candidates)
     n = rng.choice([2, 2, 3])
     variants = build_variant_items(type_name, cfg, rng, n, vary="spec")
     items = add_distractors(list(variants), type_name, all_types, rng)
@@ -144,7 +151,8 @@ def gen_clarify_spec(all_types, rng):
 
 
 def gen_clarify_brand(all_types, rng):
-    _, type_name, cfg = rng.choice(all_types)
+    candidates = [(d, t, c) for d, t, c in all_types if len(c["brands"]) >= 2] or all_types
+    _, type_name, cfg = rng.choice(candidates)
     n = rng.choice([2, 2, 3])
     variants = build_variant_items(type_name, cfg, rng, n, vary="brand")
     items = add_distractors(list(variants), type_name, all_types, rng)
@@ -182,7 +190,8 @@ def gen_clarify_qty(all_types, rng):
         opts = join_options([v["spec"] for v in variants])
         messages.append({"role": "assistant", "content": rng.choice(CLARIFY_QTY_TON_Q).format(opts=opts)})
     else:
-        _, type_name, cfg = rng.choice(all_types)
+        multi_spec = [(d, t, c) for d, t, c in all_types if len(c["specs"]) >= 2] or all_types
+        _, type_name, cfg = rng.choice(multi_spec)
         variants = build_variant_items(type_name, cfg, rng, 2, vary="spec")
         items = add_distractors(list(variants), type_name, all_types, rng)
         system = build_system(items, rng)
@@ -200,7 +209,10 @@ def gen_clarify_qty(all_types, rng):
 
 
 def gen_clarify_region(all_types, rng):
-    items = build_catalog(all_types, rng)
+    # delivery doesn't make sense for property sales (you don't deliver an
+    # apartment) — exclude عقارات from this scenario entirely
+    deliverable_types = [t for t in all_types if t[0] != "عقارات"] or all_types
+    items = build_catalog(deliverable_types, rng)
     target = rng.choice(items)
     system = build_system(items, rng)
     messages = [{"role": "system", "content": system}]
