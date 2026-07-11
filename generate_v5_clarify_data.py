@@ -1,0 +1,303 @@
+"""Generate v5 clarification/disambiguation training data (Iraqi Arabic).
+
+Step 9 of the v6 plan: the model must learn to ask before assuming when the
+customer's request is ambiguous, instead of guessing a spec/brand/quantity
+and quoting a price for the wrong item. Missing scenario that broke the
+"ask before assuming" rule:
+
+    زبون: أريد اثنين
+    بائع: اثنين طن واحد لو طن ونص؟
+    زبون: طن ونص
+    بائع: [السعر من الكتالوج]
+
+Every example still starts with a system prompt + injected catalog (same
+persona/header/footer pools as generate_v5_grounded_data.py) so the model
+never learns to memorize specific products - only the "ask, then copy from
+context" behavior. Four ambiguity axes, mixed by ratio:
+
+  1. spec   (35%) - type has 2+ possible specs/sizes in the catalog, customer
+                     asks generically, assistant must ask which one
+  2. brand  (30%) - type available in 2+ brands, assistant must ask which
+  3. qty    (20%) - ambiguous quantity phrasing ("أريد اثنين") that collides
+                     with a spec name (e.g. طنين), or a bare "give me two"
+                     without saying which model both should be
+  4. region (15%) - customer asks about delivery without naming an area
+
+Run:
+    python generate_v5_clarify_data.py --n 400
+"""
+import argparse
+import random
+from pathlib import Path
+
+from generate_v5_grounded_data import (
+    DATA_DIR,
+    Q_GENERIC,
+    Q_NEGOTIATE,
+    A_HOLD_PRICE,
+    Q_WARRANTY,
+    A_WARRANTY,
+    GREET_PREFIX,
+    build_catalog,
+    build_system,
+    catalog_text,  # noqa: F401  (re-exported for parity/debugging)
+    flatten_types,
+    load_bank,
+    pick_price,
+    fmt_price,
+    user_ask_item,
+    assistant_answer_item,
+)
+
+TON_KEYWORD = "طن"
+
+Q_AMBIG_QTY_TON = ["أريد اثنين", "عطني اثنين", "أبيه اثنين", "أريد وحدة اثنين"]
+CLARIFY_QTY_TON_Q = [
+    "اثنين شنو تقصد، {opts}؟",
+    "تقصد {opts}؟",
+    "اثنين... {opts}؟",
+    "وضحلي، {opts}؟",
+]
+
+Q_AMBIG_QTY_GENERIC = ["أريد فدين {plural}", "أبيه اثنين {plural}", "عطني وحدتين {plural}"]
+CLARIFY_QTY_GENERIC_Q = [
+    "الفدين نفس الموديل لو مختلفين؟ عدنا {opts}",
+    "أي موديل تريد للفدين، {opts}؟",
+    "خليهم نفس النوع؟ عدنا {opts}، شتختار؟",
+]
+
+CLARIFY_SPEC_Q = [
+    "أي حجم تريد، {opts}؟",
+    "عدنا {opts}، شتفضل؟",
+    "تريد {opts}؟",
+    "عندي {opts} من هذا النوع، أيهم تختار؟",
+]
+
+CLARIFY_BRAND_Q = [
+    "أي ماركة تريد، {opts}؟",
+    "عدنا {opts}، شتفضل؟",
+    "{opts}؟ خبرني شتريد بالضبط",
+    "عندي {opts} من هذا الصنف، أيهم أحسنلك؟",
+]
+
+CUSTOMER_RESOLVE = ["{val}", "أريد {val}", "خليها {val}", "الـ{val}", "{val} زين"]
+
+REGIONS = [
+    "الكرادة", "المنصور", "الجادرية", "الكاظمية", "الأعظمية", "الحارثية",
+    "الدورة", "الزعفرانية", "الشعلة", "حي الرشيد", "زيونة", "الغزالية",
+]
+Q_DELIVERY_ASK = ["توصلون البيت؟", "أكو توصيل؟", "تجيبونه لعندي؟", "توصلون لو أروح أستلم؟"]
+A_DELIVERY_CLARIFY = [
+    "إي نوصل، بس لأي منطقة تريد التوصيل؟",
+    "أكيد نوصل، گلي وين منطقتك؟",
+    "نوصل، بس خبرني المنطقة أول",
+]
+Q_REGION_ANSWER = ["{region}", "أني من {region}", "منطقتي {region}"]
+A_DELIVERY_CONFIRM = [
+    "إي نوصل لمنطقة {region} إن شاء الله",
+    "ماكو مشكلة، نوصلها لمنطقة {region}",
+    "تمام، توصيل لمنطقة {region} متوفر",
+]
+
+
+def join_options(vals):
+    if len(vals) == 1:
+        return vals[0]
+    if len(vals) == 2:
+        return f"{vals[0]} لو {vals[1]}"
+    return "، ".join(vals[:-1]) + f" لو {vals[-1]}"
+
+
+def make_item_fixed(type_name, cfg, rng, brand, spec):
+    price = pick_price(cfg["price_range"], rng)
+    warranty = rng.choice(cfg["warranty"]) if cfg["warranty"] else None
+    name = f"{type_name} {brand} {spec}"
+    return {"type": type_name, "brand": brand, "spec": spec, "name": name,
+            "price": price, "warranty": warranty, "plural": cfg["plural"]}
+
+
+def build_variant_items(type_name, cfg, rng, n, vary):
+    if vary == "spec":
+        specs = rng.sample(cfg["specs"], min(n, len(cfg["specs"])))
+        brand = rng.choice(cfg["brands"])
+        return [make_item_fixed(type_name, cfg, rng, brand, s) for s in specs]
+    brands = rng.sample(cfg["brands"], min(n, len(cfg["brands"])))
+    spec = rng.choice(cfg["specs"])
+    return [make_item_fixed(type_name, cfg, rng, b, spec) for b in brands]
+
+
+def add_distractors(items, type_name, all_types, rng):
+    other_types = [t for t in all_types if t[1] != type_name]
+    k = rng.choice([0, 0, 1, 2])
+    if k and other_types:
+        items = items + build_catalog(other_types, rng, k=min(k, len(other_types)))
+    rng.shuffle(items)
+    return items
+
+
+def maybe_extra_turn(messages, chosen, rng):
+    if rng.random() < 0.5:
+        if chosen["warranty"] and rng.random() < 0.5:
+            messages.append({"role": "user", "content": rng.choice(Q_WARRANTY)})
+            messages.append({"role": "assistant", "content": rng.choice(A_WARRANTY).format(warranty=chosen["warranty"])})
+        else:
+            messages.append({"role": "user", "content": rng.choice(Q_NEGOTIATE)})
+            messages.append({"role": "assistant", "content": rng.choice(A_HOLD_PRICE)})
+
+
+def gen_clarify_spec(all_types, rng):
+    _, type_name, cfg = rng.choice(all_types)
+    n = rng.choice([2, 2, 3])
+    variants = build_variant_items(type_name, cfg, rng, n, vary="spec")
+    items = add_distractors(list(variants), type_name, all_types, rng)
+    system = build_system(items, rng)
+    messages = [{"role": "system", "content": system}]
+
+    prefix = rng.choice(GREET_PREFIX)
+    ask = rng.choice(Q_GENERIC).format(plural=cfg["plural"])
+    messages.append({"role": "user", "content": prefix + ask})
+
+    opts = join_options([v["spec"] for v in variants])
+    messages.append({"role": "assistant", "content": rng.choice(CLARIFY_SPEC_Q).format(opts=opts)})
+
+    chosen = rng.choice(variants)
+    messages.append({"role": "user", "content": rng.choice(CUSTOMER_RESOLVE).format(val=chosen["spec"])})
+    messages.append({"role": "assistant", "content": assistant_answer_item(chosen, rng)})
+
+    maybe_extra_turn(messages, chosen, rng)
+    return messages, "grounded_catalog_clarify_spec"
+
+
+def gen_clarify_brand(all_types, rng):
+    _, type_name, cfg = rng.choice(all_types)
+    n = rng.choice([2, 2, 3])
+    variants = build_variant_items(type_name, cfg, rng, n, vary="brand")
+    items = add_distractors(list(variants), type_name, all_types, rng)
+    system = build_system(items, rng)
+    messages = [{"role": "system", "content": system}]
+
+    prefix = rng.choice(GREET_PREFIX)
+    ask = rng.choice(Q_GENERIC).format(plural=cfg["plural"])
+    messages.append({"role": "user", "content": prefix + ask})
+
+    opts = join_options([v["brand"] for v in variants])
+    messages.append({"role": "assistant", "content": rng.choice(CLARIFY_BRAND_Q).format(opts=opts)})
+
+    chosen = rng.choice(variants)
+    messages.append({"role": "user", "content": rng.choice(CUSTOMER_RESOLVE).format(val=chosen["brand"])})
+    messages.append({"role": "assistant", "content": assistant_answer_item(chosen, rng)})
+
+    maybe_extra_turn(messages, chosen, rng)
+    return messages, "grounded_catalog_clarify_brand"
+
+
+def gen_clarify_qty(all_types, rng):
+    ton_candidates = [(d, t, c) for d, t, c in all_types if any(TON_KEYWORD in s for s in c["specs"])]
+    if ton_candidates and rng.random() < 0.6:
+        _, type_name, cfg = rng.choice(ton_candidates)
+        ton_specs = [s for s in cfg["specs"] if TON_KEYWORD in s]
+        n = min(2, len(ton_specs))
+        chosen_specs = rng.sample(ton_specs, n)
+        brand = rng.choice(cfg["brands"])
+        variants = [make_item_fixed(type_name, cfg, rng, brand, s) for s in chosen_specs]
+        items = add_distractors(list(variants), type_name, all_types, rng)
+        system = build_system(items, rng)
+        messages = [{"role": "system", "content": system}]
+        messages.append({"role": "user", "content": rng.choice(Q_AMBIG_QTY_TON)})
+        opts = join_options([v["spec"] for v in variants])
+        messages.append({"role": "assistant", "content": rng.choice(CLARIFY_QTY_TON_Q).format(opts=opts)})
+    else:
+        _, type_name, cfg = rng.choice(all_types)
+        variants = build_variant_items(type_name, cfg, rng, 2, vary="spec")
+        items = add_distractors(list(variants), type_name, all_types, rng)
+        system = build_system(items, rng)
+        messages = [{"role": "system", "content": system}]
+        messages.append({"role": "user", "content": rng.choice(Q_AMBIG_QTY_GENERIC).format(plural=cfg["plural"])})
+        opts = join_options([v["spec"] for v in variants])
+        messages.append({"role": "assistant", "content": rng.choice(CLARIFY_QTY_GENERIC_Q).format(opts=opts)})
+
+    chosen = rng.choice(variants)
+    messages.append({"role": "user", "content": rng.choice(CUSTOMER_RESOLVE).format(val=chosen["spec"])})
+    messages.append({"role": "assistant", "content": assistant_answer_item(chosen, rng)})
+
+    maybe_extra_turn(messages, chosen, rng)
+    return messages, "grounded_catalog_clarify_qty"
+
+
+def gen_clarify_region(all_types, rng):
+    items = build_catalog(all_types, rng)
+    target = rng.choice(items)
+    system = build_system(items, rng)
+    messages = [{"role": "system", "content": system}]
+    messages.append({"role": "user", "content": user_ask_item(target, rng)})
+    messages.append({"role": "assistant", "content": assistant_answer_item(target, rng)})
+    messages.append({"role": "user", "content": rng.choice(Q_DELIVERY_ASK)})
+    messages.append({"role": "assistant", "content": rng.choice(A_DELIVERY_CLARIFY)})
+    region = rng.choice(REGIONS)
+    messages.append({"role": "user", "content": rng.choice(Q_REGION_ANSWER).format(region=region)})
+    messages.append({"role": "assistant", "content": rng.choice(A_DELIVERY_CONFIRM).format(region=region)})
+    return messages, "grounded_catalog_clarify_region"
+
+
+RATIOS = {"spec": 0.35, "brand": 0.30, "qty": 0.20, "region": 0.15}
+GENERATORS = {
+    "spec": gen_clarify_spec,
+    "brand": gen_clarify_brand,
+    "qty": gen_clarify_qty,
+    "region": gen_clarify_region,
+}
+
+
+def main():
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--n", type=int, default=400, help="total examples to generate")
+    ap.add_argument("--seed", type=int, default=42)
+    ap.add_argument("--val-ratio", type=float, default=0.1)
+    ap.add_argument("--out-train", default=str(DATA_DIR / "iraqi_train_v5_clarify.jsonl"))
+    ap.add_argument("--out-val", default=str(DATA_DIR / "iraqi_val_v5_clarify.jsonl"))
+    args = ap.parse_args()
+
+    rng = random.Random(args.seed)
+    bank = load_bank()
+    all_types = flatten_types(bank)
+
+    counts = {k: round(args.n * v) for k, v in RATIOS.items()}
+    drift = args.n - sum(counts.values())
+    counts["spec"] += drift
+
+    records = []
+    counters = {k: 0 for k in RATIOS}
+
+    def next_id(pattern):
+        counters[pattern] += 1
+        return f"v5_clarify_{pattern}_{counters[pattern]:05d}"
+
+    for pattern, gen_fn in GENERATORS.items():
+        for _ in range(counts[pattern]):
+            msgs, cat = gen_fn(all_types, rng)
+            records.append({
+                "id": next_id(pattern), "category": cat, "dialect": "iraqi_arabic",
+                "messages": msgs, "source_file": "generate_v5_clarify_data.py",
+            })
+
+    rng.shuffle(records)
+    n_val = int(len(records) * args.val_ratio)
+    val_records = records[:n_val]
+    train_records = records[n_val:]
+
+    import json
+    with open(args.out_train, "w", encoding="utf-8") as f:
+        for r in train_records:
+            f.write(json.dumps(r, ensure_ascii=False) + "\n")
+    with open(args.out_val, "w", encoding="utf-8") as f:
+        for r in val_records:
+            f.write(json.dumps(r, ensure_ascii=False) + "\n")
+
+    print(f"total: {len(records)}  (train {len(train_records)} / val {len(val_records)})")
+    print("by pattern:", counts)
+    print(f"train -> {args.out_train}")
+    print(f"val   -> {args.out_val}")
+
+
+if __name__ == "__main__":
+    main()
