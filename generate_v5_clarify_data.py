@@ -40,6 +40,7 @@ from generate_v5_grounded_data import (
     Q_REGION_ANSWER,
     A_DELIVERY_CONFIRM,
     build_catalog,
+    build_services,
     build_system,
     catalog_text,  # noqa: F401  (re-exported for parity/debugging)
     chain_followups,
@@ -49,6 +50,7 @@ from generate_v5_grounded_data import (
     load_bank,
     pick_price,
     fmt_price,
+    service_profile_for,
     user_ask_item,
     assistant_answer_item,
 )
@@ -58,30 +60,30 @@ TON_KEYWORD = "طن"
 Q_AMBIG_QTY_TON = ["أريد اثنين", "عطني اثنين", "أبيه اثنين", "أريد وحدة اثنين"]
 CLARIFY_QTY_TON_Q = [
     "اثنين شنو تقصد، {opts}؟",
-    "تقصد {opts}؟",
-    "اثنين... {opts}؟",
-    "وضحلي، {opts}؟",
+    "زين، تقصد {opts}؟",
+    "اثنين، {opts}؟ گلي",
+    "وضحلي شنو تريد، {opts}؟",
 ]
 
 Q_AMBIG_QTY_GENERIC = ["أريد فدين {plural}", "أبيه اثنين {plural}", "عطني وحدتين {plural}"]
 CLARIFY_QTY_GENERIC_Q = [
     "الفدين نفس الموديل لو مختلفين؟ عدنا {opts}",
-    "أي موديل تريد للفدين، {opts}؟",
+    "أي موديل تريد للفدين زين، {opts}؟",
     "خليهم نفس النوع؟ عدنا {opts}، شتختار؟",
 ]
 
 CLARIFY_SPEC_Q = [
-    "أي حجم تريد، {opts}؟",
+    "شنو الحجم اللي تريد، {opts}؟",
     "عدنا {opts}، شتفضل؟",
-    "تريد {opts}؟",
-    "عندي {opts} من هذا النوع، أيهم تختار؟",
+    "تريد {opts} زين؟",
+    "عدنا {opts} من هذا النوع، أيهم تختار؟",
 ]
 
 CLARIFY_BRAND_Q = [
-    "أي ماركة تريد، {opts}؟",
+    "شنو الماركة اللي تريد، {opts}؟",
     "عدنا {opts}، شتفضل؟",
-    "{opts}؟ خبرني شتريد بالضبط",
-    "عندي {opts} من هذا الصنف، أيهم أحسنلك؟",
+    "{opts}؟ گلي شتريد بالضبط",
+    "عدنا {opts} من هذا الصنف، أيهم أحسنلك؟",
 ]
 
 CUSTOMER_RESOLVE = ["{val}", "أريد {val}", "خليها {val}", "الـ{val}", "{val} زين"]
@@ -95,22 +97,22 @@ def join_options(vals):
     return "، ".join(vals[:-1]) + f" لو {vals[-1]}"
 
 
-def make_item_fixed(type_name, cfg, rng, brand, spec):
+def make_item_fixed(type_name, cfg, rng, brand, spec, domain=None):
     price = pick_price(cfg["price_range"], rng)
     warranty = rng.choice(cfg["warranty"]) if cfg["warranty"] else None
     name = join_name(type_name, brand, spec)
     return {"type": type_name, "brand": brand, "spec": spec, "name": name,
-            "price": price, "warranty": warranty, "plural": cfg["plural"]}
+            "price": price, "warranty": warranty, "plural": cfg["plural"], "domain": domain}
 
 
-def build_variant_items(type_name, cfg, rng, n, vary):
+def build_variant_items(type_name, cfg, rng, n, vary, domain=None):
     if vary == "spec":
         specs = rng.sample(cfg["specs"], min(n, len(cfg["specs"])))
         brand = rng.choice(cfg["brands"])
-        return [make_item_fixed(type_name, cfg, rng, brand, s) for s in specs]
+        return [make_item_fixed(type_name, cfg, rng, brand, s, domain=domain) for s in specs]
     brands = rng.sample(cfg["brands"], min(n, len(cfg["brands"])))
     spec = rng.choice(cfg["specs"])
-    return [make_item_fixed(type_name, cfg, rng, b, spec) for b in brands]
+    return [make_item_fixed(type_name, cfg, rng, b, spec, domain=domain) for b in brands]
 
 
 def add_distractors(items, type_name, all_types, rng):
@@ -128,11 +130,13 @@ def add_distractors(items, type_name, all_types, rng):
 
 def gen_clarify_spec(all_types, rng):
     candidates = [(d, t, c) for d, t, c in all_types if len(c["specs"]) >= 2] or all_types
-    _, type_name, cfg = rng.choice(candidates)
+    domain, type_name, cfg = rng.choice(candidates)
     n = rng.choice([2, 2, 3])
-    variants = build_variant_items(type_name, cfg, rng, n, vary="spec")
+    variants = build_variant_items(type_name, cfg, rng, n, vary="spec", domain=domain)
     items = add_distractors(list(variants), type_name, all_types, rng)
-    system = build_system(items, rng)
+    profile = service_profile_for(items)
+    services, services_text = build_services(rng, profile)
+    system = build_system(items, services_text, rng)
     messages = [{"role": "system", "content": system}]
 
     prefix = rng.choice(GREET_PREFIX)
@@ -152,11 +156,13 @@ def gen_clarify_spec(all_types, rng):
 
 def gen_clarify_brand(all_types, rng):
     candidates = [(d, t, c) for d, t, c in all_types if len(c["brands"]) >= 2] or all_types
-    _, type_name, cfg = rng.choice(candidates)
+    domain, type_name, cfg = rng.choice(candidates)
     n = rng.choice([2, 2, 3])
-    variants = build_variant_items(type_name, cfg, rng, n, vary="brand")
+    variants = build_variant_items(type_name, cfg, rng, n, vary="brand", domain=domain)
     items = add_distractors(list(variants), type_name, all_types, rng)
-    system = build_system(items, rng)
+    profile = service_profile_for(items)
+    services, services_text = build_services(rng, profile)
+    system = build_system(items, services_text, rng)
     messages = [{"role": "system", "content": system}]
 
     prefix = rng.choice(GREET_PREFIX)
@@ -177,24 +183,28 @@ def gen_clarify_brand(all_types, rng):
 def gen_clarify_qty(all_types, rng):
     ton_candidates = [(d, t, c) for d, t, c in all_types if any(TON_KEYWORD in s for s in c["specs"])]
     if ton_candidates and rng.random() < 0.6:
-        _, type_name, cfg = rng.choice(ton_candidates)
+        domain, type_name, cfg = rng.choice(ton_candidates)
         ton_specs = [s for s in cfg["specs"] if TON_KEYWORD in s]
         n = min(2, len(ton_specs))
         chosen_specs = rng.sample(ton_specs, n)
         brand = rng.choice(cfg["brands"])
-        variants = [make_item_fixed(type_name, cfg, rng, brand, s) for s in chosen_specs]
+        variants = [make_item_fixed(type_name, cfg, rng, brand, s, domain=domain) for s in chosen_specs]
         items = add_distractors(list(variants), type_name, all_types, rng)
-        system = build_system(items, rng)
+        profile = service_profile_for(items)
+        services, services_text = build_services(rng, profile)
+        system = build_system(items, services_text, rng)
         messages = [{"role": "system", "content": system}]
         messages.append({"role": "user", "content": rng.choice(Q_AMBIG_QTY_TON)})
         opts = join_options([v["spec"] for v in variants])
         messages.append({"role": "assistant", "content": rng.choice(CLARIFY_QTY_TON_Q).format(opts=opts)})
     else:
         multi_spec = [(d, t, c) for d, t, c in all_types if len(c["specs"]) >= 2] or all_types
-        _, type_name, cfg = rng.choice(multi_spec)
-        variants = build_variant_items(type_name, cfg, rng, 2, vary="spec")
+        domain, type_name, cfg = rng.choice(multi_spec)
+        variants = build_variant_items(type_name, cfg, rng, 2, vary="spec", domain=domain)
         items = add_distractors(list(variants), type_name, all_types, rng)
-        system = build_system(items, rng)
+        profile = service_profile_for(items)
+        services, services_text = build_services(rng, profile)
+        system = build_system(items, services_text, rng)
         messages = [{"role": "system", "content": system}]
         messages.append({"role": "user", "content": rng.choice(Q_AMBIG_QTY_GENERIC).format(plural=cfg["plural"])})
         opts = join_options([v["spec"] for v in variants])
@@ -214,7 +224,9 @@ def gen_clarify_region(all_types, rng):
     deliverable_types = [t for t in all_types if t[0] != "عقارات"] or all_types
     items = build_catalog(deliverable_types, rng)
     target = rng.choice(items)
-    system = build_system(items, rng)
+    profile = service_profile_for(items)
+    services, services_text = build_services(rng, profile)
+    system = build_system(items, services_text, rng)
     messages = [{"role": "system", "content": system}]
     messages.append({"role": "user", "content": user_ask_item(target, rng)})
     messages.append({"role": "assistant", "content": assistant_answer_item(target, rng)})

@@ -1,23 +1,30 @@
-"""Generate v5 grounded-catalog training data (Iraqi Arabic).
+"""Generate v5 grounded-catalog training data (Iraqi Arabic) — Category A/C.
 
-Unlike v4 (free-form sales dialogue), every v5 example carries a "system"
-message with a small product catalog (2-5 items, random prices/names drawn
-from a combinatorial bank), and the assistant's reply is only allowed to
-state names/prices/warranty that literally appear in that catalog. This
-teaches copy-from-context behavior instead of memorizing/hallucinating
-numbers.
+Every v5 example carries a "system" message with a randomized product catalog
+(3-6 items, prices/names drawn from a combinatorial bank) plus a services
+block (delivery/install/discount) and a fixed "قواعد صارمة" rules block. The
+assistant's reply is only ever allowed to state names/prices/warranty/service
+numbers that literally appear in that system prompt — this teaches
+copy-from-context behavior instead of memorizing/hallucinating numbers.
 
-Five patterns, mixed by ratio:
-  1. copy    (50%) - customer asks about a catalog item, assistant quotes it verbatim
-  2. reject  (20%) - customer asks for something NOT in the catalog
-  3. resist  (10%) - customer names a brand not in the catalog; assistant
-                     declines it and offers the catalog's actual item
-  4. memory  (10%) - customer gives their name; assistant uses it while
-                     answering from the catalog
-  5. chat    (10%) - plain greetings/small talk, no catalog (sampled from
-                     the existing curated greetings_smalltalk_only.jsonl)
+This module owns the shared building blocks (bank loading, catalog/services/
+system-prompt construction, wordbank pools) reused by every other v5
+generator (`generate_v5_clarify_data.py`, `generate_v5_memory_data.py`,
+`generate_v5_drift_data.py`, `generate_v5_calc_data.py`,
+`generate_v5_greet_data.py`), plus its own two categories:
 
-Run:
+  A. copy   - customer asks about catalog items, assistant quotes them verbatim
+              across a deterministic ~10-turn arc (greeting -> 2-3 item price
+              Qs -> comparison -> warranty -> negotiate -> delivery -> closing)
+  C. reject - customer asks for something NOT satisfiable by the catalog, in
+              one of three ways (off-catalog product / below price floor /
+              off-topic entirely); the alternative offered is always computed
+              as the catalog's actual cheapest item, never picked at random
+  (brand-substitution "resist" is the other half of Category C)
+  chat      - plain greetings/small talk, no catalog (sampled from the
+              existing curated greetings_smalltalk_only.jsonl)
+
+Run standalone (debug-only mix; the real build uses generate_v5.py):
     python generate_v5_grounded_data.py --n 20000
 """
 import argparse
@@ -29,8 +36,6 @@ ROOT = Path(__file__).parent
 DATA_DIR = ROOT / "data"
 BANK_PATH = DATA_DIR / "product_bank_v5.json"
 GREETINGS_PATH = DATA_DIR / "greetings_smalltalk_only.jsonl"
-
-RATIOS = {"copy": 0.50, "reject": 0.20, "resist": 0.10, "memory": 0.10, "chat": 0.10}
 
 CUSTOMER_NAMES = [
     "أبو حسن", "أبو علي", "أبو كرار", "أبو تراب", "أبو زيد", "أبو مصطفى",
@@ -44,28 +49,69 @@ FOREIGN_BRAND_POOL = [
     "ميتاگ", "هيتاچي", "بوش", "سيمنس", "اليكترولوكس", "شارپ", "فيليبس",
 ]
 
-PERSONA_INTROS = [
-    "أنت بائع عراقي.",
-    "انت بياع بمحل عراقي.",
-    "أنت بائع عراقي، تحچي بلهجة عراقية.",
-    "أنت موظف مبيعات بمحل عراقي.",
-    "انت بائع بسوق عراقي، ردودك مختصرة وبالعراقي.",
+# ---- shop-domain labels for the system-prompt intro line ----
+DOMAIN_SHOP_LABEL = {
+    "تبريد": "مكيفات وتبريد",
+    "غسيل": "غسالات ونشافات",
+    "مطبخ": "أدوات مطبخ",
+    "إلكترونيات": "إلكترونيات وموبايلات",
+    "أثاث": "أثاث منزلي",
+    "تنظيف_وتدفئة": "أدوات تنظيف وتدفئة",
+    "خدمات": "صيانة وخدمات فنية",
+    "مواد_غذائية": "مواد غذائية",
+    "ملابس": "ملابس",
+    "سيارات": "سيارات",
+    "عقارات": "عقارات",
+}
+
+# ---- which services make sense per domain (you don't "install" a kilo of rice) ----
+SERVICE_PROFILES = {
+    "appliance": {"delivery": True, "install": True, "discount": True, "extra": None},
+    "مواد_غذائية": {"delivery": True, "install": False, "discount": True, "extra": "توصيل خلال نفس اليوم"},
+    "ملابس": {"delivery": True, "install": False, "discount": True, "extra": "استبدال خلال 3 أيام لو المقاس مو مناسب"},
+    "سيارات": {"delivery": True, "install": False, "discount": False, "extra": "فحص فني مجاني قبل البيع"},
+    "عقارات": {"delivery": False, "install": False, "discount": False, "extra": "نساعد بإجراءات التسجيل العقاري"},
+}
+
+NOTES_POOL = ["الكمية محدودة", "أحدث موديل", "متوفر بألوان متعددة", "الأكثر مبيعاً", "عرض لفترة محدودة"]
+
+EXTRA_FLAVOR = [
+    "دوامنا من الساعة 9 الصبح لين 9 الليل، كل يوم إلا الجمعة.",
+    "نگبل الدفع نقد أو كارتة، وتقدر تدفع بالتقسيط لو حبيت.",
+    "المحل بالسوق المركزي، قريب من الموقف العام.",
+    "عدنا خدمة زبائن لأي استفسار حتى بعد البيع.",
 ]
 
-CATALOG_HEADERS = [
-    "المتوفر حصراً:",
-    "عدنا فقط:",
-    "الموجود حالياً:",
-    "قائمة الأسعار المتوفرة:",
-    "الأصناف الموجودة بالمحل:",
+STORE_STORY_LONG = [
+    "المحل موجود بالسوق من أكثر من عشر سنين، وأغلب الزبائن يعرفونه بالاسم مباشرة.",
+    "بلشنا المحل صغير وهسه توسعنا لصالة كاملة بسبب الإقبال الزين من الزبائن.",
+    "المحل معروف بالمنطقة، وأغلب البضاعة تجينا مباشرة من الوكيل الرسمي.",
 ]
 
-GROUNDING_FOOTERS = [
-    "انسخ الأسعار والأسماء حرفياً من القائمة. إذا طلب منتج مو موجود گله ماكو عدنا.",
-    "لا تختلق أسعار أو منتجات غير موجودة بالقائمة. لو الزبون سأل عن شي مو مذكور گله ماكو عدنا هسه.",
-    "استخدم فقط الأسماء والأسعار المذكورة أعلاه بالضبط. أي منتج مو بالقائمة جاوب ماكو عدنا.",
-    "ممنوع تخترع سعر أو منتج غير موجود أعلاه. انسخ الأرقام والأسماء كما هي.",
-]
+FAQ_BLOCK_LONG = (
+    "أسئلة شائعة:\n"
+    "- الدفع: نقبل نقد أو كارتة مصرفية، وتكدر تدفع بالتقسيط لأغلب المنتجات.\n"
+    "- الدوام: من الساعة 9 الصبح لين 9 الليل، كل يوم إلا الجمعة نسكر الظهر.\n"
+    "- الموقع: المحل بالسوق المركزي، قريب من الموقف العام وباب المحل لونه أزرق.\n"
+    "- الإرجاع: تكدر ترجع المنتج خلال أسبوع لو بيه عيب من المصنع.\n"
+    "- الفحص: كل البضاعة مفحوصة قبل ما تنزل للمعرض، ما نبيع شي مستعمل أو مجدد."
+)
+
+RULES_BLOCK = (
+    "قواعد صارمة:\n"
+    "1. جاوب باللهجة العراقية الأصيلة.\n"
+    "2. جاوب قصير ومباشر، جملة أو جملتين بس.\n"
+    "3. الأسعار والأرقام والماركات من القائمة أعلاه فقط.\n"
+    "4. إذا الزبون طلب منتج مو بالقائمة، گله ماكو واعرض البديل.\n"
+    "5. تذكر تفاصيل الزبون (اسمه، شنو يريد) واستعملها."
+)
+
+RULES_EXTRA_LONG = (
+    "\n6. لو الزبون غاضب أو مستعجل، خليك هادئ ومختصر أكثر.\n"
+    "7. اذكر التوصيل أو التركيب بس اذا الزبون سأل عنه.\n"
+    "8. ما تعطي معلومات عن زبائن ثانين.\n"
+    "9. لو طلب فاتورة، وجهه للكاشير مباشرة."
+)
 
 # ---- price question templates ----
 Q_GENERIC = [
@@ -90,15 +136,29 @@ Q_FULL = [
 A_ANSWER_WARR = [
     "إي عندنا {name} بـ{price} دينار، ضمان {warranty}",
     "{name} متوفر عدنا بـ{price} دينار وعليه ضمان {warranty}",
-    "أكيد، {name} بـ{price} دينار، ضمان {warranty}",
-    "تفضل، {name} سعره {price} دينار، ضمان {warranty}",
+    "اكو {name} بـ{price} دينار، ضمان {warranty}",
+    "زين، تفضل، {name} سعره {price} دينار، ضمان {warranty}",
 ]
 A_ANSWER_NOWARR = [
     "إي عندنا {name} بـ{price} دينار",
     "{name} متوفر عدنا بـ{price} دينار",
-    "أكيد، {name} بـ{price} دينار",
-    "تفضل، {name} سعره {price} دينار",
+    "اكو {name} بـ{price} دينار",
+    "زين، تفضل، {name} سعره {price} دينار",
 ]
+
+Q_COMPARE = [
+    "شنو الفرق بين {name_a} و{name_b}؟",
+    "أيهم أحسن، {name_a} لو {name_b}؟",
+    "شنو تنصحني، {name_a} أو {name_b}؟",
+]
+A_COMPARE = [
+    "زين، {name_a} بـ{price_a} و{name_b} بـ{price_b}",
+    "الفرق بالسعر بس، {name_a} بـ{price_a} و{name_b} بـ{price_b}",
+    "بس فرق بالسعر، {name_a} بـ{price_a} و{name_b} بـ{price_b}",
+]
+
+Q_STOCK = ["أكو بالمخزن هسه؟", "متوفر حالياً؟", "أكدر آخذه اليوم؟"]
+A_STOCK = ["إي أكو بالمخزن، تكدر تجيه اليوم", "متوفر عدنا، جاهز للتسليم", "إي، جاهز عدنا هسه"]
 
 Q_NEGOTIATE = ["ماكو أرخص؟", "ما تنزل شوية؟", "غالي شوي، تقدر تخفض؟", "آخر سعر شكد؟"]
 A_HOLD_PRICE = [
@@ -109,7 +169,7 @@ A_HOLD_PRICE = [
 ]
 
 Q_WARRANTY = ["والضمان؟", "شكد الضمان؟", "أكو ضمان عليه؟"]
-A_WARRANTY = ["ضمان {warranty} كامل", "عليه ضمان {warranty}", "{warranty} ضمان رسمي"]
+A_WARRANTY = ["زين، ضمان {warranty} كامل", "اكو، عليه ضمان {warranty}", "{warranty} ضمان رسمي، تفضل"]
 
 REJECT_PHRASES = [
     "والله {plural} ماكو عدنا هسه",
@@ -118,11 +178,11 @@ REJECT_PHRASES = [
     "لا، {plural} خلصت عدنا، ننتظر شحنة جديدة",
     "والله ما عدنا {plural} هسه",
     "{plural} مو موجودة حالياً، جرب تسأل الأسبوع الجاي",
-    "عذراً، ما نبيع {plural}",
+    "عذراً، ما نبيع {plural} هسه",
     "هذا الصنف ماكو عدنا خالص",
     "لا يخالف، بس {plural} مو من أصناف محلنا",
     "ماكو {plural} عدنا، بس عندنا بدائل زينة",
-    "تأسف، نفذت الكمية من {plural}",
+    "تأسف، نفذت الكمية من {plural} هسه",
     "والله {plural} مو متوفرة، خلي أعرضلك شي ثاني",
     "لسه ما وصلتنا {plural}، بس تعال شوف الموجود",
 ]
@@ -132,16 +192,35 @@ REJECT_OFFER = [
     "بس أگدر أعرضلك {name} بـ{price} دينار",
 ]
 
+Q_PRICE_FLOOR = ["أكو شي بـ{n} ألف؟", "عندكم شي أرخص من {n} ألف؟", "أريد شي رخيص، بـ{n} ألف يصير؟"]
+A_PRICE_FLOOR = [
+    "ماكو بهالسعر، بس أرخص شي عدنا {name} بـ{price} دينار",
+    "والله ماكو أوطى من هيچي، أرخص موجود عدنا {name} بـ{price} دينار",
+    "ما وصلنا بهالسعر، أرخص شي عدنا {name} بـ{price} دينار",
+]
+
+OFFTOPIC_POOL = [
+    ("سيارات", "تبيعون سيارات؟"),
+    ("عقارات", "عندكم بيوت للبيع؟"),
+    ("مواد_غذائية", "عندكم لحم غنم؟"),
+    ("ملابس", "عندكم عبايات نسائية؟"),
+    ("طبي", "تسوون فحص طبي؟"),
+    ("تعليم", "تدرسون دروس خصوصية؟"),
+]
+A_OFFTOPIC = ["لا والله، هذا مو من اختصاصنا", "آسف، ما نسوي هيچي هنا", "لا يخالف بس هذا مو عدنا خالص"]
+
 RESIST_PHRASES = [
     "{brand} ماكو عدنا، الموجود {name} بـ{price} دينار",
     "والله {brand} ما نجيب، بس عندنا {name} بجودة زينة بـ{price} دينار",
     "ما نتعامل بـ{brand}، أفضل شي عدنا {name} بـ{price} دينار",
     "{brand} مو متوفرة عدنا، جرب {name} بدلها بـ{price} دينار",
-    "آسف، {brand} خارج تشكيلتنا، الموجود {name} بـ{price} دينار",
+    "آسف، {brand} مو موجودة عدنا، الموجود {name} بـ{price} دينار",
 ]
 Q_BRAND_ASK = ["عندكم {brand}؟", "أريد {type} {brand}", "أكو {brand}؟", "تبيعون {brand}؟"]
 
 GREET_PREFIX = ["هلو، ", "هلا، ", "السلام عليكم، ", "مساء الخير، ", ""]
+GREET_OPEN = ["مرحبا", "السلام عليكم"]
+GREET_OPEN_REPLY = ["وعليكم السلام، هلا وغلا", "هلا بيك، تفضل"]
 
 # ---- follow-up scenes used to chain conversations into longer sessions ----
 REGIONS = [
@@ -158,11 +237,11 @@ Q_REGION_ANSWER = ["{region}", "أني من {region}", "منطقتي {region}"]
 A_DELIVERY_CONFIRM = [
     "إي نوصل لمنطقة {region} إن شاء الله",
     "ماكو مشكلة، نوصلها لمنطقة {region}",
-    "تمام، توصيل لمنطقة {region} متوفر",
+    "زين، توصيل لمنطقة {region} متوفر",
 ]
 
 Q_CLOSING = ["ماشي، آخذه", "زين، اتفقنا", "خلص، بيه", "تمام، راح آخذه", "ماشي، هاي الفلوس"]
-A_CLOSING = ["الله يعطيك العافية، تفضل", "ماشي، تكرم عينك", "الله يبارك فيك، تفضل بالسلامة", "زين، جاهزلك الفاتورة"]
+A_CLOSING = ["الله يعطيك العافية، تفضل", "ماشي، تكرم عينك", "الله يبارك فيك، تسلم، تفضل بالسلامة", "زين، جاهزلك الفاتورة"]
 
 
 def load_bank():
@@ -220,7 +299,7 @@ def join_name(*parts):
     return " ".join(p for p in parts if p)
 
 
-def make_item(type_name, cfg, rng, exclude_brand=None):
+def make_item(type_name, cfg, rng, exclude_brand=None, domain=None):
     brands = [b for b in cfg["brands"] if b != exclude_brand] or cfg["brands"]
     brand = rng.choice(brands)
     spec = rng.choice(cfg["specs"])
@@ -228,44 +307,124 @@ def make_item(type_name, cfg, rng, exclude_brand=None):
     price = pick_price(cfg["price_range"], rng)
     warranty = rng.choice(cfg["warranty"]) if cfg["warranty"] else None
     return {"type": type_name, "brand": brand, "spec": spec, "name": name,
-            "price": price, "warranty": warranty, "plural": cfg["plural"]}
+            "price": price, "warranty": warranty, "plural": cfg["plural"], "domain": domain}
 
 
 def build_catalog(all_types, rng, k=None):
-    k = k or rng.randint(2, 5)
+    k = k or rng.randint(3, 6)
     # keep one catalog within one plausible shop (single domain group).
-    # Only roll among groups actually present in the (possibly
-    # pre-filtered) input — rolling an absent group and falling back to
-    # the full unfiltered input would silently mix unrelated shops.
     present_domains = {t[0] for t in all_types}
     candidate_groups = [g for g in DOMAIN_GROUPS if g & present_domains] or [present_domains]
     group = rng.choice(candidate_groups)
     pool = [t for t in all_types if t[0] in group]
     chosen_types = rng.sample(pool, min(k, len(pool)))
-    items = [make_item(t, cfg, rng) for _, t, cfg in chosen_types]
+    items = [make_item(t, cfg, rng, domain=d) for d, t, cfg in chosen_types]
     return items
 
 
-def catalog_text(items, rng):
+def catalog_text(items, rng, note_prob=0.3):
     lines = []
     for it in items:
         line = f"- {it['name']}: {fmt_price(it['price'])} دينار"
         if it["warranty"]:
             line += f"، ضمان {it['warranty']}"
+        if rng.random() < note_prob:
+            line += f"، {rng.choice(NOTES_POOL)}"
         lines.append(line)
     return "\n".join(lines)
 
 
-def build_system(items, rng):
-    intro = rng.choice(PERSONA_INTROS)
-    header = rng.choice(CATALOG_HEADERS)
-    footer = rng.choice(GROUNDING_FOOTERS)
-    return f"{intro}\n\n{header}\n" + catalog_text(items, rng) + f"\n\n{footer}"
+def shop_label_of(items):
+    domains = [it.get("domain") for it in items if it.get("domain")]
+    if not domains:
+        return "أدوات كهربائية ومنزلية"
+    distinct = set(domains)
+    if len(distinct) == 1:
+        return DOMAIN_SHOP_LABEL.get(domains[0], domains[0])
+    return "أدوات كهربائية ومنزلية"
 
 
-def user_ask_item(item, rng):
+def service_profile_for(items):
+    domains = {it.get("domain") for it in items if it.get("domain")}
+    for key in ("عقارات", "سيارات", "ملابس", "مواد_غذائية"):
+        if key in domains:
+            return SERVICE_PROFILES[key]
+    return SERVICE_PROFILES["appliance"]
+
+
+def build_services(rng, profile):
+    """Returns (services_dict, rendered_text). services_dict carries the
+    structured numbers (delivery fee, install fee, discount rate) so
+    Category D/E generators can assert their assistant text reuses the exact
+    same figures that appear in the system prompt."""
+    services = {"delivery_fee": None, "install_fee": None, "discount_rate": None}
+    lines = []
+    if profile["delivery"]:
+        if rng.random() < 0.35:
+            services["delivery_fee"] = 0
+            lines.append("توصيل مجاني للمحافظة")
+        else:
+            fee = round_price(rng.randint(10000, 40000))
+            services["delivery_fee"] = fee
+            lines.append(f"توصيل بـ{fmt_price(fee)} دينار")
+    if profile["install"]:
+        if rng.random() < 0.3:
+            services["install_fee"] = 0
+            lines.append("تركيب مجاني")
+        else:
+            fee = round_price(rng.randint(10000, 50000))
+            services["install_fee"] = fee
+            lines.append(f"تركيب بـ{fmt_price(fee)} دينار")
+    if profile["discount"]:
+        rate = rng.choice([3, 5, 10])
+        services["discount_rate"] = rate
+        lines.append(f"خصم {rate}% عند شراء قطعتين")
+    if profile["extra"]:
+        lines.append(profile["extra"])
+    if not lines:
+        lines.append("نتابع وياك بأي طلب خاص")
+    text = "\n".join(f"- {l}" for l in lines)
+    return services, text
+
+
+def build_system(items, services_text, rng, shop_label=None, long=None):
+    """Exact production-tested template:
+        أنت بائع عراقي محترف بمحل {shop_label}.
+
+        المنتجات المتوفرة حالياً (هذي القائمة حصراً، التزم بيها):
+        {catalog}
+
+        خدمات:
+        {services}
+
+        [قواعد صارمة numbered rules block]
+    Token length naturally varies ~150-500 with catalog size (3-6 items);
+    `long=True` (used by Category B) forces the upper 300-800 range via an
+    extra flavor paragraph; `long=None` rolls it in ~30% of the time so every
+    category sees some long-system-prompt examples, not just memory.
+    """
+    if long is None:
+        long = rng.random() < 0.3
+    shop_label = shop_label or shop_label_of(items)
+    intro = f"أنت بائع عراقي محترف بمحل {shop_label}."
+    note_prob = 0.85 if long else 0.3
+    catalog_block = "المنتجات المتوفرة حالياً (هذي القائمة حصراً، التزم بيها):\n" + catalog_text(items, rng, note_prob=note_prob)
+    services_block = "خدمات:\n" + services_text
+    parts = [intro, catalog_block, services_block]
+    if long:
+        n_story = min(2, len(STORE_STORY_LONG))
+        parts.append(" ".join(rng.sample(STORE_STORY_LONG, n_story)))
+        parts.append(FAQ_BLOCK_LONG)
+        parts.append(rng.choice(EXTRA_FLAVOR))
+        parts.append(RULES_BLOCK + RULES_EXTRA_LONG)
+    else:
+        parts.append(RULES_BLOCK)
+    return "\n\n".join(parts)
+
+
+def user_ask_item(item, rng, no_prefix=False):
     style = rng.choice(["generic", "type", "full"])
-    prefix = rng.choice(GREET_PREFIX)
+    prefix = "" if no_prefix else rng.choice(GREET_PREFIX)
     if style == "generic":
         t = rng.choice(Q_GENERIC).format(plural=item["plural"])
     elif style == "type":
@@ -344,34 +503,101 @@ def chain_followups(messages, items, chosen, rng, exclude=None):
 
 
 def gen_copy(idx, all_types, rng):
+    """Category A: deterministic ~10-turn arc so every example walks the full
+    greeting -> price Qs (2-3 items) -> comparison -> warranty -> negotiate ->
+    delivery -> closing sequence the spec describes, instead of the old
+    random 0-3-scene sampler."""
     items = build_catalog(all_types, rng)
-    target = rng.choice(items)
-    system = build_system(items, rng)
+    profile = service_profile_for(items)
+    services, services_text = build_services(rng, profile)
+    system = build_system(items, services_text, rng)
     messages = [{"role": "system", "content": system}]
-    messages.append({"role": "user", "content": user_ask_item(target, rng)})
-    messages.append({"role": "assistant", "content": assistant_answer_item(target, rng)})
-    chain_followups(messages, items, target, rng)
+
+    messages.append({"role": "user", "content": rng.choice(GREET_OPEN)})
+    messages.append({"role": "assistant", "content": rng.choice(GREET_OPEN_REPLY)})
+
+    n_targets = min(len(items), rng.choice([2, 2, 3]))
+    targets = rng.sample(items, n_targets)
+    for i, it in enumerate(targets):
+        messages.append({"role": "user", "content": user_ask_item(it, rng, no_prefix=(i == 0))})
+        messages.append({"role": "assistant", "content": assistant_answer_item(it, rng)})
+
+    if len(targets) >= 2:
+        a, b = targets[0], targets[1]
+        # long car/real-estate names + 8-9 digit prices can push the reply
+        # past the 60-token production-reply ceiling - skip the comparison
+        # scene rather than risk an overlong turn.
+        if len(a["name"]) + len(b["name"]) < 40:
+            messages.append({"role": "user", "content": rng.choice(Q_COMPARE).format(name_a=a["name"], name_b=b["name"])})
+            messages.append({"role": "assistant", "content": rng.choice(A_COMPARE).format(
+                name_a=a["name"], price_a=fmt_price(a["price"]), name_b=b["name"], price_b=fmt_price(b["price"]))})
+
+    target = targets[0]
+    if target["warranty"] and rng.random() < 0.7:
+        messages.append({"role": "user", "content": rng.choice(Q_WARRANTY)})
+        messages.append({"role": "assistant", "content": rng.choice(A_WARRANTY).format(warranty=target["warranty"])})
+
+    if rng.random() < 0.5:
+        messages.append({"role": "user", "content": rng.choice(Q_STOCK)})
+        messages.append({"role": "assistant", "content": rng.choice(A_STOCK)})
+
+    messages.append({"role": "user", "content": rng.choice(Q_NEGOTIATE)})
+    messages.append({"role": "assistant", "content": rng.choice(A_HOLD_PRICE)})
+
+    if not is_realestate(target):
+        messages.append({"role": "user", "content": rng.choice(Q_DELIVERY_ASK)})
+        messages.append({"role": "assistant", "content": rng.choice(A_DELIVERY_CLARIFY)})
+        region = rng.choice(REGIONS)
+        messages.append({"role": "user", "content": rng.choice(Q_REGION_ANSWER).format(region=region)})
+        messages.append({"role": "assistant", "content": rng.choice(A_DELIVERY_CONFIRM).format(region=region)})
+
+    messages.append({"role": "user", "content": rng.choice(Q_CLOSING)})
+    messages.append({"role": "assistant", "content": rng.choice(A_CLOSING)})
+
     return messages, "grounded_catalog_copy"
 
 
 def gen_reject(idx, bank, all_types, rng):
+    """Category C (product/price-floor/off-topic sub-modes). The alternative
+    offered is always the catalog's actual cheapest item, computed here, not
+    picked at random."""
     items = build_catalog(all_types, rng)
-    used_types = {it["type"] for it in items}
-    candidates = [(d, t, c) for d, t, c in all_types if t not in used_types]
-    if not candidates:
-        candidates = all_types
-    _, absent_type, absent_cfg = rng.choice(candidates)
-    system = build_system(items, rng)
+    profile = service_profile_for(items)
+    services, services_text = build_services(rng, profile)
+    system = build_system(items, services_text, rng)
     messages = [{"role": "system", "content": system}]
-    prefix = rng.choice(GREET_PREFIX)
-    ask = rng.choice(Q_GENERIC).format(plural=absent_cfg["plural"])
-    messages.append({"role": "user", "content": prefix + ask})
-    reject = rng.choice(REJECT_PHRASES).format(plural=absent_cfg["plural"])
-    offer_item = rng.choice(items)
-    offer = rng.choice(REJECT_OFFER).format(name=offer_item["name"], price=fmt_price(offer_item["price"]))
-    messages.append({"role": "assistant", "content": f"{reject}، {offer}"})
-    chain_followups(messages, items, offer_item, rng)
-    return messages, "grounded_catalog_reject"
+    cheapest = min(items, key=lambda it: it["price"])
+
+    mode = rng.choices(["product", "price_floor", "offtopic"], weights=[0.4, 0.3, 0.3])[0]
+
+    if mode == "product":
+        used_types = {it["type"] for it in items}
+        candidates = [(d, t, c) for d, t, c in all_types if t not in used_types]
+        if not candidates:
+            candidates = all_types
+        _, absent_type, absent_cfg = rng.choice(candidates)
+        prefix = rng.choice(GREET_PREFIX)
+        ask = rng.choice(Q_GENERIC).format(plural=absent_cfg["plural"])
+        messages.append({"role": "user", "content": prefix + ask})
+        reject = rng.choice(REJECT_PHRASES).format(plural=absent_cfg["plural"])
+        offer = rng.choice(REJECT_OFFER).format(name=cheapest["name"], price=fmt_price(cheapest["price"]))
+        messages.append({"role": "assistant", "content": f"{reject}، {offer}"})
+    elif mode == "price_floor":
+        floor = max(10000, round_price(int(cheapest["price"] * rng.uniform(0.3, 0.8))))
+        messages.append({"role": "user", "content": rng.choice(Q_PRICE_FLOOR).format(n=floor // 1000)})
+        messages.append({"role": "assistant", "content": rng.choice(A_PRICE_FLOOR).format(
+            name=cheapest["name"], price=fmt_price(cheapest["price"]))})
+    else:  # offtopic
+        present_domains = {it.get("domain") for it in items}
+        candidates = [(tag, q) for tag, q in OFFTOPIC_POOL if tag not in present_domains]
+        if not candidates:
+            candidates = OFFTOPIC_POOL
+        _, ask = rng.choice(candidates)
+        messages.append({"role": "user", "content": ask})
+        messages.append({"role": "assistant", "content": rng.choice(A_OFFTOPIC)})
+
+    chain_followups(messages, items, cheapest, rng)
+    return messages, f"grounded_catalog_reject_{mode}"
 
 
 def gen_resist(idx, all_types, rng):
@@ -380,7 +606,7 @@ def gen_resist(idx, all_types, rng):
     # estate/food/services extracted from v4, which have brands=[""]
     branded_types = [(d, t, c) for d, t, c in all_types if len(c["brands"]) >= 2] or all_types
     domain, type_name, cfg = rng.choice(branded_types)
-    catalog_item = make_item(type_name, cfg, rng)
+    catalog_item = make_item(type_name, cfg, rng, domain=domain)
     # distractors are mandatory: sample only from *other* types, restricted
     # to the same domain group as the anchor item, so the catalog can never
     # collapse to a single item AND never mixes unrelated shops (a car next
@@ -393,7 +619,9 @@ def gen_resist(idx, all_types, rng):
     rng.shuffle(items)
     absent_candidates = [b for b in FOREIGN_BRAND_POOL if b not in cfg["brands"]] or FOREIGN_BRAND_POOL
     absent_brand = rng.choice(absent_candidates)
-    system = build_system(items, rng)
+    profile = service_profile_for(items)
+    services, services_text = build_services(rng, profile)
+    system = build_system(items, services_text, rng)
     messages = [{"role": "system", "content": system}]
     prefix = rng.choice(GREET_PREFIX)
     ask = rng.choice(Q_BRAND_ASK).format(brand=absent_brand, type=type_name)
@@ -402,35 +630,6 @@ def gen_resist(idx, all_types, rng):
     messages.append({"role": "assistant", "content": reply})
     chain_followups(messages, items, catalog_item, rng)
     return messages, "grounded_catalog_resist"
-
-
-def gen_memory(idx, all_types, rng):
-    items = build_catalog(all_types, rng, k=rng.randint(2, 4))
-    target = rng.choice(items)
-    name = rng.choice(CUSTOMER_NAMES)
-    system = build_system(items, rng)
-    messages = [{"role": "system", "content": system}]
-    intro_templates = [
-        f"هلو، اسمي {name} وأدور {target['type']}",
-        f"هلا، أني {name}، عندكم {target['plural']}؟",
-        f"سلام، أني {name}، أريد {target['type']}",
-    ]
-    messages.append({"role": "user", "content": rng.choice(intro_templates)})
-    greet_reply = [
-        f"هلا {name}، عندنا {target['name']} بـ{fmt_price(target['price'])} دينار",
-        f"أهلين {name}، إي أكو {target['name']} بـ{fmt_price(target['price'])} دينار",
-    ]
-    if target["warranty"]:
-        greet_reply = [g + f"، ضمان {target['warranty']}" for g in greet_reply]
-    messages.append({"role": "assistant", "content": rng.choice(greet_reply)})
-    messages.append({"role": "user", "content": "زين، والضمان؟" if target["warranty"] else "زين، ما بيه خصم؟"})
-    if target["warranty"]:
-        followup = [f"{target['warranty']} كاملة {name}", f"ضمان {target['warranty']} يا {name}"]
-    else:
-        followup = [f"والله هذا آخر سعر {name}، بس البضاعة تستاهل", f"ما أكدر أنزل أكثر {name}، هذا السعر الصافي"]
-    messages.append({"role": "assistant", "content": rng.choice(followup)})
-    chain_followups(messages, items, target, rng, exclude={"warranty", "negotiate"})
-    return messages, "grounded_catalog_memory"
 
 
 _greetings_pool = None
@@ -465,13 +664,13 @@ def main():
     bank = load_bank()
     all_types = flatten_types(bank)
 
-    counts = {k: round(args.n * v) for k, v in RATIOS.items()}
-    # fix rounding drift on the largest bucket
+    ratios = {"copy": 0.55, "reject": 0.25, "resist": 0.10, "chat": 0.10}
+    counts = {k: round(args.n * v) for k, v in ratios.items()}
     drift = args.n - sum(counts.values())
     counts["copy"] += drift
 
     records = []
-    counters = {k: 0 for k in RATIOS}
+    counters = {k: 0 for k in ratios}
 
     def next_id(pattern):
         counters[pattern] += 1
@@ -488,10 +687,6 @@ def main():
     for _ in range(counts["resist"]):
         msgs, cat = gen_resist(0, all_types, rng)
         records.append({"id": next_id("resist"), "category": cat, "dialect": "iraqi_arabic",
-                         "messages": msgs, "source_file": "generate_v5_grounded_data.py"})
-    for _ in range(counts["memory"]):
-        msgs, cat = gen_memory(0, all_types, rng)
-        records.append({"id": next_id("memory"), "category": cat, "dialect": "iraqi_arabic",
                          "messages": msgs, "source_file": "generate_v5_grounded_data.py"})
     for i in range(counts["chat"]):
         msgs, cat = gen_chat(i, rng)
