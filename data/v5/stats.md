@@ -1,92 +1,93 @@
 # v5 Dataset Stats
 
-Total: 17642 (train 17301 / val 341)
+Total: 149803 (train 146830 / val 2973)
 
 ## Category proportions
 
 | Category | Count | % |
 |---|---|---|
-| grounded_catalog_copy | 4000 | 22.7% |
-| grounded_catalog_memory | 1500 | 8.5% |
-| social_family | 819 | 4.6% |
-| daily_life | 817 | 4.6% |
-| grounded_catalog_drift | 800 | 4.5% |
-| work_jobs | 741 | 4.2% |
-| education | 660 | 3.7% |
-| grounded_catalog_calc | 600 | 3.4% |
-| religious_occasions | 574 | 3.3% |
-| neighborhood_community | 549 | 3.1% |
-| healthcare | 534 | 3.0% |
-| grounded_greet_system | 500 | 2.8% |
-| grounded_catalog_resist | 400 | 2.3% |
-| family_home | 362 | 2.1% |
-| grounded_catalog_reject_product | 320 | 1.8% |
-| sports_entertainment | 306 | 1.7% |
-| greetings_chat | 296 | 1.7% |
-| sales_realestate | 248 | 1.4% |
-| grounded_catalog_reject_price_floor | 242 | 1.4% |
-| grounded_catalog_reject_offtopic | 238 | 1.3% |
-| restaurant_cafe | 228 | 1.3% |
-| government_services | 224 | 1.3% |
-| grounded_catalog_clarify_spec | 210 | 1.2% |
-| transportation | 188 | 1.1% |
-| grounded_catalog_clarify_brand | 180 | 1.0% |
-| sales_electronics | 160 | 0.9% |
-| greetings_chat_sys | 154 | 0.9% |
-| sales_clothes | 151 | 0.9% |
-| greetings | 149 | 0.8% |
-| services | 129 | 0.7% |
-| grounded_catalog_clarify_qty | 120 | 0.7% |
-| sales_food | 100 | 0.6% |
-| grounded_catalog_clarify_region | 90 | 0.5% |
-| sales_cars | 84 | 0.5% |
-| greetings_sys | 77 | 0.4% |
-| sales_furniture | 76 | 0.4% |
-| qa_availability | 62 | 0.4% |
-| qa_food market | 60 | 0.3% |
-| qa_product quality | 47 | 0.3% |
-| qa_comparison | 45 | 0.3% |
-| qa_complaint | 42 | 0.2% |
-| qa_colors | 40 | 0.2% |
-| qa_bargaining | 39 | 0.2% |
-| qa_wholesale | 39 | 0.2% |
-| qa_recommendation | 36 | 0.2% |
-| qa_car sales | 36 | 0.2% |
-| qa_offers | 34 | 0.2% |
-| qa_installments | 34 | 0.2% |
-| qa_warranty | 31 | 0.2% |
-| qa_delivery | 31 | 0.2% |
-| qa_clothes shopping | 31 | 0.2% |
-| qa_shop info | 27 | 0.2% |
-| qa_returns | 26 | 0.1% |
-| qa_special order | 21 | 0.1% |
-| qa_currency | 20 | 0.1% |
-| qa_repair services | 20 | 0.1% |
-| qa_used goods | 19 | 0.1% |
-| qa_payment | 18 | 0.1% |
-| qa_real estate | 16 | 0.1% |
-| qa_customer feedback | 16 | 0.1% |
-| qa_gifts | 11 | 0.1% |
-| smalltalk | 7 | 0.0% |
-| smalltalk_sys | 4 | 0.0% |
-| proverbs_sayings | 2 | 0.0% |
-| jokes_banter | 1 | 0.0% |
-| praise_expressions | 1 | 0.0% |
+| grounded_catalog_copy | 32000 | 21.4% |
+| grounded_catalog_memory | 12000 | 8.0% |
+| social_family | 8052 | 5.4% |
+| daily_life | 7969 | 5.3% |
+| work_jobs | 7105 | 4.7% |
+| grounded_catalog_drift | 6400 | 4.3% |
+| education | 6032 | 4.0% |
+| neighborhood_community | 5879 | 3.9% |
+| religious_occasions | 5125 | 3.4% |
+| healthcare | 5017 | 3.3% |
+| grounded_catalog_calc | 4799 | 3.2% |
+| grounded_greet_system | 3992 | 2.7% |
+| family_home | 3356 | 2.2% |
+| grounded_catalog_resist | 3200 | 2.1% |
+| sports_entertainment | 2652 | 1.8% |
+| grounded_catalog_reject_product | 2572 | 1.7% |
+| government_services | 2408 | 1.6% |
+| sales_realestate | 2233 | 1.5% |
+| restaurant_cafe | 1954 | 1.3% |
+| grounded_catalog_reject_offtopic | 1918 | 1.3% |
+| grounded_catalog_reject_price_floor | 1909 | 1.3% |
+| sales_electronics | 1877 | 1.3% |
+| transportation | 1775 | 1.2% |
+| grounded_catalog_clarify_spec | 1680 | 1.1% |
+| grounded_catalog_clarify_brand | 1440 | 1.0% |
+| sales_clothes | 1238 | 0.8% |
+| services | 1211 | 0.8% |
+| greetings_chat | 977 | 0.7% |
+| grounded_catalog_clarify_qty | 960 | 0.6% |
+| sales_food | 934 | 0.6% |
+| sales_cars | 753 | 0.5% |
+| sales_furniture | 729 | 0.5% |
+| grounded_catalog_clarify_region | 720 | 0.5% |
+| greetings_chat_sys | 525 | 0.4% |
+| greetings | 513 | 0.3% |
+| qa_food market | 512 | 0.3% |
+| qa_availability | 460 | 0.3% |
+| qa_bargaining | 452 | 0.3% |
+| qa_product quality | 397 | 0.3% |
+| qa_car sales | 370 | 0.2% |
+| qa_colors | 366 | 0.2% |
+| qa_comparison | 363 | 0.2% |
+| qa_installments | 353 | 0.2% |
+| qa_wholesale | 342 | 0.2% |
+| qa_complaint | 341 | 0.2% |
+| qa_warranty | 337 | 0.2% |
+| qa_recommendation | 333 | 0.2% |
+| qa_returns | 312 | 0.2% |
+| qa_offers | 300 | 0.2% |
+| qa_clothes shopping | 277 | 0.2% |
+| greetings_sys | 265 | 0.2% |
+| qa_delivery | 264 | 0.2% |
+| qa_real estate | 251 | 0.2% |
+| qa_shop info | 233 | 0.2% |
+| qa_used goods | 223 | 0.1% |
+| qa_customer feedback | 206 | 0.1% |
+| qa_special order | 206 | 0.1% |
+| qa_payment | 195 | 0.1% |
+| qa_gifts | 167 | 0.1% |
+| qa_repair services | 161 | 0.1% |
+| qa_currency | 158 | 0.1% |
+| smalltalk | 21 | 0.0% |
+| proverbs_sayings | 10 | 0.0% |
+| smalltalk_sys | 9 | 0.0% |
+| praise_expressions | 5 | 0.0% |
+| jokes_banter | 5 | 0.0% |
+| negative_traits | 5 | 0.0% |
 
 ## Assistant-turn token-length histogram
 
 | Bucket | Count |
 |---|---|
-| 0-10 | 21219 |
-| 11-20 | 40406 |
-| 21-40 | 25116 |
-| 41-60 | 478 |
-| 61+ | 1 |
+| 0-10 | 176787 |
+| 11-20 | 336328 |
+| 21-40 | 208042 |
+| 41-60 | 4108 |
+| 61+ | 5 |
 
 ## Dialect keyword coverage
 
-76569/87220 assistant turns (87.8%) contain >=1 Iraqi dialect keyword.
+624241/725270 assistant turns (86.1%) contain >=1 Iraqi dialect keyword.
 
 ## System-prompt token length (categories with a catalog)
 
-min=15 p25=255 median=305 p75=562 max=662 (n=9435)
+min=15 p25=257 median=307 p75=564 max=664 (n=74389)

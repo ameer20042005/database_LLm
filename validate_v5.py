@@ -1,14 +1,13 @@
-"""Phase 3: validate the final v5 dataset (data/v5/train.jsonl + val.jsonl).
+"""Phase 3: validate the final v5 dataset (data/v5/train_part*.jsonl + val.jsonl).
 
 Two rule tiers, since the final mix has two different roles (see the v5
-build plan): records from a v5 generator (system prompt + catalog present)
-get the FULL strict rule set; records folded in from the audited v4
-dialect-only slice (no system prompt at all - they contribute dialect
-diversity only, not catalog-grounded "production reply" behavior) get a
-lighter structural rule set. A record is treated as "v5-generated" if its
-first message has role "system"; that single condition is what actually
-gates which checks apply (documented below), not source_file string
-matching.
+build plan): records from OUR OWN v5 generator scripts (grounded copy/
+reject/resist, memory/drift/calc/greet/clarify - identified by source_file)
+get the FULL strict rule set; everything else (the "chat" bonus category
+sampled from a pre-existing curated pool, and the audited v4 dialect-only
+slice folded in by generate_v5.py - no catalog-grounded "production reply"
+guarantee to check) gets a lighter structural rule set, even if it happens
+to carry a leading system message.
 
 Full rule set (records with a leading system message):
   - no placeholder patterns
@@ -36,6 +35,7 @@ Run:
     python validate_v5.py
 """
 import argparse
+import glob
 import json
 import re
 import sys
@@ -210,7 +210,8 @@ def validate_records(records, brand_vocab):
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("--train", default=str(OUT_DIR / "train.jsonl"))
+    ap.add_argument("--train-glob", default=str(OUT_DIR / "train_part*.jsonl"),
+                     help="train is sharded (train_part01.jsonl, ...) to stay under GitHub's 100 MB limit")
     ap.add_argument("--val", default=str(OUT_DIR / "val.jsonl"))
     ap.add_argument("--report-only", action="store_true", help="don't exit(1) on violations")
     args = ap.parse_args()
@@ -218,11 +219,16 @@ def main():
     brand_vocab = build_brand_vocab()
 
     total_errs = 0
-    for name, path in [("train", args.train), ("val", args.val)]:
-        p = Path(path)
-        if not p.exists():
-            raise SystemExit(f"{path} not found -- run generate_v5.py first")
-        records = load_jsonl(p)
+    train_paths = sorted(glob.glob(args.train_glob))
+    if not train_paths:
+        raise SystemExit(f"no files matched {args.train_glob} -- run generate_v5.py first")
+    train_records = [r for p in train_paths for r in load_jsonl(Path(p))]
+    val_p = Path(args.val)
+    if not val_p.exists():
+        raise SystemExit(f"{args.val} not found -- run generate_v5.py first")
+    val_records = load_jsonl(val_p)
+
+    for name, records in [("train", train_records), ("val", val_records)]:
         print(f"=== validating {name}: {len(records)} records ===")
         errs = validate_records(records, brand_vocab)
         print(f"{name}: {errs} violation(s) across {len(records)} records\n")

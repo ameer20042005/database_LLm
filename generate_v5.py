@@ -32,17 +32,21 @@ ROOT = Path(__file__).parent
 DATA_DIR = ROOT / "data"
 OUT_DIR = DATA_DIR / "v5"
 
-# approximate target volumes per the v5 spec (all --n-<category> overridable)
+MAX_SHARD_BYTES = 40 * 1024 * 1024  # ~40 MB/shard, well under GitHub's 100 MB push limit
+
+# target volumes (all --n-<category> overridable). Scaled ~8x the original
+# spec suggestions so the final mix (synthetic + audited v4 slice) lands in
+# the ~150-200K range, comparable to the original v4-only corpus size.
 DEFAULT_COUNTS = {
-    "copy": 4000,      # Category A
-    "reject": 800,      # Category C (product/price_floor/offtopic sub-modes)
-    "resist": 400,      # Category C (brand-substitution sub-mode)
-    "memory": 1500,     # Category B
-    "drift": 800,       # Category D
-    "calc": 600,        # Category E
-    "greet": 500,       # Category F
-    "chat": 500,        # bonus: no-system greetings (already worked pre-v5)
-    "clarify": 600,     # bonus: "ask before assuming" (not in the original spec)
+    "copy": 32000,      # Category A
+    "reject": 6400,      # Category C (product/price_floor/offtopic sub-modes)
+    "resist": 3200,      # Category C (brand-substitution sub-mode)
+    "memory": 12000,     # Category B
+    "drift": 6400,       # Category D
+    "calc": 4800,        # Category E
+    "greet": 4000,       # Category F
+    "chat": 2000,        # bonus: no-system greetings (pool is ~2.4K rows; stay under it)
+    "clarify": 4800,     # bonus: "ask before assuming" (not in the original spec)
 }
 
 
@@ -117,6 +121,30 @@ def assert_no_placeholders(records):
                 )
 
 
+def write_sharded_jsonl(records, out_dir, prefix, max_shard_bytes=MAX_SHARD_BYTES):
+    """Shard records into <=max_shard_bytes-sized *_partNN.jsonl files, same
+    convention as convert_to_jsonl.py uses for v4, so no single file trips
+    GitHub's 100 MB push limit."""
+    lines = [json.dumps(r, ensure_ascii=False) + "\n" for r in records]
+    shards, cur, cur_bytes = [], [], 0
+    for line in lines:
+        cur.append(line)
+        cur_bytes += len(line.encode("utf-8"))
+        if cur_bytes >= max_shard_bytes:
+            shards.append(cur)
+            cur, cur_bytes = [], 0
+    if cur:
+        shards.append(cur)
+
+    paths = []
+    for i, shard_lines in enumerate(shards, start=1):
+        path = out_dir / f"{prefix}_part{i:02d}.jsonl"
+        with open(path, "w", encoding="utf-8") as f:
+            f.writelines(shard_lines)
+        paths.append(path)
+    return paths
+
+
 def write_stats(out_dir, train, val, all_records):
     all_count = len(all_records)
     cat_counts = Counter(r["category"] for r in all_records)
@@ -177,10 +205,11 @@ def write_stats(out_dir, train, val, all_records):
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--seed", type=int, default=42)
-    ap.add_argument("--v4-dialect-n", type=int, default=8000,
+    ap.add_argument("--v4-dialect-n", type=int, default=80000,
                      help="subsample cap on the audited v4 dialect-only slice "
-                          "(it's ~76K records; left uncapped it would swamp the "
-                          "~10K new catalog-grounded synthetic examples)")
+                          "(~76K records available; default is set above that "
+                          "so all of it is used, roughly balancing the ~76K new "
+                          "catalog-grounded synthetic examples 1:1)")
     for name, default in DEFAULT_COUNTS.items():
         ap.add_argument(f"--n-{name}", type=int, default=default)
     ap.add_argument("--out-dir", default=str(OUT_DIR))
@@ -254,11 +283,12 @@ def main():
     else:
         print("final-split leakage check: clean (0 overlap)")
 
-    train_path = out_dir / "train.jsonl"
+    # train is large at this scale (150K+ records) - shard it so no single
+    # file trips GitHub's 100 MB push limit. val stays a single small file.
+    for stale in list(out_dir.glob("train.jsonl")) + list(out_dir.glob("train_part*.jsonl")):
+        stale.unlink()
+    train_paths = write_sharded_jsonl(train, out_dir, "train")
     val_path = out_dir / "val.jsonl"
-    with open(train_path, "w", encoding="utf-8") as f:
-        for r in train:
-            f.write(json.dumps(r, ensure_ascii=False) + "\n")
     with open(val_path, "w", encoding="utf-8") as f:
         for r in val:
             f.write(json.dumps(r, ensure_ascii=False) + "\n")
@@ -266,8 +296,9 @@ def main():
     write_stats(out_dir, train, val, all_records)
 
     print(f"\nFINAL: train={len(train)} val={len(val)} total={len(train) + len(val)}")
-    print(f"wrote {train_path}")
-    print(f"wrote {val_path}")
+    for p in train_paths:
+        print(f"wrote {p} ({p.stat().st_size / 1024 / 1024:.1f} MB)")
+    print(f"wrote {val_path} ({val_path.stat().st_size / 1024 / 1024:.1f} MB)")
     print(f"wrote {out_dir / 'stats.md'}")
 
 
