@@ -249,32 +249,32 @@ CONS_REFER_A = [
 
 def gen_cat1():
     convs = []
-    # ضمان — إحالة (24)
-    for _ in range(24):
+    # ضمان — إحالة (48)
+    for _ in range(48):
         dur = random.choice(DURS)
         prods = pick_products(2)
         cat = "\n".join(catalog_lines(prods, f"، ضمان {dur}"))
         q = random.choice(WARR_DETAIL_QS)
         a = random.choice(WARR_REFER_A).format(dur=dur, t=tail())
         convs.append((cat, q, a, prods, "cat1_warranty_detail", "refer"))
-    # ضمان — إجابة (16)
-    for _ in range(16):
+    # ضمان — إجابة (32)
+    for _ in range(32):
         dur = random.choice(DURS)
         suffix_t, qs, a_t = random.choice(WARR_ANSWER_SETS)
         prods = pick_products(2)
         cat = "\n".join(catalog_lines(prods, suffix_t.format(dur=dur)))
         convs.append((cat, random.choice(qs), a_t.format(dur=dur), prods,
                       "cat1_warranty_detail", "answer"))
-    # توصيل — إحالة (10)
-    for _ in range(10):
+    # توصيل — إحالة (20)
+    for _ in range(20):
         prods = pick_products(2)
         cat = "\n".join(catalog_lines(prods) + ["- التوصيل داخل بغداد: مجاني"])
         area = random.choice(DELIV_AREAS)
         q = random.choice(DELIV_REFER_QS).format(area=area)
         a = random.choice(DELIV_REFER_A).format(area=area, t=tail())
         convs.append((cat, q, a, prods, "cat1_delivery_detail", "refer"))
-    # توصيل — إجابة (6)
-    for _ in range(6):
+    # توصيل — إجابة (12)
+    for _ in range(12):
         prods = pick_products(2)
         a1, a2 = random.sample(DELIV_AREAS, 2)
         fee = fmt(random.choice([10_000, 15_000]))
@@ -283,16 +283,16 @@ def gen_cat1():
         q = random.choice(DELIV_REFER_QS).format(area=a1)
         a = f"إي عيني نوصل لـ{a1}، أطراف بغداد التوصيل بـ{fee} دينار، وداخل بغداد مجاني"
         convs.append((cat, q, a, prods, "cat1_delivery_detail", "answer"))
-    # تركيب — إحالة (8)
-    for _ in range(8):
+    # تركيب — إحالة (16)
+    for _ in range(16):
         prods = pick_products(2, ["ac"])
         inst = fmt(random.choice([40_000, 50_000, 60_000]))
         cat = "\n".join(catalog_lines(prods) + [f"- التركيب: {inst} دينار للجهاز"])
         q = random.choice(INST_REFER_QS)
         a = random.choice(INST_REFER_A).format(inst=inst, t=tail())
         convs.append((cat, q, a, prods, "cat1_install_detail", "refer"))
-    # تركيب — إجابة (6)
-    for _ in range(6):
+    # تركيب — إجابة (12)
+    for _ in range(12):
         prods = pick_products(2, ["ac"])
         inst = fmt(random.choice([40_000, 50_000, 60_000]))
         cat = "\n".join(catalog_lines(prods) +
@@ -301,8 +301,8 @@ def gen_cat1():
                            "البايبات داخلة بسعر التركيب؟"])
         a = f"إي عيني، التركيب {inst} وشامل المواد حتى 3 متر بايب"
         convs.append((cat, q, a, prods, "cat1_install_detail", "answer"))
-    # استهلاك — إحالة (6)
-    for _ in range(6):
+    # استهلاك — إحالة (12)
+    for _ in range(12):
         prods = pick_products(2, ["ac"])
         x = random.choice(["0.9", "1.0", "1.2", "1.5", "1.8"])
         cat = "\n".join(catalog_lines(prods, f"، استهلاك ~{x} كيلوواط/ساعة"))
@@ -310,8 +310,8 @@ def gen_cat1():
         what = random.choice(["الشهر", "الامبير عالمولدة", "الليلة الكاملة"])
         a = random.choice(CONS_REFER_A).format(x=x, what=what, t=tail())
         convs.append((cat, q, a, prods, "cat1_consumption_detail", "refer"))
-    # استهلاك — إجابة (4)
-    for _ in range(4):
+    # استهلاك — إجابة (8)
+    for _ in range(8):
         prods = pick_products(2, ["ac"])
         x = random.choice(["1.0", "1.2", "1.5"])
         m = random.choice(["5", "8", "10"])
@@ -371,13 +371,13 @@ SPEC_REFER_A = [
 def gen_cat2():
     convs = []
     for spec in SPEC_SETS:
-        for _ in range(6):  # إحالة
+        for _ in range(12):  # إحالة
             prods = pick_products(2, ["ac"] if spec["key"] == "غاز" else None)
             cat = "\n".join(catalog_lines(prods))
             q = random.choice(spec["refer_qs"])
             a = random.choice(SPEC_REFER_A).format(clause=spec["clause"], lead=lead(), t=tail())
             convs.append((cat, q, a, prods, "cat2_spec_deflection", "refer"))
-        for _ in range(4):  # إجابة
+        for _ in range(8):  # إجابة
             prods = pick_products(2, ["ac"] if spec["key"] == "غاز" else None)
             cat = "\n".join(catalog_lines(prods) + [spec["ans_line"]])
             convs.append((cat, random.choice(spec["ans_qs"]), spec["ans_a"], prods,
@@ -432,14 +432,14 @@ POLICY_REFER_A = [
 def gen_cat3():
     convs = []
     for i, pol in enumerate(POLICY_SETS):
-        n_refer = 8 if i < 1 else 7
+        n_refer = 13
         for _ in range(n_refer):
             prods = pick_products(2)
             cat = "\n".join(catalog_lines(prods))
             q = random.choice(pol["refer_qs"])
             a = random.choice(POLICY_REFER_A).format(clause=pol["clause"], lead=lead(), t=tail())
             convs.append((cat, q, a, prods, "cat3_policy_invention", "refer"))
-        n_ans = 5 if i > 0 else 8
+        n_ans = 10
         for _ in range(n_ans):
             prods = pick_products(2)
             cat = "\n".join(catalog_lines(prods) + [pol["ans_line"]])
@@ -454,7 +454,7 @@ def gen_cat3():
 def gen_cat4():
     convs = []
     # صيانة (المجاور: ضمان)
-    for _ in range(8):  # إحالة: الكتالوج بيه ضمان، الزبون يسأل صيانة
+    for _ in range(16):  # إحالة: الكتالوج بيه ضمان، الزبون يسأل صيانة
         dur = random.choice(DURS)
         prods = pick_products(2)
         cat = "\n".join(catalog_lines(prods, f"، ضمان {dur}"))
@@ -467,7 +467,7 @@ def gen_cat4():
         ])
         assert "ضمان" not in a
         convs.append((cat, q, a, prods, "cat4_topic_swap", "refer"))
-    for _ in range(5):  # إجابة: الصيانة مكتوبة
+    for _ in range(10):  # إجابة: الصيانة مكتوبة
         prods = pick_products(2)
         fee = fmt(random.choice([10_000, 15_000]))
         cat = "\n".join(catalog_lines(prods) +
@@ -476,7 +476,7 @@ def gen_cat4():
         a = f"إي عدنا مركز صيانة بالمحل عيني، أجرة الكشف {fee} دينار"
         convs.append((cat, q, a, prods, "cat4_topic_swap", "answer"))
     # توصيل (المجاور: تركيب)
-    for _ in range(8):
+    for _ in range(16):
         prods = pick_products(2, ["ac"])
         inst = fmt(random.choice([40_000, 50_000]))
         cat = "\n".join(catalog_lines(prods) + [f"- التركيب: {inst} دينار للجهاز"])
@@ -489,14 +489,14 @@ def gen_cat4():
         ])
         assert "تركيب" not in a
         convs.append((cat, q, a, prods, "cat4_topic_swap", "refer"))
-    for _ in range(5):
+    for _ in range(10):
         prods = pick_products(2, ["ac"])
         cat = "\n".join(catalog_lines(prods) + ["- التوصيل داخل بغداد: مجاني"])
-        q = random.choice(["توصلون للبيت؟", "اكو خدمة توصيل؟"])
+        q = random.choice(["توصلون للبيت؟", "اكو خدمه توصيل عدكم؟", "دزولي اياها للبيت، توصلون؟"])
         a = "إي نوصلك عيني، داخل بغداد التوصيل مجاني"
         convs.append((cat, q, a, prods, "cat4_topic_swap", "answer"))
     # خصم (المجاور: عرض/هدية)
-    for _ in range(7):
+    for _ in range(14):
         prods = pick_products(2, ["fridge", "washer"])
         cat = "\n".join(catalog_lines(prods) + ["- عرض: مروحة هدية ويا كل ثلاجة"])
         q = random.choice(["اكو خصم اذا اخذت اليوم؟", "ما تنزلي شوية؟ اكو خصم؟",
@@ -508,14 +508,14 @@ def gen_cat4():
         ])
         assert "عرض" not in a and "هدية" not in a
         convs.append((cat, q, a, prods, "cat4_topic_swap", "refer"))
-    for _ in range(5):
+    for _ in range(10):
         prods = pick_products(2)
         cat = "\n".join(catalog_lines(prods) + ["- خصم 5% عند شراء قطعتين"])
         q = random.choice(["اكو خصم عدكم؟", "شنو الخصومات الموجودة؟"])
         a = "اذا تاخذ قطعتين اكو خصم 5% عيني، هذا المكتوب عندي"
         convs.append((cat, q, a, prods, "cat4_topic_swap", "answer"))
     # حجز (المجاور: شراء فوري)
-    for _ in range(7):
+    for _ in range(14):
         prods = pick_products(2)
         cat = "\n".join(catalog_lines(prods))
         q = random.choice(["اگدر احجز وحدة ليوم الجمعة؟", "احجزلي وحدة واجيك اخر الاسبوع",
@@ -526,7 +526,7 @@ def gen_cat4():
             f"موضوع الحجز {tail()}، لأنه مو موضح بالقائمة اللي عندي",
         ])
         convs.append((cat, q, a, prods, "cat4_topic_swap", "refer"))
-    for _ in range(5):
+    for _ in range(10):
         prods = pick_products(2)
         dep = fmt(random.choice([20_000, 25_000]))
         cat = "\n".join(catalog_lines(prods) + [f"- الحجز: يومين بعربون {dep} دينار"])
@@ -557,8 +557,8 @@ def cat5_catalog(prods, inst, dfee, pre, after, extra_line=None):
 
 def gen_cat5():
     convs = []
-    variants = (["install"] * 12 + ["delivery"] * 8 + ["three"] * 8 + ["mix"] * 8 +
-                ["precomputed"] * 24)
+    variants = (["install"] * 24 + ["delivery"] * 16 + ["three"] * 16 + ["mix"] * 16 +
+                ["precomputed"] * 48)
     for variant in variants:
         prods = pick_products(2, ["ac"])
         # أسعار من مضاعفات 10,000 حتى يطلع الخصم أرقام نظيفة
@@ -637,7 +637,7 @@ def gen_cat5():
 # ============================================================
 def gen_cat6():
     convs = []
-    for _ in range(12):  # توصيل داخل/خارج
+    for _ in range(24):  # توصيل داخل/خارج
         prods = pick_products(2)
         dfee = fmt(random.choice([15_000, 20_000, 25_000]))
         cat = "\n".join(catalog_lines(prods) +
@@ -650,7 +650,7 @@ def gen_cat6():
             f"التوصيل عدنا هيچي: اذا ببغداد مجاني، واذا بالمحافظات بـ{dfee} دينار",
         ])
         convs.append((cat, q, a, prods, "cat6_conditional_coherence", "answer"))
-    for _ in range(10):  # خصم عند كمية
+    for _ in range(20):  # خصم عند كمية
         prods = pick_products(2)
         A, P = prods[0]
         cat = "\n".join(catalog_lines(prods) + ["- خصم: قطعتين فأكثر خصم 5%"])
@@ -662,7 +662,7 @@ def gen_cat6():
             f"اذا اخذت قطعتين فأكثر اكو خصم 5%، واذا وحدة بس فالسعر ثابت مثل القائمة",
         ])
         convs.append((cat, q, a, prods, "cat6_conditional_coherence", "answer"))
-    for _ in range(10):  # سعر حسب النوع
+    for _ in range(20):  # سعر حسب النوع
         prods = pick_products(2, ["ac"])
         A, P = prods[0]
         B, PB = prods[1]
@@ -675,7 +675,7 @@ def gen_cat6():
             f"اذا اخذت {A} يطلعلك بـ{fmt(P)}، واذا {B} فسعره {fmt(PB)} دينار",
         ])
         convs.append((cat, q, a, prods, "cat6_conditional_coherence", "answer"))
-    for _ in range(8):  # حجز/عربون شرطي
+    for _ in range(16):  # حجز/عربون شرطي
         prods = pick_products(2)
         dep = fmt(random.choice([20_000, 25_000, 30_000]))
         cat = "\n".join(catalog_lines(prods) +
@@ -694,11 +694,32 @@ def gen_cat6():
 # ============================================================
 # التجميع + ضمان تفرد أول رسالة user
 # ============================================================
+def load_old_firsts():
+    """أول رسائل user من v8/v9 — حتى ما نكرر مثال موجود حرفياً."""
+    old = set()
+    for fname in ["iraqi_v8_batch_train.jsonl", "iraqi_v8_batch_val.jsonl",
+                  "iraqi_v9_generated.jsonl", "iraqi_train_v8_part01.jsonl",
+                  "iraqi_train_v8_part02.jsonl", "iraqi_train_v8_part03.jsonl"]:
+        fp = DATA / fname
+        if not fp.exists():
+            continue
+        with open(fp, encoding="utf-8") as f:
+            for line in f:
+                try:
+                    old.add(json.loads(line)["messages"][1]["content"].strip())
+                except Exception:
+                    pass
+    return old
+
+
 def build_corrective():
     all_specs = gen_cat1() + gen_cat2() + gen_cat3() + gen_cat4() + gen_cat5() + gen_cat6()
+    old_firsts = load_old_firsts()
     used_first = []
 
     def unique_first(msg):
+        if msg.strip() in old_firsts:
+            return False
         if too_similar(msg, used_first):
             return False
         used_first.append(msg)
@@ -853,9 +874,9 @@ def build_extraction():
         return True
 
     # 1) الاسم بلا مؤشر (~40): الرسالة تبدي بالاسم مباشرة بلا "اسمي"
-    names40 = (random.sample(KUNYA_NAMES, 16) + random.sample(SINGLE_NAMES, 14) +
-               random.sample(DOUBLE_NAMES, 10))
-    for i, name in enumerate(names40):
+    names80 = (random.sample(KUNYA_NAMES * 2, 32) + random.sample(SINGLE_NAMES * 2, 28) +
+               random.sample(DOUBLE_NAMES * 2, 20))
+    for i, name in enumerate(names80):
       for _try in range(50):
         city = random.choice(STD_CITIES)
         district = random.choice(DISTRICTS)
@@ -885,7 +906,7 @@ def build_extraction():
             break
 
     # 2) الاحتفاظ بصيغة المدينة (~40): تصحيح إملائي فقط بلا ترقية جغرافية
-    city_specs = random.sample(CITY_FORMS * 2, 35)[:35] + [(c, c) for c in PROVINCE_STAYS]
+    city_specs = random.sample(CITY_FORMS * 4, 70) + [(c, c) for c in PROVINCE_STAYS * 2]
     for i, (raw, std) in enumerate(city_specs):
       for _try in range(50):
         district = random.choice(DISTRICTS)
@@ -999,8 +1020,8 @@ def build_items():
         return random.choice(opts) if opts else cs["products"][idx]
 
     made = 0
-    scenarios = (["numword"] * 12 + ["partial"] * 10 + ["correction"] * 8 +
-                 ["foreign"] * 8 + ["install"] * 10 + ["multi"] * 8 + ["dual"] * 4)
+    scenarios = (["numword"] * 24 + ["partial"] * 20 + ["correction"] * 16 +
+                 ["foreign"] * 16 + ["install"] * 20 + ["multi"] * 16 + ["dual"] * 8)
     random.shuffle(scenarios)
     for sc in scenarios:
         for _ in range(300):
@@ -1075,8 +1096,9 @@ def build_items():
                 txt = random.choice([
                     f"{cs['dual']}ين {al} ويا التركيب",
                     f"اريد {cs['dual']}ين من {al} بدون تركيب",
+                    f"سويلي حساب {cs['dual']}ين {al} مع التركيب",
                 ])
-                install = "ويا التركيب" in txt
+                install = ("ويا التركيب" in txt) or ("مع التركيب" in txt)
                 ok = emit(cs, txt, [{"name": full, "qty": 2}], install, "items_dual_form")
             if ok:
                 made += 1
