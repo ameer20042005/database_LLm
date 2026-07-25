@@ -226,8 +226,8 @@ earlier training runs.
 ```python
 from datasets import load_dataset
 
-ds = load_dataset("ameer4wisam/database_LLm")            # v8 by default
-ds = load_dataset("ameer4wisam/database_LLm", "v5")      # a specific version
+ds = load_dataset("ameer4wisam/iraqi-arabic-sales-dialogue-dataset")        # v8 by default
+ds = load_dataset("ameer4wisam/iraqi-arabic-sales-dialogue-dataset", "v5")  # a specific version
 ```
 
 The versions overlap heavily in content — they are successive regenerations of the
