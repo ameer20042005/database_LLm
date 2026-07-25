@@ -1,3 +1,153 @@
+---
+language:
+- ar
+license: cc-by-4.0
+license_link: https://creativecommons.org/licenses/by/4.0/
+task_categories:
+- text-generation
+pretty_name: Iraqi Arabic Sales Dialogue Dataset
+tags:
+- arabic
+- iraqi-arabic
+- dialect
+- synthetic
+- dialogue
+- sales
+- retail
+- lora
+- fine-tuning
+- conversational
+size_categories:
+- 100K<n<1M
+configs:
+- config_name: v8
+  default: true
+  features:
+  - name: id
+    dtype: string
+  - name: category
+    dtype: string
+  - name: dialect
+    dtype: string
+  - name: date
+    dtype: string
+  - name: formality
+    dtype: string
+  - name: source_file
+    dtype: string
+  - name: messages
+    list:
+    - name: role
+      dtype: string
+    - name: content
+      dtype: string
+  data_files:
+  - split: train
+    path: data/iraqi_train_v8_part*.jsonl
+  - split: validation
+    path: data/iraqi_val_v8.jsonl
+- config_name: v7
+  features:
+  - name: id
+    dtype: string
+  - name: category
+    dtype: string
+  - name: dialect
+    dtype: string
+  - name: date
+    dtype: string
+  - name: formality
+    dtype: string
+  - name: source_file
+    dtype: string
+  - name: messages
+    list:
+    - name: role
+      dtype: string
+    - name: content
+      dtype: string
+  data_files:
+  - split: train
+    path: data/iraqi_train_v7_part*.jsonl
+  - split: validation
+    path: data/iraqi_val_v7.jsonl
+- config_name: v6
+  features:
+  - name: id
+    dtype: string
+  - name: category
+    dtype: string
+  - name: dialect
+    dtype: string
+  - name: date
+    dtype: string
+  - name: formality
+    dtype: string
+  - name: source_file
+    dtype: string
+  - name: messages
+    list:
+    - name: role
+      dtype: string
+    - name: content
+      dtype: string
+  data_files:
+  - split: train
+    path: data/iraqi_train_v6_part*.jsonl
+  - split: validation
+    path: data/iraqi_val_v6.jsonl
+- config_name: v5
+  features:
+  - name: id
+    dtype: string
+  - name: category
+    dtype: string
+  - name: dialect
+    dtype: string
+  - name: date
+    dtype: string
+  - name: formality
+    dtype: string
+  - name: source_file
+    dtype: string
+  - name: messages
+    list:
+    - name: role
+      dtype: string
+    - name: content
+      dtype: string
+  data_files:
+  - split: train
+    path: data/iraqi_train_v5_part*.jsonl
+  - split: validation
+    path: data/iraqi_val_v5.jsonl
+- config_name: v4
+  features:
+  - name: id
+    dtype: string
+  - name: category
+    dtype: string
+  - name: dialect
+    dtype: string
+  - name: date
+    dtype: string
+  - name: formality
+    dtype: string
+  - name: source_file
+    dtype: string
+  - name: messages
+    list:
+    - name: role
+      dtype: string
+    - name: content
+      dtype: string
+  data_files:
+  - split: train
+    path: data/iraqi_train_v4_part*.jsonl
+  - split: validation
+    path: data/iraqi_val_v4.jsonl
+---
+
 # Iraqi Arabic Sales Dialogue Dataset
 
 A large synthetic dataset of Iraqi (Baghdadi-based) Arabic dialogue, centered on
