@@ -17,6 +17,3 @@ __pycache__/
 # OS
 .DS_Store
 Thumbs.db
-
-# نسخ احتياطية محلية قبل التنظيف — الأصل محفوظ بتاريخ git أصلاً
-data/_backup_pre_clean/
