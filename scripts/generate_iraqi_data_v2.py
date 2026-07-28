@@ -829,7 +829,7 @@ def gen_education(i):
         _exam_type = pick(["النهائي","الفصلي","المرحلي","الشهري"])
         msgs = [
             {"role":"user","content":f"هلو، ابني ما راح يگدر يحضر امتحان {subj} {_exam_type} لأنه مريض من {_ill_days}"},
-            {"role":"assistant","content":"لازم تجيب تقرير طبي رسمي من {pick(['مستشفى حكومي','طبيب معترف به','عيادة مرخصة'])}"},
+            {"role":"assistant","content":f"لازم تجيب تقرير طبي رسمي من {pick(['مستشفى حكومي','طبيب معترف به','عيادة مرخصة'])}"},
             {"role":"user","content":"وبعدين؟"},
             {"role":"assistant","content":f"نقدمه لإدارة {school} ويكون له امتحان بديل"},
             {"role":"user","content":"متى الامتحان البديل؟"},
@@ -1904,7 +1904,7 @@ def gen_restaurant(i):
             {"role":"user","content":f"ترا جيت قبل وطلبي طول وقت، شلون؟"},
             {"role":"assistant","content":f"آسفين جداً. {_complaint} أحياناً بالزحمة"},
             {"role":"user","content":"هذا مو معقول، عندكم زبائن ثانيين جاوا بعدي"},
-            {"role":"assistant","content":"هذا غلط منا. نعطيك {pick(['خصم','حصة مجانية','مشروب مجاني'])} تعويضاً"},
+            {"role":"assistant","content":f"هذا غلط منا. نعطيك {pick(['خصم','تعويض مناسب'])} تعويضاً"},
             {"role":"user","content":"ماشي، بس هالمرة الأخيرة"},
             {"role":"assistant","content":"ما يتكرر، نعدك"},
         ]

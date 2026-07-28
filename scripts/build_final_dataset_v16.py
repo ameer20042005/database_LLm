@@ -61,11 +61,13 @@ TRAIN_GLOBS = ["iraqi_train_v8_part*.jsonl", "iraqi_v9_generated*.jsonl",
                "iraqi_v16_missing_field.jsonl", "iraqi_v16_thin.jsonl",
                "iraqi_v17_deep_refusal.jsonl",
                "iraqi_v19_offtopic_tiers.jsonl",
-               "iraqi_v20_cosmetics_identity.jsonl"]
+               "iraqi_v20_cosmetics_identity.jsonl",
+               "iraqi_v25_grounded_free.jsonl"]
 VAL_GLOBS = ["iraqi_val_v8.jsonl", "iraqi_val_v13.jsonl",
              "iraqi_v16_val_extra.jsonl", "iraqi_v17_val_extra.jsonl",
              "iraqi_v19_val_extra.jsonl",
-             "iraqi_v20_val_extra.jsonl"]
+             "iraqi_v20_val_extra.jsonl",
+             "iraqi_v25_val_extra.jsonl"]
 
 FLUENCY_PREFIX = ("greetings", "smalltalk", "proverbs", "jokes",
                   "praise_expressions", "negative_traits")
@@ -96,6 +98,11 @@ FLOORS = {
     "off_topic_seller_identity": 420,   # v20 — هوية البائع بالرفض
     "cosmetics_sale":           420,   # v20 — الكوزمتك بضاعة لا دواء
     "cosmetics_medical_edge":   240,
+    # v25 — المجانية المؤسَّسة: بلاها الموديل يتعلم «ما تگول بلاش أبداً»
+    "grounded_free_delivery":   340,
+    "grounded_free_install":    200,
+    "grounded_free_threshold":  200,
+    "grounded_free_edge":       260,
     "order_total_no_number":  260,   # حساب — الاجمالي بلا اختراع
     "cat5_sum_over_precomputed": 200,
     "ord3_confirm_gate":      300,
