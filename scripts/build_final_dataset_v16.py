@@ -58,9 +58,10 @@ TRAIN_GLOBS = ["iraqi_train_v8_part*.jsonl", "iraqi_v9_generated*.jsonl",
                "iraqi_v10_*.jsonl", "iraqi_v11_gaps.jsonl",
                "iraqi_v12_order.jsonl", "iraqi_v13_scope.jsonl",
                "iraqi_v14_expand.jsonl", "iraqi_v15_behavioral.jsonl",
-               "iraqi_v16_missing_field.jsonl", "iraqi_v16_thin.jsonl"]
+               "iraqi_v16_missing_field.jsonl", "iraqi_v16_thin.jsonl",
+               "iraqi_v17_deep_refusal.jsonl"]
 VAL_GLOBS = ["iraqi_val_v8.jsonl", "iraqi_val_v13.jsonl",
-             "iraqi_v16_val_extra.jsonl"]
+             "iraqi_v16_val_extra.jsonl", "iraqi_v17_val_extra.jsonl"]
 
 FLUENCY_PREFIX = ("greetings", "smalltalk", "proverbs", "jokes",
                   "praise_expressions", "negative_traits")
@@ -69,7 +70,8 @@ BEHAVIORAL_PREFIX = ("cat1_", "cat2_", "cat3_", "cat4_", "cat5_", "cat6_",
                      "gap4_", "gap5_", "gap6_", "gap7_", "ord1_", "ord2_",
                      "ord3_", "ord4_", "ord5_", "ord6_", "natural_sale",
                      "sequential_refusal", "missing_info",
-                     "order_total_no_number", "greetings_smalltalk")
+                     "order_total_no_number", "greetings_smalltalk",
+                     "deep_refusal_in_sales")
 SALES_PREFIX = ("grounded_", "json_", "sales_", "tool_call", "ataakadlak",
                 "persistence_refusal", "confirm_later", "repeat_question",
                 "praise_no_upsell", "order_no_upsell", "qa_bargaining",
@@ -81,6 +83,7 @@ SALES_PREFIX = ("grounded_", "json_", "sales_", "tool_call", "ataakadlak",
 # الحد الأدنى يضمن بقاءها، والفائض ينخصم من أكبر فئة بنفس الكتلة.
 FLOORS = {
     "gap7_missing_field_ask": 560,   # س1 — الحقل الناقص
+    "deep_refusal_in_sales":  900,   # v17 — الامتناع داخل زخم البيع
     "order_total_no_number":  260,   # حساب — الاجمالي بلا اختراع
     "cat5_sum_over_precomputed": 200,
     "ord3_confirm_gate":      300,
