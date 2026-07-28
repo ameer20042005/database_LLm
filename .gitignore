@@ -17,3 +17,8 @@ __pycache__/
 # OS
 .DS_Store
 Thumbs.db
+
+# مخرجات وسيطة تُعاد بناؤها بسكربت واحد (109 MB)
+# data/v16/ ينتجها scripts/fix_v16_contradictions.py من ملفات المصدر،
+# وملفات التدريب النهائية (iraqi_v16_train_part*) مرفوعة أصلاً.
+data/v16/
