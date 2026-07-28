@@ -48,8 +48,8 @@ TARGETS = {
     "behavioral": 0.20,
     "fluency":    0.16,
     "general":    0.12,
-    "qa":         0.08,
-    "off_topic":  0.06,
+    "qa":         0.07,
+    "off_topic":  0.08,
 }
 MAX_DUP = 2
 TARGET_TOTAL = 31667        # ثلث 95,000
@@ -59,9 +59,11 @@ TRAIN_GLOBS = ["iraqi_train_v8_part*.jsonl", "iraqi_v9_generated*.jsonl",
                "iraqi_v12_order.jsonl", "iraqi_v13_scope.jsonl",
                "iraqi_v14_expand.jsonl", "iraqi_v15_behavioral.jsonl",
                "iraqi_v16_missing_field.jsonl", "iraqi_v16_thin.jsonl",
-               "iraqi_v17_deep_refusal.jsonl"]
+               "iraqi_v17_deep_refusal.jsonl",
+               "iraqi_v19_offtopic_tiers.jsonl"]
 VAL_GLOBS = ["iraqi_val_v8.jsonl", "iraqi_val_v13.jsonl",
-             "iraqi_v16_val_extra.jsonl", "iraqi_v17_val_extra.jsonl"]
+             "iraqi_v16_val_extra.jsonl", "iraqi_v17_val_extra.jsonl",
+             "iraqi_v19_val_extra.jsonl"]
 
 FLUENCY_PREFIX = ("greetings", "smalltalk", "proverbs", "jokes",
                   "praise_expressions", "negative_traits")
@@ -84,6 +86,10 @@ SALES_PREFIX = ("grounded_", "json_", "sales_", "tool_call", "ataakadlak",
 FLOORS = {
     "gap7_missing_field_ask": 560,   # س1 — الحقل الناقص
     "deep_refusal_in_sales":  900,   # v17 — الامتناع داخل زخم البيع
+    # v19 — الطبقة الطبية قاعدة سلامة، ما تنسحب بالتناسب أبداً
+    "off_topic_medical_strict": 900,
+    "off_topic_general_polite": 300,
+    "off_topic_product_alt":    300,
     "order_total_no_number":  260,   # حساب — الاجمالي بلا اختراع
     "cat5_sum_over_precomputed": 200,
     "ord3_confirm_gate":      300,
@@ -104,8 +110,13 @@ FLOORS = {
 }
 
 
+# الطبقات الثلاث (v19) + الفئة القديمة، كلها كتلة واحدة بالتوزيع
+OFF_TOPIC_CATS = ("off_topic_refusal_general", "off_topic_medical_strict",
+                  "off_topic_general_polite", "off_topic_product_alt")
+
+
 def bucket_of(cat):
-    if cat == "off_topic_refusal_general":
+    if cat in OFF_TOPIC_CATS:
         return "off_topic"
     if cat.startswith(BEHAVIORAL_PREFIX):
         return "behavioral"
