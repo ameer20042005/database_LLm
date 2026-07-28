@@ -60,10 +60,12 @@ TRAIN_GLOBS = ["iraqi_train_v8_part*.jsonl", "iraqi_v9_generated*.jsonl",
                "iraqi_v14_expand.jsonl", "iraqi_v15_behavioral.jsonl",
                "iraqi_v16_missing_field.jsonl", "iraqi_v16_thin.jsonl",
                "iraqi_v17_deep_refusal.jsonl",
-               "iraqi_v19_offtopic_tiers.jsonl"]
+               "iraqi_v19_offtopic_tiers.jsonl",
+               "iraqi_v20_cosmetics_identity.jsonl"]
 VAL_GLOBS = ["iraqi_val_v8.jsonl", "iraqi_val_v13.jsonl",
              "iraqi_v16_val_extra.jsonl", "iraqi_v17_val_extra.jsonl",
-             "iraqi_v19_val_extra.jsonl"]
+             "iraqi_v19_val_extra.jsonl",
+             "iraqi_v20_val_extra.jsonl"]
 
 FLUENCY_PREFIX = ("greetings", "smalltalk", "proverbs", "jokes",
                   "praise_expressions", "negative_traits")
@@ -75,6 +77,7 @@ BEHAVIORAL_PREFIX = ("cat1_", "cat2_", "cat3_", "cat4_", "cat5_", "cat6_",
                      "order_total_no_number", "greetings_smalltalk",
                      "deep_refusal_in_sales")
 SALES_PREFIX = ("grounded_", "json_", "sales_", "tool_call", "ataakadlak",
+                "cosmetics_",
                 "persistence_refusal", "confirm_later", "repeat_question",
                 "praise_no_upsell", "order_no_upsell", "qa_bargaining",
                 "qa_price")
@@ -90,6 +93,9 @@ FLOORS = {
     "off_topic_medical_strict": 900,
     "off_topic_general_polite": 300,
     "off_topic_product_alt":    300,
+    "off_topic_seller_identity": 420,   # v20 — هوية البائع بالرفض
+    "cosmetics_sale":           420,   # v20 — الكوزمتك بضاعة لا دواء
+    "cosmetics_medical_edge":   240,
     "order_total_no_number":  260,   # حساب — الاجمالي بلا اختراع
     "cat5_sum_over_precomputed": 200,
     "ord3_confirm_gate":      300,
@@ -112,7 +118,8 @@ FLOORS = {
 
 # الطبقات الثلاث (v19) + الفئة القديمة، كلها كتلة واحدة بالتوزيع
 OFF_TOPIC_CATS = ("off_topic_refusal_general", "off_topic_medical_strict",
-                  "off_topic_general_polite", "off_topic_product_alt")
+                  "off_topic_general_polite", "off_topic_product_alt",
+                  "off_topic_seller_identity")
 
 
 def bucket_of(cat):
