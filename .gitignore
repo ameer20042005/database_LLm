@@ -14,6 +14,9 @@ __pycache__/
 *.log
 *.tmp
 
+# نسخ احتياطية آلية تنتجها سكربتات الترقيع (النسخ المقصودة اسمها _BACKUP_vNN)
+*.ipynb.bak_*
+
 # OS
 .DS_Store
 Thumbs.db
