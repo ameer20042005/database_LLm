@@ -63,13 +63,15 @@ TRAIN_GLOBS = ["iraqi_train_v8_part*.jsonl", "iraqi_v9_generated*.jsonl",
                "iraqi_v19_offtopic_tiers.jsonl",
                "iraqi_v20_cosmetics_identity.jsonl",
                "iraqi_v25_grounded_free.jsonl",
-               "iraqi_v26_consistency.jsonl"]
+               "iraqi_v26_consistency.jsonl",
+               "iraqi_v27_eval_gaps.jsonl"]
 VAL_GLOBS = ["iraqi_val_v8.jsonl", "iraqi_val_v13.jsonl",
              "iraqi_v16_val_extra.jsonl", "iraqi_v17_val_extra.jsonl",
              "iraqi_v19_val_extra.jsonl",
              "iraqi_v20_val_extra.jsonl",
              "iraqi_v25_val_extra.jsonl",
-             "iraqi_v26_val_extra.jsonl"]
+             "iraqi_v26_val_extra.jsonl",
+             "iraqi_v27_val_extra.jsonl"]
 
 FLUENCY_PREFIX = ("greetings", "smalltalk", "proverbs", "jokes",
                   "praise_expressions", "negative_traits")
@@ -90,7 +92,10 @@ SALES_PREFIX = ("grounded_", "json_", "sales_", "tool_call", "ataakadlak",
                 "qa_price",
                 # v26 — ثبات الرقم، قائمة الفئة، وصيغ الرفض القياسية
                 "price_consistency_", "price_doubt_vs_bargain",
-                "category_list_", "reject_standard_", "reject_consistency_")
+                "category_list_", "reject_standard_", "reject_consistency_",
+                # v27 — نواقص كشفها التقييم
+                "price_doubt_merged", "ambiguous_", "reject_clean_",
+                "reject_then_alt_", "reject_sequential_", "reject_two_brands_")
 
 # ── الفئات الحرجة: لا تنزل تحت حد أدنى مهما كانت حصة كتلتها ──
 # `random.sample` على مستوى الكتلة يسحب بالتناسب، فالفئة اللي حجمها 40
@@ -129,6 +134,16 @@ FLOORS = {
     "reject_standard_form":     220,
     "reject_standard_with_list": 180,
     "reject_consistency_doubt": 200,
+
+    # ── v27: نواقص كشفتها ردود الموديل بالتقييم ──
+    "price_doubt_merged":       600,   # التشكيك المدموج — صفر تغطية قبلها
+    "price_doubt_merged_short": 260,
+    "ambiguous_partial_both":   260,   # وصف جزئي يطابق صنفين
+    "ambiguous_after_first":    300,
+    "reject_clean_no_alt":        420, # رفض بلا بديل غير مطلوب
+    "reject_then_alt_on_request": 260,
+    "reject_sequential_named":    360,
+    "reject_two_brands_named":    200,
 
     "order_total_no_number":  260,   # حساب — الاجمالي بلا اختراع
     "cat5_sum_over_precomputed": 200,
