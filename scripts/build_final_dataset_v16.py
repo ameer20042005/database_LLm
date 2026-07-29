@@ -64,17 +64,21 @@ TRAIN_GLOBS = ["iraqi_train_v8_part*.jsonl", "iraqi_v9_generated*.jsonl",
                "iraqi_v20_cosmetics_identity.jsonl",
                "iraqi_v25_grounded_free.jsonl",
                "iraqi_v26_consistency.jsonl",
-               "iraqi_v27_eval_gaps.jsonl"]
+               "iraqi_v27_eval_gaps.jsonl",
+               "iraqi_v28_promise_dialect.jsonl"]
 VAL_GLOBS = ["iraqi_val_v8.jsonl", "iraqi_val_v13.jsonl",
              "iraqi_v16_val_extra.jsonl", "iraqi_v17_val_extra.jsonl",
              "iraqi_v19_val_extra.jsonl",
              "iraqi_v20_val_extra.jsonl",
              "iraqi_v25_val_extra.jsonl",
              "iraqi_v26_val_extra.jsonl",
-             "iraqi_v27_val_extra.jsonl"]
+             "iraqi_v27_val_extra.jsonl",
+             "iraqi_v28_val_extra.jsonl"]
 
 FLUENCY_PREFIX = ("greetings", "smalltalk", "proverbs", "jokes",
-                  "praise_expressions", "negative_traits")
+                  "praise_expressions", "negative_traits",
+                  # v28 — كثافة الماركر العراقي بالكلام الاجتماعي
+                  "casual_dialect_dense")
 BEHAVIORAL_PREFIX = ("cat1_", "cat2_", "cat3_", "cat4_", "cat5_", "cat6_",
                      "extraction_", "items_", "gap1_", "gap2_", "gap3_",
                      "gap4_", "gap5_", "gap6_", "gap7_", "ord1_", "ord2_",
@@ -84,7 +88,9 @@ BEHAVIORAL_PREFIX = ("cat1_", "cat2_", "cat3_", "cat4_", "cat5_", "cat6_",
                      "deep_refusal_in_sales",
                      # v26 — الإلغاء إعادة ضبط حالة، فهو سلوك لا بيع
                      "cancel_state_reset", "cancel_requantify",
-                     "cancel_switch_item")
+                     "cancel_switch_item",
+                     # v28 — وعد الحساب النظيف بلا رقم جزئي
+                     "order_total_clean_promise")
 SALES_PREFIX = ("grounded_", "json_", "sales_", "tool_call", "ataakadlak",
                 "cosmetics_",
                 "persistence_refusal", "confirm_later", "repeat_question",
@@ -162,6 +168,16 @@ FLOORS = {
     "cat3_policy_invention":  180,
     "cat4_topic_swap":        150,
     "cat6_conditional_coherence": 150,
+
+    # ── v28: وعد الحساب النظيف + كثافة اللهجة الاجتماعية ──
+    # order_total_no_number (277 مثال) كلها دور وحيد وتكرر السعر
+    # المفرد قبل الوعد — صفر تغطية للوعد **النظيف** بلا أي رقم،
+    # وصفر تغطية للسيناريو المرکّب (سعر+بديل+فرق ثم كمية+تركيب).
+    "order_total_clean_promise":       300,
+    "order_total_clean_promise_short": 180,
+    # 61.4% من 3,041 محادثة اجتماعية بأقل من 3 ماركرات عراقية —
+    # الفشل بالكلام الاجتماعي تحديداً لا كلام البيع.
+    "casual_dialect_dense":            340,
 }
 
 
