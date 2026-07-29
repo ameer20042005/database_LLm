@@ -62,12 +62,14 @@ TRAIN_GLOBS = ["iraqi_train_v8_part*.jsonl", "iraqi_v9_generated*.jsonl",
                "iraqi_v17_deep_refusal.jsonl",
                "iraqi_v19_offtopic_tiers.jsonl",
                "iraqi_v20_cosmetics_identity.jsonl",
-               "iraqi_v25_grounded_free.jsonl"]
+               "iraqi_v25_grounded_free.jsonl",
+               "iraqi_v26_consistency.jsonl"]
 VAL_GLOBS = ["iraqi_val_v8.jsonl", "iraqi_val_v13.jsonl",
              "iraqi_v16_val_extra.jsonl", "iraqi_v17_val_extra.jsonl",
              "iraqi_v19_val_extra.jsonl",
              "iraqi_v20_val_extra.jsonl",
-             "iraqi_v25_val_extra.jsonl"]
+             "iraqi_v25_val_extra.jsonl",
+             "iraqi_v26_val_extra.jsonl"]
 
 FLUENCY_PREFIX = ("greetings", "smalltalk", "proverbs", "jokes",
                   "praise_expressions", "negative_traits")
@@ -77,12 +79,18 @@ BEHAVIORAL_PREFIX = ("cat1_", "cat2_", "cat3_", "cat4_", "cat5_", "cat6_",
                      "ord3_", "ord4_", "ord5_", "ord6_", "natural_sale",
                      "sequential_refusal", "missing_info",
                      "order_total_no_number", "greetings_smalltalk",
-                     "deep_refusal_in_sales")
+                     "deep_refusal_in_sales",
+                     # v26 — الإلغاء إعادة ضبط حالة، فهو سلوك لا بيع
+                     "cancel_state_reset", "cancel_requantify",
+                     "cancel_switch_item")
 SALES_PREFIX = ("grounded_", "json_", "sales_", "tool_call", "ataakadlak",
                 "cosmetics_",
                 "persistence_refusal", "confirm_later", "repeat_question",
                 "praise_no_upsell", "order_no_upsell", "qa_bargaining",
-                "qa_price")
+                "qa_price",
+                # v26 — ثبات الرقم، قائمة الفئة، وصيغ الرفض القياسية
+                "price_consistency_", "price_doubt_vs_bargain",
+                "category_list_", "reject_standard_", "reject_consistency_")
 
 # ── الفئات الحرجة: لا تنزل تحت حد أدنى مهما كانت حصة كتلتها ──
 # `random.sample` على مستوى الكتلة يسحب بالتناسب، فالفئة اللي حجمها 40
@@ -103,6 +111,25 @@ FLOORS = {
     "grounded_free_install":    200,
     "grounded_free_threshold":  200,
     "grounded_free_edge":       260,
+    # ── v26 ──
+    # ثبات الرقم تحت التشكيك: الفشل الوحيد المؤكد بالقياس الأخير.
+    # التشكيك ≠ مساومة — بلا `price_doubt_vs_bargain` يرجع الخلط.
+    "price_consistency_doubt":  520,
+    "price_consistency_triple": 300,
+    "price_doubt_vs_bargain":   300,
+    # قائمة الفئة: 1,295 محادثة تسأل، وولا وحدة تعدّد
+    "category_list_request":    280,
+    "category_list_more":       240,
+    "category_list_single":     140,
+    # الإلغاء إعادة ضبط: الاجمالي الملغى كان يتسرّب للرد التالي
+    "cancel_state_reset":       300,
+    "cancel_requantify":        200,
+    "cancel_switch_item":       200,
+    # صيغ رفض قياسية — منوال يسهل قياسه، والتنويع القديم يبقى ذيلاً
+    "reject_standard_form":     220,
+    "reject_standard_with_list": 180,
+    "reject_consistency_doubt": 200,
+
     "order_total_no_number":  260,   # حساب — الاجمالي بلا اختراع
     "cat5_sum_over_precomputed": 200,
     "ord3_confirm_gate":      300,
